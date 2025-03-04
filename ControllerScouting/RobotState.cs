@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ControllerScouting.Utilities;
+using System;
 using System.Diagnostics;
+using ControllerScouting.Gamepad;
+using SharpDX.XInput;
 
 namespace ControllerScouting
 {
@@ -329,6 +332,81 @@ namespace ControllerScouting
             {
                 CycleCage(CycleDirection);
             }
+        }
+
+
+        public void Transact(RobotState robot, int controllerNumber)
+        {
+            if (robot.Match_event == MATCHEVENT_NAME.Match_Event)
+            {
+                robot.ScouterError += 100000;
+            }
+            else
+            {
+                DatabaseCode.SaveToRecord(robot, "Match_Event", controllerNumber);
+                if (robot.Match_event == MATCHEVENT_NAME.NoShow)
+                {
+                    robot.NoSho = true;
+                }
+                robot.Match_event = MATCHEVENT_NAME.Match_Event;
+            }
+        }
+        public void AlgaeFloor(RobotState robot)
+        {
+            if (robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+            {
+                robot.lastAlgaeLoc = "Floor";
+                robot.TransactionCheck = true;
+            }
+        }
+        public void CoralDelivery(int level, RobotState robot)
+        {
+            if (!robot.Flag && (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0))
+            {
+                if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                {
+                    robot.hasCoral++;
+                }
+                switch (level)
+                {
+                    case 4:
+                        robot.lastCoralLoc = "L4";
+                        robot.autoCoralPoints += 7;
+                        break;
+                    case 3:
+                        robot.DelCoralL3++;
+                        break;
+                    case 2:
+                        robot.DelCoralL2++;
+                        break;
+                    case 1:
+                        robot.DelCoralL1++;
+                        break;
+                    case 0:
+                        if (robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                        {
+                            if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                            {
+                                robot.hasCoral++;
+                                robot.lastCoralAcqLoc = " ";
+                                robot.lastCoralLoc = "Floor";
+                                robot.AcqCoralNearFar = false;
+                            }
+                            else
+                            {
+                                robot.lastCoralLoc = "Floor";
+                                robot.TransactionCheck = true;
+                            }
+                        }
+                        break;
+                }
+                robot.TransactionCheck = true;
+            }
+        }
+
+        public void AlgaeDelivery()
+        {
+
         }
     }
 }

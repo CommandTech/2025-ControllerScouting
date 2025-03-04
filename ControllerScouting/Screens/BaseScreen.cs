@@ -24,8 +24,9 @@ namespace ControllerScouting.Screens
             //iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
             //iniFile = new INIFile(iniPath);
 
-            ////timerJoysticks updates every 20 ms
-            //timerJoysticks.Enabled = true;
+            BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
+            //timerJoysticks updates every 20 ms
+            timerJoysticks.Enabled = true;
 
             ////Grabs all connected joysticks
             //UpdateJoysticks();
@@ -36,20 +37,20 @@ namespace ControllerScouting.Screens
             //    BackgroundCode.print.Show();
             //}
 
-            ////Sets the default values for the robots
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    BackgroundCode.Robots[i] = new RobotState
-            //    {
-            //        ScouterBox = i,
-            //        _ScouterName = RobotState.SCOUTER_NAME.Select_Name,
-            //        color = i < 3 ? "Red" : "Blue"
-            //    };
+            //Sets the default values for the robots
+            for (int i = 0; i < 6; i++)
+            {
+                BackgroundCode.Robots[i] = new RobotState
+                {
+                    ScouterBox = i,
+                    _ScouterName = RobotState.SCOUTER_NAME.Select_Name,
+                    color = i < 3 ? "Red" : "Blue"
+                };
 
-            //    BackgroundCode.cages.Add("Select");
+                BackgroundCode.cages.Add("Select");
 
-            //    BackgroundCode.activity_record[i] = new Activity();
-            //}
+                BackgroundCode.activity_record[i] = new Activity();
+            }
 
             //Thread transactThread = new Thread(BackgroundCode.RecordToDatabase);
             //transactThread.Start();
@@ -73,7 +74,7 @@ namespace ControllerScouting.Screens
             //    }
             //}
 
-            //this.timerJoysticks.Tick += new EventHandler(this.JoyStickReader);
+            this.timerJoysticks.Tick += new EventHandler(this.JoyStickReader);
         }
 
         private void ControllerThreadMethod(object gamePad)
@@ -100,10 +101,10 @@ namespace ControllerScouting.Screens
         private void JoyStickReader(object sender, EventArgs e)
         {
             //Updates the screen with the current data
-            //UpdateScreen();
+            UpdateScreen();
 
-            ////Loop through all connected gamepads
-            //for (int gamepad_ctr = 0; gamepad_ctr < BackgroundCode.gamePads.Length; gamepad_ctr++) BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, gamepad_ctr);
+            //Loop through all connected gamepads
+            for (int gamepad_ctr = 0; gamepad_ctr < BackgroundCode.gamePads.Length; gamepad_ctr++) BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, gamepad_ctr);
 
             //// Loop through all Scouters/Robots
             //for (int robot_ctr = 0; robot_ctr < BackgroundCode.Robots.Length; robot_ctr++) BackgroundCode.Robots[robot_ctr] = BackgroundCode.controllers.GetRobotState(robot_ctr);  //Initialize all six robots

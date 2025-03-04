@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace ControllerScouting.Gamepad
 {
-    class GamePad
+    public class GamePad
     {
         //currentValue values
         private bool _a = false;
@@ -401,10 +401,8 @@ namespace ControllerScouting.Gamepad
                 return false;
             }
         }
-
-
     }
-    class Controllers
+    partial class Controllers
     {
         public Stopwatch stopwatch = new Stopwatch();
         public TimeSpan Zero { get; private set; }
@@ -417,7 +415,7 @@ namespace ControllerScouting.Gamepad
                    objectType == ObjectGuid.RyAxis ||
                    objectType == ObjectGuid.RzAxis;
         }
-        public Joystick[] GetSticks(DirectInput input)
+        private Joystick[] GetSticks(DirectInput input)
         {
             List<Joystick> sticks = new List<Joystick>();
             foreach (DeviceInstance device in input.GetDevices(DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly))
@@ -448,13 +446,6 @@ namespace ControllerScouting.Gamepad
             }
             return sticks.ToArray();
         }
-        public RobotState GetRobotState(int state)
-        {
-            state = Math.Max(0, state);
-            state = Math.Min(5, state);
-            return BackgroundCode.Robots[state]; //Shouldn't crash here but if it does, you do not have a controller connected
-        }
-
         public GamePad[] GetGamePads()
         {
             DirectInput input = new DirectInput();
@@ -469,54 +460,7 @@ namespace ControllerScouting.Gamepad
             {
                 gamepads.Add(null);
             }
-
             return gamepads.ToArray();
         }
-        //public void ReadStick(GamePad[] gpArray, int controllerNumber)
-        //{
-        //    GamePad gamepad = gpArray[controllerNumber];
-        //    if (gamepad != null)
-        //    {
-        //        gamepad.Update();
-
-        //        //Match events
-        //        if (gamepad.RTHRight_Press && !BackgroundCode.Robots[controllerNumber].NoSho && !gamepad.XButton_Down)
-        //        {
-        //            BackgroundCode.Robots[controllerNumber].CycleEventName(RobotState.CYCLE_DIRECTION.Up);
-        //        }
-        //        else if (gamepad.RTHLeft_Press && !BackgroundCode.Robots[controllerNumber].NoSho && !gamepad.XButton_Down)
-        //        {
-        //            BackgroundCode.Robots[controllerNumber].CycleEventName(RobotState.CYCLE_DIRECTION.Down);
-        //        }
-        //        else if (gamepad.R3_Press)
-        //        {
-        //            if (BackgroundCode.Robots[controllerNumber].Match_event == RobotState.MATCHEVENT_NAME.Match_Event)
-        //            {
-        //                BackgroundCode.Robots[controllerNumber].ScouterError += 100000;
-        //            }
-        //            else
-        //            {
-        //                DynamicResponses.TransactToDatabase(BackgroundCode.Robots[controllerNumber], "Match_Event", controllerNumber, "");
-        //                if (BackgroundCode.Robots[controllerNumber].Match_event == RobotState.MATCHEVENT_NAME.NoShow)
-        //                {
-        //                    BackgroundCode.Robots[controllerNumber].NoSho = true;
-        //                }
-
-        //                BackgroundCode.Robots[controllerNumber].Match_event = RobotState.MATCHEVENT_NAME.Match_Event;
-        //            }
-        //        }
-
-        //        //Scouter names
-        //        if (gamepad.LTHRight_Press && gamepad.BButton_Down && BackgroundCode.Robots[controllerNumber].Current_Mode == RobotState.ROBOT_MODE.Auto)
-        //        {
-        //            BackgroundCode.Robots[controllerNumber].ChangeScouterName(RobotState.CYCLE_DIRECTION.Up);
-        //        }
-        //        if (gamepad.LTHLeft_Press && gamepad.BButton_Down && BackgroundCode.Robots[controllerNumber].Current_Mode == RobotState.ROBOT_MODE.Auto)
-        //        {
-        //            BackgroundCode.Robots[controllerNumber].ChangeScouterName(RobotState.CYCLE_DIRECTION.Down);
-        //        }
-
-        //        dynamicGamepad.ReadStick(gpArray, controllerNumber);
-        //    }
     }
 }

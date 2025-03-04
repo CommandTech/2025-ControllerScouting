@@ -211,7 +211,7 @@ namespace ControllerScouting
 
     public class DatabaseCode
     {
-        public static void RecordToDatabase()
+        public static void RecordToDatabase(RobotState robotState, string v)
         {
             while (1 == 1)
             {
@@ -224,6 +224,11 @@ namespace ControllerScouting
                     BackgroundCode.activitiesQueue.Dequeue();
                 }
             }
+        }
+
+        internal static void SaveToRecord(RobotState robot, string recordtype, int controllerNumber)
+        {
+
         }
     }
 }
