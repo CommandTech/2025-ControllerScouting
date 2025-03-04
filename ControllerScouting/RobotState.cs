@@ -332,95 +332,131 @@ namespace ControllerScouting
         }
 
 
-        public void Transact(RobotState robot, int controllerNumber)
+        public void Transact(int controllerNumber)
         {
-            if (robot.Match_event == MATCHEVENT_NAME.Match_Event)
+            if (this.Match_event == MATCHEVENT_NAME.Match_Event)
             {
-                robot.ScouterError += 100000;
+                this.ScouterError += 100000;
             }
             else
             {
-                DatabaseCode.SaveToRecord(robot, "Match_Event", controllerNumber);
-                if (robot.Match_event == MATCHEVENT_NAME.NoShow)
+                DatabaseCode.SaveToRecord(this, "Match_Event", controllerNumber);
+                if (this.Match_event == MATCHEVENT_NAME.NoShow)
                 {
-                    robot.NoSho = true;
+                    this.NoSho = true;
                 }
-                robot.Match_event = MATCHEVENT_NAME.Match_Event;
+                this.Match_event = MATCHEVENT_NAME.Match_Event;
             }
         }
-        public void CoralDelivery(int level, RobotState robot)
+        public void CoralDelivery(int level)
         {
-            if (!robot.Flag && (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0))
+            if (!this.Flag && (this.lastCoralAcqLoc != " " || this.totalCoralDeliveries == 0))
             {
-                if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                if (this.totalCoralDeliveries == 0 && this.hasCoral == 0)
                 {
-                    robot.hasCoral++;
+                    this.hasCoral++;
                 }
                 switch (level)
                 {
                     case 4:
-                        robot.lastCoralLoc = "L4";
-                        robot.TransactionCheck = true;
+                        this.lastCoralLoc = "L4";
+                        this.TransactionCheck = true;
                         break;
                     case 3:
-                        robot.lastCoralLoc = "L3";
-                        robot.TransactionCheck = true;
+                        this.lastCoralLoc = "L3";
+                        this.TransactionCheck = true;
                         break;
                     case 2:
-                        robot.lastCoralLoc = "L2";
-                        robot.TransactionCheck = true;
+                        this.lastCoralLoc = "L2";
+                        this.TransactionCheck = true;
                         break;
                     case 1:
-                        robot.lastCoralLoc = "L1";
-                        robot.TransactionCheck = true;
+                        this.lastCoralLoc = "L1";
+                        this.TransactionCheck = true;
                         break;
                     case 0:
-                        if (robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                        if (this.lastCoralAcqLoc == this.prevlastCoralAcqLoc && this.lastCoralAcqLoc != " " && !this.Flag)
                         {
-                            if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                            if (this.TransactionCheck && this.totalCoralDeliveries == 0 && this.lastCoralLoc == "Floor")
                             {
-                                robot.hasCoral++;
-                                robot.lastCoralAcqLoc = " ";
-                                robot.lastCoralLoc = "Floor";
-                                robot.AcqCoralNearFar = false;
+                                this.hasCoral++;
+                                this.lastCoralAcqLoc = " ";
+                                this.lastCoralLoc = "Floor";
+                                this.AcqCoralNearFar = false;
                             }
                             else
                             {
-                                robot.lastCoralLoc = "Floor";
-                                robot.TransactionCheck = true;
+                                this.lastCoralLoc = "Floor";
+                                this.TransactionCheck = true;
                             }
                         }
                         break;
                 }
-                robot.TransactionCheck = true;
+                this.TransactionCheck = true;
             }
         }
 
-        public void AlgaeDelivery(int level, RobotState robot)
+        public void AlgaeDelivery(int level)
         {
             switch (level)
             {
                 case 2:
-                    robot.lastAlgaeLoc = "Net";
-                    robot.TransactionCheck = true;
+                    this.lastAlgaeLoc = "Net";
+                    this.TransactionCheck = true;
                     break;
                 case 1:
-                    robot.lastAlgaeLoc = "Processor";
-                    robot.TransactionCheck = true;
+                    this.lastAlgaeLoc = "Processor";
+                    this.TransactionCheck = true;
                     break;
                 case 0:
-                    if (robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    if (this.lastAlgaeAcqLoc == this.prevlastAlgaeAcqLoc && this.lastAlgaeAcqLoc != " ")
                     {
-                        robot.lastAlgaeLoc = "Floor";
-                        robot.TransactionCheck = true;
+                        this.lastAlgaeLoc = "Floor";
+                        this.TransactionCheck = true;
                     }
                     break;
             }
-            robot.TransactionCheck = true;
+            this.TransactionCheck = true;
         }
-        public void AlgaeFlag(RobotState robot, bool value)
+        public void AlgaeFlag(bool value)
         {
-            robot.Flag = value;
+            this.Flag = value;
+        }
+        public void ChangeMode(ROBOT_MODE mode)
+        {
+            _RobotMode = mode;
+        }
+        public void CycleAvoidance()
+        {
+            this.Avo_Rat++;
+            if (Avo_Rat > 4)
+            {
+                Avo_Rat = 0;
+            }
+        }
+        public void CycleDefense()
+        {
+            this.Def_Rat++;
+            if (Def_Rat > 4)
+            {
+                Def_Rat = 0;
+            }
+        }
+        public void CycleEffectiveness()
+        {
+            this.Def_Eff++;
+            if (Def_Eff > 4)
+            {
+                Def_Eff = 0;
+            }
+        }
+        public void StopTimer()
+        {
+
+        }
+        public void ResetTimer()
+        {
+
         }
     }
 }
