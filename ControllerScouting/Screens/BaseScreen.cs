@@ -1,4 +1,5 @@
 ﻿using ControllerScouting.Gamepad;
+using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
 using System;
 using System.Threading;
@@ -63,7 +64,8 @@ namespace ControllerScouting.Screens
 
             //timerJoysticks updates every 20 ms
             timerJoysticks.Enabled = true;
-            this.timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
+            timerJoysticks.Interval = 20;
+            timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
         }
 
         private void ControllerThreadMethod(GamePad gamePad)
@@ -79,11 +81,11 @@ namespace ControllerScouting.Screens
         private static void InitalizeDB()
         {
             //Sets the connection string to the database
-            //BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
 
             ////Checks if the database exists
             //Settings.Default.DBExists = BackgroundCode.seasonframework.Database.Exists();
-            //BackgroundCode.seasonframework.Database.Initialize(true);
+            BackgroundCode.seasonframework.Database.Initialize(true);
             //Settings.Default.DBExists = true;
         }
 

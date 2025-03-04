@@ -26,10 +26,7 @@ namespace ControllerScouting.Utilities
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            //Creates the base screen
-            BaseScreen baseScreen = new BaseScreen();
-
-            Application.Run(baseScreen);
+            Application.Run(new BaseScreen());
         }
 
         // Handle UI thread exceptions
