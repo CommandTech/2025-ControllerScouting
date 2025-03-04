@@ -99,7 +99,7 @@ namespace ControllerScouting.Screens
             //Settings.Default.DBExists = true;
         }
 
-        private void JoyStickReader(object sender, EventArgs e)
+        private void JoyStickReader()
         {
             //Updates the screen with the current data
             //UpdateScreen();
@@ -664,7 +664,7 @@ namespace ControllerScouting.Screens
             //frm.Show();
         }
 
-        private void UpdateScreen()
+        private void UpdateScreen(object sender, EventArgs e)
         {
             //Loops through all 6 boxes to update the text to be based on the RobotState
             for (int i = 0; i < 6; i++)
