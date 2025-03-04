@@ -42,6 +42,10 @@ namespace ControllerScouting.Gamepad
                     robotActions.Append((() => gamepad.LTHRight_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up)));
                     robotActions.Append((() => gamepad.LTHLeft_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down)));
 
+                    //Near Far Side
+                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
+                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
+
                     //Coral Delivery
                     robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)));
                     robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)));
