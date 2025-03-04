@@ -3,6 +3,7 @@ using ControllerScouting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 
 namespace ControllerScouting
 {
@@ -224,6 +225,38 @@ namespace ControllerScouting
             }
         }
 
+        public static void LoadManualMatches()
+        {
+
+            string csvBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string csvProjectBaseDirectory = Path.GetFullPath(Path.Combine(csvBaseDirectory, @"..\..\"));
+            string csvPath = Path.Combine(csvProjectBaseDirectory, "Dynamic\\ManualMatchList.csv");
+
+            BackgroundCode.manualMatchList = ReadCsvFile(csvPath);
+        }
+        public static List<List<string>> ReadCsvFile(string filePath)
+        {
+            var records = new List<List<string>>();
+
+            using (var reader = new StreamReader(filePath))
+            {
+                string line;
+                bool isFirstLine = true;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (isFirstLine)
+                    {
+                        isFirstLine = false;
+                        continue;
+                    }
+
+                    var values = line.Split(',');
+                    records.Add(new List<string>(values));
+                }
+            }
+
+            return records;
+        }
         internal static void SaveToRecord(RobotState robot, string recordtype, int controllerNumber)
         {
 

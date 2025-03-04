@@ -34,6 +34,11 @@ namespace ControllerScouting.Utilities
         public static SoundPlayer soundCue = new SoundPlayer(soundFilePath);    //Sound player for practice mode error
 
         public static List<string> cages = new List<string>();
+
+        public static List<List<string>> manualMatchList = null;
+        public static bool redRight = false;
+        public static int currentMatch = 0;
+        public static string loadedEvent = "";
         public BackgroundCode()
         {
 

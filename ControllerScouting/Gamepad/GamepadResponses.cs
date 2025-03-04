@@ -161,5 +161,9 @@ namespace ControllerScouting.Gamepad
                 }
             }
         }
+        public static void ResetValues(int controllerNumber)
+        {
+
+        }
     }
 }
