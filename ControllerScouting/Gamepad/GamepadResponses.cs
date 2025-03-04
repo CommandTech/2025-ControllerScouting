@@ -6,13 +6,11 @@ namespace ControllerScouting.Gamepad
 {
     partial class Controllers
     {
-        public void ReadStick(GamePad[] gpArray, int controllerNumber)
+        public void ReadStick(GamePad gamepad, int controllerNumber)
         {
-            GamePad gamepad = gpArray[controllerNumber];
-
             RobotState robot = BackgroundCode.Robots[controllerNumber];
 
-            if (gamepad != null && !robot.NoSho)
+            if (!robot.NoSho)
             {
                 gamepad.Update();
 

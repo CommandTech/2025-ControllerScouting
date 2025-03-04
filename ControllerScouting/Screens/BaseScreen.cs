@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Utilities;
+﻿using ControllerScouting.Gamepad;
+using ControllerScouting.Utilities;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -42,7 +43,7 @@ namespace ControllerScouting.Screens
 
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             // Create and start a new thread for each controller
-            foreach (var gamePad in BackgroundCode.gamePads)
+            foreach (GamePad gamePad in BackgroundCode.gamePads)
             {
                 Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
                 controllerThread.Start();
@@ -65,13 +66,13 @@ namespace ControllerScouting.Screens
             this.timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
         }
 
-        private void ControllerThreadMethod(object gamePad)
+        private void ControllerThreadMethod(GamePad gamePad)
         {
             // Logic to handle the controller
             while (true)
             {
                 // Read and process the controller input
-                BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, Array.IndexOf(BackgroundCode.gamePads, gamePad));
+                if (gamePad != null) BackgroundCode.controllers.ReadStick(gamePad, Array.IndexOf(BackgroundCode.gamePads, gamePad));
             }
         }
 
