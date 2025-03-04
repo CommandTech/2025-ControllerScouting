@@ -1,6 +1,6 @@
 ﻿using ControllerScouting.Utilities;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace ControllerScouting.Gamepad
 {
@@ -14,8 +14,9 @@ namespace ControllerScouting.Gamepad
             {
                 gamepad.Update();
 
-                //Every mode actions
-                var robotActions = new (Func<bool> buttonPress, Action action)[]{
+                // Every mode actions
+                var baseRobotActions = new List<(Func<bool> buttonPress, Action action)>
+                {
                     (() => gamepad.RTHRight_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up)),
                     (() => gamepad.RTHLeft_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down)),
                     (() => gamepad.R3_Press, () => robot.Transact(controllerNumber)),
@@ -24,114 +25,132 @@ namespace ControllerScouting.Gamepad
                     (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(gamepad.RightButton_Down))
                 };
 
+                List<(Func<bool> buttonPress, Action action)> robotActions = new List<(Func<bool> buttonPress, Action action)>(baseRobotActions);
+
                 if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
                 {
-                    //Auto Leave
-                    robotActions.Append((() => gamepad.BackButton_Press, () => robot.CycleLeave(RobotState.CYCLE_DIRECTION.Up)));
-
-                    //Starting Location
-                    robotActions.Append((() => gamepad.LTHUp_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Up)));
-                    robotActions.Append((() => gamepad.LTHDown_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Down)));
-
-                    //Leave Auto Mode
-                    robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)));
-
-                    //Scouter Name
-                    robotActions.Append((() => gamepad.LTHRight_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up)));
-                    robotActions.Append((() => gamepad.LTHLeft_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down)));
-
-                    //Near Far Side
-                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
-                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
-
-                    //Coral Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
-
-                    //Algae Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
-
-                    //Coral Delivery
-                    robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)));
-                    robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)));
-                    robotActions.Append((() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)));
-                    robotActions.Append((() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)));
-
-                    //Algae Delivery
-                    robotActions.Append((() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)));
-                    robotActions.Append((() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1)));
+                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
+                    {
+                        // Scouter Name
+                        (() => gamepad.LTHRight_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up)),
+                        (() => gamepad.LTHLeft_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down))
+                    });
                 }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Teleop)
+                if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    //Leave Teleop Mode
-                    robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)));
-                    robotActions.Append((() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)));
+                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
+                    {
+                        // Auto Leave
+                        (() => gamepad.BackButton_Press, () => robot.CycleLeave(RobotState.CYCLE_DIRECTION.Up)),
 
-                    //Near Far Side
-                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
-                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
+                        // Starting Location
+                        (() => gamepad.LTHUp_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Up)),
+                        (() => gamepad.LTHDown_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Down)),
 
-                    //Coral Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
+                        // Leave Auto Mode
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
 
-                    //Algae Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
 
-                    //Coral Delivery
-                    robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)));
-                    robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)));
-                    robotActions.Append((() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)));
-                    robotActions.Append((() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)));
+                        // Near Far Side
+                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
+                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
-                    //Algae Delivery
-                    robotActions.Append((() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)));
-                    robotActions.Append((() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1)));
+                        // Coral Acquire
+                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
+
+                        // Algae Acquire
+                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
+
+                        // Coral Delivery
+                        (() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)),
+                        (() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)),
+                        (() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)),
+                        (() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)),
+
+                        // Algae Delivery
+                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
+                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
+                    });
                 }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Defense)
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Teleop && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    //Leave Defense Mode
-                    robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)));
-                    robotActions.Append((() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)));
+                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
+                    {
+                        // Leave Teleop Mode
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)),
 
-                    //Near Far Side
-                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
-                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
+                        // Near Far Side
+                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
+                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
-                    //Coral Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
+                        // Coral Acquire
+                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
 
-                    //Algae Acquire
-                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
+                        // Algae Acquire
+                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
 
-                    //Algae Delivery
-                    robotActions.Append((() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)));
-                    robotActions.Append((() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1)));
+                        // Coral Delivery
+                        (() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)),
+                        (() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)),
+                        (() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)),
+                        (() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)),
+
+                        // Algae Delivery
+                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
+                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
+                    });
                 }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing)
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Defense && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    //Leave Surfacing Mode
-                    robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)));
-                    robotActions.Append((() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)));
+                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
+                    {
+                        // Leave Defense Mode
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
 
-                    //Timer controls
-                    robotActions.Append((() => gamepad.BackButton_Press, () => robot.StopTimer()));
-                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.ResetTimer()));
+                        // Near Far Side
+                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
+                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
-                    //End game states
-                    robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CycleState(RobotState.CYCLE_DIRECTION.Up)));
-                    robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CycleAvoidance()));
-                    robotActions.Append((() => gamepad.DpadDown_Press, () => robot.CycleEffectiveness()));
-                    robotActions.Append((() => gamepad.DpadLeft_Press, () => robot.CycleDefense()));
+                        // Coral Acquire
+                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
 
-                    robotActions.Append((() => gamepad.AButton_Press, () => robot.CycleStrat(RobotState.CYCLE_DIRECTION.Up)));
+                        // Algae Acquire
+                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
+
+                        // Algae Delivery
+                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
+                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
+                    });
                 }
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
+                    {
+                        // Leave Surfacing Mode
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)),
 
+                        // Timer controls
+                        (() => gamepad.BackButton_Press, () => robot.StopTimer()),
+                        (() => gamepad.LeftTrigger_Press, () => robot.ResetTimer()),
 
+                        // End game states
+                        (() => gamepad.DpadUp_Press, () => robot.CycleState(RobotState.CYCLE_DIRECTION.Up)),
+                        (() => gamepad.DpadRight_Press, () => robot.CycleAvoidance()),
+                        (() => gamepad.DpadDown_Press, () => robot.CycleEffectiveness()),
+                        (() => gamepad.DpadLeft_Press, () => robot.CycleDefense()),
+
+                        (() => gamepad.AButton_Press, () => robot.CycleStrat(RobotState.CYCLE_DIRECTION.Up))
+                    });
+                }
 
                 foreach (var (buttonPress, action) in robotActions)
                 {

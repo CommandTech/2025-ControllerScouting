@@ -417,7 +417,6 @@ namespace ControllerScouting
                 this.TransactionCheck = true;
             }
         }
-
         public void AlgaeDelivery(int level)
         {
             switch (level)
