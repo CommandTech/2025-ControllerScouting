@@ -351,14 +351,6 @@ namespace ControllerScouting
                 robot.Match_event = MATCHEVENT_NAME.Match_Event;
             }
         }
-        public void AlgaeFloor(RobotState robot)
-        {
-            if (robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
-            {
-                robot.lastAlgaeLoc = "Floor";
-                robot.TransactionCheck = true;
-            }
-        }
         public void CoralDelivery(int level, RobotState robot)
         {
             if (!robot.Flag && (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0))
@@ -404,9 +396,32 @@ namespace ControllerScouting
             }
         }
 
-        public void AlgaeDelivery()
+        public void AlgaeDelivery(int level, RobotState robot)
         {
-
+            switch (level)
+            {
+                case 4:
+                    robot.lastCoralLoc = "L4";
+                    robot.autoCoralPoints += 7;
+                    break;
+                case 3:
+                    robot.DelCoralL3++;
+                    break;
+                case 2:
+                    robot.DelCoralL2++;
+                    break;
+                case 1:
+                    robot.DelCoralL1++;
+                    break;
+                case 0:
+                    if (robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    break;
+            }
+            robot.TransactionCheck = true;
         }
     }
 }
