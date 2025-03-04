@@ -1,5 +1,6 @@
 ﻿using ControllerScouting.Utilities;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ControllerScouting.Screens
@@ -55,12 +56,12 @@ namespace ControllerScouting.Screens
             //Thread transactThread = new Thread(BackgroundCode.RecordToDatabase);
             //transactThread.Start();
 
-            //// Create and start a new thread for each controller
-            //foreach (var gamePad in BackgroundCode.gamePads)
-            //{
-            //    Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
-            //    controllerThread.Start();
-            //}
+            // Create and start a new thread for each controller
+            foreach (var gamePad in BackgroundCode.gamePads)
+            {
+                Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
+                controllerThread.Start();
+            }
 
             //InitalizeDB();
 
@@ -74,17 +75,17 @@ namespace ControllerScouting.Screens
             //    }
             //}
 
-            this.timerJoysticks.Tick += new EventHandler(this.JoyStickReader);
+            this.timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
         }
 
         private void ControllerThreadMethod(object gamePad)
         {
             // Logic to handle the controller
-            //while (true)
-            //{
-            //    // Read and process the controller input
-            //    BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, Array.IndexOf(BackgroundCode.gamePads, gamePad));
-            //}
+            while (true)
+            {
+                // Read and process the controller input
+                BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, Array.IndexOf(BackgroundCode.gamePads, gamePad));
+            }
         }
 
         private static void InitalizeDB()
@@ -101,10 +102,10 @@ namespace ControllerScouting.Screens
         private void JoyStickReader(object sender, EventArgs e)
         {
             //Updates the screen with the current data
-            UpdateScreen();
+            //UpdateScreen();
 
             //Loop through all connected gamepads
-            for (int gamepad_ctr = 0; gamepad_ctr < BackgroundCode.gamePads.Length; gamepad_ctr++) BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, gamepad_ctr);
+            //for (int gamepad_ctr = 0; gamepad_ctr < BackgroundCode.gamePads.Length; gamepad_ctr++) BackgroundCode.controllers.ReadStick(BackgroundCode.gamePads, gamepad_ctr);
 
             //// Loop through all Scouters/Robots
             //for (int robot_ctr = 0; robot_ctr < BackgroundCode.Robots.Length; robot_ctr++) BackgroundCode.Robots[robot_ctr] = BackgroundCode.controllers.GetRobotState(robot_ctr);  //Initialize all six robots
@@ -122,21 +123,6 @@ namespace ControllerScouting.Screens
         {
             //Updates the list of currently connected gamepads
             //BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
-        }
-        private void UpdateScreen()
-        {
-            //Loops through all 6 boxes to update the text to be based on the RobotState
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}ScoutName", true)[0]).Text = BackgroundCode.Robots[i].GetScouterName().ToString();
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}ScoutName", true)[0]).Visible = true;
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}MatchEvent", true)[0]).Text = BackgroundCode.Robots[i].Match_event.ToString();
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}MatchEvent", true)[0]).Visible = true;
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}ModeValue", true)[0]).Text = BackgroundCode.Robots[i].Current_Mode.ToString() + " Mode";
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}ModeValue", true)[0]).Visible = true;
-
-            //    ((Label)this.Controls.Find($"lbl{BackgroundCode.Robots[i].ScouterBox}TeamName", true)[0]).Visible = true;
-            //}
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -676,6 +662,23 @@ namespace ControllerScouting.Screens
         {
             //FunctionsForm frm = new FunctionsForm();
             //frm.Show();
+        }
+
+        private void UpdateScreen()
+        {
+            //Loops through all 6 boxes to update the text to be based on the RobotState
+            for (int i = 0; i < 6; i++)
+            {
+                RobotState robot = BackgroundCode.Robots[i];
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}ScoutName", true)[0]).Text = robot.GetScouterName().ToString();
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}ScoutName", true)[0]).Visible = true;
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}MatchEvent", true)[0]).Text = robot.Match_event.ToString();
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}MatchEvent", true)[0]).Visible = true;
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}ModeValue", true)[0]).Text = robot.Current_Mode.ToString() + " Mode";
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}ModeValue", true)[0]).Visible = true;
+
+                ((Label)this.Controls.Find($"lbl{robot.ScouterBox}TeamName", true)[0]).Visible = true;
+            }
         }
     }
 }
