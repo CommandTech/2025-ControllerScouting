@@ -10,20 +10,15 @@ namespace ControllerScouting.Screens
 {
     public partial class BaseScreen : Form
     {
-        public readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        public readonly string projectBaseDirectory;
-        public readonly string iniPath;
-        public readonly INIFile iniFile;
+        public static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
+        public static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
+        public static readonly INIFile iniFile = new INIFile(iniPath);
         public static bool wasPractice = false;
         public BaseScreen()
         {
             //Initialization of the screen
             InitializeComponent();
-
-            ////Sets the base directory for the ini file
-            //projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
-            //iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-            //iniFile = new INIFile(iniPath);
 
             //Sets the default values for the robots
             for (int i = 0; i < 6; i++)
@@ -53,15 +48,16 @@ namespace ControllerScouting.Screens
 
             InitalizeDB();
 
-            ////If there is previous data, ask if the user wants to load it
-            //if (iniFile.Read("MatchData", "event", "") != null || iniFile.Read("MatchData", "event", "") != "")
-            //{
-            //    DialogResult loadPrevData = MessageBox.Show("Do you want to load previous data?", "Please Confirm", MessageBoxButtons.YesNo);
-            //    if (loadPrevData == DialogResult.Yes)
-            //    {
-            //        LoadData();
-            //    }
-            //}
+            //If there is previous data, ask if the user wants to load it
+            if (iniFile.Read("MatchData", "event", "") != null && iniFile.Read("MatchData", "event", "") != "" && iniFile.Read("MatchData", "event", "") != " ")
+            {
+                MessageBox.Show(iniFile.Read("MatchData", "event", ""));
+                DialogResult loadPrevData = MessageBox.Show("Do you want to load previous data?", "Please Confirm", MessageBoxButtons.YesNo);
+                if (loadPrevData == DialogResult.Yes)
+                {
+                    LoadData();
+                }
+            }
 
             //timerJoysticks updates every 20 ms
             timerJoysticks.Enabled = true;
