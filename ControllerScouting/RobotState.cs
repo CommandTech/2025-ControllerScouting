@@ -346,6 +346,30 @@ namespace ControllerScouting
                 this.Match_event = MATCHEVENT_NAME.Match_Event;
             }
         }
+        public void CoralAcquire(int level)
+        {
+            switch (level)
+            {
+                case 0:
+                    this.lastCoralAcqLoc = "Station";
+                    break;
+                case 1:
+                    this.lastCoralAcqLoc = "Floor";
+                    break;
+            }
+        }
+        public void AlgaeAcquire(int level)
+        {
+            switch (level)
+            {
+                case 0:
+                    this.lastAlgaeAcqLoc = "Reef";
+                    break;
+                case 1:
+                    this.lastAlgaeAcqLoc = "Floor";
+                    break;
+            }
+        }
         public void CoralDelivery(int level)
         {
             if (!this.Flag && (this.lastCoralAcqLoc != " " || this.totalCoralDeliveries == 0))

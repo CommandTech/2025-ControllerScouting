@@ -46,6 +46,14 @@ namespace ControllerScouting.Gamepad
                     robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
                     robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
 
+                    //Coral Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
+
+                    //Algae Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
+
                     //Coral Delivery
                     robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)));
                     robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)));
@@ -62,6 +70,18 @@ namespace ControllerScouting.Gamepad
                     robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)));
                     robotActions.Append((() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)));
 
+                    //Near Far Side
+                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
+                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
+
+                    //Coral Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
+
+                    //Algae Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
+
                     //Coral Delivery
                     robotActions.Append((() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)));
                     robotActions.Append((() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)));
@@ -77,6 +97,18 @@ namespace ControllerScouting.Gamepad
                     //Leave Defense Mode
                     robotActions.Append((() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)));
                     robotActions.Append((() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)));
+
+                    //Near Far Side
+                    robotActions.Append((() => gamepad.YButton_Press, () => robot.ChangeSide(false)));
+                    robotActions.Append((() => gamepad.AButton_Press, () => robot.ChangeSide(true)));
+
+                    //Coral Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)));
+
+                    //Algae Acquire
+                    robotActions.Append((() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)));
+                    robotActions.Append((() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)));
 
                     //Algae Delivery
                     robotActions.Append((() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)));
