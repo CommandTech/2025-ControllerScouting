@@ -1,8 +1,5 @@
-﻿using ControllerScouting.Utilities;
-using System;
+﻿using System;
 using System.Diagnostics;
-using ControllerScouting.Gamepad;
-using SharpDX.XInput;
 
 namespace ControllerScouting
 {
@@ -363,16 +360,19 @@ namespace ControllerScouting
                 {
                     case 4:
                         robot.lastCoralLoc = "L4";
-                        robot.autoCoralPoints += 7;
+                        robot.TransactionCheck = true;
                         break;
                     case 3:
-                        robot.DelCoralL3++;
+                        robot.lastCoralLoc = "L3";
+                        robot.TransactionCheck = true;
                         break;
                     case 2:
-                        robot.DelCoralL2++;
+                        robot.lastCoralLoc = "L2";
+                        robot.TransactionCheck = true;
                         break;
                     case 1:
-                        robot.DelCoralL1++;
+                        robot.lastCoralLoc = "L1";
+                        robot.TransactionCheck = true;
                         break;
                     case 0:
                         if (robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
@@ -400,18 +400,13 @@ namespace ControllerScouting
         {
             switch (level)
             {
-                case 4:
-                    robot.lastCoralLoc = "L4";
-                    robot.autoCoralPoints += 7;
-                    break;
-                case 3:
-                    robot.DelCoralL3++;
-                    break;
                 case 2:
-                    robot.DelCoralL2++;
+                    robot.lastAlgaeLoc = "Net";
+                    robot.TransactionCheck = true;
                     break;
                 case 1:
-                    robot.DelCoralL1++;
+                    robot.lastAlgaeLoc = "Processor";
+                    robot.TransactionCheck = true;
                     break;
                 case 0:
                     if (robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
@@ -422,6 +417,10 @@ namespace ControllerScouting
                     break;
             }
             robot.TransactionCheck = true;
+        }
+        public void AlgaeFlag(RobotState robot, bool value)
+        {
+            robot.Flag = value;
         }
     }
 }

@@ -211,7 +211,7 @@ namespace ControllerScouting
 
     public class DatabaseCode
     {
-        public static void RecordToDatabase(RobotState robotState, string v)
+        public static void RecordToDatabase()
         {
             while (1 == 1)
             {

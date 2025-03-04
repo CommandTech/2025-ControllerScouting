@@ -656,21 +656,21 @@ namespace ControllerScouting.Screens
             //        }
             //    }
         }
-        public void Log(string m)
-        {
-            ////cross-thread Logging
-            //Func<int> del = delegate ()
-            //{
-            //    BackgroundCode.print.UpdateLbl(m);
-            //    lstLog.TopIndex = lstLog.Items.Add(m + System.Environment.NewLine);
-            //    return 0;
-            //};
-            //try
-            //{
-            //    Invoke(del);
-            //}
-            //catch { }
-        }
+        //public void Log(string m)
+        //{
+        //    //cross-thread Logging
+        //    Func<int> del = delegate ()
+        //    {
+        //        BackgroundCode.print.UpdateLbl(m);
+        //        lstLog.TopIndex = lstLog.Items.Add(m + System.Environment.NewLine);
+        //        return 0;
+        //    };
+        //    try
+        //    {
+        //        Invoke(del);
+        //    }
+        //    catch { }
+        //}
 
         private void BtnFunctions_Click(object sender, EventArgs e)
         {
