@@ -16,27 +16,11 @@ namespace ControllerScouting.Screens
         {
             //Initialization of the screen
             InitializeComponent();
-            //Scales the screen to the resolution of the display
-            //this.AutoScaleMode = AutoScaleMode.Dpi;
-            //this.btnInitialDBLoad.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             ////Sets the base directory for the ini file
             //projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
             //iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
             //iniFile = new INIFile(iniPath);
-
-            BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
-            //timerJoysticks updates every 20 ms
-            timerJoysticks.Enabled = true;
-
-            ////Grabs all connected joysticks
-            //UpdateJoysticks();
-
-            ////If the program is in debug mode, show the print out form
-            //if (Debugger.IsAttached)
-            //{
-            //    BackgroundCode.print.Show();
-            //}
 
             //Sets the default values for the robots
             for (int i = 0; i < 6; i++)
@@ -56,6 +40,7 @@ namespace ControllerScouting.Screens
             //Thread transactThread = new Thread(BackgroundCode.RecordToDatabase);
             //transactThread.Start();
 
+            BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             // Create and start a new thread for each controller
             foreach (var gamePad in BackgroundCode.gamePads)
             {
@@ -63,7 +48,7 @@ namespace ControllerScouting.Screens
                 controllerThread.Start();
             }
 
-            //InitalizeDB();
+            InitalizeDB();
 
             ////If there is previous data, ask if the user wants to load it
             //if (iniFile.Read("MatchData", "event", "") != null || iniFile.Read("MatchData", "event", "") != "")
@@ -75,6 +60,8 @@ namespace ControllerScouting.Screens
             //    }
             //}
 
+            //timerJoysticks updates every 20 ms
+            timerJoysticks.Enabled = true;
             this.timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
         }
 
