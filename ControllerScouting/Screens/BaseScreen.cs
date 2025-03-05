@@ -225,6 +225,8 @@ namespace ControllerScouting.Screens
                 BackgroundCode.seasonframework.Database.Connection.Open();
                 GetEvents(false);
                 SetRedRight();
+
+                Log("SQL start time is " + DateTime.Now.TimeOfDay);
             }
             else
             {
@@ -232,6 +234,7 @@ namespace ControllerScouting.Screens
                 if (manualMatches == DialogResult.Yes)
                 {
                     SetRedRight();
+                    Log("Loading manual matches.");
                     DatabaseCode.LoadManualMatches();
                     comboBoxSelectRegional.DataSource = null;
                     comboBoxSelectRegional.Items.Clear();
@@ -413,6 +416,7 @@ namespace ControllerScouting.Screens
                             //Console.Write(responseFromServer);
 
                             List<TeamSummary> JSONteams = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
+                            Log("Received " + JSONteams.Count + " teams for " + regional + ".");
 
                             var teamquery = from b in BackgroundCode.seasonframework.Teamset
                                             orderby b.Team_key
@@ -425,6 +429,7 @@ namespace ControllerScouting.Screens
                             {
                                 BackgroundCode.teamlist.Add(item.Team_number);
                             }
+                            Log("Teams -> " + string.Join(", ", JSONteams.Select(item => item.Team_number)));
 
                             using (var db = new SeasonContext())
                             {
@@ -460,9 +465,9 @@ namespace ControllerScouting.Screens
                                 }
                             }
                         }
-                        catch (HttpRequestException e2)
+                        catch (HttpRequestException)
                         {
-
+                            loading = false;
                         }
                     }
 
@@ -519,10 +524,11 @@ namespace ControllerScouting.Screens
                                     BackgroundCode.seasonframework.Matchset.Add(match_record);
                                 }
                             }
+                            Log($"{BackgroundCode.UnSortedMatchList.Count} matches");
                         }
-                        catch (HttpRequestException e2)
+                        catch (HttpRequestException)
                         {
-
+                            loading = false;
                         }
                     }
 
@@ -571,7 +577,7 @@ namespace ControllerScouting.Screens
                         }
                         this.comboBoxSelectRegional.DataSource = elist;
                     }
-                    catch (HttpRequestException e)
+                    catch (HttpRequestException)
                     {
                         DialogResult manualMatches = MessageBox.Show("Do you want to load manual matches?", "Error loading Blue Alliance data.", MessageBoxButtons.YesNo);
                         if (manualMatches == DialogResult.Yes)
@@ -614,21 +620,10 @@ namespace ControllerScouting.Screens
             }
         }
 
-        //public void Log(string m)
-        //{
-        //    //cross-thread Logging
-        //    Func<int> del = delegate ()
-        //    {
-        //        BackgroundCode.print.UpdateLbl(m);
-        //        lstLog.TopIndex = lstLog.Items.Add(m + System.Environment.NewLine);
-        //        return 0;
-        //    };
-        //    try
-        //    {
-        //        Invoke(del);
-        //    }
-        //    catch { }
-        //}
+        public void Log(string m)
+        {
+            Logger.Log(m);
+        }
 
         private void BtnFunctions_Click(object sender, EventArgs e)
         {

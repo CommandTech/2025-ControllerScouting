@@ -26,6 +26,7 @@ namespace ControllerScouting.Utilities
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
+            Logger.Erase();
             Application.Run(new BaseScreen());
         }
 
