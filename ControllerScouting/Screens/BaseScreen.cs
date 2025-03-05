@@ -305,11 +305,6 @@ namespace ControllerScouting.Screens
         }
         private void LoadMatch()
         {
-            for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
-            {
-                Controllers.ResetValues(i);
-            }
-
             this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.UnSortedMatchList.Count}";
             //List<string> teamPrioList = BackgroundCode.teamPrio.Cast<string>().ToList();
             //teamPrioList.AddRange(BackgroundCode.homePrio);

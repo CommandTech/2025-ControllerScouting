@@ -1,6 +1,7 @@
 ﻿using ControllerScouting.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ControllerScouting.Gamepad
 {
@@ -12,6 +13,9 @@ namespace ControllerScouting.Gamepad
 
             if (!robot.NoSho)
             {
+                if (robot.ClimbT_StopWatch == null) robot.ClimbT_StopWatch = new Stopwatch();
+                if (robot.DefTime_StopWatch == null) robot.DefTime_StopWatch = new Stopwatch();
+
                 gamepad.Update();
 
                 // Every mode actions
@@ -163,7 +167,81 @@ namespace ControllerScouting.Gamepad
         }
         public static void ResetValues(int controllerNumber)
         {
+            RobotState robot = BackgroundCode.Robots[controllerNumber];
+            robot.Current_Mode = RobotState.ROBOT_MODE.Auto;
+            robot.Leave = RobotState.LEAVE.Z;
+            robot.AUTO = true;
+            robot.Starting_Location = RobotState.STARTING_LOC.Select;
+            robot.DelNearFar = false;
 
+            robot.AcqAlgaeF = 0;
+            robot.AcqAlgaeR = 0;
+            robot.DisAlgae = 0;
+            robot.AcqCoralS = 0;
+            robot.AcqCoralF = 0;
+            robot.hasCoral = 0;
+            robot.hasAlgae = 0;
+
+            robot.DisAlgae = 0;
+            robot.DisFlag = false;
+
+            robot.DelAlgaeF = 0;
+            robot.DelAlgaeN = 0;
+            robot.DelAlgaeP = 0;
+
+            robot.DelCoralF = 0;
+            robot.DelCoralL1 = 0;
+            robot.DelCoralL2 = 0;
+            robot.DelCoralL3 = 0;
+            robot.DelCoralL4 = 0;
+
+            robot.lastAlgaeAcqLoc = " ";
+            robot.prevlastAlgaeAcqLoc = " ";
+            robot.lastCoralAcqLoc = " ";
+            robot.prevlastCoralAcqLoc = " ";
+
+            robot.totalCoralDeliveries = 0;
+
+            robot.Cage_Attempt = RobotState.CAGE_ATTEMPT.Select;
+            robot.End_State = RobotState.END_STATE.Select;
+
+            if (robot.ClimbT_StopWatch == null) robot.ClimbT_StopWatch = new Stopwatch();
+            if (robot.DefTime_StopWatch == null) robot.DefTime_StopWatch = new Stopwatch();
+            try
+            {
+                robot.ClimbT_StopWatch.Stop();
+                robot.ClimbT_StopWatch.Reset();
+                robot.ClimbT = TimeSpan.Zero;
+                robot.ClimbTDouble = 0;
+                robot.ClimbT_StopWatch_running = false;
+            }
+            catch { }
+
+            try
+            {
+                robot.DefTime_StopWatch.Stop();
+                robot.DefTime_StopWatch.Reset();
+                robot.DefTime = TimeSpan.Zero;
+                robot.DefTimeDouble = 0;
+                robot.DefTime_StopWatch_running = false;
+            }
+            catch { }
+
+            robot.ScouterError = 0;
+            robot.NoSho = false;
+            robot.Flag = false;
+
+            robot.Def_Rat = 9;
+            robot.Def_Eff = 9;
+            robot.Avo_Rat = 9;
+
+            robot.lastCoralLoc = " ";
+            robot.lastAlgaeLoc = " ";
+            robot.lastCoralAcqLoc = " ";
+            robot.lastAlgaeAcqLoc = " ";
+
+            robot.PointsScored = 0;
+            robot.App_Strategy = RobotState.APP_STRAT.Select;
         }
     }
 }
