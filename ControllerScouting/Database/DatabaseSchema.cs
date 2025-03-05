@@ -355,7 +355,7 @@ namespace ControllerScouting
                     }
                 }
 
-                var activity_record = BackgroundCode.activity_record[controllerNumber];
+                Activity activity_record = BackgroundCode.activity_record[controllerNumber];
                 switch (recordtype)
                 {
                     case ("EndAuto"):
@@ -940,7 +940,7 @@ namespace ControllerScouting
                 }
             }
         }
-        public static void SendToDatabase()
+        private static void SendToDatabase()
         {
             foreach (Activity activity in BackgroundCode.activitiesQueue)
             {

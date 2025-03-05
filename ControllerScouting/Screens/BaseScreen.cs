@@ -14,12 +14,11 @@ namespace ControllerScouting.Screens
 {
     public partial class BaseScreen : Form
     {
-        public static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        public static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
-        public static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-        public static readonly INIFile iniFile = new INIFile(iniPath);
-        public static bool wasPractice = false;
-        public static bool loading = false;
+        private static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        private static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
+        private static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
+        private static readonly INIFile iniFile = new INIFile(iniPath);
+        private static bool loading = false;
         public BaseScreen()
         {
             //Initialization of the screen
@@ -91,7 +90,7 @@ namespace ControllerScouting.Screens
             //Settings.Default.DBExists = true;
         }
 
-        public static void UpdateJoysticks()
+        private static void UpdateJoysticks()
         {
             //Updates the list of currently connected gamepads
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
@@ -118,7 +117,7 @@ namespace ControllerScouting.Screens
                 Environment.Exit(0);
             }
         }
-        public void SaveData()
+        private void SaveData()
         {
             //if ((Settings.Default.loadedEvent != null || Settings.Default.manualMatchList != null) && Settings.Default.currentMatch != 0)
             //{
@@ -319,7 +318,7 @@ namespace ControllerScouting.Screens
             SetTeamNameAndColor(this.lbl5TeamName, BackgroundCode.Robots[5], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam3);
             //}
         }
-        void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
+        private void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
         {
             label.Text = robot.TeamName = teamName;
             label.ForeColor = Color.Orange;
@@ -534,7 +533,7 @@ namespace ControllerScouting.Screens
                 NextMatch();
             }
         }
-        public async void GetEvents(bool isManual)
+        private async void GetEvents(bool isManual)
         {
             //seasonframework.Database.Initialize(true);
             BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [EventSummaries]");  // If you crash here, the database structure has been changed, delete DB and retry
@@ -585,7 +584,7 @@ namespace ControllerScouting.Screens
                 }
             }
         }
-        public static void RefreshPrio()
+        private static void RefreshPrio()
         {
             if (BackgroundCode.homeTeam != "None")
             {
@@ -615,7 +614,7 @@ namespace ControllerScouting.Screens
             }
         }
 
-        public void Log(string m)
+        private void Log(string m)
         {
             Logger.Log(m);
         }
