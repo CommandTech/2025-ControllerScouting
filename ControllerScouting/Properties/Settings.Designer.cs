@@ -45,5 +45,16 @@ namespace ControllerScouting.Properties {
                 this["API_KEY"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\sqlexpress;Initial Catalog=scoutingdb;Integrated Security=T" +
+            "rue")]
+        public string scoutingdbConnectionString {
+            get {
+                return ((string)(this["scoutingdbConnectionString"]));
+            }
+        }
     }
 }

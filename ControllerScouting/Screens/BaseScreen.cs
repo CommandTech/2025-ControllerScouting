@@ -86,7 +86,7 @@ namespace ControllerScouting.Screens
             //Settings.Default.DBExists = true;
         }
 
-        private static void UpdateJoysticks()
+        public static void UpdateJoysticks()
         {
             //Updates the list of currently connected gamepads
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
@@ -580,7 +580,7 @@ namespace ControllerScouting.Screens
                 }
             }
         }
-        private static void RefreshPrio()
+        public static void RefreshPrio()
         {
             if (BackgroundCode.homeTeam != "None")
             {
@@ -617,8 +617,8 @@ namespace ControllerScouting.Screens
 
         private void BtnFunctions_Click(object sender, EventArgs e)
         {
-            //FunctionsForm frm = new FunctionsForm();
-            //frm.Show();
+            FunctionsForm frm = new FunctionsForm();
+            frm.Show();
         }
 
 

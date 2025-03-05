@@ -69,6 +69,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseSchema.cs" />
+    <Compile Include="scoutingdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>scoutingdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\CageForm.Designer.cs">
+      <DependentUpon>CageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FunctionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\FunctionsForm.Designer.cs">
+      <DependentUpon>FunctionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PriorityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PriorityForm.Designer.cs">
+      <DependentUpon>PriorityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SwapScouters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SwapScouters.Designer.cs">
+      <DependentUpon>SwapScouters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UpdateDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\UpdateDatabase.Designer.cs">
+      <DependentUpon>UpdateDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\BackgroundCode.cs" />
     <Compile Include="Gamepad\GamepadDefinitions.cs" />
     <Compile Include="Gamepad\GamepadResponses.cs" />
@@ -95,6 +130,9 @@
     <EmbeddedResource Include="Screens\BaseScreen.resx">
       <DependentUpon>BaseScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CageForm.resx">
+      <DependentUpon>CageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="config.ini" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -106,6 +144,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="scoutingdbDataSet.xsc">
+      <DependentUpon>scoutingdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="scoutingdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>scoutingdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="scoutingdbDataSet.xss">
+      <DependentUpon>scoutingdbDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

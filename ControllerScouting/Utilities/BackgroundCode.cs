@@ -30,6 +30,10 @@ namespace ControllerScouting.Utilities
         public static bool redRight = false;
         public static int currentMatch = 0;
         public static string loadedEvent = "";
+        public static bool practiceMode = false;
+        public static bool practiceChanged = false;
+        public static bool wasPractice = false;
+        public static int practiceTeam = 0;
         public BackgroundCode()
         {
 
