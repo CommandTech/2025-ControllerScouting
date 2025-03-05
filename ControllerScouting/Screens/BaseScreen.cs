@@ -39,9 +39,6 @@ namespace ControllerScouting.Screens
                 BackgroundCode.activity_record[i] = new Activity();
             }
 
-            //Thread transactThread = new Thread(BackgroundCode.RecordToDatabase);
-            //transactThread.Start();
-
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             // Create and start a new thread for each controller
             foreach (GamePad gamePad in BackgroundCode.gamePads)
@@ -63,10 +60,9 @@ namespace ControllerScouting.Screens
                 }
             }
 
-            //timerJoysticks updates every 20 ms
-            timerJoysticks.Enabled = true;
             timerJoysticks.Interval = 20;
             timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
+            timerJoysticks.Enabled = true;
         }
 
         private void ControllerThreadMethod(GamePad gamePad)

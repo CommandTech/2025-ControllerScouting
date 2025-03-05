@@ -72,7 +72,7 @@
     <Compile Include="Utilities\BackgroundCode.cs" />
     <Compile Include="Gamepad\GamepadDefinitions.cs" />
     <Compile Include="Gamepad\GamepadResponses.cs" />
-    <Compile Include="RobotState.cs" />
+    <Compile Include="Utilities\RobotState.cs" />
     <Compile Include="Screens\BaseScreen.cs">
       <SubType>Form</SubType>
     </Compile>
