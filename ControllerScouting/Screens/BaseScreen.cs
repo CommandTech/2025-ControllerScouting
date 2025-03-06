@@ -19,6 +19,7 @@ namespace ControllerScouting.Screens
         private static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
         private static readonly INIFile iniFile = new INIFile(iniPath);
         private static bool loading = false;
+        private static readonly List<Thread> controllerThreads = new List<Thread>();
         public BaseScreen()
         {
             //Initialization of the screen
@@ -41,11 +42,7 @@ namespace ControllerScouting.Screens
 
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             // Create and start a new thread for each controller
-            foreach (GamePad gamePad in BackgroundCode.gamePads)
-            {
-                Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
-                controllerThread.Start();
-            }
+            StartControllerThreads();
 
             InitalizeDB();
 
@@ -64,7 +61,7 @@ namespace ControllerScouting.Screens
             timerJoysticks.Enabled = true;
         }
 
-        private void ControllerThreadMethod(GamePad gamePad)
+        private static void ControllerThreadMethod(GamePad gamePad)
         {
             // Logic to handle the controller
             while (true)
@@ -87,8 +84,25 @@ namespace ControllerScouting.Screens
 
         public static void UpdateJoysticks()
         {
+            foreach (Thread thread in controllerThreads)
+            {
+                thread.Abort();
+            }
             //Updates the list of currently connected gamepads
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
+            StartControllerThreads();
+        }
+        private static void StartControllerThreads()
+        {
+            foreach (GamePad gamePad in BackgroundCode.gamePads)
+            {
+                if (gamePad != null)
+                {
+                    Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
+                    controllerThread.Start();
+                    controllerThreads.Add(controllerThread);
+                }
+            }
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
