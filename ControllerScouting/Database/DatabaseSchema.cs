@@ -1,9 +1,12 @@
 ﻿using ControllerScouting.Gamepad;
 using ControllerScouting.Properties;
+using ControllerScouting.Screens;
 using ControllerScouting.Utilities;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -232,7 +235,7 @@ namespace ControllerScouting
 
             string csvBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string csvProjectBaseDirectory = Path.GetFullPath(Path.Combine(csvBaseDirectory, @"..\..\"));
-            string csvPath = Path.Combine(csvProjectBaseDirectory, "Dynamic\\ManualMatchList.csv");
+            string csvPath = Path.Combine(csvProjectBaseDirectory, "ManualMatchList.csv");
 
             BackgroundCode.manualMatchList = ReadCsvFile(csvPath);
         }
@@ -585,8 +588,6 @@ namespace ControllerScouting
                         activity_record.PointScored = controller.PointsScored.ToString();
                         activity_record.RecordType = recordtype;
 
-                        controller.lastTransAlgaeLoc = controller.lastAlgaeAcqLoc;
-                        controller.lastTransCoralLoc = controller.lastCoralAcqLoc;
 
 
                         if (controller.hasCoral == 1 && controller.lastCoralLoc != " ")
@@ -602,6 +603,8 @@ namespace ControllerScouting
                             controller.lastAlgaeAcqLoc = " ";
                             controller.prevlastAlgaeAcqLoc = " ";
                         }
+                        controller.lastTransAlgaeLoc = controller.lastAlgaeAcqLoc;
+                        controller.lastTransCoralLoc = controller.lastCoralAcqLoc;
                         controller.lastCoralLoc = " ";
                         controller.lastAlgaeLoc = " ";
                         controller.TransactionCheck = false;
@@ -933,7 +936,49 @@ namespace ControllerScouting
                 }
 
                 controller.DisFlag = false;
-                BackgroundCode.activitiesQueue.Enqueue(activity_record);
+                Activity activityCopy = new Activity
+                {
+                    Team = activity_record.Team,
+                    Match = activity_record.Match,
+                    Time = activity_record.Time,
+                    RecordType = activity_record.RecordType,
+                    Mode = activity_record.Mode,
+                    DriveSta = activity_record.DriveSta,
+                    Defense = activity_record.Defense,
+                    DefenseValue = activity_record.DefenseValue,
+                    Avoidance = activity_record.Avoidance,
+                    ScouterName = activity_record.ScouterName,
+                    ScouterError = activity_record.ScouterError,
+                    Match_event = activity_record.Match_event,
+                    Strategy = activity_record.Strategy,
+                    Coop = activity_record.Coop,
+                    DZTime = activity_record.DZTime,
+                    Del_Near_Far = activity_record.Del_Near_Far,
+                    AcqAlgae_Near_Far = activity_record.AcqAlgae_Near_Far,
+                    AcqCoral_Near_Far = activity_record.AcqCoral_Near_Far,
+                    Starting_Loc = activity_record.Starting_Loc,
+                    Leave = activity_record.Leave,
+                    AcqCoralS = activity_record.AcqCoralS,
+                    AcqCoralF = activity_record.AcqCoralF,
+                    AcqAlgaeR = activity_record.AcqAlgaeR,
+                    AcqAlgaeF = activity_record.AcqAlgaeF,
+                    DelCoralL1 = activity_record.DelCoralL1,
+                    DelCoralL2 = activity_record.DelCoralL2,
+                    DelCoralL3 = activity_record.DelCoralL3,
+                    DelCoralL4 = activity_record.DelCoralL4,
+                    DelCoralF = activity_record.DelCoralF,
+                    DelAlgaeP = activity_record.DelAlgaeP,
+                    DelAlgaeN = activity_record.DelAlgaeN,
+                    DelAlgaeF = activity_record.DelAlgaeF,
+                    ClimbT = activity_record.ClimbT,
+                    EndState = activity_record.EndState,
+                    CageAttempt = activity_record.CageAttempt,
+                    SelectedCage = activity_record.SelectedCage,
+                    PointScored = activity_record.PointScored,
+                    DisAlg = activity_record.DisAlg
+                };
+                BackgroundCode.activitiesQueue.Enqueue(activityCopy);
+
                 if (endMatch)
                 {
                     SendToDatabase();
@@ -949,11 +994,27 @@ namespace ControllerScouting
                 BackgroundCode.seasonframework.SaveChanges();
             }
 
+            if (BackgroundCode.QRAdapter)
+            {
+                QRCodeForm frm = new QRCodeForm();
+                frm.Show();
+            }
+
             BackgroundCode.activitiesQueue.Clear();
 
             for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
             {
                 Controllers.ResetValues(i);
+            }
+        }
+        public static Bitmap GenerateQRCode()
+        {
+            //Get the data from the match and convert it to what QRScout is looking for
+            using (var qrGenerator = new QRCodeGenerator())
+            {
+                var qrCodeData = qrGenerator.CreateQrCode("REPLACE ME", QRCodeGenerator.ECCLevel.Q);
+                var qrCode = new QRCode(qrCodeData);
+                return qrCode.GetGraphic(20);
             }
         }
     }

@@ -34,6 +34,7 @@ namespace ControllerScouting.Utilities
         public static bool practiceChanged = false;
         public static bool wasPractice = false;
         public static int practiceTeam = 0;
+        public static bool QRAdapter = false;
         public BackgroundCode()
         {
 

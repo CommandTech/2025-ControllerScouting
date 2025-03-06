@@ -52,7 +52,6 @@ namespace ControllerScouting.Screens
             //If there is previous data, ask if the user wants to load it
             if (iniFile.Read("MatchData", "event", "") != null && iniFile.Read("MatchData", "event", "") != "" && iniFile.Read("MatchData", "event", "") != " ")
             {
-                MessageBox.Show(iniFile.Read("MatchData", "event", ""));
                 DialogResult loadPrevData = MessageBox.Show("Do you want to load previous data?", "Please Confirm", MessageBoxButtons.YesNo);
                 if (loadPrevData == DialogResult.Yes)
                 {
@@ -98,15 +97,15 @@ namespace ControllerScouting.Screens
             if (confirmExit == DialogResult.Yes)
             {
                 //If the event is loaded or manual matches are loaded, ask if the user wants to save the data
-                //if (Settings.Default.loadedEvent != null || Settings.Default.manualMatchList != null)
-                //{
-                //    confirmExit = MessageBox.Show("Do you want to save the current data?", "Please Confirm", MessageBoxButtons.YesNo);
-                //    if (confirmExit == DialogResult.Yes)
-                //    {
-                //        //Save the data
-                //        SaveData();
-                //    }
-                //}
+                if (BackgroundCode.loadedEvent != null || BackgroundCode.manualMatchList != null)
+                {
+                    confirmExit = MessageBox.Show("Do you want to save the current data?", "Please Confirm", MessageBoxButtons.YesNo);
+                    if (confirmExit == DialogResult.Yes)
+                    {
+                        //Save the data
+                        SaveData();
+                    }
+                }
 
                 //Close the connection then exit
                 BackgroundCode.seasonframework.Database.Connection.Close();
@@ -115,101 +114,99 @@ namespace ControllerScouting.Screens
         }
         private void SaveData()
         {
-            //if ((Settings.Default.loadedEvent != null || Settings.Default.manualMatchList != null) && Settings.Default.currentMatch != 0)
-            //{
-            //    try
-            //    {
-            //        // Write data to INI file
-            //        if (Settings.Default.loadedEvent == null)
-            //        {
-            //            iniFile.Write("MatchData", "event", "manualEvent");
-            //        }
-            //        else
-            //        {
-            //            iniFile.Write("MatchData", "event", Settings.Default.loadedEvent);
-            //        }
-            //        iniFile.Write("MatchData", "match_number", Settings.Default.currentMatch.ToString());
-            //        iniFile.Write("MatchData", "redRight", Settings.Default.redRight.ToString());
-            //        iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
-            //        string scouterNames = "";
-            //        string scouterLocations = "";
-            //        foreach (var robot in BackgroundCode.Robots)
-            //        {
-            //            if (scouterNames.Length != 0)
-            //            {
-            //                scouterNames += ",";
-            //            }
-            //            scouterNames += robot.GetScouterName();
+            if ((BackgroundCode.loadedEvent != null || BackgroundCode.manualMatchList != null) && BackgroundCode.currentMatch != 0)
+            {
+                try
+                {
+                    // Write data to INI file
+                    if (BackgroundCode.loadedEvent == null)
+                    {
+                        iniFile.Write("MatchData", "event", "manualEvent");
+                    }
+                    else
+                    {
+                        iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
+                    }
+                    iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
+                    iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
+                    iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
+                    iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
+                    string scouterNames = "";
+                    string scouterLocations = "";
+                    foreach (var robot in BackgroundCode.Robots)
+                    {
+                        if (scouterNames.Length != 0)
+                        {
+                            scouterNames += ",";
+                        }
+                        scouterNames += robot.GetScouterName();
 
-            //            if (scouterLocations.Length != 0)
-            //            {
-            //                scouterLocations += ",";
-            //            }
-            //            scouterLocations += robot.ScouterBox;
-            //        }
-            //        iniFile.Write("MatchData", "scouterNames", scouterNames);
-            //        iniFile.Write("MatchData", "scouterLocations", scouterLocations);
-            //        string cages = "";
-            //        foreach (var robot in BackgroundCode.Robots)
-            //        {
-            //            cages += ",";
-            //            cages += robot.Selected_Cage;
-            //        }
-            //        iniFile.Write("MatchData", "cages", cages);
+                        if (scouterLocations.Length != 0)
+                        {
+                            scouterLocations += ",";
+                        }
+                        scouterLocations += robot.ScouterBox;
+                    }
+                    iniFile.Write("MatchData", "scouterNames", scouterNames);
+                    iniFile.Write("MatchData", "scouterLocations", scouterLocations);
+                    string cages = "";
+                    foreach (var robot in BackgroundCode.Robots)
+                    {
+                        cages += ",";
+                        cages += robot.Selected_Cage;
+                    }
+                    iniFile.Write("MatchData", "cages", cages);
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error saving data: " + ex.Message);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No data to save.");
-            //}
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving data: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data to save.");
+            }
         }
         private void LoadData()
         {
-            //try
-            //{
-            //    comboBoxSelectRegional.Items.Add(iniFile.Read("MatchData", "event", "Please press the Load Events Button..."));
-            //    comboBoxSelectRegional.SelectedItem = iniFile.Read("MatchData", "event", "Please press the Load Events Button...");
-            //    Settings.Default.currentMatch = int.Parse(iniFile.Read("MatchData", "match_number", "")) - 1;
-            //    Settings.Default.redRight = bool.Parse(iniFile.Read("MatchData", "redRight", ""));
-            //    var teamPrioList = new List<string>(iniFile.Read("MatchData", "teamPrio", "").Split(','));
-            //    BackgroundCode.teamPrio.AddRange(teamPrioList.ToArray());
+            try
+            {
+                comboBoxSelectRegional.Items.Add(iniFile.Read("MatchData", "event", "Please press the Load Events Button..."));
+                comboBoxSelectRegional.SelectedItem = iniFile.Read("MatchData", "event", "Please press the Load Events Button...");
+                BackgroundCode.currentMatch = int.Parse(iniFile.Read("MatchData", "match_number", "")) - 1;
+                BackgroundCode.redRight = bool.Parse(iniFile.Read("MatchData", "redRight", ""));
+                var teamPrioList = new List<string>(iniFile.Read("MatchData", "teamPrio", "").Split(','));
+                BackgroundCode.teamPrio.AddRange(teamPrioList.ToArray());
+                BackgroundCode.homeTeam = iniFile.Read("MatchData", "homeTeam", "None");
 
 
-            //    List<string> scouterNames = new List<string>(iniFile.Read("MatchData", "scouterNames", "").Split(','));
-            //    List<string> scouterLocations = new List<string>(iniFile.Read("MatchData", "scouterLocations", "").Split(','));
-            //    List<string> cages = new List<string>(iniFile.Read("MatchData", "cages", "").Split(','));
+                List<string> scouterNames = new List<string>(iniFile.Read("MatchData", "scouterNames", "").Split(','));
+                List<string> scouterLocations = new List<string>(iniFile.Read("MatchData", "scouterLocations", "").Split(','));
+                List<string> cages = new List<string>(iniFile.Read("MatchData", "cages", "").Split(','));
 
-            //    for (int i = 0; i < 6; i++)
-            //    {
-            //        BackgroundCode.Robots[i]._ScouterName = (RobotState.SCOUTER_NAME)Enum.Parse(typeof(RobotState.SCOUTER_NAME), scouterNames[i]);
-            //        BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
-            //        BackgroundCode.Robots[i].Selected_Cage = cages[i];
-            //        BackgroundCode.cages[i] = BackgroundCode.Robots[i].Selected_Cage;
-            //    }
+                for (int i = 0; i < 6; i++)
+                {
+                    BackgroundCode.Robots[i]._ScouterName = (RobotState.SCOUTER_NAME)Enum.Parse(typeof(RobotState.SCOUTER_NAME), scouterNames[i]);
+                    BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
+                    BackgroundCode.Robots[i].Selected_Cage = cages[i];
+                    BackgroundCode.cages[i] = BackgroundCode.Robots[i].Selected_Cage;
+                }
 
 
 
-            //    BackgroundCode.seasonframework.Database.Connection.Close();
-            //    if (comboBoxSelectRegional.SelectedItem.ToString() == "manualEvent")
-            //    {
-            //        BuildInitialDatabase(true);
-            //    }
-            //    else
-            //    {
-            //        BuildInitialDatabase(false);
-            //    }
+                BackgroundCode.seasonframework.Database.Connection.Close();
+                if (comboBoxSelectRegional.SelectedItem.ToString() == "manualEvent")
+                {
+                    DatabaseCode.LoadManualMatches();
+                }
 
-            //    BtnpopulateForEvent_Click(null, null);
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show("Could not load data.", "Error: " + e);
-            //}
+                BtnpopulateForEvent_Click(null, null);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not load data.", "Error: " + e);
+            }
         }
         private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
@@ -247,36 +244,35 @@ namespace ControllerScouting.Screens
 
         private void BtnNextMatch_Click(object sender, EventArgs e)
         {
-            //if (cbxEndMatch.Checked)
-            //{
-            //    cbxEndMatch.Checked = false;
-            //    for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
-            //    {
-            //        DynamicResponses.TransactToDatabase(BackgroundCode.Robots[BackgroundCode.Robots[i].ScouterBox], "EndMatch", i);
-            //        DynamicResponses.ResetValues(i);
-            //    }
+            if (cbxEndMatch.Checked)
+            {
+                cbxEndMatch.Checked = false;
+                for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
+                {
+                    DatabaseCode.SaveToRecord(BackgroundCode.Robots[BackgroundCode.Robots[i].ScouterBox], "EndMatch", i);
+                }
 
-            //    if (Settings.Default.currentMatch == BackgroundCode.InMemoryMatchList.Count)
-            //    {
-            //        MessageBox.Show("You are at the last match.");
-            //    }
-            //    else
-            //    {
-            //        NextMatch();
-            //    }
-            //}
-            //else
-            //{
-            //    DialogResult dialogResult = MessageBox.Show("All unsaved data will be lost.  Continue?", "Next Match", MessageBoxButtons.YesNo);
-            //    if (dialogResult == DialogResult.Yes && Settings.Default.currentMatch != BackgroundCode.InMemoryMatchList.Count)
-            //    {
-            //        NextMatch();
-            //    }
-            //    else if (dialogResult == DialogResult.Yes)
-            //    {
-            //        MessageBox.Show("You are at the last match.");
-            //    }
-            //}
+                if (BackgroundCode.currentMatch == BackgroundCode.InMemoryMatchList.Count)
+                {
+                    MessageBox.Show("You are at the last match.");
+                }
+                else
+                {
+                    NextMatch();
+                }
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("All unsaved data will be lost.  Continue?", "Next Match", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes && BackgroundCode.currentMatch != BackgroundCode.InMemoryMatchList.Count)
+                {
+                    NextMatch();
+                }
+                else if (dialogResult == DialogResult.Yes)
+                {
+                    MessageBox.Show("You are at the last match.");
+                }
+            }
         }
 
         private void NextMatch()
@@ -287,16 +283,16 @@ namespace ControllerScouting.Screens
 
         private void BtnPrevMatch_Click(object sender, EventArgs e)
         {
-            //if (Settings.Default.currentMatch == 0 || Settings.Default.currentMatch == 1)
-            //{
-            //    MessageBox.Show("You are at the first match.");
-            //}
-            //else
-            //{
-            //    Settings.Default.currentMatch--;
+            if (BackgroundCode.currentMatch == 0 || BackgroundCode.currentMatch == 1)
+            {
+                MessageBox.Show("You are at the first match.");
+            }
+            else
+            {
+                BackgroundCode.currentMatch--;
 
-            //    LoadMatch();
-            //}
+                LoadMatch();
+            }
         }
         private void LoadMatch()
         {

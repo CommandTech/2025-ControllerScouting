@@ -23,11 +23,14 @@ namespace ControllerScouting.Gamepad
                 {
                     (() => gamepad.RTHRight_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up)),
                     (() => gamepad.RTHLeft_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down)),
-                    (() => gamepad.R3_Press, () => robot.Transact(controllerNumber)),
+                    (() => gamepad.RightTrigger_Press, () => robot.Transact(controllerNumber,false)),
+                    (() => gamepad.R3_Press, () => robot.Transact(controllerNumber,true)),
                     (() => gamepad.LeftButton_Press, () => robot.CoralDelivery(0)),
                     (() => gamepad.RightButton_Press, () => robot.AlgaeDelivery(0)),
-                    (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(gamepad.RightButton_Down))
-                };
+                    (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(gamepad.RightButton_Down)),
+                    (() => gamepad.LeftButton_Press || gamepad.LeftTrigger_Press, () => robot.SetPreviousAcquires(false)),
+                    (() => gamepad.RightButton_Release, () => robot.SetPreviousAcquires(true))
+            };
 
                 List<(Func<bool> buttonPress, Action action)> robotActions = new List<(Func<bool> buttonPress, Action action)>(baseRobotActions);
 
@@ -52,7 +55,7 @@ namespace ControllerScouting.Gamepad
                         (() => gamepad.LTHDown_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Down)),
 
                         // Leave Auto Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop,controllerNumber)),
 
 
                         // Near Far Side
@@ -60,8 +63,8 @@ namespace ControllerScouting.Gamepad
                         (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
                         // Coral Acquire
-                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
+                        (() => gamepad.LeftButton_Press && !robot.Flag, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
 
                         // Algae Acquire
                         (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
@@ -83,16 +86,16 @@ namespace ControllerScouting.Gamepad
                     robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
                     {
                         // Leave Teleop Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)),
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
 
                         // Near Far Side
                         (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
                         (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
                         // Coral Acquire
-                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
+                        (() => gamepad.LeftButton_Press && !robot.Flag, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
 
                         // Algae Acquire
                         (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
@@ -114,16 +117,16 @@ namespace ControllerScouting.Gamepad
                     robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
                     {
                         // Leave Defense Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
 
                         // Near Far Side
                         (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
                         (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
 
                         // Coral Acquire
-                        (() => gamepad.LeftButton_Press, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press, () => robot.CoralAcquire(1)),
+                        (() => gamepad.LeftButton_Press && ! robot.Flag, () => robot.CoralAcquire(0)),
+                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
 
                         // Algae Acquire
                         (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
@@ -139,8 +142,8 @@ namespace ControllerScouting.Gamepad
                     robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
                     {
                         // Leave Surfacing Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense)),
+                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
+                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
 
                         // Timer controls
                         (() => gamepad.BackButton_Press, () => robot.StopTimer()),

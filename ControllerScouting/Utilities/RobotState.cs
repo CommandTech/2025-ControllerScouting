@@ -330,20 +330,27 @@ namespace ControllerScouting.Utilities
         }
 
 
-        public void Transact(int controllerNumber)
+        public void Transact(int controllerNumber, bool isMatchEevent)
         {
-            if (this.Match_event == MATCHEVENT_NAME.Match_Event)
+            if (isMatchEevent)
             {
-                this.ScouterError += 100000;
+                if (Match_event == MATCHEVENT_NAME.Match_Event)
+                {
+                    ScouterError += 100000;
+                }
+                else
+                {
+                    DatabaseCode.SaveToRecord(this, "Match_Event", controllerNumber);
+                    if (Match_event == MATCHEVENT_NAME.NoShow)
+                    {
+                        NoSho = true;
+                    }
+                    Match_event = MATCHEVENT_NAME.Match_Event;
+                }
             }
             else
             {
-                DatabaseCode.SaveToRecord(this, "Match_Event", controllerNumber);
-                if (this.Match_event == MATCHEVENT_NAME.NoShow)
-                {
-                    this.NoSho = true;
-                }
-                this.Match_event = MATCHEVENT_NAME.Match_Event;
+                DatabaseCode.SaveToRecord(this, "Activities", controllerNumber);
             }
         }
         public void CoralAcquire(int level)
@@ -351,11 +358,18 @@ namespace ControllerScouting.Utilities
             switch (level)
             {
                 case 0:
-                    this.lastCoralAcqLoc = "Station";
+                    lastCoralAcqLoc = "Station";
                     break;
                 case 1:
-                    this.lastCoralAcqLoc = "Floor";
+                    lastCoralAcqLoc = "Floor";
                     break;
+            }
+            AcqCoralNearFar = DelNearFar;
+            hasCoral++;
+            if (hasCoral > 1)
+            {
+                ScouterError += 100000000;
+                hasCoral = 1;
             }
         }
         public void AlgaeAcquire(int level)
@@ -363,58 +377,65 @@ namespace ControllerScouting.Utilities
             switch (level)
             {
                 case 0:
-                    this.lastAlgaeAcqLoc = "Reef";
+                    lastAlgaeAcqLoc = "Reef";
                     break;
                 case 1:
-                    this.lastAlgaeAcqLoc = "Floor";
+                    lastAlgaeAcqLoc = "Floor";
                     break;
+            }
+            AcqAlgaeNearFar = DelNearFar;
+            hasAlgae++;
+            if (hasAlgae > 1)
+            {
+                ScouterError += 1000000;
+                hasAlgae = 1;
             }
         }
         public void CoralDelivery(int level)
         {
-            if (!this.Flag && (this.lastCoralAcqLoc != " " || this.totalCoralDeliveries == 0))
+            if (!Flag && (lastCoralAcqLoc != " " || totalCoralDeliveries == 0))
             {
-                if (this.totalCoralDeliveries == 0 && this.hasCoral == 0)
+                if (totalCoralDeliveries == 0 && hasCoral == 0)
                 {
-                    this.hasCoral++;
+                    hasCoral++;
                 }
                 switch (level)
                 {
                     case 4:
-                        this.lastCoralLoc = "L4";
-                        this.TransactionCheck = true;
+                        lastCoralLoc = "L4";
+                        TransactionCheck = true;
                         break;
                     case 3:
-                        this.lastCoralLoc = "L3";
-                        this.TransactionCheck = true;
+                        lastCoralLoc = "L3";
+                        TransactionCheck = true;
                         break;
                     case 2:
-                        this.lastCoralLoc = "L2";
-                        this.TransactionCheck = true;
+                        lastCoralLoc = "L2";
+                        TransactionCheck = true;
                         break;
                     case 1:
-                        this.lastCoralLoc = "L1";
-                        this.TransactionCheck = true;
+                        lastCoralLoc = "L1";
+                        TransactionCheck = true;
                         break;
                     case 0:
-                        if (this.lastCoralAcqLoc == this.prevlastCoralAcqLoc && this.lastCoralAcqLoc != " " && !this.Flag)
+                        if (lastCoralAcqLoc == prevlastCoralAcqLoc && lastCoralAcqLoc != " " && !Flag)
                         {
-                            if (this.TransactionCheck && this.totalCoralDeliveries == 0 && this.lastCoralLoc == "Floor")
+                            if (TransactionCheck && totalCoralDeliveries == 0 && lastCoralLoc == "Floor")
                             {
-                                this.hasCoral++;
-                                this.lastCoralAcqLoc = " ";
-                                this.lastCoralLoc = "Floor";
-                                this.AcqCoralNearFar = false;
+                                hasCoral++;
+                                lastCoralAcqLoc = " ";
+                                lastCoralLoc = "Floor";
+                                AcqCoralNearFar = false;
                             }
                             else
                             {
-                                this.lastCoralLoc = "Floor";
-                                this.TransactionCheck = true;
+                                lastCoralLoc = "Floor";
+                                TransactionCheck = true;
                             }
                         }
                         break;
                 }
-                this.TransactionCheck = true;
+                TransactionCheck = true;
             }
         }
         public void AlgaeDelivery(int level)
@@ -422,34 +443,45 @@ namespace ControllerScouting.Utilities
             switch (level)
             {
                 case 2:
-                    this.lastAlgaeLoc = "Net";
-                    this.TransactionCheck = true;
+                    lastAlgaeLoc = "Net";
+                    TransactionCheck = true;
                     break;
                 case 1:
-                    this.lastAlgaeLoc = "Processor";
-                    this.TransactionCheck = true;
+                    lastAlgaeLoc = "Processor";
+                    TransactionCheck = true;
                     break;
                 case 0:
-                    if (this.lastAlgaeAcqLoc == this.prevlastAlgaeAcqLoc && this.lastAlgaeAcqLoc != " ")
+                    if (lastAlgaeAcqLoc == prevlastAlgaeAcqLoc && lastAlgaeAcqLoc != " ")
                     {
-                        this.lastAlgaeLoc = "Floor";
-                        this.TransactionCheck = true;
+                        lastAlgaeLoc = "Floor";
+                        TransactionCheck = true;
                     }
                     break;
             }
-            this.TransactionCheck = true;
+            TransactionCheck = true;
         }
         public void AlgaeFlag(bool value)
         {
-            this.Flag = value;
+            Flag = value;
         }
-        public void ChangeMode(ROBOT_MODE mode)
+        public void ChangeMode(ROBOT_MODE mode, int controllerNumber)
         {
+            if (_RobotMode == ROBOT_MODE.Auto)
+            {
+                DatabaseCode.SaveToRecord(this, "EndAuto", controllerNumber);
+            }
             _RobotMode = mode;
+
+            if (_RobotMode == ROBOT_MODE.Surfacing)
+            {
+                ClimbT_StopWatch.Start();
+                ClimbT_StopWatch_running = true;
+                ClimbT = ClimbT_StopWatch.Elapsed;
+            }
         }
         public void CycleAvoidance()
         {
-            this.Avo_Rat++;
+            Avo_Rat++;
             if (Avo_Rat > 4)
             {
                 Avo_Rat = 0;
@@ -457,7 +489,7 @@ namespace ControllerScouting.Utilities
         }
         public void CycleDefense()
         {
-            this.Def_Rat++;
+            Def_Rat++;
             if (Def_Rat > 4)
             {
                 Def_Rat = 0;
@@ -465,7 +497,7 @@ namespace ControllerScouting.Utilities
         }
         public void CycleEffectiveness()
         {
-            this.Def_Eff++;
+            Def_Eff++;
             if (Def_Eff > 4)
             {
                 Def_Eff = 0;
@@ -473,16 +505,44 @@ namespace ControllerScouting.Utilities
         }
         public void StopTimer()
         {
-
+            if (ClimbT_StopWatch_running)
+            {
+                ClimbT_StopWatch.Stop();
+                ClimbT_StopWatch_running = false;
+                ClimbT = ClimbT_StopWatch.Elapsed;
+                Cage_Attempt = CAGE_ATTEMPT.Y;
+            }
+            else
+            {
+                ClimbT_StopWatch.Start();
+                ClimbT_StopWatch_running = true;
+                ClimbT = ClimbT_StopWatch.Elapsed;
+            }
         }
         public void ResetTimer()
         {
+            ClimbT = TimeSpan.Zero;
+            ClimbT_StopWatch.Reset();
+            ClimbT_StopWatch_running = false;
 
+            Cage_Attempt = CAGE_ATTEMPT.N;
         }
         public void ChangeSide(bool side)
         {
             DelNearFar = side;
-            //Red right logic
+        }
+        public void SetPreviousAcquires(bool isAlgae)
+        {
+            if (isAlgae)
+            {
+                prevlastAlgaeLoc = lastAlgaeLoc;
+                prevlastAlgaeAcqLoc = lastAlgaeAcqLoc;
+            }
+            else
+            {
+                prevlastCoralLoc = lastCoralLoc;
+                prevlastCoralAcqLoc = lastCoralAcqLoc;
+            }
         }
     }
 }

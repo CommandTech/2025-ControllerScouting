@@ -57,55 +57,56 @@ namespace ControllerScouting.Utilities
         // Method to save data or perform cleanup on crash
         static void SaveDataOnCrash()
         {
-            //    try
-            //    {
-            //        //Setting the variables of the config file
-            //        string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            //        string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
-            //        string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-            //        INIFile iniFile = new INIFile(iniPath);
+            try
+            {
+                //Setting the variables of the config file
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
+                string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
+                INIFile iniFile = new INIFile(iniPath);
 
-            //        //Determines if the loaded event is a manual event or a real event
-            //        //Then saves the data to the config file
-            //        if (Settings.Default.loadedEvent == null)
-            //        {
-            //            iniFile.Write("MatchData", "event", "manualEvent");
-            //        }
-            //        else
-            //        {
-            //            iniFile.Write("MatchData", "event", Settings.Default.loadedEvent);
-            //        }
-            //        iniFile.Write("MatchData", "match_number", Settings.Default.currentMatch.ToString());
-            //        iniFile.Write("MatchData", "redRight", Settings.Default.redRight.ToString());
-            //        iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
-            //        //Gets the current scouter names and locations to save
-            //        string scouterNames = "";
-            //        string scouterLocations = "";
-            //        foreach (var robot in BackgroundCode.Robots)
-            //        {
-            //            if (scouterNames.Length != 0)
-            //            {
-            //                scouterNames += ",";
-            //            }
-            //            scouterNames += robot.GetScouterName();
+                //Determines if the loaded event is a manual event or a real event
+                //Then saves the data to the config file
+                if (BackgroundCode.loadedEvent == null)
+                {
+                    iniFile.Write("MatchData", "event", "manualEvent");
+                }
+                else
+                {
+                    iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
+                }
+                iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
+                iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
+                iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
+                iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
+                //Gets the current scouter names and locations to save
+                string scouterNames = "";
+                string scouterLocations = "";
+                foreach (var robot in BackgroundCode.Robots)
+                {
+                    if (scouterNames.Length != 0)
+                    {
+                        scouterNames += ",";
+                    }
+                    scouterNames += robot.GetScouterName();
 
-            //            if (scouterLocations.Length != 0)
-            //            {
-            //                scouterLocations += ",";
-            //            }
-            //            scouterLocations += robot.ScouterBox;
-            //        }
-            //        iniFile.Write("MatchData", "scouterNames", scouterNames);
-            //        iniFile.Write("MatchData", "scouterLocations", scouterLocations);
+                    if (scouterLocations.Length != 0)
+                    {
+                        scouterLocations += ",";
+                    }
+                    scouterLocations += robot.ScouterBox;
+                }
+                iniFile.Write("MatchData", "scouterNames", scouterNames);
+                iniFile.Write("MatchData", "scouterLocations", scouterLocations);
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        // Handle any exceptions that occur during the save process
-            //        MessageBox.Show("Error saving data on crash: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the save process
+                MessageBox.Show("Error saving data on crash: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            //    Environment.Exit(0);
+            Environment.Exit(0);
         }
     }
 }
