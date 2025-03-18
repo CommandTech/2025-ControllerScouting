@@ -98,12 +98,6 @@
     <Compile Include="Screens\PriorityForm.Designer.cs">
       <DependentUpon>PriorityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\QRCodeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\QRCodeForm.Designer.cs">
-      <DependentUpon>QRCodeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\SwapScouters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\FunctionsForm.resx">
       <DependentUpon>FunctionsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\QRCodeForm.resx">
-      <DependentUpon>QRCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="config.ini" />
     <None Include="ManualMatchList.csv" />

@@ -1,6 +1,5 @@
 ﻿using ControllerScouting.Gamepad;
 using ControllerScouting.Properties;
-using ControllerScouting.Screens;
 using ControllerScouting.Utilities;
 using QRCoder;
 using System;
@@ -992,12 +991,6 @@ namespace ControllerScouting
                 //Save Record to the database
                 BackgroundCode.seasonframework.ActivitySet.Add(activity);
                 BackgroundCode.seasonframework.SaveChanges();
-            }
-
-            if (BackgroundCode.QRAdapter)
-            {
-                QRCodeForm frm = new QRCodeForm();
-                frm.Show();
             }
 
             BackgroundCode.activitiesQueue.Clear();

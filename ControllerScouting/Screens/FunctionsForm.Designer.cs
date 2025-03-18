@@ -15,7 +15,6 @@
             this.btnCages = new System.Windows.Forms.Button();
             this.comboPracticeTeams = new System.Windows.Forms.ComboBox();
             this.btnQRScout = new System.Windows.Forms.Button();
-            this.cbxQRAdapt = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // UpdateScouterText
@@ -142,24 +141,10 @@
             this.btnQRScout.Size = new System.Drawing.Size(75, 23);
             this.btnQRScout.TabIndex = 0;
             // 
-            // cbxQRAdapt
-            // 
-            this.cbxQRAdapt.AutoSize = true;
-            this.cbxQRAdapt.BackColor = System.Drawing.Color.Black;
-            this.cbxQRAdapt.ForeColor = System.Drawing.Color.Yellow;
-            this.cbxQRAdapt.Location = new System.Drawing.Point(263, 164);
-            this.cbxQRAdapt.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxQRAdapt.Name = "cbxQRAdapt";
-            this.cbxQRAdapt.Size = new System.Drawing.Size(134, 20);
-            this.cbxQRAdapt.TabIndex = 362;
-            this.cbxQRAdapt.Text = "QRScout Adapter";
-            this.cbxQRAdapt.UseVisualStyleBackColor = false;
-            // 
             // FunctionsForm
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(408, 362);
-            this.Controls.Add(this.cbxQRAdapt);
             this.Controls.Add(this.comboPracticeTeams);
             this.Controls.Add(this.btnCages);
             this.Controls.Add(this.btnUpdateDatabase);
@@ -187,6 +172,5 @@
         private System.Windows.Forms.Button btnCages;
         private System.Windows.Forms.ComboBox comboPracticeTeams;
         private System.Windows.Forms.Button btnQRScout;
-        private System.Windows.Forms.CheckBox cbxQRAdapt;
     }
 }

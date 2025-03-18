@@ -10,7 +10,6 @@ namespace ControllerScouting.Screens
         {
             InitializeComponent();
             cbxPractice.Checked = BackgroundCode.practiceMode;
-            cbxQRAdapt.Checked = BackgroundCode.QRAdapter;
 
             comboPracticeTeams.Visible = BackgroundCode.practiceMode;
 
@@ -38,7 +37,6 @@ namespace ControllerScouting.Screens
 
         private void FuncOK_Click(object sender, EventArgs e)
         {
-            BackgroundCode.QRAdapter = cbxQRAdapt.Checked;
             this.Hide();
         }
 
