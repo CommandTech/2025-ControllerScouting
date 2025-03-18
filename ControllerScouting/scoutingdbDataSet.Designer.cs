@@ -3978,7 +3978,7 @@ SELECT Id, Team, Match, Time, RecordType, Mode, DriveSta, Defense, DefenseValue,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4923,7 +4923,7 @@ SELECT Id, Team, Match, Time, RecordType, Mode, DriveSta, Defense, DefenseValue,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

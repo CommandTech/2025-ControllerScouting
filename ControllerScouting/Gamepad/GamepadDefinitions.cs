@@ -1,5 +1,4 @@
-﻿using ControllerScouting.Utilities;
-using SharpDX.DirectInput;
+﻿using SharpDX.DirectInput;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +32,7 @@ namespace ControllerScouting.Gamepad
         private bool _startButton = false;
         private bool _r3 = false;
         private bool _l3 = false;
-        //private string _deviceInfo;
+        private string _deviceInfo;
 
         //previous values
 
@@ -119,7 +118,7 @@ namespace ControllerScouting.Gamepad
                 _lt = (Z > 98);
 
                 //read device info
-                //_deviceInfo = _js.Information.InstanceName;
+                _deviceInfo = _js.Information.InstanceName;
             }
             catch (Exception)
             {
@@ -349,6 +348,8 @@ namespace ControllerScouting.Gamepad
 
         public bool StartButton_Down
         { get { return _startButton; } }
+        public string DeviceInfo
+        { get { return _deviceInfo; } }
 
         private void RecordOldValues()
         {

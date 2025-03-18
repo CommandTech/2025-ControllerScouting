@@ -49,11 +49,11 @@ namespace ControllerScouting.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\sqlexpress;Initial Catalog=scoutingdb;Integrated Security=T" +
-            "rue")]
-        public string scoutingdbConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=scoutingdb;Integrated Security=T" +
+            "rue;Encrypt=True;TrustServerCertificate=True")]
+        public string _scoutingdbConnectionStringServer {
             get {
-                return ((string)(this["scoutingdbConnectionString"]));
+                return ((string)(this["_scoutingdbConnectionStringServer"]));
             }
         }
     }

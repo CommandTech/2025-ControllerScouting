@@ -1,12 +1,11 @@
 ﻿using ControllerScouting.Gamepad;
 using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
-using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace ControllerScouting
@@ -986,12 +985,35 @@ namespace ControllerScouting
         }
         private static void SendToDatabase()
         {
+            bool hasConnection = CheckConnection();
+            if (hasConnection)
+            {
+                //Writes to server database
+                try
+                {
+                    BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
+                    foreach (Activity activity in BackgroundCode.activitiesQueue)
+                    {
+                        //Save Record to the database
+                        BackgroundCode.seasonframework.ActivitySet.Add(activity);
+                        BackgroundCode.seasonframework.SaveChanges();
+                    }
+                }
+                catch (Exception)
+                {
+                    //if no internet access, stops trying to write to server
+                }
+            }
+
+            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
             foreach (Activity activity in BackgroundCode.activitiesQueue)
             {
+                //Saves to local database for redundancy
                 //Save Record to the database
                 BackgroundCode.seasonframework.ActivitySet.Add(activity);
                 BackgroundCode.seasonframework.SaveChanges();
             }
+
 
             BackgroundCode.activitiesQueue.Clear();
 
@@ -999,16 +1021,43 @@ namespace ControllerScouting
             {
                 Controllers.ResetValues(i);
             }
-        }
-        public static Bitmap GenerateQRCode()
-        {
-            //Get the data from the match and convert it to what QRScout is looking for
-            using (var qrGenerator = new QRCodeGenerator())
+
+            if (hasConnection)
             {
-                var qrCodeData = qrGenerator.CreateQrCode("REPLACE ME", QRCodeGenerator.ECCLevel.Q);
-                var qrCode = new QRCode(qrCodeData);
-                return qrCode.GetGraphic(20);
+                SyncDatabases();
             }
+        }
+        private static bool CheckConnection()
+        {
+            Console.WriteLine(BackgroundCode.seasonframework.Database.Connection.DataSource);
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://96.236.24.79:3000"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static void SyncDatabases()
+        {
+            SeasonContext localDB = new SeasonContext();
+            localDB.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+
+            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
+
+            if (BackgroundCode.seasonframework.Database == localDB.Database)
+            {
+                return;
+            }
+            BackgroundCode.seasonframework.ActivitySet.RemoveRange(BackgroundCode.seasonframework.ActivitySet);
+            BackgroundCode.seasonframework.ActivitySet.AddRange(localDB.ActivitySet);
+            BackgroundCode.seasonframework.SaveChanges();
         }
     }
 }
