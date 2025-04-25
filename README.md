@@ -4,7 +4,7 @@ Credit to Team 842 Falcon Robotics for the original scouting system.
 https://www.chiefdelphi.com/t/falcon-scouting-system-release/126808
 
 
-And credit for Team 250 for continuing to develop the system since 2011.
+And credit for Team 250 for continuing to develop the system since 2014.
 
 https://www.chiefdelphi.com/t/250-the-dynamos-2023-scouting-system-dynoscout/444968
 
