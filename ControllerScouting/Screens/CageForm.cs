@@ -7,7 +7,7 @@ namespace ControllerScouting.Screens
 {
     internal partial class CageForm : Form
     {
-        private readonly List<ComboBox> Cages = new List<ComboBox>();
+        private readonly List<ComboBox> Cages = [];
         public CageForm()
         {
             InitializeComponent();

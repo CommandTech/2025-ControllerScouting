@@ -63,7 +63,7 @@ namespace ControllerScouting.Utilities
                 string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
                 string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-                INIFile iniFile = new INIFile(iniPath);
+                INIFile iniFile = new(iniPath);
 
                 //Determines if the loaded event is a manual event or a real event
                 //Then saves the data to the config file

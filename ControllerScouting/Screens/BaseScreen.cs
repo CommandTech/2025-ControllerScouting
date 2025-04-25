@@ -17,9 +17,9 @@ namespace ControllerScouting.Screens
         private static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
         private static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-        private static readonly INIFile iniFile = new INIFile(iniPath);
+        private static readonly INIFile iniFile = new(iniPath);
         private static bool loading = false;
-        private static readonly List<Thread> controllerThreads = new List<Thread>();
+        private static readonly List<Thread> controllerThreads = [];
         public BaseScreen()
         {
             //Initialization of the screen
@@ -98,7 +98,7 @@ namespace ControllerScouting.Screens
             {
                 if (gamePad != null)
                 {
-                    Thread controllerThread = new Thread(() => ControllerThreadMethod(gamePad));
+                    Thread controllerThread = new(() => ControllerThreadMethod(gamePad));
                     controllerThread.Start();
                     controllerThreads.Add(controllerThread);
                 }
@@ -191,13 +191,13 @@ namespace ControllerScouting.Screens
                 BackgroundCode.currentMatch = int.Parse(iniFile.Read("MatchData", "match_number", "")) - 1;
                 BackgroundCode.redRight = bool.Parse(iniFile.Read("MatchData", "redRight", ""));
                 var teamPrioList = new List<string>(iniFile.Read("MatchData", "teamPrio", "").Split(','));
-                BackgroundCode.teamPrio.AddRange(teamPrioList.ToArray());
+                BackgroundCode.teamPrio.AddRange([.. teamPrioList]);
                 BackgroundCode.homeTeam = iniFile.Read("MatchData", "homeTeam", "None");
 
 
-                List<string> scouterNames = new List<string>(iniFile.Read("MatchData", "scouterNames", "").Split(','));
-                List<string> scouterLocations = new List<string>(iniFile.Read("MatchData", "scouterLocations", "").Split(','));
-                List<string> cages = new List<string>(iniFile.Read("MatchData", "cages", "").Split(','));
+                List<string> scouterNames = [.. iniFile.Read("MatchData", "scouterNames", "").Split(',')];
+                List<string> scouterLocations = [.. iniFile.Read("MatchData", "scouterLocations", "").Split(',')];
+                List<string> cages = [.. iniFile.Read("MatchData", "cages", "").Split(',')];
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -339,11 +339,11 @@ namespace ControllerScouting.Screens
                 BackgroundCode.InMemoryMatchList.Clear();
                 if (BackgroundCode.manualMatchList != null)
                 {
-                    List<string> manualTeams = new List<string>();
+                    List<string> manualTeams = [];
 
                     for (int i = 0; i < BackgroundCode.manualMatchList.Count; i++)
                     {
-                        Match matchData = new Match
+                        Match matchData = new()
                         {
                             Match_number = i,
                             Set_number = i,
@@ -377,7 +377,7 @@ namespace ControllerScouting.Screens
 
                     foreach (var team in manualTeams)
                     {
-                        TeamSummary teamData = new TeamSummary
+                        TeamSummary teamData = new()
                         {
                             Team_key = "frc" + team,
                             Team_number = team,
@@ -404,7 +404,7 @@ namespace ControllerScouting.Screens
 
                     string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Settings.Default.API_KEY}";
 
-                    using (HttpClient client = new HttpClient())
+                    using (HttpClient client = new())
                     {
                         try
                         {
@@ -431,36 +431,34 @@ namespace ControllerScouting.Screens
                             }
                             Log("Teams -> " + string.Join(", ", JSONteams.Select(item => item.Team_number)));
 
-                            using (var db = new SeasonContext())
+                            using var db = new SeasonContext();
+                            var teamNumber = BackgroundCode.Robots[0].TeamName;
+                            var result = db.Teamset.FirstOrDefault(b => b.Team_key == teamNumber);
+                            if (result == null)
                             {
-                                var teamNumber = BackgroundCode.Robots[0].TeamName;
-                                var result = db.Teamset.FirstOrDefault(b => b.Team_key == teamNumber);
-                                if (result == null)
+                                //Recording a list of teams to the database
+                                JSONteams = (List<TeamSummary>)Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer, typeof(List<TeamSummary>));
+
+                                dynamic objt = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
+
+                                var team_key = "0";
+                                for (int i = 0; i < JSONteams.Count; i++)
                                 {
-                                    //Recording a list of teams to the database
-                                    JSONteams = (List<TeamSummary>)Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer, typeof(List<TeamSummary>));
-
-                                    dynamic objt = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
-
-                                    var team_key = "0";
-                                    for (int i = 0; i < JSONteams.Count; i++)
+                                    team_key = objt[i].key;
+                                    var result2 = db.Teamset.FirstOrDefault(b => b.Team_key == team_key);
+                                    if (result2 == null)
                                     {
-                                        team_key = objt[i].key;
-                                        var result2 = db.Teamset.FirstOrDefault(b => b.Team_key == team_key);
-                                        if (result2 == null)
+                                        TeamSummary team_record = new()
                                         {
-                                            TeamSummary team_record = new TeamSummary
-                                            {
-                                                Team_key = objt[i].key,
-                                                Team_number = objt[i].team_number,
-                                                Event_key = regional,
-                                                Nickname = objt[i].nickname
-                                            };
+                                            Team_key = objt[i].key,
+                                            Team_number = objt[i].team_number,
+                                            Event_key = regional,
+                                            Nickname = objt[i].nickname
+                                        };
 
-                                            //Save changes
-                                            BackgroundCode.seasonframework.Teamset.Add(team_record);
-                                            BackgroundCode.seasonframework.SaveChanges();
-                                        }
+                                        //Save changes
+                                        BackgroundCode.seasonframework.Teamset.Add(team_record);
+                                        BackgroundCode.seasonframework.SaveChanges();
                                     }
                                 }
                             }
@@ -473,7 +471,7 @@ namespace ControllerScouting.Screens
 
                     string matchesuri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/matches?X-TBA-Auth-Key={Settings.Default.API_KEY}";
 
-                    using (HttpClient client = new HttpClient())
+                    using (HttpClient client = new())
                     {
                         try
                         {
@@ -492,7 +490,7 @@ namespace ControllerScouting.Screens
                             {
                                 if (JSONmatches[i].Comp_level == "qm")
                                 {
-                                    Match match_record = new Match();
+                                    Match match_record = new();
 
                                     MatchCount++;
                                     BackgroundCode.MatchNumbers.Add(MatchCount);
@@ -532,7 +530,7 @@ namespace ControllerScouting.Screens
                         }
                     }
 
-                    BackgroundCode.InMemoryMatchList = BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number).ToList();
+                    BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
                     BackgroundCode.currentMatch = 0;
                 }
                 loading = false;
@@ -556,36 +554,34 @@ namespace ControllerScouting.Screens
             {
                 string uri = $"https://www.thebluealliance.com/api/v3/events/{DateTime.Now.Year}?X-TBA-Auth-Key={Settings.Default.API_KEY}";
 
-                using (HttpClient client = new HttpClient())
+                using HttpClient client = new();
+                try
                 {
-                    try
+                    HttpResponseMessage response = await client.GetAsync(uri);
+                    response.EnsureSuccessStatusCode(); // Throw if not a success code.
+
+                    string responseFromServer = await response.Content.ReadAsStringAsync();
+
+                    List<EventSummary> JSONevents = JsonConvert.DeserializeObject<List<EventSummary>>(responseFromServer);
+                    List<KeyValuePair<string, string>> elist = [];
+
+                    BackgroundCode.seasonframework.Eventset.AddRange(JSONevents);
+                    BackgroundCode.seasonframework.SaveChanges();
+
+                    foreach (var item in JSONevents)
                     {
-                        HttpResponseMessage response = await client.GetAsync(uri);
-                        response.EnsureSuccessStatusCode(); // Throw if not a success code.
-
-                        string responseFromServer = await response.Content.ReadAsStringAsync();
-
-                        List<EventSummary> JSONevents = JsonConvert.DeserializeObject<List<EventSummary>>(responseFromServer);
-                        List<KeyValuePair<string, string>> elist = new List<KeyValuePair<string, string>>();
-
-                        BackgroundCode.seasonframework.Eventset.AddRange(JSONevents);
-                        BackgroundCode.seasonframework.SaveChanges();
-
-                        foreach (var item in JSONevents)
-                        {
-                            elist.Add(new KeyValuePair<string, string>(item.Event_code, $"{item.Event_code} - {item.Name}"));
-                        }
-                        this.comboBoxSelectRegional.DataSource = elist;
+                        elist.Add(new KeyValuePair<string, string>(item.Event_code, $"{item.Event_code} - {item.Name}"));
                     }
-                    catch (HttpRequestException)
+                    this.comboBoxSelectRegional.DataSource = elist;
+                }
+                catch (HttpRequestException)
+                {
+                    DialogResult manualMatches = MessageBox.Show("Do you want to load manual matches?", "Error loading Blue Alliance data.", MessageBoxButtons.YesNo);
+                    if (manualMatches == DialogResult.Yes)
                     {
-                        DialogResult manualMatches = MessageBox.Show("Do you want to load manual matches?", "Error loading Blue Alliance data.", MessageBoxButtons.YesNo);
-                        if (manualMatches == DialogResult.Yes)
-                        {
-                            DatabaseCode.LoadManualMatches();
-                            comboBoxSelectRegional.Items.Add("manualEvent");
-                            comboBoxSelectRegional.SelectedItem = "manualEvent";
-                        }
+                        DatabaseCode.LoadManualMatches();
+                        comboBoxSelectRegional.Items.Add("manualEvent");
+                        comboBoxSelectRegional.SelectedItem = "manualEvent";
                     }
                 }
             }
@@ -598,15 +594,15 @@ namespace ControllerScouting.Screens
                 {
                     if (i > 0)
                     {
-                        List<string> teams = new List<string>
-                            {
+                        List<string> teams =
+                            [
                                 BackgroundCode.InMemoryMatchList[i].Redteam1.Substring(3),
                                 BackgroundCode.InMemoryMatchList[i].Redteam2.Substring(3),
                                 BackgroundCode.InMemoryMatchList[i].Redteam3.Substring(3),
                                 BackgroundCode.InMemoryMatchList[i].Blueteam1.Substring(3),
                                 BackgroundCode.InMemoryMatchList[i].Blueteam2.Substring(3),
                                 BackgroundCode.InMemoryMatchList[i].Blueteam3.Substring(3)
-                            };
+                            ];
 
                         if (teams.Contains(BackgroundCode.homeTeam))
                         {
@@ -627,12 +623,12 @@ namespace ControllerScouting.Screens
 
         private void BtnFunctions_Click(object sender, EventArgs e)
         {
-            FunctionsForm frm = new FunctionsForm();
+            FunctionsForm frm = new();
             frm.Show();
         }
 
 
-        readonly Dictionary<int, string> DefenseEquality = new Dictionary<int, string>
+        readonly Dictionary<int, string> DefenseEquality = new()
         {
             { 0, "None" },
             { 1, "1 Station" },
@@ -641,7 +637,7 @@ namespace ControllerScouting.Screens
             { 4, "Counter" },
             { 9, "Scouter Error" }
         };
-        readonly Dictionary<int, string> AvoidanceEquality = new Dictionary<int, string>
+        readonly Dictionary<int, string> AvoidanceEquality = new()
         {
             { 0, "None" },
             { 1, "1 Station" },

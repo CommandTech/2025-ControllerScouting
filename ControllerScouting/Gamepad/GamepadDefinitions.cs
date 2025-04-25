@@ -405,7 +405,7 @@ namespace ControllerScouting.Gamepad
     }
     partial class Controllers
     {
-        public Stopwatch stopwatch = new Stopwatch();
+        public Stopwatch stopwatch = new();
         public TimeSpan Zero { get; private set; }
         private bool IsAxis(Guid objectType)
         {
@@ -418,7 +418,7 @@ namespace ControllerScouting.Gamepad
         }
         private Joystick[] GetSticks(DirectInput input)
         {
-            List<Joystick> sticks = new List<Joystick>();
+            List<Joystick> sticks = [];
             foreach (DeviceInstance device in input.GetDevices(DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly))
             {
                 try
@@ -445,12 +445,12 @@ namespace ControllerScouting.Gamepad
                 }
                 catch (Exception) { }
             }
-            return sticks.ToArray();
+            return [.. sticks];
         }
         public GamePad[] GetGamePads()
         {
-            DirectInput input = new DirectInput();
-            List<GamePad> gamepads = new List<GamePad>();
+            DirectInput input = new();
+            List<GamePad> gamepads = [];
 
             foreach (var stick in GetSticks(input))
             {
@@ -461,7 +461,7 @@ namespace ControllerScouting.Gamepad
             {
                 gamepads.Add(null);
             }
-            return gamepads.ToArray();
+            return [.. gamepads];
         }
     }
 }

@@ -8,8 +8,8 @@ namespace ControllerScouting.Screens
 {
     public partial class SwapScouters : Form
     {
-        public List<ComboBox> scoutDrops = new List<ComboBox>();
-        public Dictionary<RobotState.SCOUTER_NAME, int> scouterDict = new Dictionary<RobotState.SCOUTER_NAME, int>();
+        public List<ComboBox> scoutDrops = [];
+        public Dictionary<RobotState.SCOUTER_NAME, int> scouterDict = [];
         public SwapScouters()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace ControllerScouting.Screens
 
             foreach (var comboBox in scoutDrops)
             {
-                comboBox.Items.AddRange(scouterDict.Keys.Select(sn => sn.ToString()).ToArray());
+                comboBox.Items.AddRange([.. scouterDict.Keys.Select(sn => sn.ToString())]);
                 comboBox.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
             }
         }
@@ -68,9 +68,9 @@ namespace ControllerScouting.Screens
         }
         private void UpdateComboBox(List<ComboBox> comboBoxes)
         {
-            List<RobotState.SCOUTER_NAME> scouterNamesC = new List<RobotState.SCOUTER_NAME>();
+            List<RobotState.SCOUTER_NAME> scouterNamesC = [];
 
-            scouterNamesC = scouterDict.Keys.ToList();
+            scouterNamesC = [.. scouterDict.Keys];
             var selectedNames = comboBoxes.Select(cb => cb.SelectedItem).ToList();
 
             scouterNamesC.RemoveAll(sn => selectedNames.Contains(sn.ToString()));
@@ -81,7 +81,7 @@ namespace ControllerScouting.Screens
 
                 var prevItem = comboBox.SelectedItem;
                 comboBox.Items.Clear();
-                comboBox.Items.AddRange(scouterNamesC.Select(sn => sn.ToString()).ToArray());
+                comboBox.Items.AddRange([.. scouterNamesC.Select(sn => sn.ToString())]);
 
                 if (prevItem != null && comboBox.SelectedIndex == -1)
                 {
@@ -99,7 +99,7 @@ namespace ControllerScouting.Screens
             {
                 comboBox.SelectedItem = null;
                 comboBox.Items.Clear();
-                comboBox.Items.AddRange(scouterDict.Keys.Select(sn => sn.ToString()).ToArray());
+                comboBox.Items.AddRange([.. scouterDict.Keys.Select(sn => sn.ToString())]);
             }
         }
 

@@ -13,8 +13,9 @@ namespace ControllerScouting.Gamepad
 
             if (!robot.NoSho)
             {
-                if (robot.ClimbT_StopWatch == null) robot.ClimbT_StopWatch = new Stopwatch();
-                if (robot.DefTime_StopWatch == null) robot.DefTime_StopWatch = new Stopwatch();
+                //If the stopwatch does not exist, creates it
+                robot.ClimbT_StopWatch ??= new Stopwatch();
+                robot.DefTime_StopWatch ??= new Stopwatch();
 
                 gamepad.Update();
 
@@ -27,26 +28,27 @@ namespace ControllerScouting.Gamepad
                     (() => gamepad.R3_Press, () => robot.Transact(controllerNumber,true)),
                     (() => gamepad.LeftButton_Press, () => robot.CoralDelivery(0)),
                     (() => gamepad.RightButton_Press, () => robot.AlgaeDelivery(0)),
-                    (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(gamepad.RightButton_Down)),
+                    (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(true)),
+                    (() => gamepad.RightButton_Release, () => robot.AlgaeFlag(false)),
                     (() => gamepad.LeftButton_Press || gamepad.LeftTrigger_Press, () => robot.SetPreviousAcquires(false)),
                     (() => gamepad.RightButton_Release, () => robot.SetPreviousAcquires(true))
             };
 
-                List<(Func<bool> buttonPress, Action action)> robotActions = new List<(Func<bool> buttonPress, Action action)>(baseRobotActions);
+                List<(Func<bool> buttonPress, Action action)> robotActions = [.. baseRobotActions];
 
                 if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
                 {
-                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
-                    {
+                    robotActions.AddRange(
+                    [
                         // Scouter Name
                         (() => gamepad.LTHRight_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up)),
                         (() => gamepad.LTHLeft_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down))
-                    });
+                    ]);
                 }
                 if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
-                    {
+                    robotActions.AddRange(
+                    [
                         // Auto Leave
                         (() => gamepad.BackButton_Press, () => robot.CycleLeave(RobotState.CYCLE_DIRECTION.Up)),
 
@@ -79,12 +81,12 @@ namespace ControllerScouting.Gamepad
                         // Algae Delivery
                         (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
                         (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    });
+                    ]);
                 }
                 else if (robot.Current_Mode == RobotState.ROBOT_MODE.Teleop && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
-                    {
+                    robotActions.AddRange(
+                    [
                         // Leave Teleop Mode
                         (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
                         (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
@@ -110,12 +112,12 @@ namespace ControllerScouting.Gamepad
                         // Algae Delivery
                         (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
                         (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    });
+                    ]);
                 }
                 else if (robot.Current_Mode == RobotState.ROBOT_MODE.Defense && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
-                    {
+                    robotActions.AddRange(
+                    [
                         // Leave Defense Mode
                         (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
                         (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
@@ -135,12 +137,12 @@ namespace ControllerScouting.Gamepad
                         // Algae Delivery
                         (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
                         (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    });
+                    ]);
                 }
                 else if (robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    robotActions.AddRange(new (Func<bool> buttonPress, Action action)[]
-                    {
+                    robotActions.AddRange(
+                    [
                         // Leave Surfacing Mode
                         (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
                         (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
@@ -156,7 +158,7 @@ namespace ControllerScouting.Gamepad
                         (() => gamepad.DpadLeft_Press, () => robot.CycleDefense()),
 
                         (() => gamepad.AButton_Press, () => robot.CycleStrat(RobotState.CYCLE_DIRECTION.Up))
-                    });
+                    ]);
                 }
 
                 foreach (var (buttonPress, action) in robotActions)
@@ -208,8 +210,8 @@ namespace ControllerScouting.Gamepad
             robot.Cage_Attempt = RobotState.CAGE_ATTEMPT.Select;
             robot.End_State = RobotState.END_STATE.Select;
 
-            if (robot.ClimbT_StopWatch == null) robot.ClimbT_StopWatch = new Stopwatch();
-            if (robot.DefTime_StopWatch == null) robot.DefTime_StopWatch = new Stopwatch();
+            robot.ClimbT_StopWatch ??= new Stopwatch();
+            robot.DefTime_StopWatch ??= new Stopwatch();
             try
             {
                 robot.ClimbT_StopWatch.Stop();

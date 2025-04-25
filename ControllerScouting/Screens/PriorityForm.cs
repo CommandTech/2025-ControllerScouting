@@ -14,7 +14,7 @@ namespace ControllerScouting.Screens
             TeamList.Text = string.Join(", ", BackgroundCode.teamPrio);
 
             combohomeTeam.Items.Add("None");
-            combohomeTeam.Items.AddRange(BackgroundCode.teamlist.ToArray());
+            combohomeTeam.Items.AddRange([.. BackgroundCode.teamlist]);
             combohomeTeam.SelectedItem = BackgroundCode.homeTeam;
         }
 

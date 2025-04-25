@@ -254,7 +254,7 @@ namespace ControllerScouting
                     }
 
                     var values = line.Split(',');
-                    records.Add(new List<string>(values));
+                    records.Add([.. values]);
                 }
             }
 
@@ -934,7 +934,7 @@ namespace ControllerScouting
                 }
 
                 controller.DisFlag = false;
-                Activity activityCopy = new Activity
+                Activity activityCopy = new()
                 {
                     Team = activity_record.Team,
                     Match = activity_record.Match,
@@ -985,27 +985,27 @@ namespace ControllerScouting
         }
         private static void SendToDatabase()
         {
-            bool hasConnection = CheckConnection();
-            if (hasConnection)
-            {
-                //Writes to server database
-                try
-                {
-                    BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
-                    foreach (Activity activity in BackgroundCode.activitiesQueue)
-                    {
-                        //Save Record to the database
-                        BackgroundCode.seasonframework.ActivitySet.Add(activity);
-                        BackgroundCode.seasonframework.SaveChanges();
-                    }
-                }
-                catch (Exception)
-                {
-                    //if no internet access, stops trying to write to server
-                }
-            }
+            //bool hasConnection = CheckConnection();
+            //if (hasConnection)
+            //{
+            //    //Writes to server database
+            //    try
+            //    {
+            //        BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
+            //        foreach (Activity activity in BackgroundCode.activitiesQueue)
+            //        {
+            //            //Save Record to the database
+            //            BackgroundCode.seasonframework.ActivitySet.Add(activity);
+            //            BackgroundCode.seasonframework.SaveChanges();
+            //        }
+            //    }
+            //    catch (Exception)
+            //    {
+            //        //if no internet access, stops trying to write to server
+            //    }
+            //}
 
-            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+            //BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
             foreach (Activity activity in BackgroundCode.activitiesQueue)
             {
                 //Saves to local database for redundancy
@@ -1022,10 +1022,10 @@ namespace ControllerScouting
                 Controllers.ResetValues(i);
             }
 
-            if (hasConnection)
-            {
-                SyncDatabases();
-            }
+            //if (hasConnection)
+            //{
+            //    SyncDatabases();
+            //}
         }
         private static bool CheckConnection()
         {
@@ -1046,18 +1046,18 @@ namespace ControllerScouting
 
         private static void SyncDatabases()
         {
-            SeasonContext localDB = new SeasonContext();
-            localDB.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+            //SeasonContext localDB = new SeasonContext();
+            //localDB.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
 
-            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
+            //BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionStringServer;
 
-            if (BackgroundCode.seasonframework.Database == localDB.Database)
-            {
-                return;
-            }
-            BackgroundCode.seasonframework.ActivitySet.RemoveRange(BackgroundCode.seasonframework.ActivitySet);
-            BackgroundCode.seasonframework.ActivitySet.AddRange(localDB.ActivitySet);
-            BackgroundCode.seasonframework.SaveChanges();
+            //if (BackgroundCode.seasonframework.Database == localDB.Database)
+            //{
+            //    return;
+            //}
+            //BackgroundCode.seasonframework.ActivitySet.RemoveRange(BackgroundCode.seasonframework.ActivitySet);
+            //BackgroundCode.seasonframework.ActivitySet.AddRange(localDB.ActivitySet);
+            //BackgroundCode.seasonframework.SaveChanges();
         }
     }
 }

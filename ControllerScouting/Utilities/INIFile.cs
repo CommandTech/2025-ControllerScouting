@@ -3,20 +3,15 @@ using System.Text;
 
 namespace ControllerScouting.Utilities
 {
-    public class INIFile
+    public class INIFile(string path)
     {
-        public string Path { get; private set; }
+        public string Path { get; private set; } = path;
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]
         private static extern long WritePrivateProfileString(string section, string key, string value, string filePath);
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]
         private static extern int GetPrivateProfileString(string section, string key, string defaultValue, StringBuilder retVal, int size, string filePath);
-
-        public INIFile(string path)
-        {
-            Path = path;
-        }
 
         public void Write(string section, string key, string value)
         {

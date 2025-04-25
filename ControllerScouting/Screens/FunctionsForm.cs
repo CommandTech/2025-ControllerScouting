@@ -42,14 +42,14 @@ namespace ControllerScouting.Screens
 
         private void BtnPriority_Click(object sender, EventArgs e)
         {
-            PriorityForm frm = new PriorityForm();
+            PriorityForm frm = new();
             this.Hide();
             frm.Show();
         }
 
         private void BtnSwapScouters_Click(object sender, EventArgs e)
         {
-            SwapScouters frm = new SwapScouters();
+            SwapScouters frm = new();
             this.Hide();
             frm.Show();
         }
@@ -62,7 +62,7 @@ namespace ControllerScouting.Screens
 
         private void BtnUpdateDatabase_Click(object sender, EventArgs e)
         {
-            UpdateDatabase frm = new UpdateDatabase(BackgroundCode.teamlist, BackgroundCode.MatchNumbers);
+            UpdateDatabase frm = new(BackgroundCode.teamlist, BackgroundCode.MatchNumbers);
             this.Hide();
             frm.Show();
         }
@@ -76,7 +76,7 @@ namespace ControllerScouting.Screens
 
         private void BtnCages_Click(object sender, EventArgs e)
         {
-            CageForm frm = new CageForm();
+            CageForm frm = new();
             this.Hide();
             frm.Show();
         }
