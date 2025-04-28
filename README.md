@@ -11,15 +11,9 @@ https://www.chiefdelphi.com/t/250-the-dynamos-2023-scouting-system-dynoscout/444
 ## Software
 Coded inside Microsoft Visual Studio
 
-Visual Studio can be found at: https://visualstudio.microsoft.com/
+Visual Studio, SQL Express, and SQL Server Management Studio can be found in the DOWNLOADS folder in the repo.
 
-Database using SQL Server Express and SQL Server Management Studio
-
-SQL Server Management Studio can be found at: https://aka.ms/ssmsfullsetup
-
-SQL Server Express can be found at: https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x409&culture=en-us&country=us
-
-Match Preview Report and data visualization using React on our website
+Data is saved inside the SQL server, you can use Excel to easily extract the data to a spreadsheet.
 
 ## Setup
 To use the software, you need at least one Xbox Controller plugged into the laptop running the software, a maximum of 6 controllers. Need SQL server installed onto the laptop for the code to connect to and Excel getting the data from the database.
