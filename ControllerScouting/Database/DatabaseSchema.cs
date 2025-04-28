@@ -75,7 +75,6 @@ namespace ControllerScouting
         public double ClimbT { get; set; }
         public string EndState { get; set; }
         public string CageAttempt { get; set; }
-        public string SelectedCage { get; set; }
         public string PointScored { get; set; }
         public int DisAlg { get; set; }
 
@@ -130,7 +129,6 @@ namespace ControllerScouting
         public double ClimbT { get; set; }
         public string EndState { get; set; }
         public string CageAttempt { get; set; }
-        public string SelectedCage { get; set; }
         public string PointScored { get; set; }
         public int DisAlg { get; set; }
     }
@@ -463,7 +461,6 @@ namespace ControllerScouting
                         activity_record.DefenseValue = "-";
                         activity_record.Avoidance = "-";
 
-                        activity_record.SelectedCage = "-";
                         activity_record.PointScored = controller.PointsScored.ToString();
                         activity_record.RecordType = recordtype;
 
@@ -582,7 +579,6 @@ namespace ControllerScouting
                         activity_record.DefenseValue = "-";
                         activity_record.Avoidance = "-";
 
-                        activity_record.SelectedCage = "-";
                         activity_record.PointScored = controller.PointsScored.ToString();
                         activity_record.RecordType = recordtype;
 
@@ -729,7 +725,6 @@ namespace ControllerScouting
                         }
                         activity_record.ScouterError = controller.ScouterError;
 
-                        activity_record.SelectedCage = controller.Selected_Cage;
                         activity_record.PointScored = controller.PointsScored.ToString();
                         activity_record.RecordType = recordtype;
 
@@ -822,7 +817,6 @@ namespace ControllerScouting
                         activity_record.DefenseValue = "-";
                         activity_record.Avoidance = "-";
 
-                        activity_record.SelectedCage = "-";
                         activity_record.PointScored = "-";
                         activity_record.RecordType = recordtype;
 
@@ -924,7 +918,6 @@ namespace ControllerScouting
                         activity_record.DefenseValue = "-";
                         activity_record.Avoidance = "-";
 
-                        activity_record.SelectedCage = "-";
                         activity_record.PointScored = controller.PointsScored.ToString();
                         activity_record.RecordType = recordtype;
                         break;
@@ -971,7 +964,6 @@ namespace ControllerScouting
                     ClimbT = activity_record.ClimbT,
                     EndState = activity_record.EndState,
                     CageAttempt = activity_record.CageAttempt,
-                    SelectedCage = activity_record.SelectedCage,
                     PointScored = activity_record.PointScored,
                     DisAlg = activity_record.DisAlg
                 };

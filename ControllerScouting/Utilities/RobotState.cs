@@ -8,7 +8,7 @@ namespace ControllerScouting.Utilities
         public enum ROBOT_MODE { Auto, Teleop, Defense, Surfacing };
         public enum CYCLE_DIRECTION { Up, Down }
         public enum MATCHEVENT_NAME { Match_Event, GotStuck, BrokeDown, CrossedCenter, LostParts, AdditionalPiece, MultiClimb, NoShow, TippedOver, JammedPiece, WentUnderCages }
-        public enum SCOUTER_NAME { Select_Name, Alyssa, Andrew, Anh, Charlotte, Grant, Hartej, Hasini, Josh, Logan, Maria, Max, Noah, Varsha, William, Scouter1, Scouter2, Scouter3, Scouter4, Scouter5, Scouter6 }
+        public enum SCOUTER_NAME { Select_Name, Scouter1, Scouter2, Scouter3, Scouter4, Scouter5, Scouter6 }
 
         // Year to Year ints
         public long ScouterError;
@@ -91,8 +91,6 @@ namespace ControllerScouting.Utilities
         public Stopwatch DefTime_StopWatch;
         public bool DefTime_StopWatch_running;
         public double DefTimeDouble;
-
-        public string Selected_Cage;
 
         public int autoCoralPoints;
         public int PointsScored;

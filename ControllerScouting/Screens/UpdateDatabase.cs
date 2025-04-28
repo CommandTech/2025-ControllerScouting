@@ -153,7 +153,6 @@ namespace ControllerScouting.Screens
                     comboStart.Text = result.Starting_Loc.ToString();
                     comboLeave.Text = result.Leave.ToString();
                     comboMatchEvent.Text = result.Match_event.ToString();
-                    comboSelectedCage.Text = result.SelectedCage.ToString();
 
                     txtDefenseTime.Text = result.DZTime.ToString();
                     txtDefense.Text = result.Defense.ToString();

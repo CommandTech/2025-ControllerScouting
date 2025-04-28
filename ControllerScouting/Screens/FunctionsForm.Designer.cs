@@ -5,29 +5,28 @@
         #region
         private void InitializeComponent()
         {
-            this.UpdateScouterText = new System.Windows.Forms.Label();
+            this.FunctionFormText = new System.Windows.Forms.Label();
             this.FuncOK = new System.Windows.Forms.Button();
             this.btnPriority = new System.Windows.Forms.Button();
             this.btnSwapScouters = new System.Windows.Forms.Button();
             this.cbxPractice = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnUpdateDatabase = new System.Windows.Forms.Button();
-            this.btnCages = new System.Windows.Forms.Button();
             this.comboPracticeTeams = new System.Windows.Forms.ComboBox();
-            this.btnQRScout = new System.Windows.Forms.Button();
+            this.btnManualMatch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // UpdateScouterText
+            // FunctionFormText
             // 
-            this.UpdateScouterText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UpdateScouterText.BackColor = System.Drawing.Color.Transparent;
-            this.UpdateScouterText.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateScouterText.ForeColor = System.Drawing.Color.FloralWhite;
-            this.UpdateScouterText.Location = new System.Drawing.Point(12, 20);
-            this.UpdateScouterText.Name = "UpdateScouterText";
-            this.UpdateScouterText.Size = new System.Drawing.Size(263, 74);
-            this.UpdateScouterText.TabIndex = 353;
-            this.UpdateScouterText.Text = "Functions";
+            this.FunctionFormText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FunctionFormText.BackColor = System.Drawing.Color.Transparent;
+            this.FunctionFormText.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FunctionFormText.ForeColor = System.Drawing.Color.FloralWhite;
+            this.FunctionFormText.Location = new System.Drawing.Point(12, 20);
+            this.FunctionFormText.Name = "FunctionFormText";
+            this.FunctionFormText.Size = new System.Drawing.Size(263, 74);
+            this.FunctionFormText.TabIndex = 353;
+            this.FunctionFormText.Text = "Functions";
             // 
             // FuncOK
             // 
@@ -108,19 +107,6 @@
             this.btnUpdateDatabase.UseVisualStyleBackColor = true;
             this.btnUpdateDatabase.Click += new System.EventHandler(this.BtnUpdateDatabase_Click);
             // 
-            // btnCages
-            // 
-            this.btnCages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCages.ForeColor = System.Drawing.Color.Black;
-            this.btnCages.Location = new System.Drawing.Point(24, 278);
-            this.btnCages.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCages.Name = "btnCages";
-            this.btnCages.Size = new System.Drawing.Size(80, 35);
-            this.btnCages.TabIndex = 359;
-            this.btnCages.Text = "Cages";
-            this.btnCages.UseVisualStyleBackColor = true;
-            this.btnCages.Click += new System.EventHandler(this.BtnCages_Click);
-            // 
             // comboPracticeTeams
             // 
             this.comboPracticeTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -134,25 +120,31 @@
             this.comboPracticeTeams.TabIndex = 361;
             this.comboPracticeTeams.SelectedIndexChanged += new System.EventHandler(this.ComboPracticeTeams_SelectedIndexChanged);
             // 
-            // btnQRScout
+            // btnManualMatch
             // 
-            this.btnQRScout.Location = new System.Drawing.Point(0, 0);
-            this.btnQRScout.Name = "btnQRScout";
-            this.btnQRScout.Size = new System.Drawing.Size(75, 23);
-            this.btnQRScout.TabIndex = 0;
+            this.btnManualMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManualMatch.ForeColor = System.Drawing.Color.Black;
+            this.btnManualMatch.Location = new System.Drawing.Point(24, 279);
+            this.btnManualMatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnManualMatch.Name = "btnManualMatch";
+            this.btnManualMatch.Size = new System.Drawing.Size(179, 35);
+            this.btnManualMatch.TabIndex = 362;
+            this.btnManualMatch.Text = "Manual Match List";
+            this.btnManualMatch.UseVisualStyleBackColor = true;
+            this.btnManualMatch.Click += new System.EventHandler(this.BtnManualMatch_Click);
             // 
             // FunctionsForm
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(408, 362);
+            this.Controls.Add(this.btnManualMatch);
             this.Controls.Add(this.comboPracticeTeams);
-            this.Controls.Add(this.btnCages);
             this.Controls.Add(this.btnUpdateDatabase);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cbxPractice);
             this.Controls.Add(this.btnSwapScouters);
             this.Controls.Add(this.btnPriority);
-            this.Controls.Add(this.UpdateScouterText);
+            this.Controls.Add(this.FunctionFormText);
             this.Controls.Add(this.FuncOK);
             this.Name = "FunctionsForm";
             this.ResumeLayout(false);
@@ -162,15 +154,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label UpdateScouterText;
+        private System.Windows.Forms.Label FunctionFormText;
         private System.Windows.Forms.Button FuncOK;
         private System.Windows.Forms.Button btnPriority;
         private System.Windows.Forms.Button btnSwapScouters;
         private System.Windows.Forms.CheckBox cbxPractice;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnUpdateDatabase;
-        private System.Windows.Forms.Button btnCages;
         private System.Windows.Forms.ComboBox comboPracticeTeams;
-        private System.Windows.Forms.Button btnQRScout;
+        private System.Windows.Forms.Button btnManualMatch;
     }
 }

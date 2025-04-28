@@ -31,7 +31,6 @@ namespace ControllerScouting.Screens
         }
         private void ComboPracticeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BackgroundCode.practiceChanged = true;
             BackgroundCode.practiceTeam = comboPracticeTeams.SelectedIndex;
         }
 
@@ -67,16 +66,17 @@ namespace ControllerScouting.Screens
             frm.Show();
         }
 
+
+
         private void CbxPractice_CheckedChanged(object sender, EventArgs e)
         {
             BackgroundCode.practiceMode = cbxPractice.Checked;
             comboPracticeTeams.Visible = BackgroundCode.practiceMode;
-            if (!BackgroundCode.practiceMode) BackgroundCode.wasPractice = true;
         }
 
-        private void BtnCages_Click(object sender, EventArgs e)
+        private void BtnManualMatch_Click(object sender, EventArgs e)
         {
-            CageForm frm = new();
+            ManualMatchList frm = new();
             this.Hide();
             frm.Show();
         }

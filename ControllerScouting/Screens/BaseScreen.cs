@@ -35,8 +35,6 @@ namespace ControllerScouting.Screens
                     color = i < 3 ? "Red" : "Blue"
                 };
 
-                BackgroundCode.cages.Add("Select");
-
                 BackgroundCode.activity_record[i] = new Activity();
             }
 
@@ -163,13 +161,6 @@ namespace ControllerScouting.Screens
                     }
                     iniFile.Write("MatchData", "scouterNames", scouterNames);
                     iniFile.Write("MatchData", "scouterLocations", scouterLocations);
-                    string cages = "";
-                    foreach (var robot in BackgroundCode.Robots)
-                    {
-                        cages += ",";
-                        cages += robot.Selected_Cage;
-                    }
-                    iniFile.Write("MatchData", "cages", cages);
 
                 }
                 catch (Exception ex)
@@ -197,14 +188,11 @@ namespace ControllerScouting.Screens
 
                 List<string> scouterNames = [.. iniFile.Read("MatchData", "scouterNames", "").Split(',')];
                 List<string> scouterLocations = [.. iniFile.Read("MatchData", "scouterLocations", "").Split(',')];
-                List<string> cages = [.. iniFile.Read("MatchData", "cages", "").Split(',')];
 
                 for (int i = 0; i < 6; i++)
                 {
                     BackgroundCode.Robots[i]._ScouterName = (RobotState.SCOUTER_NAME)Enum.Parse(typeof(RobotState.SCOUTER_NAME), scouterNames[i]);
                     BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
-                    BackgroundCode.Robots[i].Selected_Cage = cages[i];
-                    BackgroundCode.cages[i] = BackgroundCode.Robots[i].Selected_Cage;
                 }
 
 
