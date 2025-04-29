@@ -28,6 +28,19 @@ namespace ControllerScouting.Screens
             {
 
             }
+
+            switch (BackgroundCode.dataExport)
+            {
+                case BackgroundCode.EXPORT_TYPE.CSV:
+                    this.rdioCSV.Checked = true;
+                    break;
+                case BackgroundCode.EXPORT_TYPE.SQLlocal:
+                    this.rdioLocalSQL.Checked = true;
+                    break;
+                case BackgroundCode.EXPORT_TYPE.SQLonline:
+                    this.rdioServerSQL.Checked = true;
+                    break;
+            }
         }
         private void ComboPracticeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -36,6 +49,11 @@ namespace ControllerScouting.Screens
 
         private void FuncOK_Click(object sender, EventArgs e)
         {
+            BackgroundCode.dataExport = this.rdioLocalSQL.Checked ? BackgroundCode.EXPORT_TYPE.SQLlocal :
+                            this.rdioServerSQL.Checked ? BackgroundCode.EXPORT_TYPE.SQLonline :
+                            BackgroundCode.EXPORT_TYPE.CSV;
+
+            BackgroundCode.iniFile.Write("ProgramSetting", "exportType", BackgroundCode.dataExport.ToString());
             this.Hide();
         }
 
@@ -65,8 +83,6 @@ namespace ControllerScouting.Screens
             this.Hide();
             frm.Show();
         }
-
-
 
         private void CbxPractice_CheckedChanged(object sender, EventArgs e)
         {

@@ -14,14 +14,19 @@ namespace ControllerScouting.Screens
 {
     public partial class BaseScreen : Form
     {
-        private static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        private static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
-        private static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-        private static readonly INIFile iniFile = new(iniPath);
         private static bool loading = false;
         private static readonly List<Thread> controllerThreads = [];
         public BaseScreen()
         {
+            if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
+            {
+                BackgroundCode.dataExport = exportType;
+            }
+            else
+            {
+                BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
+            }
+
             //Initialization of the screen
             InitializeComponent();
 
@@ -45,7 +50,7 @@ namespace ControllerScouting.Screens
             InitalizeDB();
 
             //If there is previous data, ask if the user wants to load it
-            if (iniFile.Read("MatchData", "event", "") != null && iniFile.Read("MatchData", "event", "") != "" && iniFile.Read("MatchData", "event", "") != " ")
+            if (BackgroundCode.iniFile.Read("MatchData", "event", "") != null && BackgroundCode.iniFile.Read("MatchData", "event", "") != "" && BackgroundCode.iniFile.Read("MatchData", "event", "") != " ")
             {
                 DialogResult loadPrevData = MessageBox.Show("Do you want to load previous data?", "Please Confirm", MessageBoxButtons.YesNo);
                 if (loadPrevData == DialogResult.Yes)
@@ -133,16 +138,16 @@ namespace ControllerScouting.Screens
                     // Write data to INI file
                     if (BackgroundCode.loadedEvent == null)
                     {
-                        iniFile.Write("MatchData", "event", "manualEvent");
+                        BackgroundCode.iniFile.Write("MatchData", "event", "manualEvent");
                     }
                     else
                     {
-                        iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
+                        BackgroundCode.iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
                     }
-                    iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
-                    iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
-                    iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
-                    iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
+                    BackgroundCode.iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
+                    BackgroundCode.iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
+                    BackgroundCode.iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
+                    BackgroundCode.iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
                     string scouterNames = "";
                     string scouterLocations = "";
                     foreach (var robot in BackgroundCode.Robots)
@@ -159,8 +164,8 @@ namespace ControllerScouting.Screens
                         }
                         scouterLocations += robot.ScouterBox;
                     }
-                    iniFile.Write("MatchData", "scouterNames", scouterNames);
-                    iniFile.Write("MatchData", "scouterLocations", scouterLocations);
+                    BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames);
+                    BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations);
 
                 }
                 catch (Exception ex)
@@ -177,17 +182,17 @@ namespace ControllerScouting.Screens
         {
             try
             {
-                comboBoxSelectRegional.Items.Add(iniFile.Read("MatchData", "event", "Please press the Load Events Button..."));
-                comboBoxSelectRegional.SelectedItem = iniFile.Read("MatchData", "event", "Please press the Load Events Button...");
-                BackgroundCode.currentMatch = int.Parse(iniFile.Read("MatchData", "match_number", "")) - 1;
-                BackgroundCode.redRight = bool.Parse(iniFile.Read("MatchData", "redRight", ""));
-                var teamPrioList = new List<string>(iniFile.Read("MatchData", "teamPrio", "").Split(','));
+                comboBoxSelectRegional.Items.Add(BackgroundCode.iniFile.Read("MatchData", "event", "Please press the Load Events Button..."));
+                comboBoxSelectRegional.SelectedItem = BackgroundCode.iniFile.Read("MatchData", "event", "Please press the Load Events Button...");
+                BackgroundCode.currentMatch = int.Parse(BackgroundCode.iniFile.Read("MatchData", "match_number", "")) - 1;
+                BackgroundCode.redRight = bool.Parse(BackgroundCode.iniFile.Read("MatchData", "redRight", ""));
+                var teamPrioList = new List<string>(BackgroundCode.iniFile.Read("MatchData", "teamPrio", "").Split(','));
                 BackgroundCode.teamPrio.AddRange([.. teamPrioList]);
-                BackgroundCode.homeTeam = iniFile.Read("MatchData", "homeTeam", "None");
+                BackgroundCode.homeTeam = BackgroundCode.iniFile.Read("MatchData", "homeTeam", "None");
 
 
-                List<string> scouterNames = [.. iniFile.Read("MatchData", "scouterNames", "").Split(',')];
-                List<string> scouterLocations = [.. iniFile.Read("MatchData", "scouterLocations", "").Split(',')];
+                List<string> scouterNames = [.. BackgroundCode.iniFile.Read("MatchData", "scouterNames", "").Split(',')];
+                List<string> scouterLocations = [.. BackgroundCode.iniFile.Read("MatchData", "scouterLocations", "").Split(',')];
 
                 for (int i = 0; i < 6; i++)
                 {

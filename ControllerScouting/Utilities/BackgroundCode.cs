@@ -1,4 +1,5 @@
 ﻿using ControllerScouting.Gamepad;
+using System;
 using System.Collections.Generic;
 
 namespace ControllerScouting.Utilities
@@ -30,6 +31,13 @@ namespace ControllerScouting.Utilities
         public static string loadedEvent = "";                      //The event currently loaded
         public static bool practiceMode = false;                    //Is the scouting system in practice mode?
         public static int practiceTeam = 0;
+
+        public static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
+        public static readonly string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
+        public static readonly INIFile iniFile = new(iniPath);
+        public enum EXPORT_TYPE { CSV, SQLlocal, SQLonline}
+        public static EXPORT_TYPE dataExport = EXPORT_TYPE.CSV;
         public BackgroundCode()
         {
 

@@ -14,6 +14,10 @@
             this.btnUpdateDatabase = new System.Windows.Forms.Button();
             this.comboPracticeTeams = new System.Windows.Forms.ComboBox();
             this.btnManualMatch = new System.Windows.Forms.Button();
+            this.rdioCSV = new System.Windows.Forms.RadioButton();
+            this.rdioLocalSQL = new System.Windows.Forms.RadioButton();
+            this.exportLabel = new System.Windows.Forms.Label();
+            this.rdioServerSQL = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // FunctionFormText
@@ -133,10 +137,62 @@
             this.btnManualMatch.UseVisualStyleBackColor = true;
             this.btnManualMatch.Click += new System.EventHandler(this.BtnManualMatch_Click);
             // 
+            // rdioCSV
+            // 
+            this.rdioCSV.AutoSize = true;
+            this.rdioCSV.ForeColor = System.Drawing.Color.White;
+            this.rdioCSV.Location = new System.Drawing.Point(279, 204);
+            this.rdioCSV.Name = "rdioCSV";
+            this.rdioCSV.Size = new System.Drawing.Size(49, 20);
+            this.rdioCSV.TabIndex = 363;
+            this.rdioCSV.TabStop = true;
+            this.rdioCSV.Text = "csv";
+            this.rdioCSV.UseVisualStyleBackColor = true;
+            // 
+            // rdioLocalSQL
+            // 
+            this.rdioLocalSQL.AutoSize = true;
+            this.rdioLocalSQL.ForeColor = System.Drawing.Color.White;
+            this.rdioLocalSQL.Location = new System.Drawing.Point(279, 226);
+            this.rdioLocalSQL.Name = "rdioLocalSQL";
+            this.rdioLocalSQL.Size = new System.Drawing.Size(90, 20);
+            this.rdioLocalSQL.TabIndex = 364;
+            this.rdioLocalSQL.TabStop = true;
+            this.rdioLocalSQL.Text = "Local SQL";
+            this.rdioLocalSQL.UseVisualStyleBackColor = true;
+            // 
+            // exportLabel
+            // 
+            this.exportLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.exportLabel.BackColor = System.Drawing.Color.Transparent;
+            this.exportLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.exportLabel.ForeColor = System.Drawing.Color.FloralWhite;
+            this.exportLabel.Location = new System.Drawing.Point(274, 172);
+            this.exportLabel.Name = "exportLabel";
+            this.exportLabel.Size = new System.Drawing.Size(78, 29);
+            this.exportLabel.TabIndex = 365;
+            this.exportLabel.Text = "Export:";
+            // 
+            // rdioServerSQL
+            // 
+            this.rdioServerSQL.AutoSize = true;
+            this.rdioServerSQL.ForeColor = System.Drawing.Color.White;
+            this.rdioServerSQL.Location = new System.Drawing.Point(279, 248);
+            this.rdioServerSQL.Name = "rdioServerSQL";
+            this.rdioServerSQL.Size = new System.Drawing.Size(97, 20);
+            this.rdioServerSQL.TabIndex = 366;
+            this.rdioServerSQL.TabStop = true;
+            this.rdioServerSQL.Text = "Server SQL";
+            this.rdioServerSQL.UseVisualStyleBackColor = true;
+            // 
             // FunctionsForm
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(408, 362);
+            this.Controls.Add(this.rdioServerSQL);
+            this.Controls.Add(this.exportLabel);
+            this.Controls.Add(this.rdioLocalSQL);
+            this.Controls.Add(this.rdioCSV);
             this.Controls.Add(this.btnManualMatch);
             this.Controls.Add(this.comboPracticeTeams);
             this.Controls.Add(this.btnUpdateDatabase);
@@ -163,5 +219,9 @@
         private System.Windows.Forms.Button btnUpdateDatabase;
         private System.Windows.Forms.ComboBox comboPracticeTeams;
         private System.Windows.Forms.Button btnManualMatch;
+        private System.Windows.Forms.RadioButton rdioCSV;
+        private System.Windows.Forms.RadioButton rdioLocalSQL;
+        private System.Windows.Forms.Label exportLabel;
+        private System.Windows.Forms.RadioButton rdioServerSQL;
     }
 }
