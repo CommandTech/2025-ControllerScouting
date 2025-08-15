@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Utilities;
+﻿using ControllerScouting.Properties;
+using ControllerScouting.Utilities;
 using System;
 using System.Windows.Forms;
 
@@ -6,6 +7,7 @@ namespace ControllerScouting.Screens
 {
     internal partial class FunctionsForm : Form
     {
+        private string oldLocation;
         public FunctionsForm()
         {
             InitializeComponent();
@@ -41,6 +43,9 @@ namespace ControllerScouting.Screens
                     this.rdioServerSQL.Checked = true;
                     break;
             }
+
+            this.txtCSVLocation.Text = Settings.Default.CSVLocation;
+            oldLocation = Settings.Default.CSVLocation;
         }
         private void ComboPracticeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -54,6 +59,15 @@ namespace ControllerScouting.Screens
                             BackgroundCode.EXPORT_TYPE.CSV;
 
             BackgroundCode.iniFile.Write("ProgramSetting", "exportType", BackgroundCode.dataExport.ToString());
+
+            if (!Settings.Default.csvExists)
+            {
+                DatabaseCode.CreateCSV(Settings.Default.CSVLocation);
+            }
+            else
+            {
+                DatabaseCode.MoveCSV(oldLocation, Settings.Default.CSVLocation);
+            }
             this.Hide();
         }
 
@@ -95,6 +109,18 @@ namespace ControllerScouting.Screens
             ManualMatchList frm = new();
             this.Hide();
             frm.Show();
+        }
+
+        private void RdioCSV_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtCSVLocation.Visible = this.rdioCSV.Checked;
+        }
+
+        private void TxtCSVLocation_TextChanged(object sender, EventArgs e)
+        {
+
+            Settings.Default.CSVLocation = this.txtCSVLocation.Text;
+            BackgroundCode.iniFile.Write("ProgramSetting", "csvLocation", Settings.Default.CSVLocation.ToString());
         }
     }
 }

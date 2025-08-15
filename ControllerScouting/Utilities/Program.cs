@@ -17,11 +17,6 @@ namespace ControllerScouting.Utilities
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Defaults some settings
-            //Settings.Default.loadedEvent = null;
-            //Settings.Default.manualMatchList = null;
-            //Settings.Default.DBExists = false;
-
             //Determines what functions to run when different exceptions are thrown
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);

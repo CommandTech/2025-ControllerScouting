@@ -26,6 +26,12 @@ namespace ControllerScouting.Screens
             {
                 BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
+            Settings.Default.CSVLocation = BackgroundCode.iniFile.Read("ProgramSettings", "csvLocation", "");
+
+            if (BackgroundCode.dataExport == BackgroundCode.EXPORT_TYPE.CSV)
+            {
+                Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Settings.Default.CSVLocation);
+            }
 
             //Initialization of the screen
             InitializeComponent();

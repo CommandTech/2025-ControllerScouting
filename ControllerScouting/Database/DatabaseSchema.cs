@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using static QRCoder.PayloadGenerator;
 
 namespace ControllerScouting
 {
@@ -209,23 +210,9 @@ namespace ControllerScouting
         public int Redtotaldel { get; set; }
     }
 
-    public class DatabaseCode
+    public static class DatabaseCode
     {
-        public static void RecordToDatabase()
-        {
-            while (1 == 1)
-            {
-                if (BackgroundCode.activitiesQueue.Count != 0)
-                {
-                    //Save Record to the database
-                    BackgroundCode.seasonframework.ActivitySet.Add(BackgroundCode.activitiesQueue.Peek());
-                    BackgroundCode.seasonframework.SaveChanges();
-
-                    BackgroundCode.activitiesQueue.Dequeue();
-                }
-            }
-        }
-
+        public static string databaseName = "database.csv";
         public static void LoadManualMatches()
         {
 
@@ -260,6 +247,22 @@ namespace ControllerScouting
         }
         internal static void SaveToRecord(RobotState controller, string recordtype, int controllerNumber)
         {
+            var coralPoints = controller.Current_Mode == RobotState.ROBOT_MODE.Auto
+            ? new Dictionary<string, (Action, int)> {
+                { "L4", (() => controller.DelCoralL4++, 7) },
+                { "L3", (() => controller.DelCoralL3++, 6) },
+                { "L2", (() => controller.DelCoralL2++, 4) },
+                { "L1", (() => controller.DelCoralL1++, 3) },
+                { "Floor", (() => controller.DelCoralF++, 0) }
+            }
+            : new Dictionary<string, (Action, int)> {
+                { "L4", (() => controller.DelCoralL4++, 5) },
+                { "L3", (() => controller.DelCoralL3++, 4) },
+                { "L2", (() => controller.DelCoralL2++, 3) },
+                { "L1", (() => controller.DelCoralL1++, 2) },
+                { "Floor", (() => controller.DelCoralF++, 0) }
+            };
+
             bool endMatch = false;
             if (controller.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name && (controller.TransactionCheck || recordtype != "Activities") && controller.TeamName != null)
             {
@@ -299,59 +302,10 @@ namespace ControllerScouting
                     controller.DelAlgaeF++;
                 }
 
-                if (controller.Current_Mode == RobotState.ROBOT_MODE.Auto)
+                if (coralPoints.TryGetValue(controller.lastCoralLoc, out var actionPoints))
                 {
-                    if (controller.lastCoralLoc == "L4")
-                    {
-                        controller.DelCoralL4++;
-                        controller.PointsScored += 7;
-                    }
-                    else if (controller.lastCoralLoc == "L3")
-                    {
-                        controller.DelCoralL3++;
-                        controller.PointsScored += 6;
-                    }
-                    else if (controller.lastCoralLoc == "L2")
-                    {
-                        controller.DelCoralL2++;
-                        controller.PointsScored += 4;
-                    }
-                    else if (controller.lastCoralLoc == "L1")
-                    {
-                        controller.DelCoralL1++;
-                        controller.PointsScored += 3;
-                    }
-                    else if (controller.lastCoralLoc == "Floor")
-                    {
-                        controller.DelCoralF++;
-                    }
-                }
-                else
-                {
-                    if (controller.lastCoralLoc == "L4")
-                    {
-                        controller.DelCoralL4++;
-                        controller.PointsScored += 5;
-                    }
-                    else if (controller.lastCoralLoc == "L3")
-                    {
-                        controller.DelCoralL3++;
-                        controller.PointsScored += 4;
-                    }
-                    else if (controller.lastCoralLoc == "L2")
-                    {
-                        controller.DelCoralL2++;
-                        controller.PointsScored += 3;
-                    }
-                    else if (controller.lastCoralLoc == "L1")
-                    {
-                        controller.DelCoralL1++;
-                        controller.PointsScored += 2;
-                    }
-                    else if (controller.lastCoralLoc == "Floor")
-                    {
-                        controller.DelCoralF++;
-                    }
+                    actionPoints.Item1();
+                    controller.PointsScored += actionPoints.Item2;
                 }
 
                 Activity activity_record = BackgroundCode.activity_record[controllerNumber];
@@ -1014,6 +968,58 @@ namespace ControllerScouting
             {
                 Controllers.ResetValues(i);
             }
+        }
+
+        public static bool DoesCSVExist(string location)
+        {
+            static string DoubleBackslashesAndEnsureTrailing(string input)
+            {
+                string doubled = input.Replace(@"\", @"\\");
+                if (!doubled.EndsWith(@"\\"))
+                {
+                    doubled += @"\\";
+                }
+                return doubled;
+            }
+
+            string locationCorrected = DoubleBackslashesAndEnsureTrailing(location);
+
+            return File.Exists(locationCorrected + databaseName);
+        }
+        public static void CreateCSV(string location)
+        {
+            static string DoubleBackslashesAndEnsureTrailing(string input)
+            {
+                string doubled = input.Replace(@"\", @"\\");
+                if (!doubled.EndsWith(@"\\"))
+                {
+                    doubled += @"\\";
+                }
+                return doubled;
+            }
+
+            string locationCorrected = DoubleBackslashesAndEnsureTrailing(location);
+
+            File.Create(locationCorrected + databaseName).Close();
+            Settings.Default.csvExists = true;
+        }
+
+        public static void MoveCSV(string oldLocation, string newLocation)
+        {
+            static string DoubleBackslashesAndEnsureTrailing(string input)
+            {
+                string doubled = input.Replace(@"\", @"\\");
+                if (!doubled.EndsWith(@"\\"))
+                {
+                    doubled += @"\\";
+                }
+                return doubled;
+            }
+
+            string oldLocationCorrected = DoubleBackslashesAndEnsureTrailing(oldLocation);
+            string newLocationCorrected = DoubleBackslashesAndEnsureTrailing(newLocation);
+
+            File.Move(oldLocationCorrected + databaseName, newLocationCorrected + databaseName);
         }
     }
 }

@@ -18,6 +18,8 @@
             this.rdioLocalSQL = new System.Windows.Forms.RadioButton();
             this.exportLabel = new System.Windows.Forms.Label();
             this.rdioServerSQL = new System.Windows.Forms.RadioButton();
+            this.txtCSVLocation = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // FunctionFormText
@@ -26,7 +28,7 @@
             this.FunctionFormText.BackColor = System.Drawing.Color.Transparent;
             this.FunctionFormText.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FunctionFormText.ForeColor = System.Drawing.Color.FloralWhite;
-            this.FunctionFormText.Location = new System.Drawing.Point(12, 20);
+            this.FunctionFormText.Location = new System.Drawing.Point(12, 14);
             this.FunctionFormText.Name = "FunctionFormText";
             this.FunctionFormText.Size = new System.Drawing.Size(263, 74);
             this.FunctionFormText.TabIndex = 353;
@@ -36,7 +38,7 @@
             // 
             this.FuncOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FuncOK.ForeColor = System.Drawing.Color.Black;
-            this.FuncOK.Location = new System.Drawing.Point(329, 313);
+            this.FuncOK.Location = new System.Drawing.Point(329, 354);
             this.FuncOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FuncOK.Name = "FuncOK";
             this.FuncOK.Size = new System.Drawing.Size(66, 35);
@@ -79,7 +81,7 @@
             this.cbxPractice.Location = new System.Drawing.Point(279, 106);
             this.cbxPractice.Margin = new System.Windows.Forms.Padding(2);
             this.cbxPractice.Name = "cbxPractice";
-            this.cbxPractice.Size = new System.Drawing.Size(116, 20);
+            this.cbxPractice.Size = new System.Drawing.Size(136, 24);
             this.cbxPractice.TabIndex = 356;
             this.cbxPractice.Text = "Practice Mode";
             this.cbxPractice.UseVisualStyleBackColor = false;
@@ -120,7 +122,7 @@
             this.comboPracticeTeams.Location = new System.Drawing.Point(279, 133);
             this.comboPracticeTeams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboPracticeTeams.Name = "comboPracticeTeams";
-            this.comboPracticeTeams.Size = new System.Drawing.Size(116, 24);
+            this.comboPracticeTeams.Size = new System.Drawing.Size(116, 28);
             this.comboPracticeTeams.TabIndex = 361;
             this.comboPracticeTeams.SelectedIndexChanged += new System.EventHandler(this.ComboPracticeTeams_SelectedIndexChanged);
             // 
@@ -143,11 +145,12 @@
             this.rdioCSV.ForeColor = System.Drawing.Color.White;
             this.rdioCSV.Location = new System.Drawing.Point(279, 204);
             this.rdioCSV.Name = "rdioCSV";
-            this.rdioCSV.Size = new System.Drawing.Size(49, 20);
+            this.rdioCSV.Size = new System.Drawing.Size(57, 24);
             this.rdioCSV.TabIndex = 363;
             this.rdioCSV.TabStop = true;
             this.rdioCSV.Text = "csv";
             this.rdioCSV.UseVisualStyleBackColor = true;
+            this.rdioCSV.CheckedChanged += new System.EventHandler(this.RdioCSV_CheckedChanged);
             // 
             // rdioLocalSQL
             // 
@@ -155,7 +158,7 @@
             this.rdioLocalSQL.ForeColor = System.Drawing.Color.White;
             this.rdioLocalSQL.Location = new System.Drawing.Point(279, 226);
             this.rdioLocalSQL.Name = "rdioLocalSQL";
-            this.rdioLocalSQL.Size = new System.Drawing.Size(90, 20);
+            this.rdioLocalSQL.Size = new System.Drawing.Size(108, 24);
             this.rdioLocalSQL.TabIndex = 364;
             this.rdioLocalSQL.TabStop = true;
             this.rdioLocalSQL.Text = "Local SQL";
@@ -167,7 +170,7 @@
             this.exportLabel.BackColor = System.Drawing.Color.Transparent;
             this.exportLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
             this.exportLabel.ForeColor = System.Drawing.Color.FloralWhite;
-            this.exportLabel.Location = new System.Drawing.Point(274, 172);
+            this.exportLabel.Location = new System.Drawing.Point(274, 166);
             this.exportLabel.Name = "exportLabel";
             this.exportLabel.Size = new System.Drawing.Size(78, 29);
             this.exportLabel.TabIndex = 365;
@@ -179,16 +182,38 @@
             this.rdioServerSQL.ForeColor = System.Drawing.Color.White;
             this.rdioServerSQL.Location = new System.Drawing.Point(279, 248);
             this.rdioServerSQL.Name = "rdioServerSQL";
-            this.rdioServerSQL.Size = new System.Drawing.Size(97, 20);
+            this.rdioServerSQL.Size = new System.Drawing.Size(116, 24);
             this.rdioServerSQL.TabIndex = 366;
             this.rdioServerSQL.TabStop = true;
             this.rdioServerSQL.Text = "Server SQL";
             this.rdioServerSQL.UseVisualStyleBackColor = true;
             // 
+            // txtCSVLocation
+            // 
+            this.txtCSVLocation.Location = new System.Drawing.Point(257, 298);
+            this.txtCSVLocation.Name = "txtCSVLocation";
+            this.txtCSVLocation.Size = new System.Drawing.Size(138, 26);
+            this.txtCSVLocation.TabIndex = 367;
+            this.txtCSVLocation.TextChanged += new System.EventHandler(this.TxtCSVLocation_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FloralWhite;
+            this.label1.Location = new System.Drawing.Point(258, 269);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 29);
+            this.label1.TabIndex = 368;
+            this.label1.Text = "Location:";
+            // 
             // FunctionsForm
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(408, 362);
+            this.ClientSize = new System.Drawing.Size(408, 408);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCSVLocation);
             this.Controls.Add(this.rdioServerSQL);
             this.Controls.Add(this.exportLabel);
             this.Controls.Add(this.rdioLocalSQL);
@@ -223,5 +248,7 @@
         private System.Windows.Forms.RadioButton rdioLocalSQL;
         private System.Windows.Forms.Label exportLabel;
         private System.Windows.Forms.RadioButton rdioServerSQL;
+        private System.Windows.Forms.TextBox txtCSVLocation;
+        private System.Windows.Forms.Label label1;
     }
 }
