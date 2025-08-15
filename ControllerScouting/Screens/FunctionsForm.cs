@@ -58,7 +58,7 @@ namespace ControllerScouting.Screens
                             this.rdioServerSQL.Checked ? BackgroundCode.EXPORT_TYPE.SQLonline :
                             BackgroundCode.EXPORT_TYPE.CSV;
 
-            BackgroundCode.iniFile.Write("ProgramSetting", "exportType", BackgroundCode.dataExport.ToString());
+            BackgroundCode.iniFile.Write("ProgramSettings", "exportType", BackgroundCode.dataExport.ToString());
 
             if (!Settings.Default.csvExists)
             {
@@ -120,7 +120,7 @@ namespace ControllerScouting.Screens
         {
 
             Settings.Default.CSVLocation = this.txtCSVLocation.Text;
-            BackgroundCode.iniFile.Write("ProgramSetting", "csvLocation", Settings.Default.CSVLocation.ToString());
+            BackgroundCode.iniFile.Write("ProgramSettings", "csvLocation", Settings.Default.CSVLocation.ToString());
         }
     }
 }

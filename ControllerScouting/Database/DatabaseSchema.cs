@@ -7,7 +7,10 @@ using System.Data.Entity;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using static ControllerScouting.Utilities.RobotState;
 using static QRCoder.PayloadGenerator;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace ControllerScouting
 {
@@ -84,6 +87,66 @@ namespace ControllerScouting
         //public DateTime AcquireTime { get; set; }
         //public DateTime DeliverTime { get; set; }
         //public Decimal score_contribution { get; set; }
+
+
+
+        public string ToCSV()
+        {
+            var values = new[]
+            {
+                Team,
+                Match.ToString(),
+                Time.ToString(),
+                RecordType,
+                Mode,
+                DriveSta,
+                Defense,
+                DefenseValue,
+                Avoidance,
+                ScouterName,
+                ScouterError.ToString(),
+                Match_event,
+                Strategy,
+                Coop.ToString(),
+                DZTime.ToString(),
+                Del_Near_Far,
+                AcqAlgae_Near_Far,
+                AcqCoral_Near_Far,
+                Starting_Loc,
+                Leave,
+                AcqCoralS.ToString(),
+                AcqCoralF.ToString(),
+                AcqAlgaeR.ToString(),
+                AcqAlgaeF.ToString(),
+                DelCoralL1.ToString(),
+                DelCoralL2.ToString(),
+                DelCoralL3.ToString(),
+                DelCoralL4.ToString(),
+                DelCoralF.ToString(),
+                DelAlgaeP.ToString(),
+                DelAlgaeN.ToString(),
+                DelAlgaeF.ToString(),
+                ClimbT.ToString(),
+                EndState,
+                CageAttempt,
+                PointScored,
+                DisAlg.ToString()
+            };
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i] != null)
+                {
+                    values[i] = $"\"{values[i].Replace("\"", "\"\"")}\"";
+                }
+                else
+                {
+                    values[i] = "\"\"";
+                }
+            }
+
+            return string.Join(",", values);
+        }
     }
 
     public class UpdatePreview : BaseEntity
@@ -934,8 +997,14 @@ namespace ControllerScouting
             switch (BackgroundCode.dataExport)
             {
                 case BackgroundCode.EXPORT_TYPE.CSV:
+                    foreach (Activity activity in BackgroundCode.activitiesQueue)
+                    {
+                        //Save Record to the CSV file
+                        string locationFixed = Settings.Default.CSVLocation.Replace(@"\", @"\\");
+                        using StreamWriter sw = File.AppendText(locationFixed + "\\" + databaseName);
+                        sw.WriteLine(activity.ToCSV());
+                    }
                     break;
-
                 case BackgroundCode.EXPORT_TYPE.SQLonline:
                     BackgroundCode.seasonframework.Database.Connection.Close();
                     BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbServerConnectionString;
