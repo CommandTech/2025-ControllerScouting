@@ -7,10 +7,6 @@ using System.Data.Entity;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using static ControllerScouting.Utilities.RobotState;
-using static QRCoder.PayloadGenerator;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace ControllerScouting
 {
@@ -21,6 +17,7 @@ namespace ControllerScouting
 
     internal class SeasonContext : DbContext
     {
+        //TODO: Make a new branch for experimenting with creating a database for each robot at the event for better data management and potentially faster
         public SeasonContext()
             : base(Settings.Default._scoutingdbConnectionString)
         { }

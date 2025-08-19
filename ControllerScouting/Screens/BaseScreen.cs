@@ -414,7 +414,7 @@ namespace ControllerScouting.Screens
                             //Log("Response from Server -> " + responseFromServer);
                             //Console.Write(responseFromServer);
 
-                            List<TeamSummary> JSONteams = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
+                            List<TeamSummary> JSONteams = JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
                             Log("Received " + JSONteams.Count + " teams for " + regional + ".");
 
                             var teamquery = from b in BackgroundCode.seasonframework.Teamset
