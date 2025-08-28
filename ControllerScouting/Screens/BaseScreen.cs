@@ -12,12 +12,16 @@ using System.Windows.Forms;
 
 namespace ControllerScouting.Screens
 {
+    /// <summary>
+    /// The BaseScreen class to show the interface
+    /// </summary>
     public partial class BaseScreen : Form
     {
         private static bool loading = false;
         private static readonly List<Thread> controllerThreads = [];
         public BaseScreen()
         {
+            //Finds the export type from the config file
             if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
             {
                 BackgroundCode.dataExport = exportType;
@@ -26,8 +30,10 @@ namespace ControllerScouting.Screens
             {
                 BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
+            //Finds the location of the CSV file from the config file
             Settings.Default.CSVLocation = BackgroundCode.iniFile.Read("ProgramSettings", "csvLocation", "");
 
+            //Checks if the CSV file exists
             if (BackgroundCode.dataExport == BackgroundCode.EXPORT_TYPE.CSV)
             {
                 Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Settings.Default.CSVLocation);
@@ -70,6 +76,10 @@ namespace ControllerScouting.Screens
             timerJoysticks.Enabled = true;
         }
 
+        /// <summary>
+        /// The thread that handles the controller input in the background
+        /// </summary>
+        /// <param name="gamePad"></param>
         private static void ControllerThreadMethod(GamePad gamePad)
         {
             // Logic to handle the controller
@@ -80,6 +90,9 @@ namespace ControllerScouting.Screens
             }
         }
 
+        /// <summary>
+        /// Initializes the database connection and checks if the database exists
+        /// </summary>
         private static void InitalizeDB()
         {
             //Sets the connection string to the database
@@ -91,6 +104,9 @@ namespace ControllerScouting.Screens
             //Settings.Default.DBExists = true;
         }
 
+        /// <summary>
+        /// Updates the connected controllers incase they get unplugged or new ones are connected
+        /// </summary>
         public static void UpdateJoysticks()
         {
             foreach (Thread thread in controllerThreads)
@@ -101,6 +117,10 @@ namespace ControllerScouting.Screens
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             StartControllerThreads();
         }
+
+        /// <summary>
+        /// Starts the thread for each controller connected to the computer
+        /// </summary>
         private static void StartControllerThreads()
         {
             foreach (GamePad gamePad in BackgroundCode.gamePads)
@@ -113,6 +133,12 @@ namespace ControllerScouting.Screens
                 }
             }
         }
+
+        /// <summary>
+        /// Exits teh application and saves the data if necessary
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnExit_Click(object sender, EventArgs e)
         {
             //Makes sure the user wants to exit
@@ -135,6 +161,10 @@ namespace ControllerScouting.Screens
                 Environment.Exit(0);
             }
         }
+
+        /// <summary>
+        /// Saves the current application data to the INI file
+        /// </summary>
         private void SaveData()
         {
             if ((BackgroundCode.loadedEvent != null || BackgroundCode.manualMatchList != null) && BackgroundCode.currentMatch != 0)
@@ -184,10 +214,15 @@ namespace ControllerScouting.Screens
                 MessageBox.Show("No data to save.");
             }
         }
+
+        /// <summary>
+        /// Loads the saved data from the INI file
+        /// </summary>
         private void LoadData()
         {
             try
             {
+                //Gets the data from the ini file
                 comboBoxSelectRegional.Items.Add(BackgroundCode.iniFile.Read("MatchData", "event", "Please press the Load Events Button..."));
                 comboBoxSelectRegional.SelectedItem = BackgroundCode.iniFile.Read("MatchData", "event", "Please press the Load Events Button...");
                 BackgroundCode.currentMatch = int.Parse(BackgroundCode.iniFile.Read("MatchData", "match_number", "")) - 1;
@@ -206,8 +241,7 @@ namespace ControllerScouting.Screens
                     BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
                 }
 
-
-
+                //If the ini file has manualEvent as the event, load manual matches
                 BackgroundCode.seasonframework.Database.Connection.Close();
                 if (comboBoxSelectRegional.SelectedItem.ToString() == "manualEvent")
                 {
@@ -221,6 +255,12 @@ namespace ControllerScouting.Screens
                 MessageBox.Show("Could not load data.", "Error: " + e);
             }
         }
+
+        /// <summary>
+        /// Starts getting the events from The Blue Alliance API or loads manual matches if the user chooses to
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
             BackgroundCode.seasonframework.Database.Connection.Close();
@@ -248,6 +288,10 @@ namespace ControllerScouting.Screens
                 }
             }
         }
+
+        /// <summary>
+        /// Determines if the Red Alliance is on the right side of the field for logic
+        /// </summary>
         private void SetRedRight()
         {
             //  Logic for setting left/right and near/far based on side of field scouters are sitting on
@@ -255,16 +299,24 @@ namespace ControllerScouting.Screens
             BackgroundCode.redRight = (red == DialogResult.Yes);
         }
 
+        /// <summary>
+        /// Function for going to the next match and saving the data if the user has checked the end match box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNextMatch_Click(object sender, EventArgs e)
         {
+            // Checks if the user has checked the end match box when going to the next match
             if (cbxEndMatch.Checked)
             {
+                // Then sets the end match box to false and saves the data to the database
                 cbxEndMatch.Checked = false;
                 for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
                 {
                     DatabaseCode.SaveToRecord(BackgroundCode.Robots[BackgroundCode.Robots[i].ScouterBox], "EndMatch", i);
                 }
 
+                // Checks if the current match is the last match
                 if (BackgroundCode.currentMatch == BackgroundCode.InMemoryMatchList.Count)
                 {
                     MessageBox.Show("You are at the last match.");
@@ -276,6 +328,7 @@ namespace ControllerScouting.Screens
             }
             else
             {
+                // Makes sure the user wants to go to the next match and lose the current match data
                 DialogResult dialogResult = MessageBox.Show("All unsaved data will be lost.  Continue?", "Next Match", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes && BackgroundCode.currentMatch != BackgroundCode.InMemoryMatchList.Count)
                 {
@@ -288,12 +341,21 @@ namespace ControllerScouting.Screens
             }
         }
 
+        /// <summary>
+        /// Goes to the next match
+        /// </summary>
         private void NextMatch()
         {
+            // Increments the current match number and loads the next match
             BackgroundCode.currentMatch++;
             LoadMatch();
         }
 
+        /// <summary>
+        /// Goes to the previous match
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPrevMatch_Click(object sender, EventArgs e)
         {
             if (BackgroundCode.currentMatch == 0 || BackgroundCode.currentMatch == 1)
@@ -307,28 +369,41 @@ namespace ControllerScouting.Screens
                 LoadMatch();
             }
         }
+
+        /// <summary>
+        /// Loads the current match and sets the team names and colors
+        /// </summary>
         private void LoadMatch()
         {
             this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.UnSortedMatchList.Count}";
             //List<string> teamPrioList = BackgroundCode.teamPrio.Cast<string>().ToList();
             //teamPrioList.AddRange(BackgroundCode.homePrio);
 
-            //if (Settings.Default.currentMatch > 0)
-            //{
             SetTeamNameAndColor(this.lbl0TeamName, BackgroundCode.Robots[0], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam1);
             SetTeamNameAndColor(this.lbl1TeamName, BackgroundCode.Robots[1], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam2);
             SetTeamNameAndColor(this.lbl2TeamName, BackgroundCode.Robots[2], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam3);
             SetTeamNameAndColor(this.lbl3TeamName, BackgroundCode.Robots[3], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam1);
             SetTeamNameAndColor(this.lbl4TeamName, BackgroundCode.Robots[4], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam2);
             SetTeamNameAndColor(this.lbl5TeamName, BackgroundCode.Robots[5], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam3);
-            //}
         }
+
+        /// <summary>
+        /// Sets the team name and color for the given label and robot state
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="robot"></param>
+        /// <param name="teamName"></param>
         private void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
         {
             label.Text = robot.TeamName = teamName;
             label.ForeColor = Color.Orange;
         }
 
+        /// <summary>
+        /// Populates the matches and teams for the selected event or manual matches
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void BtnpopulateForEvent_Click(object sender, EventArgs e)
         {
             if (!loading)
@@ -536,6 +611,11 @@ namespace ControllerScouting.Screens
                 NextMatch();
             }
         }
+
+        /// <summary>
+        /// Gets the events from The Blue Alliance API or loads manual matches if the user chooses to
+        /// </summary>
+        /// <param name="isManual"></param>
         private async void GetEvents(bool isManual)
         {
             //seasonframework.Database.Initialize(true);
@@ -585,6 +665,10 @@ namespace ControllerScouting.Screens
                 }
             }
         }
+
+        /// <summary>
+        /// Refreshes the home team priority list based on the current match
+        /// </summary>
         public static void RefreshPrio()
         {
             if (BackgroundCode.homeTeam != "None")
@@ -615,11 +699,20 @@ namespace ControllerScouting.Screens
             }
         }
 
+        /// <summary>
+        /// Logs the message to the logger
+        /// </summary>
+        /// <param name="m"></param>
         private void Log(string m)
         {
             Logger.Log(m);
         }
 
+        /// <summary>
+        /// Opens the FunctionsForm to allow the user to access various functions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnFunctions_Click(object sender, EventArgs e)
         {
             FunctionsForm frm = new();
@@ -645,6 +738,12 @@ namespace ControllerScouting.Screens
             { 4, "Counter" },
             { 9, "Scouter Error" }
         };
+
+        /// <summary>
+        /// Updates the screen with the current state of each robot
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateScreen(object sender, EventArgs e)
         {
             int redScore = 0;
@@ -692,6 +791,12 @@ namespace ControllerScouting.Screens
             ((Label)this.Controls.Find($"lblRedScore", true)[0]).Text = redScore.ToString();
             ((Label)this.Controls.Find($"lblBlueScore", true)[0]).Text = blueScore.ToString();
         }
+
+        /// <summary>
+        /// Function for updating the screen when in Auto Mode
+        /// </summary>
+        /// <param name="Box_Number"></param>
+        /// <param name="ScouterBox"></param>
         private void InAutoMode(int Box_Number, int ScouterBox)
         {
             //Leave
@@ -815,6 +920,12 @@ namespace ControllerScouting.Screens
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).Visible = false;
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).ForeColor = System.Drawing.Color.Yellow;
         }
+
+        /// <summary>
+        /// Function for updating the screen when in Teleop Mode
+        /// </summary>
+        /// <param name="Box_Number"></param>
+        /// <param name="ScouterBox"></param>
         private void InTeleopMode(int Box_Number, int ScouterBox)
         {
             //Leave
@@ -922,6 +1033,12 @@ namespace ControllerScouting.Screens
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).Visible = false;
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).ForeColor = System.Drawing.Color.Yellow;
         }
+
+        /// <summary>
+        /// Function for updating the screen when in Defense Mode
+        /// </summary>
+        /// <param name="Box_Number"></param>
+        /// <param name="ScouterBox"></param>
         private void InDefenseMode(int Box_Number, int ScouterBox)
         {
             //Defense Timer
@@ -1030,6 +1147,12 @@ namespace ControllerScouting.Screens
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).Visible = false;
             ((Label)this.Controls.Find($"lbl{ScouterBox}Position12Value", true)[0]).ForeColor = System.Drawing.Color.Yellow;
         }
+
+        /// <summary>
+        /// Function for updating the screen when in Surfacing Mode
+        /// </summary>
+        /// <param name="Box_Number"></param>
+        /// <param name="ScouterBox"></param>
         private void InSurfacingMode(int Box_Number, int ScouterBox)
         {
             //Climb Timer
