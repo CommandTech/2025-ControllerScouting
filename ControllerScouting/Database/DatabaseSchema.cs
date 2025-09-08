@@ -1032,7 +1032,7 @@ namespace ControllerScouting
 
             for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
             {
-                Controllers.ResetValues(i);
+                BackgroundCode.Robots[i].ResetScouter();
             }
         }
 
@@ -1065,8 +1065,12 @@ namespace ControllerScouting
             }
 
             string locationCorrected = DoubleBackslashesAndEnsureTrailing(location);
+            
+            string filePath = locationCorrected + databaseName;
+            string directoryPath = Path.GetDirectoryName(filePath);
+            Directory.CreateDirectory(directoryPath);
+            File.Create(filePath).Close();
 
-            File.Create(locationCorrected + databaseName).Close();
             Settings.Default.csvExists = true;
         }
 
@@ -1085,7 +1089,19 @@ namespace ControllerScouting
             string oldLocationCorrected = DoubleBackslashesAndEnsureTrailing(oldLocation);
             string newLocationCorrected = DoubleBackslashesAndEnsureTrailing(newLocation);
 
-            File.Move(oldLocationCorrected + databaseName, newLocationCorrected + databaseName);
+            string oldFilePath = oldLocationCorrected + databaseName;
+            string newFilePath = newLocationCorrected + databaseName;
+
+            string directoryPath = Path.GetDirectoryName(newFilePath);
+            Directory.CreateDirectory(directoryPath);
+            File.Move(oldFilePath, newFilePath);
+
+            string dir = Path.GetDirectoryName(oldFilePath);
+            while (!string.IsNullOrEmpty(dir) && Directory.Exists(dir) && Directory.GetFileSystemEntries(dir).Length == 0)
+            {
+                Directory.Delete(dir);
+                dir = Path.GetDirectoryName(dir);
+            }
         }
     }
 }

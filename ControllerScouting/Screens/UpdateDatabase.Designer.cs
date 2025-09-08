@@ -63,6 +63,8 @@ namespace ControllerScouting.Screens
             this.comboCoralAcqLoc = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtDisAlg = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtDelAlgaeF = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -121,6 +123,9 @@ namespace ControllerScouting.Screens
             this.updatePreviewsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updatePreviewsTableAdapter = new ControllerScouting.scoutingdbDataSetTableAdapters.UpdatePreviewsTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -157,13 +162,7 @@ namespace ControllerScouting.Screens
             this.ClimbT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CageAttempt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedCage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointScored = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.txtDisAlg = new System.Windows.Forms.TextBox();
             this.panel10.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -213,7 +212,7 @@ namespace ControllerScouting.Screens
             this.btnFetchValues.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFetchValues.ForeColor = System.Drawing.Color.AliceBlue;
             this.btnFetchValues.Location = new System.Drawing.Point(7, 2);
-            this.btnFetchValues.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFetchValues.Margin = new System.Windows.Forms.Padding(4);
             this.btnFetchValues.Name = "btnFetchValues";
             this.btnFetchValues.Size = new System.Drawing.Size(167, 28);
             this.btnFetchValues.TabIndex = 11;
@@ -276,7 +275,7 @@ namespace ControllerScouting.Screens
             this.btnUpdateDatabase.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDatabase.ForeColor = System.Drawing.Color.AliceBlue;
             this.btnUpdateDatabase.Location = new System.Drawing.Point(5, 2);
-            this.btnUpdateDatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateDatabase.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateDatabase.Name = "btnUpdateDatabase";
             this.btnUpdateDatabase.Size = new System.Drawing.Size(167, 28);
             this.btnUpdateDatabase.TabIndex = 11;
@@ -290,7 +289,7 @@ namespace ControllerScouting.Screens
             this.button2.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.AliceBlue;
             this.button2.Location = new System.Drawing.Point(5, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 28);
             this.button2.TabIndex = 11;
@@ -304,7 +303,7 @@ namespace ControllerScouting.Screens
             this.checkEndMatch.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEndMatch.ForeColor = System.Drawing.Color.White;
             this.checkEndMatch.Location = new System.Drawing.Point(516, 22);
-            this.checkEndMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkEndMatch.Margin = new System.Windows.Forms.Padding(4);
             this.checkEndMatch.Name = "checkEndMatch";
             this.checkEndMatch.Size = new System.Drawing.Size(99, 23);
             this.checkEndMatch.TabIndex = 357;
@@ -318,7 +317,7 @@ namespace ControllerScouting.Screens
             this.checkEndAuto.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEndAuto.ForeColor = System.Drawing.Color.White;
             this.checkEndAuto.Location = new System.Drawing.Point(416, 22);
-            this.checkEndAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkEndAuto.Margin = new System.Windows.Forms.Padding(4);
             this.checkEndAuto.Name = "checkEndAuto";
             this.checkEndAuto.Size = new System.Drawing.Size(90, 23);
             this.checkEndAuto.TabIndex = 356;
@@ -335,7 +334,7 @@ namespace ControllerScouting.Screens
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(16, 110);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1148, 250);
             this.panel3.TabIndex = 359;
@@ -354,9 +353,9 @@ namespace ControllerScouting.Screens
             this.groupBox3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Location = new System.Drawing.Point(636, 7);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(130, 235);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
@@ -368,7 +367,7 @@ namespace ControllerScouting.Screens
             this.txtDefenseTime.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDefenseTime.ForeColor = System.Drawing.Color.White;
             this.txtDefenseTime.Location = new System.Drawing.Point(18, 199);
-            this.txtDefenseTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDefenseTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtDefenseTime.Name = "txtDefenseTime";
             this.txtDefenseTime.Size = new System.Drawing.Size(56, 26);
             this.txtDefenseTime.TabIndex = 46;
@@ -397,7 +396,7 @@ namespace ControllerScouting.Screens
             "Shallow",
             "Deep"});
             this.comboEndState.Location = new System.Drawing.Point(16, 38);
-            this.comboEndState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboEndState.Margin = new System.Windows.Forms.Padding(4);
             this.comboEndState.Name = "comboEndState";
             this.comboEndState.Size = new System.Drawing.Size(79, 28);
             this.comboEndState.TabIndex = 44;
@@ -423,7 +422,7 @@ namespace ControllerScouting.Screens
             "Y",
             "N"});
             this.comboClimbAttempt.Location = new System.Drawing.Point(18, 94);
-            this.comboClimbAttempt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboClimbAttempt.Margin = new System.Windows.Forms.Padding(4);
             this.comboClimbAttempt.Name = "comboClimbAttempt";
             this.comboClimbAttempt.Size = new System.Drawing.Size(79, 28);
             this.comboClimbAttempt.TabIndex = 38;
@@ -434,7 +433,7 @@ namespace ControllerScouting.Screens
             this.txtClimbTime.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClimbTime.ForeColor = System.Drawing.Color.White;
             this.txtClimbTime.Location = new System.Drawing.Point(18, 147);
-            this.txtClimbTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClimbTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtClimbTime.Name = "txtClimbTime";
             this.txtClimbTime.Size = new System.Drawing.Size(56, 26);
             this.txtClimbTime.TabIndex = 41;
@@ -476,9 +475,9 @@ namespace ControllerScouting.Screens
             this.groupBox1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(16, 6);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(153, 236);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
@@ -494,7 +493,7 @@ namespace ControllerScouting.Screens
             "Near",
             "Far"});
             this.comboAlgaeAcqSide.Location = new System.Drawing.Point(14, 197);
-            this.comboAlgaeAcqSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboAlgaeAcqSide.Margin = new System.Windows.Forms.Padding(4);
             this.comboAlgaeAcqSide.Name = "comboAlgaeAcqSide";
             this.comboAlgaeAcqSide.Size = new System.Drawing.Size(119, 29);
             this.comboAlgaeAcqSide.TabIndex = 360;
@@ -520,7 +519,7 @@ namespace ControllerScouting.Screens
             "Near",
             "Far"});
             this.comboCoralAcqSide.Location = new System.Drawing.Point(14, 94);
-            this.comboCoralAcqSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCoralAcqSide.Margin = new System.Windows.Forms.Padding(4);
             this.comboCoralAcqSide.Name = "comboCoralAcqSide";
             this.comboCoralAcqSide.Size = new System.Drawing.Size(119, 29);
             this.comboCoralAcqSide.TabIndex = 358;
@@ -546,7 +545,7 @@ namespace ControllerScouting.Screens
             "Reef",
             "Floor"});
             this.comboAlgaeAcqLoc.Location = new System.Drawing.Point(16, 147);
-            this.comboAlgaeAcqLoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboAlgaeAcqLoc.Margin = new System.Windows.Forms.Padding(4);
             this.comboAlgaeAcqLoc.Name = "comboAlgaeAcqLoc";
             this.comboAlgaeAcqLoc.Size = new System.Drawing.Size(119, 29);
             this.comboAlgaeAcqLoc.TabIndex = 356;
@@ -572,7 +571,7 @@ namespace ControllerScouting.Screens
             "Station",
             "Floor"});
             this.comboCoralAcqLoc.Location = new System.Drawing.Point(14, 43);
-            this.comboCoralAcqLoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCoralAcqLoc.Margin = new System.Windows.Forms.Padding(4);
             this.comboCoralAcqLoc.Name = "comboCoralAcqLoc";
             this.comboCoralAcqLoc.Size = new System.Drawing.Size(119, 29);
             this.comboCoralAcqLoc.TabIndex = 354;
@@ -620,13 +619,38 @@ namespace ControllerScouting.Screens
             this.groupBox2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Location = new System.Drawing.Point(182, 5);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(446, 238);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DELIVERY";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.Black;
+            this.label28.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label28.Location = new System.Drawing.Point(316, 183);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(124, 20);
+            this.label28.TabIndex = 382;
+            this.label28.Text = "Algae Dislodged";
+            // 
+            // txtDisAlg
+            // 
+            this.txtDisAlg.BackColor = System.Drawing.SystemColors.InfoText;
+            this.txtDisAlg.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisAlg.ForeColor = System.Drawing.Color.White;
+            this.txtDisAlg.Location = new System.Drawing.Point(320, 204);
+            this.txtDisAlg.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDisAlg.Name = "txtDisAlg";
+            this.txtDisAlg.Size = new System.Drawing.Size(41, 26);
+            this.txtDisAlg.TabIndex = 381;
+            this.txtDisAlg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label23
             // 
@@ -647,7 +671,7 @@ namespace ControllerScouting.Screens
             this.txtDelAlgaeF.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelAlgaeF.ForeColor = System.Drawing.Color.White;
             this.txtDelAlgaeF.Location = new System.Drawing.Point(320, 150);
-            this.txtDelAlgaeF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelAlgaeF.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelAlgaeF.Name = "txtDelAlgaeF";
             this.txtDelAlgaeF.Size = new System.Drawing.Size(41, 26);
             this.txtDelAlgaeF.TabIndex = 379;
@@ -672,7 +696,7 @@ namespace ControllerScouting.Screens
             this.txtDelCoralF.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelCoralF.ForeColor = System.Drawing.Color.White;
             this.txtDelCoralF.Location = new System.Drawing.Point(213, 44);
-            this.txtDelCoralF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelCoralF.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelCoralF.Name = "txtDelCoralF";
             this.txtDelCoralF.Size = new System.Drawing.Size(41, 26);
             this.txtDelCoralF.TabIndex = 377;
@@ -697,7 +721,7 @@ namespace ControllerScouting.Screens
             this.txtDelAlgaeP.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelAlgaeP.ForeColor = System.Drawing.Color.White;
             this.txtDelAlgaeP.Location = new System.Drawing.Point(320, 96);
-            this.txtDelAlgaeP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelAlgaeP.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelAlgaeP.Name = "txtDelAlgaeP";
             this.txtDelAlgaeP.Size = new System.Drawing.Size(41, 26);
             this.txtDelAlgaeP.TabIndex = 375;
@@ -722,7 +746,7 @@ namespace ControllerScouting.Screens
             this.txtDelAlgaeN.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelAlgaeN.ForeColor = System.Drawing.Color.White;
             this.txtDelAlgaeN.Location = new System.Drawing.Point(320, 44);
-            this.txtDelAlgaeN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelAlgaeN.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelAlgaeN.Name = "txtDelAlgaeN";
             this.txtDelAlgaeN.Size = new System.Drawing.Size(41, 26);
             this.txtDelAlgaeN.TabIndex = 373;
@@ -747,7 +771,7 @@ namespace ControllerScouting.Screens
             this.txtDelCoralL1.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelCoralL1.ForeColor = System.Drawing.Color.White;
             this.txtDelCoralL1.Location = new System.Drawing.Point(160, 203);
-            this.txtDelCoralL1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelCoralL1.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelCoralL1.Name = "txtDelCoralL1";
             this.txtDelCoralL1.Size = new System.Drawing.Size(41, 26);
             this.txtDelCoralL1.TabIndex = 371;
@@ -772,7 +796,7 @@ namespace ControllerScouting.Screens
             this.txtDelCoralL2.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelCoralL2.ForeColor = System.Drawing.Color.White;
             this.txtDelCoralL2.Location = new System.Drawing.Point(160, 151);
-            this.txtDelCoralL2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelCoralL2.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelCoralL2.Name = "txtDelCoralL2";
             this.txtDelCoralL2.Size = new System.Drawing.Size(41, 26);
             this.txtDelCoralL2.TabIndex = 369;
@@ -797,7 +821,7 @@ namespace ControllerScouting.Screens
             this.txtDelCoralL3.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelCoralL3.ForeColor = System.Drawing.Color.White;
             this.txtDelCoralL3.Location = new System.Drawing.Point(160, 95);
-            this.txtDelCoralL3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelCoralL3.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelCoralL3.Name = "txtDelCoralL3";
             this.txtDelCoralL3.Size = new System.Drawing.Size(41, 26);
             this.txtDelCoralL3.TabIndex = 367;
@@ -822,7 +846,7 @@ namespace ControllerScouting.Screens
             this.txtDelCoralL4.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelCoralL4.ForeColor = System.Drawing.Color.White;
             this.txtDelCoralL4.Location = new System.Drawing.Point(160, 43);
-            this.txtDelCoralL4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDelCoralL4.Margin = new System.Windows.Forms.Padding(4);
             this.txtDelCoralL4.Name = "txtDelCoralL4";
             this.txtDelCoralL4.Size = new System.Drawing.Size(41, 26);
             this.txtDelCoralL4.TabIndex = 365;
@@ -838,7 +862,7 @@ namespace ControllerScouting.Screens
             "Near",
             "Far"});
             this.comboAlgaeDelSide.Location = new System.Drawing.Point(12, 198);
-            this.comboAlgaeDelSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboAlgaeDelSide.Margin = new System.Windows.Forms.Padding(4);
             this.comboAlgaeDelSide.Name = "comboAlgaeDelSide";
             this.comboAlgaeDelSide.Size = new System.Drawing.Size(119, 29);
             this.comboAlgaeDelSide.TabIndex = 364;
@@ -864,7 +888,7 @@ namespace ControllerScouting.Screens
             "Near",
             "Far"});
             this.comboCoralDelSide.Location = new System.Drawing.Point(12, 95);
-            this.comboCoralDelSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCoralDelSide.Margin = new System.Windows.Forms.Padding(4);
             this.comboCoralDelSide.Name = "comboCoralDelSide";
             this.comboCoralDelSide.Size = new System.Drawing.Size(119, 29);
             this.comboCoralDelSide.TabIndex = 362;
@@ -893,7 +917,7 @@ namespace ControllerScouting.Screens
             "L1",
             "Floor"});
             this.comboAlgaeDelDest.Location = new System.Drawing.Point(12, 148);
-            this.comboAlgaeDelDest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboAlgaeDelDest.Margin = new System.Windows.Forms.Padding(4);
             this.comboAlgaeDelDest.Name = "comboAlgaeDelDest";
             this.comboAlgaeDelDest.Size = new System.Drawing.Size(78, 29);
             this.comboAlgaeDelDest.TabIndex = 358;
@@ -922,7 +946,7 @@ namespace ControllerScouting.Screens
             "L1",
             "Floor"});
             this.comboCoralDelDest.Location = new System.Drawing.Point(12, 43);
-            this.comboCoralDelDest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboCoralDelDest.Margin = new System.Windows.Forms.Padding(4);
             this.comboCoralDelDest.Name = "comboCoralDelDest";
             this.comboCoralDelDest.Size = new System.Drawing.Size(79, 29);
             this.comboCoralDelDest.TabIndex = 356;
@@ -962,7 +986,7 @@ namespace ControllerScouting.Screens
             this.panel4.Controls.Add(this.comboStrategy);
             this.panel4.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(774, 17);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(359, 225);
             this.panel4.TabIndex = 349;
@@ -977,7 +1001,7 @@ namespace ControllerScouting.Screens
             "Shallow",
             "Deep"});
             this.comboSelectedCage.Location = new System.Drawing.Point(130, 28);
-            this.comboSelectedCage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboSelectedCage.Margin = new System.Windows.Forms.Padding(4);
             this.comboSelectedCage.Name = "comboSelectedCage";
             this.comboSelectedCage.Size = new System.Drawing.Size(95, 27);
             this.comboSelectedCage.TabIndex = 61;
@@ -1005,7 +1029,7 @@ namespace ControllerScouting.Screens
             "Y",
             "N"});
             this.comboLeave.Location = new System.Drawing.Point(9, 88);
-            this.comboLeave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboLeave.Margin = new System.Windows.Forms.Padding(4);
             this.comboLeave.Name = "comboLeave";
             this.comboLeave.Size = new System.Drawing.Size(95, 27);
             this.comboLeave.TabIndex = 59;
@@ -1025,7 +1049,7 @@ namespace ControllerScouting.Screens
             "C5",
             "C6"});
             this.comboStart.Location = new System.Drawing.Point(9, 152);
-            this.comboStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboStart.Margin = new System.Windows.Forms.Padding(4);
             this.comboStart.Name = "comboStart";
             this.comboStart.Size = new System.Drawing.Size(95, 27);
             this.comboStart.TabIndex = 58;
@@ -1114,7 +1138,7 @@ namespace ControllerScouting.Screens
             this.txtEffectiveness.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEffectiveness.ForeColor = System.Drawing.Color.White;
             this.txtEffectiveness.Location = new System.Drawing.Point(306, 28);
-            this.txtEffectiveness.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEffectiveness.Margin = new System.Windows.Forms.Padding(4);
             this.txtEffectiveness.Name = "txtEffectiveness";
             this.txtEffectiveness.Size = new System.Drawing.Size(41, 26);
             this.txtEffectiveness.TabIndex = 47;
@@ -1126,7 +1150,7 @@ namespace ControllerScouting.Screens
             this.txtAvoidance.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAvoidance.ForeColor = System.Drawing.Color.White;
             this.txtAvoidance.Location = new System.Drawing.Point(245, 89);
-            this.txtAvoidance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAvoidance.Margin = new System.Windows.Forms.Padding(4);
             this.txtAvoidance.Name = "txtAvoidance";
             this.txtAvoidance.Size = new System.Drawing.Size(41, 26);
             this.txtAvoidance.TabIndex = 46;
@@ -1138,7 +1162,7 @@ namespace ControllerScouting.Screens
             this.txtDefense.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDefense.ForeColor = System.Drawing.Color.White;
             this.txtDefense.Location = new System.Drawing.Point(245, 28);
-            this.txtDefense.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDefense.Margin = new System.Windows.Forms.Padding(4);
             this.txtDefense.Name = "txtDefense";
             this.txtDefense.Size = new System.Drawing.Size(41, 26);
             this.txtDefense.TabIndex = 43;
@@ -1187,7 +1211,7 @@ namespace ControllerScouting.Screens
             "JammedPiece",
             "WentUnderCages"});
             this.comboMatchEvent.Location = new System.Drawing.Point(130, 152);
-            this.comboMatchEvent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMatchEvent.Margin = new System.Windows.Forms.Padding(4);
             this.comboMatchEvent.Name = "comboMatchEvent";
             this.comboMatchEvent.Size = new System.Drawing.Size(95, 27);
             this.comboMatchEvent.TabIndex = 42;
@@ -1203,7 +1227,7 @@ namespace ControllerScouting.Screens
             "Surfacing",
             "Defense"});
             this.comboMode.Location = new System.Drawing.Point(130, 87);
-            this.comboMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMode.Margin = new System.Windows.Forms.Padding(4);
             this.comboMode.Name = "comboMode";
             this.comboMode.Size = new System.Drawing.Size(95, 27);
             this.comboMode.TabIndex = 42;
@@ -1221,7 +1245,7 @@ namespace ControllerScouting.Screens
             "Hybrid",
             "Surfacing"});
             this.comboStrategy.Location = new System.Drawing.Point(245, 152);
-            this.comboStrategy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboStrategy.Margin = new System.Windows.Forms.Padding(4);
             this.comboStrategy.Name = "comboStrategy";
             this.comboStrategy.Size = new System.Drawing.Size(84, 27);
             this.comboStrategy.TabIndex = 43;
@@ -1236,7 +1260,7 @@ namespace ControllerScouting.Screens
             this.panel11.Controls.Add(this.checkMatchEvent);
             this.panel11.Controls.Add(this.btnCreateTable);
             this.panel11.Location = new System.Drawing.Point(-5, 4);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1193, 100);
             this.panel11.TabIndex = 361;
@@ -1248,7 +1272,7 @@ namespace ControllerScouting.Screens
             this.checkDefense.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkDefense.ForeColor = System.Drawing.Color.White;
             this.checkDefense.Location = new System.Drawing.Point(634, 18);
-            this.checkDefense.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkDefense.Margin = new System.Windows.Forms.Padding(4);
             this.checkDefense.Name = "checkDefense";
             this.checkDefense.Size = new System.Drawing.Size(85, 23);
             this.checkDefense.TabIndex = 358;
@@ -1290,7 +1314,7 @@ namespace ControllerScouting.Screens
             this.comboTeamNumber.ForeColor = System.Drawing.Color.White;
             this.comboTeamNumber.FormattingEnabled = true;
             this.comboTeamNumber.Location = new System.Drawing.Point(7, 30);
-            this.comboTeamNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboTeamNumber.Margin = new System.Windows.Forms.Padding(4);
             this.comboTeamNumber.Name = "comboTeamNumber";
             this.comboTeamNumber.Size = new System.Drawing.Size(123, 30);
             this.comboTeamNumber.TabIndex = 1;
@@ -1314,7 +1338,7 @@ namespace ControllerScouting.Screens
             this.comboMatchNumber.ForeColor = System.Drawing.Color.White;
             this.comboMatchNumber.FormattingEnabled = true;
             this.comboMatchNumber.Location = new System.Drawing.Point(155, 30);
-            this.comboMatchNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMatchNumber.Margin = new System.Windows.Forms.Padding(4);
             this.comboMatchNumber.Name = "comboMatchNumber";
             this.comboMatchNumber.Size = new System.Drawing.Size(123, 30);
             this.comboMatchNumber.TabIndex = 2;
@@ -1339,7 +1363,7 @@ namespace ControllerScouting.Screens
             this.checkActivities.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkActivities.ForeColor = System.Drawing.Color.White;
             this.checkActivities.Location = new System.Drawing.Point(421, 68);
-            this.checkActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkActivities.Margin = new System.Windows.Forms.Padding(4);
             this.checkActivities.Name = "checkActivities";
             this.checkActivities.Size = new System.Drawing.Size(92, 23);
             this.checkActivities.TabIndex = 4;
@@ -1353,7 +1377,7 @@ namespace ControllerScouting.Screens
             this.checkMatchEvent.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkMatchEvent.ForeColor = System.Drawing.Color.White;
             this.checkMatchEvent.Location = new System.Drawing.Point(521, 68);
-            this.checkMatchEvent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkMatchEvent.Margin = new System.Windows.Forms.Padding(4);
             this.checkMatchEvent.Name = "checkMatchEvent";
             this.checkMatchEvent.Size = new System.Drawing.Size(111, 23);
             this.checkMatchEvent.TabIndex = 6;
@@ -1366,7 +1390,7 @@ namespace ControllerScouting.Screens
             this.btnCreateTable.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateTable.ForeColor = System.Drawing.Color.AliceBlue;
             this.btnCreateTable.Location = new System.Drawing.Point(734, 14);
-            this.btnCreateTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateTable.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateTable.Name = "btnCreateTable";
             this.btnCreateTable.Size = new System.Drawing.Size(167, 28);
             this.btnCreateTable.TabIndex = 11;
@@ -1429,7 +1453,6 @@ namespace ControllerScouting.Screens
             this.ClimbT,
             this.EndState,
             this.CageAttempt,
-            this.SelectedCage,
             this.PointScored});
             this.dataGridView1.DataSource = this.updatePreviewsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(11, 6);
@@ -1439,6 +1462,41 @@ namespace ControllerScouting.Screens
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1125, 220);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(16, 357);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1148, 238);
+            this.panel1.TabIndex = 358;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(715, 629);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 20);
+            this.label3.TabIndex = 365;
+            this.label3.Text = "ID";
+            // 
+            // txtID
+            // 
+            this.txtID.BackColor = System.Drawing.Color.Black;
+            this.txtID.ForeColor = System.Drawing.Color.White;
+            this.txtID.Location = new System.Drawing.Point(744, 628);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(43, 22);
+            this.txtID.TabIndex = 364;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -1729,14 +1787,6 @@ namespace ControllerScouting.Screens
             this.CageAttempt.Name = "CageAttempt";
             this.CageAttempt.Width = 125;
             // 
-            // SelectedCage
-            // 
-            this.SelectedCage.DataPropertyName = "SelectedCage";
-            this.SelectedCage.HeaderText = "SelectedCage";
-            this.SelectedCage.MinimumWidth = 6;
-            this.SelectedCage.Name = "SelectedCage";
-            this.SelectedCage.Width = 125;
-            // 
             // PointScored
             // 
             this.PointScored.DataPropertyName = "PointScored";
@@ -1744,66 +1794,6 @@ namespace ControllerScouting.Screens
             this.PointScored.MinimumWidth = 6;
             this.PointScored.Name = "PointScored";
             this.PointScored.Width = 125;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(16, 357);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 238);
-            this.panel1.TabIndex = 358;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(715, 629);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 20);
-            this.label3.TabIndex = 365;
-            this.label3.Text = "ID";
-            // 
-            // txtID
-            // 
-            this.txtID.BackColor = System.Drawing.Color.Black;
-            this.txtID.ForeColor = System.Drawing.Color.White;
-            this.txtID.Location = new System.Drawing.Point(744, 628);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(43, 22);
-            this.txtID.TabIndex = 364;
-            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.Black;
-            this.label28.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label28.Location = new System.Drawing.Point(316, 183);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(124, 20);
-            this.label28.TabIndex = 382;
-            this.label28.Text = "Algae Dislodged";
-            // 
-            // txtDisAlg
-            // 
-            this.txtDisAlg.BackColor = System.Drawing.SystemColors.InfoText;
-            this.txtDisAlg.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisAlg.ForeColor = System.Drawing.Color.White;
-            this.txtDisAlg.Location = new System.Drawing.Point(320, 204);
-            this.txtDisAlg.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDisAlg.Name = "txtDisAlg";
-            this.txtDisAlg.Size = new System.Drawing.Size(41, 26);
-            this.txtDisAlg.TabIndex = 381;
-            this.txtDisAlg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UpdateDatabase
             // 
@@ -1820,7 +1810,7 @@ namespace ControllerScouting.Screens
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel11);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateDatabase";
             this.Text = "UpdateDatabase";
             this.panel10.ResumeLayout(false);
@@ -1898,44 +1888,6 @@ namespace ControllerScouting.Screens
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboMatchNumber;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matchDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recordTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DriveSta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Defense;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DefenseValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Avoidance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScouterName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScouterError;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Match_event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DZTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Del_Near_Far;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgae_Near_Far;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoral_Near_Far;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Starting_Loc;
-        private new System.Windows.Forms.DataGridViewTextBoxColumn Leave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoralS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoralF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgaeR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgaeF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClimbT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CageAttempt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedCage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PointScored;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox comboEndState;
         private System.Windows.Forms.Label label16;
@@ -2003,5 +1955,42 @@ namespace ControllerScouting.Screens
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtDisAlg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matchDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recordTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DriveSta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Defense;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DefenseValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Avoidance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScouterName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScouterError;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Match_event;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Strategy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DZTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Del_Near_Far;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgae_Near_Far;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoral_Near_Far;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Starting_Loc;
+        private new System.Windows.Forms.DataGridViewTextBoxColumn Leave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoralS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqCoralF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgaeR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcqAlgaeF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralL4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelCoralF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelAlgaeF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClimbT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CageAttempt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointScored;
     }
 }

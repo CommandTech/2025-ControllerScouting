@@ -265,6 +265,15 @@ namespace ControllerScouting.Utilities
             {
                 CycleStart(CycleDirection);
             }
+
+            if (_StartLoc == STARTING_LOC.C1 || _StartLoc == STARTING_LOC.C2 || _StartLoc == STARTING_LOC.C3)
+            {
+                DelNearFar = false;
+            }
+            else
+            {
+                DelNearFar = true;
+            }
         }
         public void CycleStartField(CYCLE_DIRECTION CycleDirection)
         {
@@ -279,6 +288,15 @@ namespace ControllerScouting.Utilities
             if (_StartLocField == STARTING_LOC_FIELD.Select)
             {
                 CycleStartField(CycleDirection);
+            }
+
+            if (_StartLoc == STARTING_LOC.C1 || _StartLoc == STARTING_LOC.C2 || _StartLoc == STARTING_LOC.C3)
+            {
+                DelNearFar = false;
+            }
+            else
+            {
+                DelNearFar = true;
             }
         }
         public void CycleStrat(CYCLE_DIRECTION CycleDirection)
@@ -351,196 +369,63 @@ namespace ControllerScouting.Utilities
                 DatabaseCode.SaveToRecord(this, "Activities", controllerNumber);
             }
         }
-        public void CoralAcquire(int level)
-        {
-            switch (level)
-            {
-                case 0:
-                    lastCoralAcqLoc = "Station";
-                    break;
-                case 1:
-                    lastCoralAcqLoc = "Floor";
-                    break;
-            }
-            AcqCoralNearFar = DelNearFar;
-            hasCoral++;
-            if (hasCoral > 1)
-            {
-                ScouterError += 100000000;
-                hasCoral = 1;
-            }
-        }
-        public void AlgaeAcquire(int level)
-        {
-            switch (level)
-            {
-                case 0:
-                    lastAlgaeAcqLoc = "Reef";
-                    break;
-                case 1:
-                    lastAlgaeAcqLoc = "Floor";
-                    break;
-            }
-            AcqAlgaeNearFar = DelNearFar;
-            hasAlgae++;
-            if (hasAlgae > 1)
-            {
-                ScouterError += 1000000;
-                hasAlgae = 1;
-            }
-        }
-        public void CoralDelivery(int level)
-        {
-            if (!Flag && (lastCoralAcqLoc != " " || totalCoralDeliveries == 0))
-            {
-                if (totalCoralDeliveries == 0 && hasCoral == 0)
-                {
-                    hasCoral++;
-                }
-                switch (level)
-                {
-                    case 4:
-                        lastCoralLoc = "L4";
-                        TransactionCheck = true;
-                        break;
-                    case 3:
-                        lastCoralLoc = "L3";
-                        TransactionCheck = true;
-                        break;
-                    case 2:
-                        lastCoralLoc = "L2";
-                        TransactionCheck = true;
-                        break;
-                    case 1:
-                        lastCoralLoc = "L1";
-                        TransactionCheck = true;
-                        break;
-                    case 0:
-                        if (lastCoralAcqLoc == prevlastCoralAcqLoc && lastCoralAcqLoc != " " && !Flag)
-                        {
-                            if (TransactionCheck && totalCoralDeliveries == 0 && lastCoralLoc == "Floor")
-                            {
-                                hasCoral++;
-                                lastCoralAcqLoc = " ";
-                                lastCoralLoc = "Floor";
-                                AcqCoralNearFar = false;
-                            }
-                            else
-                            {
-                                lastCoralLoc = "Floor";
-                                TransactionCheck = true;
-                            }
-                        }
-                        break;
-                }
-                TransactionCheck = true;
-            }
-        }
-        public void AlgaeDelivery(int level)
-        {
-            switch (level)
-            {
-                case 2:
-                    lastAlgaeLoc = "Net";
-                    TransactionCheck = true;
-                    break;
-                case 1:
-                    lastAlgaeLoc = "Processor";
-                    TransactionCheck = true;
-                    break;
-                case 0:
-                    if (lastAlgaeAcqLoc == prevlastAlgaeAcqLoc && lastAlgaeAcqLoc != " ")
-                    {
-                        lastAlgaeLoc = "Floor";
-                        TransactionCheck = true;
-                    }
-                    break;
-            }
-            TransactionCheck = true;
-        }
-        public void AlgaeFlag(bool value)
-        {
-            Flag = value;
-        }
-        public void ChangeMode(ROBOT_MODE mode, int controllerNumber)
-        {
-            if (_RobotMode == ROBOT_MODE.Auto)
-            {
-                DatabaseCode.SaveToRecord(this, "EndAuto", controllerNumber);
-            }
-            _RobotMode = mode;
 
-            if (_RobotMode == ROBOT_MODE.Surfacing)
-            {
-                ClimbT_StopWatch.Start();
-                ClimbT_StopWatch_running = true;
-                ClimbT = ClimbT_StopWatch.Elapsed;
-            }
-        }
-        public void CycleAvoidance()
+        public void ResetScouter()
         {
-            Avo_Rat++;
-            if (Avo_Rat > 4)
-            {
-                Avo_Rat = 0;
-            }
-        }
-        public void CycleDefense()
-        {
-            Def_Rat++;
-            if (Def_Rat > 4)
-            {
-                Def_Rat = 0;
-            }
-        }
-        public void CycleEffectiveness()
-        {
-            Def_Eff++;
-            if (Def_Eff > 4)
-            {
-                Def_Eff = 0;
-            }
-        }
-        public void StopTimer()
-        {
-            if (ClimbT_StopWatch_running)
-            {
-                ClimbT_StopWatch.Stop();
-                ClimbT_StopWatch_running = false;
-                ClimbT = ClimbT_StopWatch.Elapsed;
-                Cage_Attempt = CAGE_ATTEMPT.Y;
-            }
-            else
-            {
-                ClimbT_StopWatch.Start();
-                ClimbT_StopWatch_running = true;
-                ClimbT = ClimbT_StopWatch.Elapsed;
-            }
-        }
-        public void ResetTimer()
-        {
+            _RobotMode = ROBOT_MODE.Auto;
+            _match_event = MATCHEVENT_NAME.Match_Event;
+
+            hasAlgae = 0;
+            hasCoral = 0;
+            
+            lastAlgaeLoc = " ";
+            lastCoralLoc = " ";
+            
+            lastAlgaeAcqLoc = " ";
+            lastCoralAcqLoc = " ";
+            prevlastAlgaeLoc = " ";
+            prevlastCoralLoc = " ";
+            prevlastAlgaeAcqLoc = " ";
+            prevlastCoralAcqLoc = " ";
+            
+            DelNearFar = false;
+            AcqAlgaeNearFar = false;
+            AcqCoralNearFar = false;
+            
+            Def_Rat = 9;
+            Def_Eff = 9;
+            Avo_Rat = 9;
+            
             ClimbT = TimeSpan.Zero;
             ClimbT_StopWatch.Reset();
             ClimbT_StopWatch_running = false;
-
+            
+            DefTime = TimeSpan.Zero;
+            DefTime_StopWatch.Reset();
+            DefTime_StopWatch_running = false;
+            
+            autoCoralPoints = 0;
+            PointsScored = 0;
+            RTHUP_Lock = false;
+            Flag = false;
+            TransactionCheck = false;
+            NoSho = false;
+            Leave = LEAVE.N;
+            
+            Starting_Location = STARTING_LOC.C1;
+            Starting_Location_Field = STARTING_LOC_FIELD.C1;
+            
+            App_Strategy = APP_STRAT.None;
+            End_State = END_STATE.Elsewhere;
             Cage_Attempt = CAGE_ATTEMPT.N;
-        }
-        public void ChangeSide(bool side)
-        {
-            DelNearFar = side;
-        }
-        public void SetPreviousAcquires(bool isAlgae)
-        {
-            if (isAlgae)
-            {
-                prevlastAlgaeLoc = lastAlgaeLoc;
-                prevlastAlgaeAcqLoc = lastAlgaeAcqLoc;
-            }
-            else
-            {
-                prevlastCoralLoc = lastCoralLoc;
-                prevlastCoralAcqLoc = lastCoralAcqLoc;
-            }
+            Desired_Mode = ROBOT_MODE.Auto;
+            ScouterError = 0;
+            prevScouterError = 0;
+            ScouterBox = 0;
+            AUTO = true;
+            color = "Red";
+            ScouterError = 0;
+            prevScouterError = 0;
         }
     }
 }

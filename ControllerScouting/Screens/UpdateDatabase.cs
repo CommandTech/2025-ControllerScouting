@@ -200,6 +200,7 @@ namespace ControllerScouting.Screens
                 }
                 if (result != null)
                 {
+                    List<string> valuesChanged = [];
                     string query = "UPDATE Activities SET Defense = '" + txtDefense.Text + "' WHERE Id = '" + result.Id + "';";
                     seasonframework.Database.ExecuteSqlCommand(query);
 
@@ -484,104 +485,70 @@ namespace ControllerScouting.Screens
                     query = "UPDATE Activities SET CageAttempt = '" + comboClimbAttempt.Text + "' WHERE Id = '" + result.Id + "';";
                     seasonframework.Database.ExecuteSqlCommand(query);
 
-                    query = "UPDATE Activities SET SelectedCage = '" + comboSelectedCage.Text + "' WHERE Id = '" + result.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-                }
-                //Loop through the rest of the selected match and team until it hits the endMatch and changes all the acquires and delivers to match the changed record
-                var result2 = db.ActivitySet.Where(b => b.Team == result.Team && b.Match == result.Match && b.Id > IDNumber && b.RecordType != "Match_Event").ToList();
-                foreach (var line in result2)
-                {
-                    line.DelCoralL1 += L1ChangeAmount;
-                    string query = "UPDATE Activities SET DelCoralL1 = '" + line.DelCoralL1 + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelCoralL2 += L2ChangeAmount;
-                    query = "UPDATE Activities SET DelCoralL2 = '" + line.DelCoralL2 + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelCoralL3 += L3ChangeAmount;
-                    query = "UPDATE Activities SET DelCoralL3 = '" + line.DelCoralL3 + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelCoralL4 += L4ChangeAmount;
-                    query = "UPDATE Activities SET DelCoralL4 = '" + line.DelCoralL4 + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelCoralF += CFChangeAmount;
-                    query = "UPDATE Activities SET DelCoralF = '" + line.DelCoralF + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelAlgaeP += PChangeAmount;
-                    query = "UPDATE Activities SET DelAlgaeP = '" + line.DelAlgaeP + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelAlgaeN += NChangeAmount;
-                    query = "UPDATE Activities SET DelAlgaeN = '" + line.DelAlgaeN + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DelAlgaeF += AFChangeAmount;
-                    query = "UPDATE Activities SET DelAlgaeF = '" + line.DelAlgaeF + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    line.DisAlg += DChangeAmount;
-                    query = "UPDATE Activities SET DisAlg = '" + line.DisAlg + "' WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
+                    int acqCoralS = 0;
+                    int acqCoralF = 0;
+                    int acqAlgaeF = 0;
+                    int acqAlgaeR = 0;
 
                     switch (AcqChange)
                     {
                         case "SF":
-                            line.AcqCoralS--;
-                            line.AcqCoralF++;
+                            acqCoralS--;
+                            acqCoralF++;
                             break;
                         case "SN":
-                            line.AcqCoralS--;
+                            acqCoralS--;
                             break;
                         case "FS":
-                            line.AcqCoralF--;
-                            line.AcqCoralS++;
+                            acqCoralF--;
+                            acqCoralS++;
                             break;
                         case "CFN":
-                            line.AcqCoralF--;
+                            acqCoralF--;
                             break;
                         case "CNF":
-                            line.AcqCoralF++;
+                            acqCoralF++;
                             break;
                         case "NS":
-                            line.AcqCoralS++;
+                            acqCoralS++;
                             break;
                         case "RF":
-                            line.AcqAlgaeF++;
-                            line.AcqAlgaeR--;
+                            acqAlgaeF++;
+                            acqAlgaeR--;
                             break;
                         case "RN":
-                            line.AcqAlgaeR--;
+                            acqAlgaeR--;
                             break;
                         case "FR":
-                            line.AcqAlgaeF--;
-                            line.AcqAlgaeR++;
+                            acqAlgaeF--;
+                            acqAlgaeR++;
                             break;
                         case "AFN":
-                            line.AcqAlgaeF--;
+                            acqAlgaeF--;
                             break;
                         case "ANF":
-                            line.AcqAlgaeF++;
+                            acqAlgaeF++;
                             break;
                         case "NR":
-                            line.AcqAlgaeR++;
+                            acqAlgaeR++;
                             break;
                     }
 
-                    query = "UPDATE Activities SET AcqCoralS = " + line.AcqCoralS + " WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    query = "UPDATE Activities SET AcqCoralF = " + line.AcqCoralF + " WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    query = "UPDATE Activities SET AcqAlgaeR = " + line.AcqAlgaeR + " WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
-
-                    query = "UPDATE Activities SET AcqAlgaeF = " + line.AcqAlgaeF + " WHERE Id = '" + line.Id + "';";
-                    seasonframework.Database.ExecuteSqlCommand(query);
+                    string updateRestQuery = $"SELECT * FROM [scoutingdb].[dbo].[Activities] A WHERE (A.Team = '{result.Team}' AND A.Match = {result.Match} AND A.Id > {result.Id}) " +
+                        $"UPDATE Activities Set DelCoralL4 = DelCoralL4 + {L4ChangeAmount}, " +
+                        $"DelCoralL3 = DelCoralL3 + {L3ChangeAmount}, " +
+                        $"DelCoralL2 = DelCoralL2 + {L2ChangeAmount}, " +
+                        $"DelCoralL1 = DelCoralL1 + {L1ChangeAmount}, " +
+                        $"DelCoralF = DelCoralF + {CFChangeAmount}," +
+                        $"DelAlgaeP = DelAlgaeP + {PChangeAmount}," +
+                        $"DelAlgaeN = DelAlgaeN + {NChangeAmount}," +
+                        $"DelAlgaeF = DelAlgaeF + {AFChangeAmount}," +
+                        $"DisAlg = DisAlg + {DChangeAmount}," +
+                        $"AcqCoralS = AcqCoralS + {acqCoralS}," +
+                        $"AcqCoralF = AcqCoralF + {acqCoralF}," +
+                        $"AcqAlgaeR = AcqAlgaeR + {acqAlgaeR}," +
+                        $"AcqAlgaeF = AcqAlgaeF + {acqAlgaeF};";
+                    seasonframework.Database.ExecuteSqlCommand(updateRestQuery);
                 }
 
                 MessageBox.Show("Database Updated");

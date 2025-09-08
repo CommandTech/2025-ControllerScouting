@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.ServiceProcess;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -82,13 +83,14 @@ namespace ControllerScouting.Screens
 
         private static void InitalizeDB()
         {
-            //Sets the connection string to the database
-            BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+            if (Settings.Default.sqlExists)
+            {
+                // Sets the connection string to the database
+                BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
 
-            ////Checks if the database exists
-            //Settings.Default.DBExists = BackgroundCode.seasonframework.Database.Exists();
-            BackgroundCode.seasonframework.Database.Initialize(true);
-            //Settings.Default.DBExists = true;
+                // initializes the database
+                BackgroundCode.seasonframework.Database.Initialize(true);
+            }
         }
 
         public static void UpdateJoysticks()
@@ -131,7 +133,8 @@ namespace ControllerScouting.Screens
                 }
 
                 //Close the connection then exit
-                BackgroundCode.seasonframework.Database.Connection.Close();
+                if (Settings.Default.sqlExists) 
+                    BackgroundCode.seasonframework.Database.Connection.Close();
                 Environment.Exit(0);
             }
         }
@@ -207,8 +210,8 @@ namespace ControllerScouting.Screens
                 }
 
 
-
-                BackgroundCode.seasonframework.Database.Connection.Close();
+                if (Settings.Default.sqlExists)
+                    BackgroundCode.seasonframework.Database.Connection.Close();
                 if (comboBoxSelectRegional.SelectedItem.ToString() == "manualEvent")
                 {
                     DatabaseCode.LoadManualMatches();
@@ -223,15 +226,17 @@ namespace ControllerScouting.Screens
         }
         private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
-            BackgroundCode.seasonframework.Database.Connection.Close();
+            if (Settings.Default.sqlExists)
+                BackgroundCode.seasonframework.Database.Connection.Close();
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to load The Blue Alliance data?", "Please Confirm", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                BackgroundCode.seasonframework.Database.Connection.Open();
+                if (Settings.Default.sqlExists)
+                    BackgroundCode.seasonframework.Database.Connection.Open();
                 GetEvents(false);
                 SetRedRight();
 
-                Log("SQL start time is " + DateTime.Now.TimeOfDay);
+                Log("Start time is " + DateTime.Now.TimeOfDay);
             }
             else
             {
@@ -279,10 +284,26 @@ namespace ControllerScouting.Screens
                 DialogResult dialogResult = MessageBox.Show("All unsaved data will be lost.  Continue?", "Next Match", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes && BackgroundCode.currentMatch != BackgroundCode.InMemoryMatchList.Count)
                 {
+                    for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
+                    {
+                        if (BackgroundCode.gamePads[i] != null)
+                        {
+                            BackgroundCode.Robots[i].ResetScouter();
+                        }
+                    }
+
                     NextMatch();
                 }
                 else if (dialogResult == DialogResult.Yes)
                 {
+                    for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
+                    {
+                        if (BackgroundCode.gamePads[i] != null)
+                        {
+                            BackgroundCode.Robots[i].ResetScouter();
+                        }
+                    }
+
                     MessageBox.Show("You are at the last match.");
                 }
             }
@@ -296,6 +317,14 @@ namespace ControllerScouting.Screens
 
         private void BtnPrevMatch_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
+            {
+                if (BackgroundCode.gamePads[i] != null)
+                {
+                    BackgroundCode.Robots[i].ResetScouter();
+                }
+            }
+
             if (BackgroundCode.currentMatch == 0 || BackgroundCode.currentMatch == 1)
             {
                 MessageBox.Show("You are at the first match.");
@@ -360,8 +389,11 @@ namespace ControllerScouting.Screens
 
                         BackgroundCode.UnSortedMatchList.Add(matchData);
                         BackgroundCode.InMemoryMatchList.Add(matchData);
-                        BackgroundCode.seasonframework.Matchset.Add(matchData);
-                        BackgroundCode.seasonframework.SaveChanges();
+                        if (Settings.Default.sqlExists)
+                        {
+                            BackgroundCode.seasonframework.Matchset.Add(matchData);
+                            BackgroundCode.seasonframework.SaveChanges();
+                        }
 
                         BackgroundCode.MatchNumbers.Add(i + 1);
 
@@ -383,8 +415,12 @@ namespace ControllerScouting.Screens
                             Event_key = "manualevent",
                             Nickname = "manualevent"
                         };
-                        BackgroundCode.seasonframework.Teamset.Add(teamData);
-                        BackgroundCode.seasonframework.SaveChanges();
+
+                        if (Settings.Default.sqlExists)
+                        {
+                            BackgroundCode.seasonframework.Teamset.Add(teamData);
+                            BackgroundCode.seasonframework.SaveChanges();
+                        }
 
                         BackgroundCode.teamlist.Add(team);
                     }
@@ -456,8 +492,11 @@ namespace ControllerScouting.Screens
                                         };
 
                                         //Save changes
-                                        BackgroundCode.seasonframework.Teamset.Add(team_record);
-                                        BackgroundCode.seasonframework.SaveChanges();
+                                        if (Settings.Default.sqlExists)
+                                        {
+                                            BackgroundCode.seasonframework.Teamset.Add(team_record);
+                                            BackgroundCode.seasonframework.SaveChanges();
+                                        }
                                     }
                                 }
                             }
@@ -530,7 +569,10 @@ namespace ControllerScouting.Screens
                     }
 
                     BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
-                    BackgroundCode.currentMatch = 0;
+                    if (sender != null && e != null)
+                    {
+                        BackgroundCode.currentMatch = 0;
+                    }
                 }
                 loading = false;
                 NextMatch();
@@ -538,12 +580,14 @@ namespace ControllerScouting.Screens
         }
         private async void GetEvents(bool isManual)
         {
-            //seasonframework.Database.Initialize(true);
-            BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [EventSummaries]");  // If you crash here, the database structure has been changed, delete DB and retry
-            BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Matches]");
-            //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [TeamSummaries]");    // DO NOT DELETE DURING EVENT
-            //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Activities]");       // DO NOT DELETE DURING EVENT
-            BackgroundCode.seasonframework.SaveChanges();  //Save all deletes/database clears
+            if (Settings.Default.sqlExists)
+            {
+                BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [EventSummaries]");  // If you crash here, the database structure has been changed, delete DB and retry
+                BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Matches]");
+                //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [TeamSummaries]");    // DO NOT DELETE DURING EVENT
+                //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Activities]");       // DO NOT DELETE DURING EVENT
+                BackgroundCode.seasonframework.SaveChanges();  //Save all deletes/database clear
+            }
 
             if (isManual)
             {
@@ -564,8 +608,11 @@ namespace ControllerScouting.Screens
                     List<EventSummary> JSONevents = JsonConvert.DeserializeObject<List<EventSummary>>(responseFromServer);
                     List<KeyValuePair<string, string>> elist = [];
 
-                    BackgroundCode.seasonframework.Eventset.AddRange(JSONevents);
-                    BackgroundCode.seasonframework.SaveChanges();
+                    if (Settings.Default.sqlExists)
+                    {
+                        BackgroundCode.seasonframework.Eventset.AddRange(JSONevents);
+                        BackgroundCode.seasonframework.SaveChanges();
+                    }
 
                     foreach (var item in JSONevents)
                     {

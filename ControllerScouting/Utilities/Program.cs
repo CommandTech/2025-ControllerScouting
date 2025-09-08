@@ -1,5 +1,8 @@
-﻿using ControllerScouting.Screens;
+﻿using ControllerScouting.Properties;
+using ControllerScouting.Screens;
 using System;
+using System.Linq;
+using System.ServiceProcess;
 using System.Windows.Forms;
 
 namespace ControllerScouting.Utilities
@@ -22,9 +25,25 @@ namespace ControllerScouting.Utilities
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
             Logger.Erase();
+
             Application.Run(new BaseScreen());
         }
 
+        static void CheckSQLExists()
+        {
+            // Check if SQL Server is installed and running
+            bool sqlAvailable = ServiceController.GetServices()
+                .Any(s => s.ServiceName.StartsWith("MSSQL", StringComparison.OrdinalIgnoreCase) && s.Status == ServiceControllerStatus.Running);
+
+            if (sqlAvailable)
+            {
+                Settings.Default.sqlExists = true;
+            }
+            else
+            {
+                Settings.Default.sqlExists = false;
+            }
+        }
         // Handle UI thread exceptions
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {

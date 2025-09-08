@@ -7,7 +7,7 @@ namespace ControllerScouting.Screens
 {
     internal partial class FunctionsForm : Form
     {
-        private string oldLocation;
+        private readonly string oldLocation;
         public FunctionsForm()
         {
             InitializeComponent();
@@ -31,6 +31,10 @@ namespace ControllerScouting.Screens
 
             }
 
+            this.rdioCSV.Checked = false;
+            this.rdioLocalSQL.Checked = false;
+            this.rdioServerSQL.Checked = false;
+
             switch (BackgroundCode.dataExport)
             {
                 case BackgroundCode.EXPORT_TYPE.CSV:
@@ -44,6 +48,7 @@ namespace ControllerScouting.Screens
                     break;
             }
 
+            this.txtCSVLocation.Visible = this.rdioCSV.Checked;
             this.txtCSVLocation.Text = Settings.Default.CSVLocation;
             oldLocation = Settings.Default.CSVLocation;
         }
@@ -60,11 +65,11 @@ namespace ControllerScouting.Screens
 
             BackgroundCode.iniFile.Write("ProgramSettings", "exportType", BackgroundCode.dataExport.ToString());
 
-            if (!Settings.Default.csvExists)
+            if (!Settings.Default.csvExists && rdioCSV.Checked)
             {
                 DatabaseCode.CreateCSV(Settings.Default.CSVLocation);
             }
-            else
+            else if (Settings.Default.csvExists && rdioCSV.Checked)
             {
                 DatabaseCode.MoveCSV(oldLocation, Settings.Default.CSVLocation);
             }

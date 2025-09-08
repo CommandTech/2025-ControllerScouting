@@ -19,234 +19,714 @@ namespace ControllerScouting.Gamepad
 
                 gamepad.Update();
 
-                // Every mode actions
-                var baseRobotActions = new List<(Func<bool> buttonPress, Action action)>
-                {
-                    (() => gamepad.RTHRight_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up)),
-                    (() => gamepad.RTHLeft_Press, () => robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down)),
-                    (() => gamepad.RightTrigger_Press, () => robot.Transact(controllerNumber,false)),
-                    (() => gamepad.R3_Press, () => robot.Transact(controllerNumber,true)),
-                    (() => gamepad.LeftButton_Press, () => robot.CoralDelivery(0)),
-                    (() => gamepad.RightButton_Press, () => robot.AlgaeDelivery(0)),
-                    (() => gamepad.RightButton_Down, () => robot.AlgaeFlag(true)),
-                    (() => gamepad.RightButton_Release, () => robot.AlgaeFlag(false)),
-                    (() => gamepad.LeftButton_Press || gamepad.LeftTrigger_Press, () => robot.SetPreviousAcquires(false)),
-                    (() => gamepad.RightButton_Release, () => robot.SetPreviousAcquires(true))
-            };
-
-                List<(Func<bool> buttonPress, Action action)> robotActions = [.. baseRobotActions];
-
+                //***********************************
+                //CHANGE SCOUTER NAME
+                //***********************************
                 if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
                 {
-                    robotActions.AddRange(
-                    [
-                        // Scouter Name
-                        (() => gamepad.LTHRight_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up)),
-                        (() => gamepad.LTHLeft_Press && gamepad.BButton_Down, () => robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down))
-                    ]);
-                }
-                if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robotActions.AddRange(
-                    [
-                        // Auto Leave
-                        (() => gamepad.BackButton_Press, () => robot.CycleLeave(RobotState.CYCLE_DIRECTION.Up)),
-
-                        // Starting Location
-                        (() => gamepad.LTHUp_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Up)),
-                        (() => gamepad.LTHDown_Press, () => robot.CycleStart(RobotState.CYCLE_DIRECTION.Down)),
-
-                        // Leave Auto Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop,controllerNumber)),
-
-
-                        // Near Far Side
-                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
-                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
-
-                        // Coral Acquire
-                        (() => gamepad.LeftButton_Press && !robot.Flag, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
-
-                        // Algae Acquire
-                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
-
-                        // Coral Delivery
-                        (() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)),
-                        (() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)),
-                        (() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)),
-                        (() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)),
-
-                        // Algae Delivery
-                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
-                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    ]);
-                }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Teleop && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robotActions.AddRange(
-                    [
-                        // Leave Teleop Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
-
-                        // Near Far Side
-                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
-                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
-
-                        // Coral Acquire
-                        (() => gamepad.LeftButton_Press && !robot.Flag, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
-
-                        // Algae Acquire
-                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
-
-                        // Coral Delivery
-                        (() => gamepad.DpadUp_Press, () => robot.CoralDelivery(4)),
-                        (() => gamepad.DpadRight_Press, () => robot.CoralDelivery(3)),
-                        (() => gamepad.DpadDown_Press, () => robot.CoralDelivery(2)),
-                        (() => gamepad.DpadLeft_Press, () => robot.CoralDelivery(1)),
-
-                        // Algae Delivery
-                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
-                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    ]);
-                }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Defense && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robotActions.AddRange(
-                    [
-                        // Leave Defense Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Surfacing, controllerNumber)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
-
-                        // Near Far Side
-                        (() => gamepad.YButton_Press, () => robot.ChangeSide(false)),
-                        (() => gamepad.AButton_Press, () => robot.ChangeSide(true)),
-
-                        // Coral Acquire
-                        (() => gamepad.LeftButton_Press && ! robot.Flag, () => robot.CoralAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && !robot.Flag, () => robot.CoralAcquire(1)),
-
-                        // Algae Acquire
-                        (() => gamepad.LeftButton_Press && robot.Flag, () => robot.AlgaeAcquire(0)),
-                        (() => gamepad.LeftTrigger_Press && robot.Flag, () => robot.AlgaeAcquire(1)),
-
-                        // Algae Delivery
-                        (() => gamepad.DpadUp_Press && robot.Flag, () => robot.AlgaeDelivery(2)),
-                        (() => gamepad.DpadDown_Press && robot.Flag, () => robot.AlgaeDelivery(1))
-                    ]);
-                }
-                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robotActions.AddRange(
-                    [
-                        // Leave Surfacing Mode
-                        (() => gamepad.StartButton_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Teleop, controllerNumber)),
-                        (() => gamepad.L3_Press, () => robot.ChangeMode(RobotState.ROBOT_MODE.Defense, controllerNumber)),
-
-                        // Timer controls
-                        (() => gamepad.BackButton_Press, () => robot.StopTimer()),
-                        (() => gamepad.LeftTrigger_Press, () => robot.ResetTimer()),
-
-                        // End game states
-                        (() => gamepad.DpadUp_Press, () => robot.CycleState(RobotState.CYCLE_DIRECTION.Up)),
-                        (() => gamepad.DpadRight_Press, () => robot.CycleAvoidance()),
-                        (() => gamepad.DpadDown_Press, () => robot.CycleEffectiveness()),
-                        (() => gamepad.DpadLeft_Press, () => robot.CycleDefense()),
-
-                        (() => gamepad.AButton_Press, () => robot.CycleStrat(RobotState.CYCLE_DIRECTION.Up))
-                    ]);
-                }
-
-                foreach (var (buttonPress, action) in robotActions)
-                {
-                    if (buttonPress())
+                    //Select Scouter Name
+                    if (gamepad.BButton_Down && gamepad.LTHRight_Press)
                     {
-                        action();
+                        robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Up);
+                    }
+                    else if (gamepad.BButton_Down && gamepad.LTHLeft_Press)
+                    {
+                        robot.ChangeScouterName(RobotState.CYCLE_DIRECTION.Down);
                     }
                 }
+                //***********************************
+                //AUTO MODE
+                //***********************************
+                if (robot.Current_Mode == RobotState.ROBOT_MODE.Auto && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    //Cycle Leave
+                    if (gamepad.BackButton_Press)
+                    {
+                        robot.CycleLeave(RobotState.CYCLE_DIRECTION.Up);
+                    }
+
+                    //Cycle Starting Location
+                    if (gamepad.LTHDown_Press && !gamepad.LeftTrigger_Down)
+                    {
+                        robot.CycleStart(RobotState.CYCLE_DIRECTION.Down);
+                        robot.CycleStartField(RobotState.CYCLE_DIRECTION.Down);
+                        if (robot.Starting_Location == RobotState.STARTING_LOC.C1 || robot.Starting_Location == RobotState.STARTING_LOC.C2 || robot.Starting_Location == RobotState.STARTING_LOC.C3)
+                        {
+                            robot.DelNearFar = false;
+                        }
+                        else
+                        {
+                            robot.DelNearFar = true;
+                        }
+                    }
+                    else if (gamepad.LTHUp_Press && !gamepad.LeftTrigger_Down)
+                    {
+                        robot.CycleStart(RobotState.CYCLE_DIRECTION.Up);
+                        robot.CycleStartField(RobotState.CYCLE_DIRECTION.Up);
+                        if (robot.Starting_Location == RobotState.STARTING_LOC.C1 || robot.Starting_Location == RobotState.STARTING_LOC.C2 || robot.Starting_Location == RobotState.STARTING_LOC.C3)
+                        {
+                            robot.DelNearFar = false;
+                        }
+                        else
+                        {
+                            robot.DelNearFar = true;
+                        }
+                    }
+
+                    //Acquire Coral/Algae from Station/Reef
+                    if (gamepad.LeftButton_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != "Reef")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Reef";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.Flag && robot.lastAlgaeAcqLoc == "Reef")
+                        {
+                            robot.hasAlgae--;
+                            robot.lastAlgaeAcqLoc = " ";
+                            robot.DisAlgae++;
+                            robot.lastAlgaeLoc = " ";
+                            robot.TransactionCheck = false;
+                            robot.DisFlag = true;
+                        }
+                        else if (robot.lastCoralAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Station";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+                    //Acquire Coral/Algae from Floor
+                    if (gamepad.LeftTrigger_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc == " ")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Floor";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.lastCoralAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Floor";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+
+                    //Deliveries
+                    if (gamepad.RightButton_Press && robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    if (gamepad.LeftButton_Press && robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                    {
+                        if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = " ";
+                            robot.lastCoralLoc = "Floor";
+                            robot.AcqCoralNearFar = false;
+                        }
+                        else
+                        {
+                            robot.lastCoralLoc = "Floor";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadUp_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != " ")
+                        {
+                            robot.lastAlgaeLoc = "Net";
+                            robot.TransactionCheck = true;
+                        }
+                        else if (!robot.Flag && (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0))
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L4";
+                            robot.autoCoralPoints += 7;
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadDown_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != " ")
+                        {
+                            robot.lastAlgaeLoc = "Processor";
+                            robot.TransactionCheck = true;
+                        }
+                        else if (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L2";
+                            robot.autoCoralPoints += 4;
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadRight_Press)
+                    {
+                        if (!robot.Flag && robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L3";
+                            robot.autoCoralPoints += 6;
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadLeft_Press)
+                    {
+                        if (!robot.Flag && robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L1";
+                            robot.autoCoralPoints += 3;
+                            robot.TransactionCheck = true;
+                        }
+                    }
+
+                    if (gamepad.YButton_Press)
+                    {
+                        robot.DelNearFar = true;
+                    }
+                    if (gamepad.AButton_Press)
+                    {
+                        robot.DelNearFar = false;
+                    }
+                }
+                //***********************************
+                //TELEOP MODE
+                //***********************************
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Teleop && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    //Acquire Coral/Algae from Station/Reef
+                    if (gamepad.LeftButton_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != "Reef")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Reef";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.Flag && robot.lastAlgaeAcqLoc == "Reef")
+                        {
+                            robot.hasAlgae--;
+                            robot.lastAlgaeAcqLoc = " ";
+                            robot.DisAlgae++;
+                            robot.lastAlgaeLoc = " ";
+                            robot.TransactionCheck = false;
+                            robot.DisFlag = true;
+                        }
+                        else if (robot.lastCoralAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Station";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+                    //Acquire Coral/Algae from Floor
+                    if (gamepad.LeftTrigger_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc == " ")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Floor";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.lastCoralAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Floor";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+
+                    //Deliveries
+                    if (gamepad.RightButton_Press && robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    if (gamepad.LeftButton_Press && robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                    {
+                        if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = " ";
+                            robot.lastCoralLoc = "Floor";
+                            robot.AcqCoralNearFar = false;
+                        }
+                        else
+                        {
+                            robot.lastCoralLoc = "Floor";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadUp_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != " ")
+                        {
+                            robot.lastAlgaeLoc = "Net";
+                            robot.TransactionCheck = true;
+                        }
+                        else if (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L4";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadDown_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != " ")
+                        {
+                            robot.lastAlgaeLoc = "Processor";
+                            robot.TransactionCheck = true;
+                        }
+                        else if (robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L2";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadRight_Press)
+                    {
+                        if (!robot.Flag && robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L3";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadLeft_Press)
+                    {
+                        if (!robot.Flag && robot.lastCoralAcqLoc != " " || robot.totalCoralDeliveries == 0)
+                        {
+                            if (robot.totalCoralDeliveries == 0 && robot.hasCoral == 0)
+                            {
+                                robot.hasCoral++;
+                            }
+                            robot.lastCoralLoc = "L1";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+
+                    if (gamepad.YButton_Press)
+                    {
+                        robot.DelNearFar = true;
+                    }
+                    if (gamepad.AButton_Press)
+                    {
+                        robot.DelNearFar = false;
+                    }
+                }
+                //***********************************
+                //DEFENSE MODE
+                //***********************************
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Defense && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    //Acquire Coral/Algae from Station/Reef
+                    if (gamepad.LeftButton_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc != "Reef")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Reef";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.Flag && robot.lastAlgaeAcqLoc == "Reef")
+                        {
+                            robot.hasAlgae--;
+                            robot.lastAlgaeAcqLoc = " ";
+                            robot.DisAlgae++;
+                            robot.lastAlgaeLoc = " ";
+                            robot.TransactionCheck = false;
+                            robot.DisFlag = true;
+                        }
+                        else if (robot.lastCoralAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Station";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+                    //Acquire Coral/Algae from Floor
+                    if (gamepad.LeftTrigger_Press)
+                    {
+                        if (robot.Flag && robot.lastAlgaeAcqLoc == " ")
+                        {
+                            robot.hasAlgae++;
+                            robot.lastAlgaeAcqLoc = "Floor";
+                            robot.AcqAlgaeNearFar = robot.DelNearFar;
+                        }
+                        else if (robot.lastAlgaeAcqLoc == " ")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = "Floor";
+                            robot.AcqCoralNearFar = robot.DelNearFar;
+                        }
+                    }
+
+                    //Deliveries
+                    if (gamepad.RightButton_Press && robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    if (gamepad.LeftButton_Press && robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                    {
+                        if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = " ";
+                            robot.lastCoralLoc = "Floor";
+                            robot.AcqCoralNearFar = false;
+                        }
+                        else
+                        {
+                            robot.lastCoralLoc = "Floor";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+                    if (gamepad.DpadUp_Press)
+                    {
+                        if (robot.Flag)
+                        {
+                            if (robot.lastAlgaeAcqLoc != " ")
+                            {
+                                robot.lastAlgaeLoc = "Net";
+                                robot.TransactionCheck = true;
+                            }
+                        }
+                    }
+                    if (gamepad.DpadDown_Press)
+                    {
+                        if (robot.Flag)
+                        {
+                            if (robot.lastAlgaeAcqLoc != " ")
+                            {
+                                robot.lastAlgaeLoc = "Processor";
+                                robot.TransactionCheck = true;
+                            }
+                        }
+                    }
+                    if (gamepad.YButton_Press)
+                    {
+                        robot.DelNearFar = true;
+                    }
+                    if (gamepad.AButton_Press)
+                    {
+                        robot.DelNearFar = false;
+                    }
+                }
+                //***********************************
+                //SURFACING MODE
+                //***********************************
+                else if (robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    if (gamepad.RightButton_Press && robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    if (gamepad.LeftButton_Press && robot.lastCoralAcqLoc == robot.prevlastCoralAcqLoc && robot.lastCoralAcqLoc != " " && !robot.Flag)
+                    {
+                        if (robot.TransactionCheck && robot.totalCoralDeliveries == 0 && robot.lastCoralLoc == "Floor")
+                        {
+                            robot.hasCoral++;
+                            robot.lastCoralAcqLoc = " ";
+                            robot.lastCoralLoc = "Floor";
+                            robot.AcqCoralNearFar = false;
+                        }
+                        else
+                        {
+                            robot.lastCoralLoc = "Floor";
+                            robot.TransactionCheck = true;
+                        }
+                    }
+
+                    //Stop / Resume Climb Time
+                    if (gamepad.BackButton_Press)
+                    {
+                        if (robot.ClimbT_StopWatch_running)
+                        {
+                            robot.ClimbT_StopWatch.Stop();
+                            robot.ClimbT_StopWatch_running = false;
+                            robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                            robot.Cage_Attempt = RobotState.CAGE_ATTEMPT.Y;
+                        }
+                        else
+                        {
+                            robot.ClimbT_StopWatch.Start();
+                            robot.ClimbT_StopWatch_running = true;
+                            robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                        }
+                    }
+                    //Reset Climb Time
+                    if (gamepad.LeftTrigger_Press)
+                    {
+                        robot.ClimbT = TimeSpan.Zero;
+                        robot.ClimbT_StopWatch.Reset();
+                        robot.ClimbT_StopWatch_running = false;
+
+                        robot.Cage_Attempt = RobotState.CAGE_ATTEMPT.N;
+                    }
+
+                    //Cycle Robot Strat
+                    if (gamepad.AButton_Press)
+                    {
+                        robot.CycleStrat(RobotState.CYCLE_DIRECTION.Up);
+                    }
+                    //Deliver Algae to the Floor
+                    if (gamepad.RightButton_Press && robot.lastAlgaeAcqLoc == robot.prevlastAlgaeAcqLoc && robot.lastAlgaeAcqLoc != " ")
+                    {
+                        robot.lastAlgaeLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+                    //Deliver Coral to the Floor
+                    if (gamepad.LeftButton_Press && robot.totalCoralDeliveries == 0 && !robot.Flag)
+                    {
+                        robot.hasCoral++;
+                        robot.lastCoralLoc = "Floor";
+                        robot.TransactionCheck = true;
+                    }
+
+                    //Cycle End State
+                    if (gamepad.DpadUp_Press)
+                    {
+                        if (robot.End_State == RobotState.END_STATE.Deep)
+                        {
+                            robot.PointsScored -= 12;
+                        }
+
+                        robot.CycleState(RobotState.CYCLE_DIRECTION.Up);
+
+                        //Totaling end game
+                        if (robot.End_State == RobotState.END_STATE.Park)
+                        {
+                            robot.PointsScored += 2;
+                        }
+                        else if (robot.End_State == RobotState.END_STATE.Shallow)
+                        {
+                            robot.PointsScored -= 2;
+                            robot.PointsScored += 6;
+                        }
+                        else if (robot.End_State == RobotState.END_STATE.Deep)
+                        {
+                            robot.PointsScored -= 6;
+                            robot.PointsScored += 12;
+                        }
+                    }
+                    if (gamepad.DpadRight_Press)
+                    {
+                        //Cycle Avoidance Rating
+                        robot.Avo_Rat++;
+                        if (robot.Avo_Rat > 4)
+                        {
+                            robot.Avo_Rat = 0;
+                        }
+                    }
+                    if (gamepad.DpadLeft_Press)
+                    {
+                        //Cycle Defense Rating
+                        robot.Def_Rat++;
+                        if (robot.Def_Rat > 4)
+                        {
+                            robot.Def_Rat = 0;
+                        }
+                    }
+                    if (gamepad.DpadDown_Press)
+                    {
+                        //Cycle Defense Effectiveness
+                        if (robot.Def_Rat != 9 && robot.Def_Rat != 0)
+                        {
+                            robot.Def_Eff++;
+                            if (robot.Def_Eff > 5)
+                            {
+                                robot.Def_Eff = 0;
+                            }
+                        }
+                        else
+                        {
+                            robot.Def_Eff = 0;
+                        }
+                    }
+                }
+
+                //***********************************
+                //Any mode
+                //***********************************
+
+                // Changing modes
+                //Leaving Auto
+                if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
+                {
+                    robot.AUTO = false;
+                    DatabaseCode.SaveToRecord(robot, "EndAuto", controllerNumber);
+                    robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
+                    robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+                }
+                //Leaving Teleop into Surfacing
+                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Teleop)
+
+                {
+                    robot.Desired_Mode = RobotState.ROBOT_MODE.Teleop;
+                    robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
+
+                    robot.ClimbT_StopWatch.Start();
+                    robot.ClimbT_StopWatch_running = true;
+                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                }
+                //Leaving Surfacing into Teleop
+                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing)
+                {
+                    robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
+                    robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+
+                    robot.ClimbT_StopWatch.Stop();
+                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                    robot.ClimbT_StopWatch_running = false;
+                    robot.ClimbT_StopWatch.Reset();
+                }
+                //Leaving Defense into Surfacing
+                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Defense)
+                {
+                    robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
+                    robot.Desired_Mode = RobotState.ROBOT_MODE.Defense;
+
+                    DatabaseCode.SaveToRecord(robot, "Defense", controllerNumber);
+
+                    robot.DefTime_StopWatch.Reset();
+
+                    robot.ClimbT_StopWatch.Start();
+                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                    robot.ClimbT_StopWatch_running = true;
+                }
+                else if (gamepad.L3_Press)
+                {
+                    //Leaving previous mode into Defense
+                    if (robot.Current_Mode != RobotState.ROBOT_MODE.Defense)
+                    {
+                        robot.Desired_Mode = RobotState.ROBOT_MODE.Teleop;
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Defense;
+
+                        robot.ClimbT_StopWatch.Stop();
+                        robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                        robot.ClimbT_StopWatch_running = false;
+                        robot.ClimbT_StopWatch.Reset();
+
+                        robot.DefTime_StopWatch.Start();
+                        robot.DefTime = robot.DefTime_StopWatch.Elapsed;
+                        robot.DefTime_StopWatch_running = true;
+                    }
+                    else
+                    {
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+                        robot.Desired_Mode = RobotState.ROBOT_MODE.Defense;
+
+                        robot.DefTime_StopWatch.Stop();
+                        robot.DefTime = robot.DefTime_StopWatch.Elapsed;
+                        robot.DefTime_StopWatch_running = false;
+
+                        DatabaseCode.SaveToRecord(robot, "Defense", controllerNumber);
+
+                        robot.DefTime_StopWatch.Reset();
+                    }
+                }
+
+                //Algae Flag
+                if (gamepad.RightButton_Down)
+                {
+                    robot.Flag = true;
+                }
+                else
+                {
+                    robot.Flag = false;
+                }
+
+                if (gamepad.RightButton_Release)
+                {
+                    robot.prevlastAlgaeLoc = robot.lastAlgaeLoc;
+                    robot.prevlastAlgaeAcqLoc = robot.lastAlgaeAcqLoc;
+                }
+                if (gamepad.LeftButton_Press || gamepad.LeftTrigger_Press)
+                {
+                    robot.prevlastCoralLoc = robot.lastCoralLoc;
+                    robot.prevlastCoralAcqLoc = robot.lastCoralAcqLoc;
+                }
+
+                //Correcting Errors
+                if (robot.hasCoral > 1)
+                {
+                    robot.ScouterError += 100000000;
+                    robot.hasCoral = 1;
+                }
+                else if (robot.hasCoral < 0)
+                {
+                    robot.ScouterError += 10000;
+                    robot.hasCoral = 0;
+                }
+                if (robot.hasAlgae > 1)
+                {
+                    robot.ScouterError += 1000000;
+                    robot.hasAlgae = 1;
+                }
+                else if (robot.hasAlgae < 0)
+                {
+                    robot.ScouterError += 100;
+                    robot.hasAlgae = 0;
+                }
+                
+                //Match Events
+                if (gamepad.RTHRight_Press && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up);
+                }
+                else if (gamepad.RTHLeft_Press && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
+                {
+                    robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down);
+                }
+
+                //2025 Transaction
+                if (gamepad.RightTrigger_Press && robot.TransactionCheck)
+                {
+                    DatabaseCode.SaveToRecord(robot, "Activities", controllerNumber);
+                }
+                else if (gamepad.RightTrigger_Press)
+                {
+                    robot.ScouterError += 10000000000;
+                }
             }
-        }
-        public static void ResetValues(int controllerNumber)
-        {
-            RobotState robot = BackgroundCode.Robots[controllerNumber];
-            robot.Current_Mode = RobotState.ROBOT_MODE.Auto;
-            robot.Leave = RobotState.LEAVE.Z;
-            robot.AUTO = true;
-            robot.Starting_Location = RobotState.STARTING_LOC.Select;
-            robot.DelNearFar = false;
 
-            robot.AcqAlgaeF = 0;
-            robot.AcqAlgaeR = 0;
-            robot.DisAlgae = 0;
-            robot.AcqCoralS = 0;
-            robot.AcqCoralF = 0;
-            robot.hasCoral = 0;
-            robot.hasAlgae = 0;
-
-            robot.DisAlgae = 0;
-            robot.DisFlag = false;
-
-            robot.DelAlgaeF = 0;
-            robot.DelAlgaeN = 0;
-            robot.DelAlgaeP = 0;
-
-            robot.DelCoralF = 0;
-            robot.DelCoralL1 = 0;
-            robot.DelCoralL2 = 0;
-            robot.DelCoralL3 = 0;
-            robot.DelCoralL4 = 0;
-
-            robot.lastAlgaeAcqLoc = " ";
-            robot.prevlastAlgaeAcqLoc = " ";
-            robot.lastCoralAcqLoc = " ";
-            robot.prevlastCoralAcqLoc = " ";
-
-            robot.totalCoralDeliveries = 0;
-
-            robot.Cage_Attempt = RobotState.CAGE_ATTEMPT.Select;
-            robot.End_State = RobotState.END_STATE.Select;
-
-            robot.ClimbT_StopWatch ??= new Stopwatch();
-            robot.DefTime_StopWatch ??= new Stopwatch();
-            try
+            // Values if robot is NoSho
+            else if (robot.NoSho)
             {
-                robot.ClimbT_StopWatch.Stop();
-                robot.ClimbT_StopWatch.Reset();
-                robot.ClimbT = TimeSpan.Zero;
-                robot.ClimbTDouble = 0;
-                robot.ClimbT_StopWatch_running = false;
+
             }
-            catch { }
-
-            try
-            {
-                robot.DefTime_StopWatch.Stop();
-                robot.DefTime_StopWatch.Reset();
-                robot.DefTime = TimeSpan.Zero;
-                robot.DefTimeDouble = 0;
-                robot.DefTime_StopWatch_running = false;
-            }
-            catch { }
-
-            robot.ScouterError = 0;
-            robot.NoSho = false;
-            robot.Flag = false;
-
-            robot.Def_Rat = 9;
-            robot.Def_Eff = 9;
-            robot.Avo_Rat = 9;
-
-            robot.lastCoralLoc = " ";
-            robot.lastAlgaeLoc = " ";
-            robot.lastCoralAcqLoc = " ";
-            robot.lastAlgaeAcqLoc = " ";
-
-            robot.PointsScored = 0;
-            robot.App_Strategy = RobotState.APP_STRAT.Select;
         }
     }
 }
