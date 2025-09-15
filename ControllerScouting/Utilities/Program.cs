@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.ServiceProcess;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 
 namespace ControllerScouting.Utilities
 {
@@ -25,7 +26,7 @@ namespace ControllerScouting.Utilities
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
             Logger.Erase();
-
+            CheckSQLExists();
             Application.Run(new BaseScreen());
         }
 
@@ -73,26 +74,20 @@ namespace ControllerScouting.Utilities
         {
             try
             {
-                //Setting the variables of the config file
-                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));
-                string iniPath = System.IO.Path.Combine(projectBaseDirectory, "config.ini");
-                INIFile iniFile = new(iniPath);
-
                 //Determines if the loaded event is a manual event or a real event
                 //Then saves the data to the config file
                 if (BackgroundCode.loadedEvent == null)
                 {
-                    iniFile.Write("MatchData", "event", "manualEvent");
+                    BackgroundCode.iniFile.Write("MatchData", "event", "manualEvent");
                 }
                 else
                 {
-                    iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
+                    BackgroundCode.iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
                 }
-                iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
-                iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
-                iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
-                iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
+                BackgroundCode.iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
+                BackgroundCode.iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
+                BackgroundCode.iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
+                BackgroundCode.iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
                 //Gets the current scouter names and locations to save
                 string scouterNames = "";
                 string scouterLocations = "";
@@ -110,8 +105,19 @@ namespace ControllerScouting.Utilities
                     }
                     scouterLocations += robot.ScouterBox;
                 }
-                iniFile.Write("MatchData", "scouterNames", scouterNames);
-                iniFile.Write("MatchData", "scouterLocations", scouterLocations);
+                BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames);
+                BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations);
+                
+                string matches = "";
+                foreach (var match in BackgroundCode.InMemoryMatchList)
+                {
+                    if (matches.Length != 0)
+                    {
+                        matches += ";";
+                    }
+                    matches += match.ToString();
+                }
+                BackgroundCode.iniFile.Write("EventData", "Matches", matches);
 
             }
             catch (Exception ex)

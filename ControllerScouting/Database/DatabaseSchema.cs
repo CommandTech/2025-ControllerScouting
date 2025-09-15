@@ -22,9 +22,9 @@ namespace ControllerScouting
             : base(Settings.Default._scoutingdbConnectionString)
         { }
 
-        public DbSet<EventSummary> Eventset { get; set; }
-        public DbSet<TeamSummary> Teamset { get; set; }
-        public DbSet<Match> Matchset { get; set; }
+        public EventSummary Eventset { get; set; }
+        public TeamSummary Teamset { get; set; }
+        public Match Matchset { get; set; }
         public DbSet<Activity> ActivitySet { get; set; }
         public DbSet<UpdatePreview> UpdatePreviewSet { get; set; }
     }
@@ -193,7 +193,7 @@ namespace ControllerScouting
         public string PointScored { get; set; }
         public int DisAlg { get; set; }
     }
-    public class EventSummary : BaseEntity
+    public class EventSummary
     {
         public string Key { get; set; }
         public string Website { get; set; }
@@ -217,7 +217,7 @@ namespace ControllerScouting
         public int Event_type { get; set; }
     }
 
-    public class TeamSummary : BaseEntity
+    public class TeamSummary
     {
         /* UNUSED DATA AVAILABLE FROM TBA
         public string address { get; set; }
@@ -242,7 +242,7 @@ namespace ControllerScouting
         public string Nickname { get; set; }
     }
 
-    public class Match : BaseEntity
+    public class Match
     {
         public string Comp_level { get; set; }
         public int Match_number { get; set; }
@@ -272,6 +272,16 @@ namespace ControllerScouting
 
     public static class DatabaseCode
     {
+        public static List<Match> ListToMatch(string[] list)
+        {
+            List<Match> matches = new();
+            foreach (string match in list)
+            {
+
+            }
+            return matches;
+        }
+
         public static string databaseName = "database.csv";
         public static void LoadManualMatches()
         {

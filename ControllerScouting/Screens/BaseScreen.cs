@@ -134,7 +134,9 @@ namespace ControllerScouting.Screens
 
                 //Close the connection then exit
                 if (Settings.Default.sqlExists) 
+                {
                     BackgroundCode.seasonframework.Database.Connection.Close();
+                }
                 Environment.Exit(0);
             }
         }
@@ -209,9 +211,13 @@ namespace ControllerScouting.Screens
                     BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
                 }
 
+                List<Match> matches = DatabaseCode.ListToMatch(BackgroundCode.iniFile.Read("EventData", "MatchList", "").Split(','));
 
                 if (Settings.Default.sqlExists)
+                {
                     BackgroundCode.seasonframework.Database.Connection.Close();
+                }
+
                 if (comboBoxSelectRegional.SelectedItem.ToString() == "manualEvent")
                 {
                     DatabaseCode.LoadManualMatches();
@@ -227,12 +233,16 @@ namespace ControllerScouting.Screens
         private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
             if (Settings.Default.sqlExists)
+            {
                 BackgroundCode.seasonframework.Database.Connection.Close();
+            }
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to load The Blue Alliance data?", "Please Confirm", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (Settings.Default.sqlExists)
+                {
                     BackgroundCode.seasonframework.Database.Connection.Open();
+                }
                 GetEvents(false);
                 SetRedRight();
 
@@ -339,18 +349,13 @@ namespace ControllerScouting.Screens
         private void LoadMatch()
         {
             this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.UnSortedMatchList.Count}";
-            //List<string> teamPrioList = BackgroundCode.teamPrio.Cast<string>().ToList();
-            //teamPrioList.AddRange(BackgroundCode.homePrio);
-
-            //if (Settings.Default.currentMatch > 0)
-            //{
+            
             SetTeamNameAndColor(this.lbl0TeamName, BackgroundCode.Robots[0], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam1);
             SetTeamNameAndColor(this.lbl1TeamName, BackgroundCode.Robots[1], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam2);
             SetTeamNameAndColor(this.lbl2TeamName, BackgroundCode.Robots[2], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam3);
             SetTeamNameAndColor(this.lbl3TeamName, BackgroundCode.Robots[3], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam1);
             SetTeamNameAndColor(this.lbl4TeamName, BackgroundCode.Robots[4], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam2);
             SetTeamNameAndColor(this.lbl5TeamName, BackgroundCode.Robots[5], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam3);
-            //}
         }
         private void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
         {
@@ -389,11 +394,6 @@ namespace ControllerScouting.Screens
 
                         BackgroundCode.UnSortedMatchList.Add(matchData);
                         BackgroundCode.InMemoryMatchList.Add(matchData);
-                        if (Settings.Default.sqlExists)
-                        {
-                            BackgroundCode.seasonframework.Matchset.Add(matchData);
-                            BackgroundCode.seasonframework.SaveChanges();
-                        }
 
                         BackgroundCode.MatchNumbers.Add(i + 1);
 
@@ -406,6 +406,20 @@ namespace ControllerScouting.Screens
                         }
                     }
 
+                    BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
+                    
+                    string matches = "";
+                    foreach (var match in BackgroundCode.InMemoryMatchList)
+                    {
+                        if (matches.Length != 0)
+                        {
+                            matches += ";";
+                        }
+                        matches += match.ToString();
+                    }
+                    BackgroundCode.iniFile.Write("EventData", "Matches", matches);
+
+
                     foreach (var team in manualTeams)
                     {
                         TeamSummary teamData = new()
@@ -415,12 +429,6 @@ namespace ControllerScouting.Screens
                             Event_key = "manualevent",
                             Nickname = "manualevent"
                         };
-
-                        if (Settings.Default.sqlExists)
-                        {
-                            BackgroundCode.seasonframework.Teamset.Add(teamData);
-                            BackgroundCode.seasonframework.SaveChanges();
-                        }
 
                         BackgroundCode.teamlist.Add(team);
                     }
@@ -453,10 +461,6 @@ namespace ControllerScouting.Screens
                             List<TeamSummary> JSONteams = JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
                             Log("Received " + JSONteams.Count + " teams for " + regional + ".");
 
-                            var teamquery = from b in BackgroundCode.seasonframework.Teamset
-                                            orderby b.Team_key
-                                            select b;
-
                             // Clear the existing team list
                             BackgroundCode.teamlist.Clear();
 
@@ -465,41 +469,6 @@ namespace ControllerScouting.Screens
                                 BackgroundCode.teamlist.Add(item.Team_number);
                             }
                             Log("Teams -> " + string.Join(", ", JSONteams.Select(item => item.Team_number)));
-
-                            using var db = new SeasonContext();
-                            var teamNumber = BackgroundCode.Robots[0].TeamName;
-                            var result = db.Teamset.FirstOrDefault(b => b.Team_key == teamNumber);
-                            if (result == null)
-                            {
-                                //Recording a list of teams to the database
-                                JSONteams = (List<TeamSummary>)Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer, typeof(List<TeamSummary>));
-
-                                dynamic objt = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
-
-                                var team_key = "0";
-                                for (int i = 0; i < JSONteams.Count; i++)
-                                {
-                                    team_key = objt[i].key;
-                                    var result2 = db.Teamset.FirstOrDefault(b => b.Team_key == team_key);
-                                    if (result2 == null)
-                                    {
-                                        TeamSummary team_record = new()
-                                        {
-                                            Team_key = objt[i].key,
-                                            Team_number = objt[i].team_number,
-                                            Event_key = regional,
-                                            Nickname = objt[i].nickname
-                                        };
-
-                                        //Save changes
-                                        if (Settings.Default.sqlExists)
-                                        {
-                                            BackgroundCode.seasonframework.Teamset.Add(team_record);
-                                            BackgroundCode.seasonframework.SaveChanges();
-                                        }
-                                    }
-                                }
-                            }
                         }
                         catch (HttpRequestException)
                         {
@@ -518,8 +487,8 @@ namespace ControllerScouting.Screens
 
                             string responseFromServer = await response.Content.ReadAsStringAsync();
 
-                            List<Match> JSONmatches = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Match>>(responseFromServer);
-                            dynamic obj = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
+                            List<Match> JSONmatches = JsonConvert.DeserializeObject<List<Match>>(responseFromServer);
+                            dynamic obj = JsonConvert.DeserializeObject(responseFromServer);
 
                             int MatchCount = 0;
                             BackgroundCode.MatchNumbers.Clear();
@@ -557,7 +526,6 @@ namespace ControllerScouting.Screens
 
                                     //Console.Write(match_record);
                                     BackgroundCode.UnSortedMatchList.Add(match_record);
-                                    BackgroundCode.seasonframework.Matchset.Add(match_record);
                                 }
                             }
                             Log($"{BackgroundCode.UnSortedMatchList.Count} matches");
@@ -569,6 +537,8 @@ namespace ControllerScouting.Screens
                     }
 
                     BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
+                    
+
                     if (sender != null && e != null)
                     {
                         BackgroundCode.currentMatch = 0;
@@ -580,15 +550,6 @@ namespace ControllerScouting.Screens
         }
         private async void GetEvents(bool isManual)
         {
-            if (Settings.Default.sqlExists)
-            {
-                BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [EventSummaries]");  // If you crash here, the database structure has been changed, delete DB and retry
-                BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Matches]");
-                //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [TeamSummaries]");    // DO NOT DELETE DURING EVENT
-                //BackgroundCode.seasonframework.Database.ExecuteSqlCommand("DELETE FROM [Activities]");       // DO NOT DELETE DURING EVENT
-                BackgroundCode.seasonframework.SaveChanges();  //Save all deletes/database clear
-            }
-
             if (isManual)
             {
                 DatabaseCode.LoadManualMatches();
@@ -607,12 +568,6 @@ namespace ControllerScouting.Screens
 
                     List<EventSummary> JSONevents = JsonConvert.DeserializeObject<List<EventSummary>>(responseFromServer);
                     List<KeyValuePair<string, string>> elist = [];
-
-                    if (Settings.Default.sqlExists)
-                    {
-                        BackgroundCode.seasonframework.Eventset.AddRange(JSONevents);
-                        BackgroundCode.seasonframework.SaveChanges();
-                    }
 
                     foreach (var item in JSONevents)
                     {
