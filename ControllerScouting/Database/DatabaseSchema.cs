@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 
@@ -274,10 +275,27 @@ namespace ControllerScouting
     {
         public static List<Match> ListToMatch(string[] list)
         {
-            List<Match> matches = new();
-            foreach (string match in list)
+            List<Match> matches = [];
+            for (int i = 0; i < list.Length; i++)
             {
+                List<string> teams = [.. list[i].Split(';')];
+                Match matchData = new()
+                {
+                    Match_number = i,
+                    Set_number = i,
+                    Key = BackgroundCode.loadedEvent,
+                    Comp_level = "qm",
+                    Event_key = BackgroundCode.loadedEvent,
 
+                    Redteam1 = teams[3],
+                    Redteam2 = teams[4],
+                    Redteam3 = teams[5],
+                    Blueteam1 = teams[0],
+                    Blueteam2 = teams[1],
+                    Blueteam3 = teams[2]
+                };
+
+                matches.Add(matchData);
             }
             return matches;
         }

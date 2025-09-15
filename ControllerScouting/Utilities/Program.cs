@@ -113,9 +113,9 @@ namespace ControllerScouting.Utilities
                 {
                     if (matches.Length != 0)
                     {
-                        matches += ";";
+                        matches += ",";
                     }
-                    matches += match.ToString();
+                    matches += $"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}";
                 }
                 BackgroundCode.iniFile.Write("EventData", "Matches", matches);
 

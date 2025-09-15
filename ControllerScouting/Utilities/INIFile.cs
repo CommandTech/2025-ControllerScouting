@@ -20,11 +20,10 @@ namespace ControllerScouting.Utilities
 
         public string Read(string section, string key, string defaultValue = "")
         {
-            var retVal = new StringBuilder(255);
-            GetPrivateProfileString(section, key, defaultValue, retVal, 255, Path);
+            var retVal = new StringBuilder(3825);
+            GetPrivateProfileString(section, key, defaultValue, retVal, 3825, Path);
             return retVal.ToString();
         }
-
         public void DeleteKey(string section, string key)
         {
             Write(section, key, null);

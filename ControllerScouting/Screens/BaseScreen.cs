@@ -178,6 +178,17 @@ namespace ControllerScouting.Screens
                     BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames);
                     BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations);
 
+                    string matches = "";
+                    foreach (var match in BackgroundCode.InMemoryMatchList)
+                    {
+                        if (matches.Length != 0)
+                        {
+                            matches += ",";
+                        }
+                        matches += $"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}";
+                    }
+                    BackgroundCode.iniFile.Write("EventData", "Matches", matches);
+
                 }
                 catch (Exception ex)
                 {
@@ -200,6 +211,7 @@ namespace ControllerScouting.Screens
                 var teamPrioList = new List<string>(BackgroundCode.iniFile.Read("MatchData", "teamPrio", "").Split(','));
                 BackgroundCode.teamPrio.AddRange([.. teamPrioList]);
                 BackgroundCode.homeTeam = BackgroundCode.iniFile.Read("MatchData", "homeTeam", "None");
+                BackgroundCode.loadedEvent = BackgroundCode.iniFile.Read("MatchData", "event", "");
 
 
                 List<string> scouterNames = [.. BackgroundCode.iniFile.Read("MatchData", "scouterNames", "").Split(',')];
@@ -211,7 +223,7 @@ namespace ControllerScouting.Screens
                     BackgroundCode.Robots[i].ScouterBox = int.Parse(scouterLocations[i]);
                 }
 
-                List<Match> matches = DatabaseCode.ListToMatch(BackgroundCode.iniFile.Read("EventData", "MatchList", "").Split(','));
+                BackgroundCode.InMemoryMatchList = DatabaseCode.ListToMatch(BackgroundCode.iniFile.Read("EventData", "Matches", "").Split(','));
 
                 if (Settings.Default.sqlExists)
                 {
@@ -223,7 +235,7 @@ namespace ControllerScouting.Screens
                     DatabaseCode.LoadManualMatches();
                 }
 
-                BtnpopulateForEvent_Click(null, null);
+                NextMatch();
             }
             catch (Exception e)
             {
@@ -348,7 +360,7 @@ namespace ControllerScouting.Screens
         }
         private void LoadMatch()
         {
-            this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.UnSortedMatchList.Count}";
+            this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.InMemoryMatchList.Count}";
             
             SetTeamNameAndColor(this.lbl0TeamName, BackgroundCode.Robots[0], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam1);
             SetTeamNameAndColor(this.lbl1TeamName, BackgroundCode.Robots[1], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam2);
@@ -413,9 +425,9 @@ namespace ControllerScouting.Screens
                     {
                         if (matches.Length != 0)
                         {
-                            matches += ";";
+                            matches += ",";
                         }
-                        matches += match.ToString();
+                        matches += $"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}";
                     }
                     BackgroundCode.iniFile.Write("EventData", "Matches", matches);
 
@@ -537,12 +549,6 @@ namespace ControllerScouting.Screens
                     }
 
                     BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
-                    
-
-                    if (sender != null && e != null)
-                    {
-                        BackgroundCode.currentMatch = 0;
-                    }
                 }
                 loading = false;
                 NextMatch();
