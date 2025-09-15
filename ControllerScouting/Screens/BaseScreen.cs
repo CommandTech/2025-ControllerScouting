@@ -360,14 +360,14 @@ namespace ControllerScouting.Screens
         }
         private void LoadMatch()
         {
-            this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.InMemoryMatchList.Count}";
-            
             SetTeamNameAndColor(this.lbl0TeamName, BackgroundCode.Robots[0], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam1);
             SetTeamNameAndColor(this.lbl1TeamName, BackgroundCode.Robots[1], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam2);
             SetTeamNameAndColor(this.lbl2TeamName, BackgroundCode.Robots[2], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Redteam3);
             SetTeamNameAndColor(this.lbl3TeamName, BackgroundCode.Robots[3], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam1);
             SetTeamNameAndColor(this.lbl4TeamName, BackgroundCode.Robots[4], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam2);
             SetTeamNameAndColor(this.lbl5TeamName, BackgroundCode.Robots[5], BackgroundCode.InMemoryMatchList[BackgroundCode.currentMatch - 1].Blueteam3);
+            
+            this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.InMemoryMatchList.Count}";
         }
         private void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
         {
@@ -452,106 +452,118 @@ namespace ControllerScouting.Screens
                 }
                 else
                 {
-                    BackgroundCode.loadedEvent = comboBoxSelectRegional.SelectedItem.ToString();
-                    regional = BackgroundCode.loadedEvent.TrimStart('[');
-                    int index = regional.IndexOf(",");
-                    if (index > 0) regional = regional.Substring(0, index);
-
-                    string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Settings.Default.API_KEY}";
-
-                    using (HttpClient client = new())
+                    try
                     {
-                        try
+                        BackgroundCode.loadedEvent = comboBoxSelectRegional.SelectedItem.ToString();
+                        regional = BackgroundCode.loadedEvent.TrimStart('[');
+                        int index = regional.IndexOf(",");
+                        if (index > 0) regional = regional.Substring(0, index);
+
+                        string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+
+                        using (HttpClient client = new())
                         {
-                            HttpResponseMessage response = await client.GetAsync(uri);
-                            response.EnsureSuccessStatusCode(); // Throw if not a success code.
-
-                            string responseFromServer = await response.Content.ReadAsStringAsync();
-                            //Log("Response from Server -> " + responseFromServer);
-                            //Console.Write(responseFromServer);
-
-                            List<TeamSummary> JSONteams = JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
-                            Log("Received " + JSONteams.Count + " teams for " + regional + ".");
-
-                            // Clear the existing team list
-                            BackgroundCode.teamlist.Clear();
-
-                            foreach (var item in JSONteams)
+                            try
                             {
-                                BackgroundCode.teamlist.Add(item.Team_number);
-                            }
-                            Log("Teams -> " + string.Join(", ", JSONteams.Select(item => item.Team_number)));
-                        }
-                        catch (HttpRequestException)
-                        {
-                            loading = false;
-                        }
-                    }
+                                HttpResponseMessage response = await client.GetAsync(uri);
+                                response.EnsureSuccessStatusCode(); // Throw if not a success code.
 
-                    string matchesuri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/matches?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+                                string responseFromServer = await response.Content.ReadAsStringAsync();
+                                //Log("Response from Server -> " + responseFromServer);
+                                //Console.Write(responseFromServer);
 
-                    using (HttpClient client = new())
-                    {
-                        try
-                        {
-                            HttpResponseMessage response = await client.GetAsync(matchesuri);
-                            response.EnsureSuccessStatusCode(); // Throw if not a success code.
+                                List<TeamSummary> JSONteams = JsonConvert.DeserializeObject<List<TeamSummary>>(responseFromServer);
+                                Log("Received " + JSONteams.Count + " teams for " + regional + ".");
 
-                            string responseFromServer = await response.Content.ReadAsStringAsync();
+                                // Clear the existing team list
+                                BackgroundCode.teamlist.Clear();
 
-                            List<Match> JSONmatches = JsonConvert.DeserializeObject<List<Match>>(responseFromServer);
-                            dynamic obj = JsonConvert.DeserializeObject(responseFromServer);
-
-                            int MatchCount = 0;
-                            BackgroundCode.MatchNumbers.Clear();
-
-                            for (int i = 0; i < JSONmatches.Count; i++)
-                            {
-                                if (JSONmatches[i].Comp_level == "qm")
+                                foreach (var item in JSONteams)
                                 {
-                                    Match match_record = new();
-
-                                    MatchCount++;
-                                    BackgroundCode.MatchNumbers.Add(MatchCount);
-                                    BackgroundCode.InMemoryMatchList.Add(JSONmatches[i]);
-
-                                    dynamic alliances = obj[i].alliances;
-                                    dynamic bluealliance = alliances.blue;
-                                    dynamic redalliance = alliances.red;
-
-                                    dynamic blueteamsobj = bluealliance.team_keys;
-                                    dynamic redteamsobj = redalliance.team_keys;
-
-                                    match_record.Match_number = (int)obj[i].match_number;
-
-                                    match_record.Set_number = obj[i].match_number;
-
-                                    match_record.Key = obj[i].key;
-                                    match_record.Comp_level = obj[i].comp_level;
-                                    match_record.Event_key = obj[i].event_key;
-                                    match_record.Blueteam1 = blueteamsobj[0];
-                                    match_record.Blueteam2 = blueteamsobj[1];
-                                    match_record.Blueteam3 = blueteamsobj[2];
-                                    match_record.Redteam1 = redteamsobj[0];
-                                    match_record.Redteam2 = redteamsobj[1];
-                                    match_record.Redteam3 = redteamsobj[2];
-
-                                    //Console.Write(match_record);
-                                    BackgroundCode.UnSortedMatchList.Add(match_record);
+                                    BackgroundCode.teamlist.Add(item.Team_number);
                                 }
+                                Log("Teams -> " + string.Join(", ", JSONteams.Select(item => item.Team_number)));
                             }
-                            Log($"{BackgroundCode.UnSortedMatchList.Count} matches");
+                            catch (HttpRequestException)
+                            {
+                                loading = false;
+                            }
                         }
-                        catch (HttpRequestException)
-                        {
-                            loading = false;
-                        }
-                    }
 
-                    BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
+                        string matchesuri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/matches?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+
+                        using (HttpClient client = new())
+                        {
+                            try
+                            {
+                                HttpResponseMessage response = await client.GetAsync(matchesuri);
+                                response.EnsureSuccessStatusCode(); // Throw if not a success code.
+
+                                string responseFromServer = await response.Content.ReadAsStringAsync();
+
+                                List<Match> JSONmatches = JsonConvert.DeserializeObject<List<Match>>(responseFromServer);
+                                dynamic obj = JsonConvert.DeserializeObject(responseFromServer);
+
+                                int MatchCount = 0;
+                                BackgroundCode.MatchNumbers.Clear();
+
+                                for (int i = 0; i < JSONmatches.Count; i++)
+                                {
+                                    if (JSONmatches[i].Comp_level == "qm")
+                                    {
+                                        Match match_record = new();
+
+                                        MatchCount++;
+                                        BackgroundCode.MatchNumbers.Add(MatchCount);
+                                        BackgroundCode.InMemoryMatchList.Add(JSONmatches[i]);
+
+                                        dynamic alliances = obj[i].alliances;
+                                        dynamic bluealliance = alliances.blue;
+                                        dynamic redalliance = alliances.red;
+
+                                        dynamic blueteamsobj = bluealliance.team_keys;
+                                        dynamic redteamsobj = redalliance.team_keys;
+
+                                        match_record.Match_number = (int)obj[i].match_number;
+
+                                        match_record.Set_number = obj[i].match_number;
+
+                                        match_record.Key = obj[i].key;
+                                        match_record.Comp_level = obj[i].comp_level;
+                                        match_record.Event_key = obj[i].event_key;
+                                        match_record.Blueteam1 = blueteamsobj[0];
+                                        match_record.Blueteam2 = blueteamsobj[1];
+                                        match_record.Blueteam3 = blueteamsobj[2];
+                                        match_record.Redteam1 = redteamsobj[0];
+                                        match_record.Redteam2 = redteamsobj[1];
+                                        match_record.Redteam3 = redteamsobj[2];
+
+                                        //Console.Write(match_record);
+                                        BackgroundCode.UnSortedMatchList.Add(match_record);
+                                    }
+                                }
+                                Log($"{BackgroundCode.UnSortedMatchList.Count} matches");
+                            }
+                            catch (HttpRequestException)
+                            {
+                                loading = false;
+                            }
+                        }
+
+                        BackgroundCode.InMemoryMatchList = [.. BackgroundCode.UnSortedMatchList.OrderBy(o => o.Match_number)];
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please select an event from the drop down.");
+                    }
                 }
-                loading = false;
-                NextMatch();
+                try
+                {
+                    BackgroundCode.currentMatch = 0;
+                    loading = false;
+                    NextMatch();
+                }
+                catch { }
             }
         }
         private async void GetEvents(bool isManual)
