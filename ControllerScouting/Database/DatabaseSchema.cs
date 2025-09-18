@@ -1060,7 +1060,10 @@ namespace ControllerScouting
 
             for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
             {
-                BackgroundCode.Robots[i].ResetScouter();
+                if (BackgroundCode.gamePads[i] != null)
+                {
+                    BackgroundCode.Robots[i].ResetScouter();
+                }
             }
         }
 

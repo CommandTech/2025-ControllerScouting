@@ -580,145 +580,147 @@ namespace ControllerScouting.Gamepad
                 //***********************************
                 //Any mode
                 //***********************************
-
-                // Changing modes
-                //Leaving Auto
-                if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
+                if (robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
                 {
-                    robot.AUTO = false;
-                    DatabaseCode.SaveToRecord(robot, "EndAuto", controllerNumber);
-                    robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
-                    robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
-                }
-                //Leaving Teleop into Surfacing
-                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Teleop)
+                    // Changing modes
+                    //Leaving Auto
+                    if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Auto)
+                    {
+                        robot.AUTO = false;
+                        DatabaseCode.SaveToRecord(robot, "EndAuto", controllerNumber);
+                        robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+                    }
+                    //Leaving Teleop into Surfacing
+                    else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Teleop)
 
-                {
-                    robot.Desired_Mode = RobotState.ROBOT_MODE.Teleop;
-                    robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
-
-                    robot.ClimbT_StopWatch.Start();
-                    robot.ClimbT_StopWatch_running = true;
-                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
-                }
-                //Leaving Surfacing into Teleop
-                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing)
-                {
-                    robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
-                    robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
-
-                    robot.ClimbT_StopWatch.Stop();
-                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
-                    robot.ClimbT_StopWatch_running = false;
-                    robot.ClimbT_StopWatch.Reset();
-                }
-                //Leaving Defense into Surfacing
-                else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Defense)
-                {
-                    robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
-                    robot.Desired_Mode = RobotState.ROBOT_MODE.Defense;
-
-                    DatabaseCode.SaveToRecord(robot, "Defense", controllerNumber);
-
-                    robot.DefTime_StopWatch.Reset();
-
-                    robot.ClimbT_StopWatch.Start();
-                    robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
-                    robot.ClimbT_StopWatch_running = true;
-                }
-                else if (gamepad.L3_Press)
-                {
-                    //Leaving previous mode into Defense
-                    if (robot.Current_Mode != RobotState.ROBOT_MODE.Defense)
                     {
                         robot.Desired_Mode = RobotState.ROBOT_MODE.Teleop;
-                        robot.Current_Mode = RobotState.ROBOT_MODE.Defense;
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
+
+                        robot.ClimbT_StopWatch.Start();
+                        robot.ClimbT_StopWatch_running = true;
+                        robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                    }
+                    //Leaving Surfacing into Teleop
+                    else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Surfacing)
+                    {
+                        robot.Desired_Mode = RobotState.ROBOT_MODE.Surfacing;
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
 
                         robot.ClimbT_StopWatch.Stop();
                         robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
                         robot.ClimbT_StopWatch_running = false;
                         robot.ClimbT_StopWatch.Reset();
-
-                        robot.DefTime_StopWatch.Start();
-                        robot.DefTime = robot.DefTime_StopWatch.Elapsed;
-                        robot.DefTime_StopWatch_running = true;
                     }
-                    else
+                    //Leaving Defense into Surfacing
+                    else if (gamepad.StartButton_Press && robot.Current_Mode == RobotState.ROBOT_MODE.Defense)
                     {
-                        robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+                        robot.Current_Mode = RobotState.ROBOT_MODE.Surfacing;
                         robot.Desired_Mode = RobotState.ROBOT_MODE.Defense;
-
-                        robot.DefTime_StopWatch.Stop();
-                        robot.DefTime = robot.DefTime_StopWatch.Elapsed;
-                        robot.DefTime_StopWatch_running = false;
 
                         DatabaseCode.SaveToRecord(robot, "Defense", controllerNumber);
 
                         robot.DefTime_StopWatch.Reset();
+
+                        robot.ClimbT_StopWatch.Start();
+                        robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                        robot.ClimbT_StopWatch_running = true;
                     }
-                }
+                    else if (gamepad.L3_Press)
+                    {
+                        //Leaving previous mode into Defense
+                        if (robot.Current_Mode != RobotState.ROBOT_MODE.Defense)
+                        {
+                            robot.Desired_Mode = RobotState.ROBOT_MODE.Teleop;
+                            robot.Current_Mode = RobotState.ROBOT_MODE.Defense;
 
-                //Algae Flag
-                if (gamepad.RightButton_Down)
-                {
-                    robot.Flag = true;
-                }
-                else
-                {
-                    robot.Flag = false;
-                }
+                            robot.ClimbT_StopWatch.Stop();
+                            robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
+                            robot.ClimbT_StopWatch_running = false;
+                            robot.ClimbT_StopWatch.Reset();
 
-                if (gamepad.RightButton_Release)
-                {
-                    robot.prevlastAlgaeLoc = robot.lastAlgaeLoc;
-                    robot.prevlastAlgaeAcqLoc = robot.lastAlgaeAcqLoc;
-                }
-                if (gamepad.LeftButton_Press || gamepad.LeftTrigger_Press)
-                {
-                    robot.prevlastCoralLoc = robot.lastCoralLoc;
-                    robot.prevlastCoralAcqLoc = robot.lastCoralAcqLoc;
-                }
+                            robot.DefTime_StopWatch.Start();
+                            robot.DefTime = robot.DefTime_StopWatch.Elapsed;
+                            robot.DefTime_StopWatch_running = true;
+                        }
+                        else
+                        {
+                            robot.Current_Mode = RobotState.ROBOT_MODE.Teleop;
+                            robot.Desired_Mode = RobotState.ROBOT_MODE.Defense;
 
-                //Correcting Errors
-                if (robot.hasCoral > 1)
-                {
-                    robot.ScouterError += 100000000;
-                    robot.hasCoral = 1;
-                }
-                else if (robot.hasCoral < 0)
-                {
-                    robot.ScouterError += 10000;
-                    robot.hasCoral = 0;
-                }
-                if (robot.hasAlgae > 1)
-                {
-                    robot.ScouterError += 1000000;
-                    robot.hasAlgae = 1;
-                }
-                else if (robot.hasAlgae < 0)
-                {
-                    robot.ScouterError += 100;
-                    robot.hasAlgae = 0;
-                }
-                
-                //Match Events
-                if (gamepad.RTHRight_Press && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up);
-                }
-                else if (gamepad.RTHLeft_Press && robot.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name)
-                {
-                    robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down);
-                }
+                            robot.DefTime_StopWatch.Stop();
+                            robot.DefTime = robot.DefTime_StopWatch.Elapsed;
+                            robot.DefTime_StopWatch_running = false;
 
-                //2025 Transaction
-                if (gamepad.RightTrigger_Press && robot.TransactionCheck)
-                {
-                    DatabaseCode.SaveToRecord(robot, "Activities", controllerNumber);
-                }
-                else if (gamepad.RightTrigger_Press)
-                {
-                    robot.ScouterError += 10000000000;
+                            DatabaseCode.SaveToRecord(robot, "Defense", controllerNumber);
+
+                            robot.DefTime_StopWatch.Reset();
+                        }
+                    }
+
+                    //Algae Flag
+                    if (gamepad.RightButton_Down)
+                    {
+                        robot.Flag = true;
+                    }
+                    else
+                    {
+                        robot.Flag = false;
+                    }
+
+                    if (gamepad.RightButton_Release)
+                    {
+                        robot.prevlastAlgaeLoc = robot.lastAlgaeLoc;
+                        robot.prevlastAlgaeAcqLoc = robot.lastAlgaeAcqLoc;
+                    }
+                    if (gamepad.LeftButton_Press || gamepad.LeftTrigger_Press)
+                    {
+                        robot.prevlastCoralLoc = robot.lastCoralLoc;
+                        robot.prevlastCoralAcqLoc = robot.lastCoralAcqLoc;
+                    }
+
+                    //Correcting Errors
+                    if (robot.hasCoral > 1)
+                    {
+                        robot.ScouterError += 100000000;
+                        robot.hasCoral = 1;
+                    }
+                    else if (robot.hasCoral < 0)
+                    {
+                        robot.ScouterError += 10000;
+                        robot.hasCoral = 0;
+                    }
+                    if (robot.hasAlgae > 1)
+                    {
+                        robot.ScouterError += 1000000;
+                        robot.hasAlgae = 1;
+                    }
+                    else if (robot.hasAlgae < 0)
+                    {
+                        robot.ScouterError += 100;
+                        robot.hasAlgae = 0;
+                    }
+
+                    //Match Events
+                    if (gamepad.RTHRight_Press)
+                    {
+                        robot.CycleEventName(RobotState.CYCLE_DIRECTION.Up);
+                    }
+                    else if (gamepad.RTHLeft_Press)
+                    {
+                        robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down);
+                    }
+
+                    //2025 Transaction
+                    if (gamepad.RightTrigger_Press && robot.TransactionCheck)
+                    {
+                        DatabaseCode.SaveToRecord(robot, "Activities", controllerNumber);
+                    }
+                    else if (gamepad.RightTrigger_Press)
+                    {
+                        robot.ScouterError += 10000000000;
+                    }
                 }
             }
 

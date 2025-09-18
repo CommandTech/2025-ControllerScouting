@@ -374,6 +374,7 @@ namespace ControllerScouting.Utilities
         {
             _RobotMode = ROBOT_MODE.Auto;
             _match_event = MATCHEVENT_NAME.Match_Event;
+            _Leave = LEAVE.Z;
 
             hasAlgae = 0;
             hasCoral = 0;
@@ -403,17 +404,34 @@ namespace ControllerScouting.Utilities
             DefTime = TimeSpan.Zero;
             DefTime_StopWatch.Reset();
             DefTime_StopWatch_running = false;
-            
+
+            hasCoral = 0;
+            hasAlgae = 0;
+
+            AcqCoralS = 0;
+            AcqCoralF = 0;
+            AcqAlgaeR = 0;
+            AcqAlgaeF = 0;
+            DisAlgae = 0;
+            DisFlag = false;
+
+            DelCoralL1 = 0;
+            DelCoralL2 = 0;
+            DelCoralL3 = 0;
+            DelCoralL4 = 0;
+            DelCoralF = 0;
+
+            totalCoralDeliveries = 0;
+             
             autoCoralPoints = 0;
             PointsScored = 0;
             RTHUP_Lock = false;
             Flag = false;
             TransactionCheck = false;
             NoSho = false;
-            Leave = LEAVE.N;
             
-            Starting_Location = STARTING_LOC.C1;
-            Starting_Location_Field = STARTING_LOC_FIELD.C1;
+            Starting_Location = STARTING_LOC.Select;
+            Starting_Location_Field = STARTING_LOC_FIELD.Select;
             
             App_Strategy = APP_STRAT.None;
             End_State = END_STATE.Elsewhere;
@@ -421,7 +439,6 @@ namespace ControllerScouting.Utilities
             Desired_Mode = ROBOT_MODE.Auto;
             ScouterError = 0;
             prevScouterError = 0;
-            ScouterBox = 0;
             AUTO = true;
             color = "Red";
             ScouterError = 0;
