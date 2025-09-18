@@ -31,6 +31,17 @@ namespace ControllerScouting.Screens
 
             }
 
+            if (!Settings.Default.sqlExists)
+            {
+                this.rdioLocalSQL.Visible = false;
+                this.rdioServerSQL.Visible = false;
+            }
+            else
+            {
+                this.rdioLocalSQL.Visible = false;
+                this.rdioServerSQL.Visible = false;
+            }
+
             this.rdioCSV.Checked = false;
             this.rdioLocalSQL.Checked = false;
             this.rdioServerSQL.Checked = false;

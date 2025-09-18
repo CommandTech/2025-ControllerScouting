@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using System.ServiceProcess;
 using System.Windows.Forms;
-using System.Windows.Shapes;
 
 namespace ControllerScouting.Utilities
 {
@@ -43,6 +42,7 @@ namespace ControllerScouting.Utilities
             else
             {
                 Settings.Default.sqlExists = false;
+                BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
         }
         // Handle UI thread exceptions

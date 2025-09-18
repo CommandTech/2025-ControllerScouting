@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
-using System.ServiceProcess;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -396,12 +395,12 @@ namespace ControllerScouting.Screens
                             Comp_level = "qm",
                             Event_key = "manualevent",
 
-                            Redteam1 = "frc" + BackgroundCode.manualMatchList[i][3],
-                            Redteam2 = "frc" + BackgroundCode.manualMatchList[i][4],
-                            Redteam3 = "frc" + BackgroundCode.manualMatchList[i][5],
                             Blueteam1 = "frc" + BackgroundCode.manualMatchList[i][0],
                             Blueteam2 = "frc" + BackgroundCode.manualMatchList[i][1],
-                            Blueteam3 = "frc" + BackgroundCode.manualMatchList[i][2]
+                            Blueteam3 = "frc" + BackgroundCode.manualMatchList[i][2],
+                            Redteam1 = "frc" + BackgroundCode.manualMatchList[i][3],
+                            Redteam2 = "frc" + BackgroundCode.manualMatchList[i][4],
+                            Redteam3 = "frc" + BackgroundCode.manualMatchList[i][5]
                         };
 
                         BackgroundCode.UnSortedMatchList.Add(matchData);
@@ -538,7 +537,6 @@ namespace ControllerScouting.Screens
                                         match_record.Redteam2 = redteamsobj[1];
                                         match_record.Redteam3 = redteamsobj[2];
 
-                                        //Console.Write(match_record);
                                         BackgroundCode.UnSortedMatchList.Add(match_record);
                                     }
                                 }
