@@ -31,10 +31,10 @@ namespace ControllerScouting.Screens
 
             }
 
-            if (!Settings.Default.sqlExists)
+            if (Settings.Default.sqlExists)
             {
-                this.rdioLocalSQL.Visible = false;
-                this.rdioServerSQL.Visible = false;
+                this.rdioLocalSQL.Visible = true;
+                this.rdioServerSQL.Visible = true;
             }
             else
             {
@@ -62,6 +62,12 @@ namespace ControllerScouting.Screens
             this.txtCSVLocation.Visible = this.rdioCSV.Checked;
             this.txtCSVLocation.Text = Settings.Default.CSVLocation;
             oldLocation = Settings.Default.CSVLocation;
+
+            this.txtLocalSQLLocation.Visible = this.rdioLocalSQL.Checked;
+            this.txtLocalSQLLocation.Text = Settings.Default._scoutingdbConnectionString;
+
+            this.txtServerSQLLocation.Visible = this.rdioServerSQL.Checked;
+            this.txtServerSQLLocation.Text = Settings.Default._scoutingdbServerConnectionString;
         }
         private void ComboPracticeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -83,6 +89,17 @@ namespace ControllerScouting.Screens
             else if (Settings.Default.csvExists && rdioCSV.Checked)
             {
                 DatabaseCode.MoveCSV(oldLocation, Settings.Default.CSVLocation);
+            }
+
+            if (rdioLocalSQL.Checked)
+            {
+                Settings.Default._scoutingdbConnectionString = txtServerSQLLocation.Text;
+                BackgroundCode.iniFile.Write("ProgramSettings", "localConnectionString", Settings.Default._scoutingdbConnectionString);
+            }
+            else if (rdioServerSQL.Checked)
+            {
+                Settings.Default._scoutingdbServerConnectionString = txtLocalSQLLocation.Text;
+                BackgroundCode.iniFile.Write("ProgramSettings", "serverConnectionString", Settings.Default._scoutingdbServerConnectionString);
             }
             this.Hide();
         }
@@ -130,6 +147,14 @@ namespace ControllerScouting.Screens
         private void RdioCSV_CheckedChanged(object sender, EventArgs e)
         {
             this.txtCSVLocation.Visible = this.rdioCSV.Checked;
+        }
+        private void RdioLocalSQL_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtLocalSQLLocation.Visible = this.rdioLocalSQL.Checked;
+        }
+        private void RdioServerSQL_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtServerSQLLocation.Visible = this.rdioServerSQL.Checked;
         }
 
         private void TxtCSVLocation_TextChanged(object sender, EventArgs e)

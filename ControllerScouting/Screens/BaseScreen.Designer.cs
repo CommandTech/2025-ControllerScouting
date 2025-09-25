@@ -259,6 +259,7 @@ namespace ControllerScouting.Screens
             this.btnFunctions = new System.Windows.Forms.Button();
             this.lblBlueScore = new System.Windows.Forms.Label();
             this.lblRedScore = new System.Windows.Forms.Label();
+            this.statusLight = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -3279,6 +3280,14 @@ namespace ControllerScouting.Screens
             this.lblRedScore.TabIndex = 389;
             this.lblRedScore.Text = "0";
             // 
+            // statusLight
+            // 
+            this.statusLight.BackColor = System.Drawing.Color.Red;
+            this.statusLight.Location = new System.Drawing.Point(1484, 27);
+            this.statusLight.Name = "statusLight";
+            this.statusLight.Size = new System.Drawing.Size(16, 16);
+            this.statusLight.TabIndex = 280;
+            // 
             // BaseScreen
             // 
             this.AutoScroll = true;
@@ -3300,6 +3309,7 @@ namespace ControllerScouting.Screens
             this.Controls.Add(this.btnPreviousMatch);
             this.Controls.Add(this.btnpopulateForEvent);
             this.Controls.Add(this.lstLog);
+            this.Controls.Add(this.statusLight);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -3631,5 +3641,6 @@ namespace ControllerScouting.Screens
         private Label label97;
         private Label lblBlueScore;
         private Label lblRedScore;
+        private Panel statusLight;
     }
 }

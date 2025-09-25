@@ -627,7 +627,7 @@ namespace ControllerScouting.Gamepad
                         robot.ClimbT = robot.ClimbT_StopWatch.Elapsed;
                         robot.ClimbT_StopWatch_running = true;
                     }
-                    else if (gamepad.L3_Press)
+                    else if (gamepad.L3_Press && robot.Current_Mode != RobotState.ROBOT_MODE.Auto)
                     {
                         //Leaving previous mode into Defense
                         if (robot.Current_Mode != RobotState.ROBOT_MODE.Defense)

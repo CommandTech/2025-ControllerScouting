@@ -68,8 +68,28 @@ namespace ControllerScouting.Screens
             timerJoysticks.Interval = 20;
             timerJoysticks.Tick += new EventHandler(this.UpdateScreen);
             timerJoysticks.Enabled = true;
+
+            Thread statusLightThread = new(() => StatusLightThread());
+            statusLightThread.Start();
         }
 
+        private void StatusLightThread()
+        {
+            while (true)
+            {
+                //Check the fore color of status light in the top right corner, if red, make it green. If green, make it red.
+                if (this.statusLight.BackColor == Color.Green)
+                {
+                    this.statusLight.BackColor = Color.Red;
+                }
+                else
+                {
+                    this.statusLight.BackColor = Color.Green;
+                }
+
+                Thread.Sleep(500);
+            }
+        }
         private static void ControllerThreadMethod(GamePad gamePad)
         {
             // Logic to handle the controller
