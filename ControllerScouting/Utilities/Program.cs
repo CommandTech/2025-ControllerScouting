@@ -1,5 +1,6 @@
 ﻿using ControllerScouting.Properties;
 using ControllerScouting.Screens;
+using Microsoft.Win32;
 using System;
 using System.Linq;
 using System.ServiceProcess;
@@ -33,19 +34,36 @@ namespace ControllerScouting.Utilities
 
         static void CheckSQLExists()
         {
-            // Check if SQL Server is installed and running
-            bool sqlAvailable = ServiceController.GetServices()
-                .Any(s => s.ServiceName.StartsWith("MSSQL", StringComparison.OrdinalIgnoreCase) && s.Status == ServiceControllerStatus.Running);
-
-            if (sqlAvailable)
+            RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+            using RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView);
+            RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+            if (instanceKey != null)
             {
-                Settings.Default.sqlExists = true;
+                foreach (var instanceName in instanceKey.GetValueNames())
+                {
+                    Console.WriteLine(Environment.MachineName + @"\" + instanceName);
+                }
             }
-            else
+            Settings.Default.sqlExists = instanceKey != null;
+
+            if (!Settings.Default.sqlExists)
             {
-                Settings.Default.sqlExists = false;
                 BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
+
+            //// Check if SQL Server is installed and running
+            //bool sqlAvailable = ServiceController.GetServices()
+            //    .Any(s => s.ServiceName.StartsWith("MSSQL", StringComparison.OrdinalIgnoreCase) && s.Status == ServiceControllerStatus.Running);
+
+            //if (sqlAvailable)
+            //{
+            //    Settings.Default.sqlExists = true;
+            //}
+            //else
+            //{
+            //    Settings.Default.sqlExists = false;
+            //    BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
+            //}
         }
         // Handle UI thread exceptions
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
