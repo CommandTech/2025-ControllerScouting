@@ -50,20 +50,6 @@ namespace ControllerScouting.Utilities
             {
                 BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
-
-            //// Check if SQL Server is installed and running
-            //bool sqlAvailable = ServiceController.GetServices()
-            //    .Any(s => s.ServiceName.StartsWith("MSSQL", StringComparison.OrdinalIgnoreCase) && s.Status == ServiceControllerStatus.Running);
-
-            //if (sqlAvailable)
-            //{
-            //    Settings.Default.sqlExists = true;
-            //}
-            //else
-            //{
-            //    Settings.Default.sqlExists = false;
-            //    BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
-            //}
         }
         // Handle UI thread exceptions
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

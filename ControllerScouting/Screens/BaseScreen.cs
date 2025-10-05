@@ -33,8 +33,11 @@ namespace ControllerScouting.Screens
                 Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Settings.Default.CSVLocation);
             }
 
+
             //Initialization of the screen
             InitializeComponent();
+
+            AdjustFormSizeAndScale();
 
             //Sets the default values for the robots
             for (int i = 0; i < 6; i++)
@@ -71,6 +74,42 @@ namespace ControllerScouting.Screens
 
             Thread statusLightThread = new(() => StatusLightThread());
             statusLightThread.Start();
+        }
+
+        private void AdjustFormSizeAndScale()
+        {
+            Rectangle screenBounds = Screen.PrimaryScreen.WorkingArea;
+
+            this.Width = screenBounds.Width;
+            this.Height = screenBounds.Height;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
+            float scaleFactorX = (float)screenBounds.Width / 1512;
+            float scaleFactorY = (float)screenBounds.Height / 872;
+
+            ScaleControls(this, scaleFactorX, scaleFactorY);
+        }
+
+        private void ScaleControls(Control parent, float scaleFactorX, float scaleFactorY)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                control.Width = (int)(control.Width * scaleFactorX);
+                control.Height = (int)(control.Height * scaleFactorY);
+
+                control.Left = (int)(control.Left * scaleFactorX);
+                control.Top = (int)(control.Top * scaleFactorY);
+
+                control.Font = new Font(control.Font.FontFamily, control.Font.Size * Math.Min(scaleFactorX, scaleFactorY), control.Font.Style);
+
+                if (control.HasChildren)
+                {
+                    ScaleControls(control, scaleFactorX, scaleFactorY);
+                }
+            }
         }
 
         private void StatusLightThread()
