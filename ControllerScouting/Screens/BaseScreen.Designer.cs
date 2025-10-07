@@ -13,21 +13,6 @@ namespace ControllerScouting.Screens
         {
             this.components = new System.ComponentModel.Container();
             this.comboBoxSelectRegional = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
             this.cbxEndMatch = new System.Windows.Forms.CheckBox();
             this.btnInitialDBLoad = new System.Windows.Forms.Button();
             this.btnNextMatch = new System.Windows.Forms.Button();
@@ -35,7 +20,7 @@ namespace ControllerScouting.Screens
             this.btnpopulateForEvent = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.blueTeams = new System.Windows.Forms.Panel();
-            this.team6 = new System.Windows.Forms.Panel();
+            this.team5 = new System.Windows.Forms.Panel();
             this.lbl5Position0Value = new System.Windows.Forms.Label();
             this.lbl5Position0 = new System.Windows.Forms.Label();
             this.lbl5Position12Value = new System.Windows.Forms.Label();
@@ -59,14 +44,14 @@ namespace ControllerScouting.Screens
             this.lbl5Position3 = new System.Windows.Forms.Label();
             this.lbl5Position2Value = new System.Windows.Forms.Label();
             this.lbl5Position2 = new System.Windows.Forms.Label();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
+            this.team5Divider = new System.Windows.Forms.Panel();
+            this.team5ModeDivider = new System.Windows.Forms.Panel();
             this.lbl5MatchEvent = new System.Windows.Forms.Label();
             this.lbl5TeamName = new System.Windows.Forms.Label();
             this.lbl5ScoutName = new System.Windows.Forms.Label();
             this.lbl5ModeValue = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.team5 = new System.Windows.Forms.Panel();
+            this.team5TeamDivider = new System.Windows.Forms.Panel();
+            this.team4 = new System.Windows.Forms.Panel();
             this.lbl4Position0Value = new System.Windows.Forms.Label();
             this.lbl4Position0 = new System.Windows.Forms.Label();
             this.lbl4Position12Value = new System.Windows.Forms.Label();
@@ -90,14 +75,14 @@ namespace ControllerScouting.Screens
             this.lbl4Position3 = new System.Windows.Forms.Label();
             this.lbl4Position2Value = new System.Windows.Forms.Label();
             this.lbl4Position2 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
+            this.team4Divider = new System.Windows.Forms.Panel();
+            this.team4ModeDivider = new System.Windows.Forms.Panel();
             this.lbl4MatchEvent = new System.Windows.Forms.Label();
             this.lbl4TeamName = new System.Windows.Forms.Label();
             this.lbl4ScoutName = new System.Windows.Forms.Label();
             this.lbl4ModeValue = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.team4 = new System.Windows.Forms.Panel();
+            this.team4TeamDivider = new System.Windows.Forms.Panel();
+            this.team3 = new System.Windows.Forms.Panel();
             this.lbl3Position0Value = new System.Windows.Forms.Label();
             this.lbl3Position0 = new System.Windows.Forms.Label();
             this.lbl3Position12Value = new System.Windows.Forms.Label();
@@ -121,15 +106,15 @@ namespace ControllerScouting.Screens
             this.lbl3Position3 = new System.Windows.Forms.Label();
             this.lbl3Position2Value = new System.Windows.Forms.Label();
             this.lbl3Position2 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.team3Divider = new System.Windows.Forms.Panel();
+            this.team3ModeDivider = new System.Windows.Forms.Panel();
             this.lbl3MatchEvent = new System.Windows.Forms.Label();
             this.lbl3TeamName = new System.Windows.Forms.Label();
             this.lbl3ScoutName = new System.Windows.Forms.Label();
             this.lbl3ModeValue = new System.Windows.Forms.Label();
-            this.panel30 = new System.Windows.Forms.Panel();
+            this.team3TeamDivider = new System.Windows.Forms.Panel();
             this.redTeams = new System.Windows.Forms.Panel();
-            this.team3 = new System.Windows.Forms.Panel();
+            this.team2 = new System.Windows.Forms.Panel();
             this.lbl2Position0Value = new System.Windows.Forms.Label();
             this.lbl2Position0 = new System.Windows.Forms.Label();
             this.lbl2Position12Value = new System.Windows.Forms.Label();
@@ -153,14 +138,14 @@ namespace ControllerScouting.Screens
             this.lbl2Position3 = new System.Windows.Forms.Label();
             this.lbl2Position2Value = new System.Windows.Forms.Label();
             this.lbl2Position2 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel35 = new System.Windows.Forms.Panel();
+            this.team2Divider = new System.Windows.Forms.Panel();
+            this.team2ModeDivider = new System.Windows.Forms.Panel();
+            this.team2TeamDivider = new System.Windows.Forms.Panel();
             this.lbl2MatchEvent = new System.Windows.Forms.Label();
             this.lbl2TeamName = new System.Windows.Forms.Label();
             this.lbl2ScoutName = new System.Windows.Forms.Label();
             this.lbl2ModeValue = new System.Windows.Forms.Label();
-            this.team2 = new System.Windows.Forms.Panel();
+            this.team1 = new System.Windows.Forms.Panel();
             this.lbl1Position0Value = new System.Windows.Forms.Label();
             this.lbl1Position0 = new System.Windows.Forms.Label();
             this.lbl1Position12Value = new System.Windows.Forms.Label();
@@ -184,15 +169,15 @@ namespace ControllerScouting.Screens
             this.lbl1Position3 = new System.Windows.Forms.Label();
             this.lbl1Position2Value = new System.Windows.Forms.Label();
             this.lbl1Position2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel39 = new System.Windows.Forms.Panel();
+            this.team1Divider = new System.Windows.Forms.Panel();
+            this.team1ModeDivider = new System.Windows.Forms.Panel();
+            this.team1TeamDivider = new System.Windows.Forms.Panel();
             this.lbl1MatchEvent = new System.Windows.Forms.Label();
             this.lbl1TeamName = new System.Windows.Forms.Label();
             this.lbl1ScoutName = new System.Windows.Forms.Label();
             this.lbl1ModeValue = new System.Windows.Forms.Label();
-            this.panel41 = new System.Windows.Forms.Panel();
-            this.team1 = new System.Windows.Forms.Panel();
+            this.team0TeamDivider = new System.Windows.Forms.Panel();
+            this.team0 = new System.Windows.Forms.Panel();
             this.lbl0Position0Value = new System.Windows.Forms.Label();
             this.lbl0Position0 = new System.Windows.Forms.Label();
             this.lbl0Position12Value = new System.Windows.Forms.Label();
@@ -216,8 +201,8 @@ namespace ControllerScouting.Screens
             this.lbl0Position3 = new System.Windows.Forms.Label();
             this.lbl0Position2Value = new System.Windows.Forms.Label();
             this.lbl0Position2 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.team0Divider = new System.Windows.Forms.Panel();
+            this.team0ModeDivider = new System.Windows.Forms.Panel();
             this.lbl0MatchEvent = new System.Windows.Forms.Label();
             this.lbl0TeamName = new System.Windows.Forms.Label();
             this.lbl0ScoutName = new System.Windows.Forms.Label();
@@ -230,17 +215,14 @@ namespace ControllerScouting.Screens
             this.lblRedScore = new System.Windows.Forms.Label();
             this.statusLight = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.panel2.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.blueTeams.SuspendLayout();
-            this.team6.SuspendLayout();
             this.team5.SuspendLayout();
             this.team4.SuspendLayout();
-            this.redTeams.SuspendLayout();
             this.team3.SuspendLayout();
+            this.redTeams.SuspendLayout();
             this.team2.SuspendLayout();
             this.team1.SuspendLayout();
+            this.team0.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -248,151 +230,22 @@ namespace ControllerScouting.Screens
             // 
             this.comboBoxSelectRegional.DisplayMember = "event_code";
             this.comboBoxSelectRegional.FormattingEnabled = true;
-            this.comboBoxSelectRegional.Location = new System.Drawing.Point(146, 1);
+            this.comboBoxSelectRegional.Location = new System.Drawing.Point(146, 4);
             this.comboBoxSelectRegional.Name = "comboBoxSelectRegional";
-            this.comboBoxSelectRegional.Size = new System.Drawing.Size(290, 28);
+            this.comboBoxSelectRegional.Size = new System.Drawing.Size(290, 21);
             this.comboBoxSelectRegional.TabIndex = 290;
             this.comboBoxSelectRegional.Text = "Please press the Load Events Button...";
             this.comboBoxSelectRegional.ValueMember = "event_code";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel2.Controls.Add(this.panel18);
-            this.panel2.Controls.Add(this.panel15);
-            this.panel2.Controls.Add(this.panel12);
-            this.panel2.Location = new System.Drawing.Point(543, 512);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1197, 399);
-            this.panel2.TabIndex = 261;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.Black;
-            this.panel18.Controls.Add(this.panel27);
-            this.panel18.Controls.Add(this.panel19);
-            this.panel18.Controls.Add(this.panel20);
-            this.panel18.Location = new System.Drawing.Point(792, 5);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(393, 391);
-            this.panel18.TabIndex = 349;
-            // 
-            // panel27
-            // 
-            this.panel27.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel27.Location = new System.Drawing.Point(0, 110);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(390, 11);
-            this.panel27.TabIndex = 281;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel19.Location = new System.Drawing.Point(0, 34);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(390, 13);
-            this.panel19.TabIndex = 279;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel20.Location = new System.Drawing.Point(2, 310);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(390, 11);
-            this.panel20.TabIndex = 279;
-            // 
-            // panel15
-            // 
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(200, 100);
-            this.panel15.TabIndex = 350;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.Black;
-            this.panel12.Controls.Add(this.panel23);
-            this.panel12.Controls.Add(this.panel24);
-            this.panel12.Controls.Add(this.panel25);
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.panel14);
-            this.panel12.Location = new System.Drawing.Point(7, 7);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(380, 389);
-            this.panel12.TabIndex = 347;
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel23.Location = new System.Drawing.Point(0, 111);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(375, 11);
-            this.panel23.TabIndex = 280;
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel24.Location = new System.Drawing.Point(0, 111);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(330, 11);
-            this.panel24.TabIndex = 281;
-            // 
-            // panel25
-            // 
-            this.panel25.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel25.Location = new System.Drawing.Point(0, 111);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(330, 11);
-            this.panel25.TabIndex = 282;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel13.Location = new System.Drawing.Point(0, 34);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(375, 13);
-            this.panel13.TabIndex = 279;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel14.Location = new System.Drawing.Point(2, 308);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(375, 11);
-            this.panel14.TabIndex = 279;
-            // 
-            // panel26
-            // 
-            this.panel26.Location = new System.Drawing.Point(0, 0);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(200, 100);
-            this.panel26.TabIndex = 0;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel16.Location = new System.Drawing.Point(0, 34);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(392, 13);
-            this.panel16.TabIndex = 279;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel17.Location = new System.Drawing.Point(2, 307);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(392, 11);
-            this.panel17.TabIndex = 279;
             // 
             // cbxEndMatch
             // 
             this.cbxEndMatch.AutoSize = true;
             this.cbxEndMatch.BackColor = System.Drawing.Color.Black;
             this.cbxEndMatch.ForeColor = System.Drawing.Color.Yellow;
-            this.cbxEndMatch.Location = new System.Drawing.Point(779, 7);
+            this.cbxEndMatch.Location = new System.Drawing.Point(779, 10);
             this.cbxEndMatch.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEndMatch.Name = "cbxEndMatch";
-            this.cbxEndMatch.Size = new System.Drawing.Size(112, 24);
+            this.cbxEndMatch.Size = new System.Drawing.Size(78, 17);
             this.cbxEndMatch.TabIndex = 296;
             this.cbxEndMatch.Text = "End Match";
             this.cbxEndMatch.UseVisualStyleBackColor = false;
@@ -415,7 +268,7 @@ namespace ControllerScouting.Screens
             this.btnNextMatch.BackColor = System.Drawing.Color.Black;
             this.btnNextMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextMatch.ForeColor = System.Drawing.Color.Navy;
-            this.btnNextMatch.Location = new System.Drawing.Point(741, 4);
+            this.btnNextMatch.Location = new System.Drawing.Point(741, 5);
             this.btnNextMatch.Name = "btnNextMatch";
             this.btnNextMatch.Size = new System.Drawing.Size(36, 23);
             this.btnNextMatch.TabIndex = 289;
@@ -428,7 +281,7 @@ namespace ControllerScouting.Screens
             this.btnPreviousMatch.BackColor = System.Drawing.Color.Black;
             this.btnPreviousMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreviousMatch.ForeColor = System.Drawing.Color.Navy;
-            this.btnPreviousMatch.Location = new System.Drawing.Point(546, 2);
+            this.btnPreviousMatch.Location = new System.Drawing.Point(546, 4);
             this.btnPreviousMatch.Name = "btnPreviousMatch";
             this.btnPreviousMatch.Size = new System.Drawing.Size(36, 23);
             this.btnPreviousMatch.TabIndex = 286;
@@ -441,7 +294,7 @@ namespace ControllerScouting.Screens
             this.btnpopulateForEvent.BackColor = System.Drawing.Color.Black;
             this.btnpopulateForEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnpopulateForEvent.ForeColor = System.Drawing.Color.Navy;
-            this.btnpopulateForEvent.Location = new System.Drawing.Point(442, 2);
+            this.btnpopulateForEvent.Location = new System.Drawing.Point(442, 4);
             this.btnpopulateForEvent.Name = "btnpopulateForEvent";
             this.btnpopulateForEvent.Size = new System.Drawing.Size(102, 23);
             this.btnpopulateForEvent.TabIndex = 285;
@@ -465,51 +318,51 @@ namespace ControllerScouting.Screens
             // blueTeams
             // 
             this.blueTeams.BackColor = System.Drawing.Color.Blue;
-            this.blueTeams.Controls.Add(this.team6);
             this.blueTeams.Controls.Add(this.team5);
             this.blueTeams.Controls.Add(this.team4);
+            this.blueTeams.Controls.Add(this.team3);
             this.blueTeams.Location = new System.Drawing.Point(19, 462);
             this.blueTeams.Name = "blueTeams";
             this.blueTeams.Size = new System.Drawing.Size(1486, 399);
             this.blueTeams.TabIndex = 300;
             // 
-            // team6
+            // team5
             // 
-            this.team6.BackColor = System.Drawing.Color.Black;
-            this.team6.Controls.Add(this.lbl5Position0Value);
-            this.team6.Controls.Add(this.lbl5Position0);
-            this.team6.Controls.Add(this.lbl5Position12Value);
-            this.team6.Controls.Add(this.lbl5Position12);
-            this.team6.Controls.Add(this.lbl5Position11Value);
-            this.team6.Controls.Add(this.lbl5Position11);
-            this.team6.Controls.Add(this.lbl5Position8Value);
-            this.team6.Controls.Add(this.lbl5Position8);
-            this.team6.Controls.Add(this.lbl5Position7Value);
-            this.team6.Controls.Add(this.lbl5Position7);
-            this.team6.Controls.Add(this.lbl5Position5Value);
-            this.team6.Controls.Add(this.lbl5Position5);
-            this.team6.Controls.Add(this.lbl5Position4Value);
-            this.team6.Controls.Add(this.lbl5Position4);
-            this.team6.Controls.Add(this.lbl5Position3Des);
-            this.team6.Controls.Add(this.lbl5Position3Source);
-            this.team6.Controls.Add(this.lbl5Position2Des);
-            this.team6.Controls.Add(this.lbl5Position2Source);
-            this.team6.Controls.Add(this.lbl5Position1);
-            this.team6.Controls.Add(this.lbl5Position3Value);
-            this.team6.Controls.Add(this.lbl5Position3);
-            this.team6.Controls.Add(this.lbl5Position2Value);
-            this.team6.Controls.Add(this.lbl5Position2);
-            this.team6.Controls.Add(this.panel28);
-            this.team6.Controls.Add(this.panel29);
-            this.team6.Controls.Add(this.lbl5MatchEvent);
-            this.team6.Controls.Add(this.lbl5TeamName);
-            this.team6.Controls.Add(this.lbl5ScoutName);
-            this.team6.Controls.Add(this.lbl5ModeValue);
-            this.team6.Controls.Add(this.panel6);
-            this.team6.Location = new System.Drawing.Point(991, 8);
-            this.team6.Name = "team6";
-            this.team6.Size = new System.Drawing.Size(484, 388);
-            this.team6.TabIndex = 349;
+            this.team5.BackColor = System.Drawing.Color.Black;
+            this.team5.Controls.Add(this.lbl5Position0Value);
+            this.team5.Controls.Add(this.lbl5Position0);
+            this.team5.Controls.Add(this.lbl5Position12Value);
+            this.team5.Controls.Add(this.lbl5Position12);
+            this.team5.Controls.Add(this.lbl5Position11Value);
+            this.team5.Controls.Add(this.lbl5Position11);
+            this.team5.Controls.Add(this.lbl5Position8Value);
+            this.team5.Controls.Add(this.lbl5Position8);
+            this.team5.Controls.Add(this.lbl5Position7Value);
+            this.team5.Controls.Add(this.lbl5Position7);
+            this.team5.Controls.Add(this.lbl5Position5Value);
+            this.team5.Controls.Add(this.lbl5Position5);
+            this.team5.Controls.Add(this.lbl5Position4Value);
+            this.team5.Controls.Add(this.lbl5Position4);
+            this.team5.Controls.Add(this.lbl5Position3Des);
+            this.team5.Controls.Add(this.lbl5Position3Source);
+            this.team5.Controls.Add(this.lbl5Position2Des);
+            this.team5.Controls.Add(this.lbl5Position2Source);
+            this.team5.Controls.Add(this.lbl5Position1);
+            this.team5.Controls.Add(this.lbl5Position3Value);
+            this.team5.Controls.Add(this.lbl5Position3);
+            this.team5.Controls.Add(this.lbl5Position2Value);
+            this.team5.Controls.Add(this.lbl5Position2);
+            this.team5.Controls.Add(this.team5Divider);
+            this.team5.Controls.Add(this.team5ModeDivider);
+            this.team5.Controls.Add(this.lbl5MatchEvent);
+            this.team5.Controls.Add(this.lbl5TeamName);
+            this.team5.Controls.Add(this.lbl5ScoutName);
+            this.team5.Controls.Add(this.lbl5ModeValue);
+            this.team5.Controls.Add(this.team5TeamDivider);
+            this.team5.Location = new System.Drawing.Point(991, 8);
+            this.team5.Name = "team5";
+            this.team5.Size = new System.Drawing.Size(484, 388);
+            this.team5.TabIndex = 349;
             // 
             // lbl5Position0Value
             // 
@@ -520,7 +373,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl5Position0Value.Location = new System.Drawing.Point(72, 55);
             this.lbl5Position0Value.Name = "lbl5Position0Value";
-            this.lbl5Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl5Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl5Position0Value.TabIndex = 393;
             this.lbl5Position0Value.Text = ".";
             this.lbl5Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -532,7 +385,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position0.ForeColor = System.Drawing.Color.White;
             this.lbl5Position0.Location = new System.Drawing.Point(2, 55);
             this.lbl5Position0.Name = "lbl5Position0";
-            this.lbl5Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl5Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl5Position0.TabIndex = 387;
             this.lbl5Position0.Text = "Leave";
             // 
@@ -543,7 +396,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position12Value.Location = new System.Drawing.Point(52, 273);
             this.lbl5Position12Value.Name = "lbl5Position12Value";
-            this.lbl5Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position12Value.TabIndex = 411;
             this.lbl5Position12Value.Text = "9";
             // 
@@ -554,7 +407,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position12.ForeColor = System.Drawing.Color.White;
             this.lbl5Position12.Location = new System.Drawing.Point(2, 272);
             this.lbl5Position12.Name = "lbl5Position12";
-            this.lbl5Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl5Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl5Position12.TabIndex = 410;
             this.lbl5Position12.Text = "Strat:";
             // 
@@ -565,7 +418,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position11Value.Location = new System.Drawing.Point(90, 245);
             this.lbl5Position11Value.Name = "lbl5Position11Value";
-            this.lbl5Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position11Value.TabIndex = 409;
             this.lbl5Position11Value.Text = "9";
             // 
@@ -576,7 +429,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position11.ForeColor = System.Drawing.Color.White;
             this.lbl5Position11.Location = new System.Drawing.Point(2, 245);
             this.lbl5Position11.Name = "lbl5Position11";
-            this.lbl5Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl5Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl5Position11.TabIndex = 408;
             this.lbl5Position11.Text = "Attempt:";
             // 
@@ -587,7 +440,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position8Value.Location = new System.Drawing.Point(379, 228);
             this.lbl5Position8Value.Name = "lbl5Position8Value";
-            this.lbl5Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position8Value.TabIndex = 403;
             this.lbl5Position8Value.Text = "9";
             // 
@@ -598,7 +451,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position8.ForeColor = System.Drawing.Color.White;
             this.lbl5Position8.Location = new System.Drawing.Point(315, 227);
             this.lbl5Position8.Name = "lbl5Position8";
-            this.lbl5Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl5Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl5Position8.TabIndex = 402;
             this.lbl5Position8.Text = "Avoid:";
             // 
@@ -609,7 +462,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position7Value.Location = new System.Drawing.Point(316, 274);
             this.lbl5Position7Value.Name = "lbl5Position7Value";
-            this.lbl5Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position7Value.TabIndex = 407;
             this.lbl5Position7Value.Text = "9";
             // 
@@ -620,7 +473,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position7.ForeColor = System.Drawing.Color.White;
             this.lbl5Position7.Location = new System.Drawing.Point(281, 273);
             this.lbl5Position7.Name = "lbl5Position7";
-            this.lbl5Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl5Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl5Position7.TabIndex = 406;
             this.lbl5Position7.Text = "Eff:";
             // 
@@ -631,7 +484,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position5Value.Location = new System.Drawing.Point(215, 226);
             this.lbl5Position5Value.Name = "lbl5Position5Value";
-            this.lbl5Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position5Value.TabIndex = 401;
             this.lbl5Position5Value.Text = "9";
             this.lbl5Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -643,7 +496,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position5.ForeColor = System.Drawing.Color.White;
             this.lbl5Position5.Location = new System.Drawing.Point(169, 226);
             this.lbl5Position5.Name = "lbl5Position5";
-            this.lbl5Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl5Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl5Position5.TabIndex = 400;
             this.lbl5Position5.Text = "Def:";
             this.lbl5Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -655,7 +508,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl5Position4Value.Location = new System.Drawing.Point(345, 178);
             this.lbl5Position4Value.Name = "lbl5Position4Value";
-            this.lbl5Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl5Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl5Position4Value.TabIndex = 399;
             this.lbl5Position4Value.Text = "9";
             // 
@@ -666,7 +519,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position4.ForeColor = System.Drawing.Color.White;
             this.lbl5Position4.Location = new System.Drawing.Point(243, 177);
             this.lbl5Position4.Name = "lbl5Position4";
-            this.lbl5Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl5Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl5Position4.TabIndex = 398;
             this.lbl5Position4.Text = "End State:";
             // 
@@ -677,7 +530,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl5Position3Des.Location = new System.Drawing.Point(176, 150);
             this.lbl5Position3Des.Name = "lbl5Position3Des";
-            this.lbl5Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl5Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl5Position3Des.TabIndex = 397;
             this.lbl5Position3Des.Text = "Floor";
             // 
@@ -688,7 +541,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl5Position3Source.Location = new System.Drawing.Point(103, 150);
             this.lbl5Position3Source.Name = "lbl5Position3Source";
-            this.lbl5Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl5Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl5Position3Source.TabIndex = 405;
             this.lbl5Position3Source.Text = "Floor";
             // 
@@ -699,7 +552,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl5Position2Des.Location = new System.Drawing.Point(176, 112);
             this.lbl5Position2Des.Name = "lbl5Position2Des";
-            this.lbl5Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl5Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl5Position2Des.TabIndex = 396;
             this.lbl5Position2Des.Text = "Floor";
             // 
@@ -710,7 +563,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl5Position2Source.Location = new System.Drawing.Point(103, 112);
             this.lbl5Position2Source.Name = "lbl5Position2Source";
-            this.lbl5Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl5Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl5Position2Source.TabIndex = 404;
             this.lbl5Position2Source.Text = "Station";
             // 
@@ -721,7 +574,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position1.ForeColor = System.Drawing.Color.White;
             this.lbl5Position1.Location = new System.Drawing.Point(245, 56);
             this.lbl5Position1.Name = "lbl5Position1";
-            this.lbl5Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl5Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl5Position1.TabIndex = 388;
             this.lbl5Position1.Text = "Near Side";
             // 
@@ -734,7 +587,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl5Position3Value.Location = new System.Drawing.Point(72, 150);
             this.lbl5Position3Value.Name = "lbl5Position3Value";
-            this.lbl5Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl5Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl5Position3Value.TabIndex = 395;
             this.lbl5Position3Value.Text = ".";
             this.lbl5Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -746,7 +599,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position3.ForeColor = System.Drawing.Color.White;
             this.lbl5Position3.Location = new System.Drawing.Point(2, 148);
             this.lbl5Position3.Name = "lbl5Position3";
-            this.lbl5Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl5Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl5Position3.TabIndex = 394;
             this.lbl5Position3.Text = "Algae:";
             // 
@@ -759,7 +612,7 @@ namespace ControllerScouting.Screens
             this.lbl5Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl5Position2Value.Location = new System.Drawing.Point(72, 109);
             this.lbl5Position2Value.Name = "lbl5Position2Value";
-            this.lbl5Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl5Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl5Position2Value.TabIndex = 392;
             this.lbl5Position2Value.Text = ".";
             this.lbl5Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -771,25 +624,25 @@ namespace ControllerScouting.Screens
             this.lbl5Position2.ForeColor = System.Drawing.Color.White;
             this.lbl5Position2.Location = new System.Drawing.Point(2, 110);
             this.lbl5Position2.Name = "lbl5Position2";
-            this.lbl5Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl5Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl5Position2.TabIndex = 391;
             this.lbl5Position2.Text = "Coral:";
             // 
-            // panel28
+            // team5Divider
             // 
-            this.panel28.BackColor = System.Drawing.Color.Blue;
-            this.panel28.Location = new System.Drawing.Point(-5, 88);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(494, 11);
-            this.panel28.TabIndex = 389;
+            this.team5Divider.BackColor = System.Drawing.Color.Blue;
+            this.team5Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team5Divider.Name = "team5Divider";
+            this.team5Divider.Size = new System.Drawing.Size(494, 11);
+            this.team5Divider.TabIndex = 389;
             // 
-            // panel29
+            // team5ModeDivider
             // 
-            this.panel29.BackColor = System.Drawing.Color.Blue;
-            this.panel29.Location = new System.Drawing.Point(-5, 40);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(494, 11);
-            this.panel29.TabIndex = 390;
+            this.team5ModeDivider.BackColor = System.Drawing.Color.Blue;
+            this.team5ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team5ModeDivider.Name = "team5ModeDivider";
+            this.team5ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team5ModeDivider.TabIndex = 390;
             // 
             // lbl5MatchEvent
             // 
@@ -798,7 +651,7 @@ namespace ControllerScouting.Screens
             this.lbl5MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl5MatchEvent.Location = new System.Drawing.Point(7, 325);
             this.lbl5MatchEvent.Name = "lbl5MatchEvent";
-            this.lbl5MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl5MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl5MatchEvent.TabIndex = 295;
             this.lbl5MatchEvent.Text = "Match Event";
             // 
@@ -832,55 +685,55 @@ namespace ControllerScouting.Screens
             this.lbl5ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl5ModeValue.Location = new System.Drawing.Point(2, 4);
             this.lbl5ModeValue.Name = "lbl5ModeValue";
-            this.lbl5ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl5ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl5ModeValue.TabIndex = 292;
             this.lbl5ModeValue.Text = "Auto:";
             // 
-            // panel6
+            // team5TeamDivider
             // 
-            this.panel6.BackColor = System.Drawing.Color.Blue;
-            this.panel6.Location = new System.Drawing.Point(0, 307);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(492, 11);
-            this.panel6.TabIndex = 279;
+            this.team5TeamDivider.BackColor = System.Drawing.Color.Blue;
+            this.team5TeamDivider.Location = new System.Drawing.Point(0, 307);
+            this.team5TeamDivider.Name = "team5TeamDivider";
+            this.team5TeamDivider.Size = new System.Drawing.Size(484, 11);
+            this.team5TeamDivider.TabIndex = 279;
             // 
-            // team5
+            // team4
             // 
-            this.team5.BackColor = System.Drawing.Color.Black;
-            this.team5.Controls.Add(this.lbl4Position0Value);
-            this.team5.Controls.Add(this.lbl4Position0);
-            this.team5.Controls.Add(this.lbl4Position12Value);
-            this.team5.Controls.Add(this.lbl4Position12);
-            this.team5.Controls.Add(this.lbl4Position11Value);
-            this.team5.Controls.Add(this.lbl4Position11);
-            this.team5.Controls.Add(this.lbl4Position8Value);
-            this.team5.Controls.Add(this.lbl4Position8);
-            this.team5.Controls.Add(this.lbl4Position7Value);
-            this.team5.Controls.Add(this.lbl4Position7);
-            this.team5.Controls.Add(this.lbl4Position5Value);
-            this.team5.Controls.Add(this.lbl4Position5);
-            this.team5.Controls.Add(this.lbl4Position4Value);
-            this.team5.Controls.Add(this.lbl4Position4);
-            this.team5.Controls.Add(this.lbl4Position3Des);
-            this.team5.Controls.Add(this.lbl4Position3Source);
-            this.team5.Controls.Add(this.lbl4Position2Des);
-            this.team5.Controls.Add(this.lbl4Position2Source);
-            this.team5.Controls.Add(this.lbl4Position1);
-            this.team5.Controls.Add(this.lbl4Position3Value);
-            this.team5.Controls.Add(this.lbl4Position3);
-            this.team5.Controls.Add(this.lbl4Position2Value);
-            this.team5.Controls.Add(this.lbl4Position2);
-            this.team5.Controls.Add(this.panel21);
-            this.team5.Controls.Add(this.panel22);
-            this.team5.Controls.Add(this.lbl4MatchEvent);
-            this.team5.Controls.Add(this.lbl4TeamName);
-            this.team5.Controls.Add(this.lbl4ScoutName);
-            this.team5.Controls.Add(this.lbl4ModeValue);
-            this.team5.Controls.Add(this.panel10);
-            this.team5.Location = new System.Drawing.Point(499, 8);
-            this.team5.Name = "team5";
-            this.team5.Size = new System.Drawing.Size(484, 388);
-            this.team5.TabIndex = 348;
+            this.team4.BackColor = System.Drawing.Color.Black;
+            this.team4.Controls.Add(this.lbl4Position0Value);
+            this.team4.Controls.Add(this.lbl4Position0);
+            this.team4.Controls.Add(this.lbl4Position12Value);
+            this.team4.Controls.Add(this.lbl4Position12);
+            this.team4.Controls.Add(this.lbl4Position11Value);
+            this.team4.Controls.Add(this.lbl4Position11);
+            this.team4.Controls.Add(this.lbl4Position8Value);
+            this.team4.Controls.Add(this.lbl4Position8);
+            this.team4.Controls.Add(this.lbl4Position7Value);
+            this.team4.Controls.Add(this.lbl4Position7);
+            this.team4.Controls.Add(this.lbl4Position5Value);
+            this.team4.Controls.Add(this.lbl4Position5);
+            this.team4.Controls.Add(this.lbl4Position4Value);
+            this.team4.Controls.Add(this.lbl4Position4);
+            this.team4.Controls.Add(this.lbl4Position3Des);
+            this.team4.Controls.Add(this.lbl4Position3Source);
+            this.team4.Controls.Add(this.lbl4Position2Des);
+            this.team4.Controls.Add(this.lbl4Position2Source);
+            this.team4.Controls.Add(this.lbl4Position1);
+            this.team4.Controls.Add(this.lbl4Position3Value);
+            this.team4.Controls.Add(this.lbl4Position3);
+            this.team4.Controls.Add(this.lbl4Position2Value);
+            this.team4.Controls.Add(this.lbl4Position2);
+            this.team4.Controls.Add(this.team4Divider);
+            this.team4.Controls.Add(this.team4ModeDivider);
+            this.team4.Controls.Add(this.lbl4MatchEvent);
+            this.team4.Controls.Add(this.lbl4TeamName);
+            this.team4.Controls.Add(this.lbl4ScoutName);
+            this.team4.Controls.Add(this.lbl4ModeValue);
+            this.team4.Controls.Add(this.team4TeamDivider);
+            this.team4.Location = new System.Drawing.Point(499, 8);
+            this.team4.Name = "team4";
+            this.team4.Size = new System.Drawing.Size(484, 388);
+            this.team4.TabIndex = 348;
             // 
             // lbl4Position0Value
             // 
@@ -891,7 +744,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl4Position0Value.Location = new System.Drawing.Point(72, 55);
             this.lbl4Position0Value.Name = "lbl4Position0Value";
-            this.lbl4Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl4Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl4Position0Value.TabIndex = 393;
             this.lbl4Position0Value.Text = ".";
             this.lbl4Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -903,7 +756,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position0.ForeColor = System.Drawing.Color.White;
             this.lbl4Position0.Location = new System.Drawing.Point(2, 55);
             this.lbl4Position0.Name = "lbl4Position0";
-            this.lbl4Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl4Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl4Position0.TabIndex = 387;
             this.lbl4Position0.Text = "Leave";
             // 
@@ -914,7 +767,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position12Value.Location = new System.Drawing.Point(52, 273);
             this.lbl4Position12Value.Name = "lbl4Position12Value";
-            this.lbl4Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position12Value.TabIndex = 411;
             this.lbl4Position12Value.Text = "9";
             // 
@@ -925,7 +778,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position12.ForeColor = System.Drawing.Color.White;
             this.lbl4Position12.Location = new System.Drawing.Point(2, 272);
             this.lbl4Position12.Name = "lbl4Position12";
-            this.lbl4Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl4Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl4Position12.TabIndex = 410;
             this.lbl4Position12.Text = "Strat:";
             // 
@@ -936,7 +789,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position11Value.Location = new System.Drawing.Point(90, 245);
             this.lbl4Position11Value.Name = "lbl4Position11Value";
-            this.lbl4Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position11Value.TabIndex = 409;
             this.lbl4Position11Value.Text = "9";
             // 
@@ -947,7 +800,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position11.ForeColor = System.Drawing.Color.White;
             this.lbl4Position11.Location = new System.Drawing.Point(2, 245);
             this.lbl4Position11.Name = "lbl4Position11";
-            this.lbl4Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl4Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl4Position11.TabIndex = 408;
             this.lbl4Position11.Text = "Attempt:";
             // 
@@ -958,7 +811,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position8Value.Location = new System.Drawing.Point(379, 228);
             this.lbl4Position8Value.Name = "lbl4Position8Value";
-            this.lbl4Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position8Value.TabIndex = 403;
             this.lbl4Position8Value.Text = "9";
             // 
@@ -969,7 +822,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position8.ForeColor = System.Drawing.Color.White;
             this.lbl4Position8.Location = new System.Drawing.Point(315, 227);
             this.lbl4Position8.Name = "lbl4Position8";
-            this.lbl4Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl4Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl4Position8.TabIndex = 402;
             this.lbl4Position8.Text = "Avoid:";
             // 
@@ -980,7 +833,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position7Value.Location = new System.Drawing.Point(316, 274);
             this.lbl4Position7Value.Name = "lbl4Position7Value";
-            this.lbl4Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position7Value.TabIndex = 407;
             this.lbl4Position7Value.Text = "9";
             // 
@@ -991,7 +844,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position7.ForeColor = System.Drawing.Color.White;
             this.lbl4Position7.Location = new System.Drawing.Point(281, 273);
             this.lbl4Position7.Name = "lbl4Position7";
-            this.lbl4Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl4Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl4Position7.TabIndex = 406;
             this.lbl4Position7.Text = "Eff:";
             // 
@@ -1002,7 +855,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position5Value.Location = new System.Drawing.Point(215, 226);
             this.lbl4Position5Value.Name = "lbl4Position5Value";
-            this.lbl4Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position5Value.TabIndex = 401;
             this.lbl4Position5Value.Text = "9";
             this.lbl4Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1014,7 +867,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position5.ForeColor = System.Drawing.Color.White;
             this.lbl4Position5.Location = new System.Drawing.Point(169, 226);
             this.lbl4Position5.Name = "lbl4Position5";
-            this.lbl4Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl4Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl4Position5.TabIndex = 400;
             this.lbl4Position5.Text = "Def:";
             this.lbl4Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1026,7 +879,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl4Position4Value.Location = new System.Drawing.Point(345, 178);
             this.lbl4Position4Value.Name = "lbl4Position4Value";
-            this.lbl4Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl4Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl4Position4Value.TabIndex = 399;
             this.lbl4Position4Value.Text = "9";
             // 
@@ -1037,7 +890,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position4.ForeColor = System.Drawing.Color.White;
             this.lbl4Position4.Location = new System.Drawing.Point(243, 177);
             this.lbl4Position4.Name = "lbl4Position4";
-            this.lbl4Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl4Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl4Position4.TabIndex = 398;
             this.lbl4Position4.Text = "End State:";
             // 
@@ -1048,7 +901,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl4Position3Des.Location = new System.Drawing.Point(176, 150);
             this.lbl4Position3Des.Name = "lbl4Position3Des";
-            this.lbl4Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl4Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl4Position3Des.TabIndex = 397;
             this.lbl4Position3Des.Text = "Floor";
             // 
@@ -1059,7 +912,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl4Position3Source.Location = new System.Drawing.Point(103, 150);
             this.lbl4Position3Source.Name = "lbl4Position3Source";
-            this.lbl4Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl4Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl4Position3Source.TabIndex = 405;
             this.lbl4Position3Source.Text = "Floor";
             // 
@@ -1070,7 +923,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl4Position2Des.Location = new System.Drawing.Point(176, 112);
             this.lbl4Position2Des.Name = "lbl4Position2Des";
-            this.lbl4Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl4Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl4Position2Des.TabIndex = 396;
             this.lbl4Position2Des.Text = "Floor";
             // 
@@ -1081,7 +934,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl4Position2Source.Location = new System.Drawing.Point(103, 112);
             this.lbl4Position2Source.Name = "lbl4Position2Source";
-            this.lbl4Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl4Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl4Position2Source.TabIndex = 404;
             this.lbl4Position2Source.Text = "Station";
             // 
@@ -1092,7 +945,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position1.ForeColor = System.Drawing.Color.White;
             this.lbl4Position1.Location = new System.Drawing.Point(245, 56);
             this.lbl4Position1.Name = "lbl4Position1";
-            this.lbl4Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl4Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl4Position1.TabIndex = 388;
             this.lbl4Position1.Text = "Near Side";
             // 
@@ -1105,7 +958,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl4Position3Value.Location = new System.Drawing.Point(72, 150);
             this.lbl4Position3Value.Name = "lbl4Position3Value";
-            this.lbl4Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl4Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl4Position3Value.TabIndex = 395;
             this.lbl4Position3Value.Text = ".";
             this.lbl4Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1117,7 +970,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position3.ForeColor = System.Drawing.Color.White;
             this.lbl4Position3.Location = new System.Drawing.Point(2, 148);
             this.lbl4Position3.Name = "lbl4Position3";
-            this.lbl4Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl4Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl4Position3.TabIndex = 394;
             this.lbl4Position3.Text = "Algae:";
             // 
@@ -1130,7 +983,7 @@ namespace ControllerScouting.Screens
             this.lbl4Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl4Position2Value.Location = new System.Drawing.Point(72, 109);
             this.lbl4Position2Value.Name = "lbl4Position2Value";
-            this.lbl4Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl4Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl4Position2Value.TabIndex = 392;
             this.lbl4Position2Value.Text = ".";
             this.lbl4Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1142,25 +995,25 @@ namespace ControllerScouting.Screens
             this.lbl4Position2.ForeColor = System.Drawing.Color.White;
             this.lbl4Position2.Location = new System.Drawing.Point(2, 110);
             this.lbl4Position2.Name = "lbl4Position2";
-            this.lbl4Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl4Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl4Position2.TabIndex = 391;
             this.lbl4Position2.Text = "Coral:";
             // 
-            // panel21
+            // team4Divider
             // 
-            this.panel21.BackColor = System.Drawing.Color.Blue;
-            this.panel21.Location = new System.Drawing.Point(-5, 88);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(494, 11);
-            this.panel21.TabIndex = 389;
+            this.team4Divider.BackColor = System.Drawing.Color.Blue;
+            this.team4Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team4Divider.Name = "team4Divider";
+            this.team4Divider.Size = new System.Drawing.Size(494, 11);
+            this.team4Divider.TabIndex = 389;
             // 
-            // panel22
+            // team4ModeDivider
             // 
-            this.panel22.BackColor = System.Drawing.Color.Blue;
-            this.panel22.Location = new System.Drawing.Point(-5, 40);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(494, 11);
-            this.panel22.TabIndex = 390;
+            this.team4ModeDivider.BackColor = System.Drawing.Color.Blue;
+            this.team4ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team4ModeDivider.Name = "team4ModeDivider";
+            this.team4ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team4ModeDivider.TabIndex = 390;
             // 
             // lbl4MatchEvent
             // 
@@ -1169,7 +1022,7 @@ namespace ControllerScouting.Screens
             this.lbl4MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl4MatchEvent.Location = new System.Drawing.Point(6, 325);
             this.lbl4MatchEvent.Name = "lbl4MatchEvent";
-            this.lbl4MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl4MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl4MatchEvent.TabIndex = 295;
             this.lbl4MatchEvent.Text = "Match Event";
             // 
@@ -1203,55 +1056,55 @@ namespace ControllerScouting.Screens
             this.lbl4ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl4ModeValue.Location = new System.Drawing.Point(1, 5);
             this.lbl4ModeValue.Name = "lbl4ModeValue";
-            this.lbl4ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl4ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl4ModeValue.TabIndex = 292;
             this.lbl4ModeValue.Text = "Auto:";
             // 
-            // panel10
+            // team4TeamDivider
             // 
-            this.panel10.BackColor = System.Drawing.Color.Blue;
-            this.panel10.Location = new System.Drawing.Point(0, 307);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(484, 11);
-            this.panel10.TabIndex = 279;
+            this.team4TeamDivider.BackColor = System.Drawing.Color.Blue;
+            this.team4TeamDivider.Location = new System.Drawing.Point(0, 307);
+            this.team4TeamDivider.Name = "team4TeamDivider";
+            this.team4TeamDivider.Size = new System.Drawing.Size(484, 11);
+            this.team4TeamDivider.TabIndex = 279;
             // 
-            // team4
+            // team3
             // 
-            this.team4.BackColor = System.Drawing.Color.Black;
-            this.team4.Controls.Add(this.lbl3Position0Value);
-            this.team4.Controls.Add(this.lbl3Position0);
-            this.team4.Controls.Add(this.lbl3Position12Value);
-            this.team4.Controls.Add(this.lbl3Position12);
-            this.team4.Controls.Add(this.lbl3Position11Value);
-            this.team4.Controls.Add(this.lbl3Position11);
-            this.team4.Controls.Add(this.lbl3Position8Value);
-            this.team4.Controls.Add(this.lbl3Position8);
-            this.team4.Controls.Add(this.lbl3Position7Value);
-            this.team4.Controls.Add(this.lbl3Position7);
-            this.team4.Controls.Add(this.lbl3Position5Value);
-            this.team4.Controls.Add(this.lbl3Position5);
-            this.team4.Controls.Add(this.lbl3Position4Value);
-            this.team4.Controls.Add(this.lbl3Position4);
-            this.team4.Controls.Add(this.lbl3Position3Des);
-            this.team4.Controls.Add(this.lbl3Position3Source);
-            this.team4.Controls.Add(this.lbl3Position2Des);
-            this.team4.Controls.Add(this.lbl3Position2Source);
-            this.team4.Controls.Add(this.lbl3Position1);
-            this.team4.Controls.Add(this.lbl3Position3Value);
-            this.team4.Controls.Add(this.lbl3Position3);
-            this.team4.Controls.Add(this.lbl3Position2Value);
-            this.team4.Controls.Add(this.lbl3Position2);
-            this.team4.Controls.Add(this.panel9);
-            this.team4.Controls.Add(this.panel11);
-            this.team4.Controls.Add(this.lbl3MatchEvent);
-            this.team4.Controls.Add(this.lbl3TeamName);
-            this.team4.Controls.Add(this.lbl3ScoutName);
-            this.team4.Controls.Add(this.lbl3ModeValue);
-            this.team4.Controls.Add(this.panel30);
-            this.team4.Location = new System.Drawing.Point(7, 8);
-            this.team4.Name = "team4";
-            this.team4.Size = new System.Drawing.Size(484, 388);
-            this.team4.TabIndex = 347;
+            this.team3.BackColor = System.Drawing.Color.Black;
+            this.team3.Controls.Add(this.lbl3Position0Value);
+            this.team3.Controls.Add(this.lbl3Position0);
+            this.team3.Controls.Add(this.lbl3Position12Value);
+            this.team3.Controls.Add(this.lbl3Position12);
+            this.team3.Controls.Add(this.lbl3Position11Value);
+            this.team3.Controls.Add(this.lbl3Position11);
+            this.team3.Controls.Add(this.lbl3Position8Value);
+            this.team3.Controls.Add(this.lbl3Position8);
+            this.team3.Controls.Add(this.lbl3Position7Value);
+            this.team3.Controls.Add(this.lbl3Position7);
+            this.team3.Controls.Add(this.lbl3Position5Value);
+            this.team3.Controls.Add(this.lbl3Position5);
+            this.team3.Controls.Add(this.lbl3Position4Value);
+            this.team3.Controls.Add(this.lbl3Position4);
+            this.team3.Controls.Add(this.lbl3Position3Des);
+            this.team3.Controls.Add(this.lbl3Position3Source);
+            this.team3.Controls.Add(this.lbl3Position2Des);
+            this.team3.Controls.Add(this.lbl3Position2Source);
+            this.team3.Controls.Add(this.lbl3Position1);
+            this.team3.Controls.Add(this.lbl3Position3Value);
+            this.team3.Controls.Add(this.lbl3Position3);
+            this.team3.Controls.Add(this.lbl3Position2Value);
+            this.team3.Controls.Add(this.lbl3Position2);
+            this.team3.Controls.Add(this.team3Divider);
+            this.team3.Controls.Add(this.team3ModeDivider);
+            this.team3.Controls.Add(this.lbl3MatchEvent);
+            this.team3.Controls.Add(this.lbl3TeamName);
+            this.team3.Controls.Add(this.lbl3ScoutName);
+            this.team3.Controls.Add(this.lbl3ModeValue);
+            this.team3.Controls.Add(this.team3TeamDivider);
+            this.team3.Location = new System.Drawing.Point(7, 8);
+            this.team3.Name = "team3";
+            this.team3.Size = new System.Drawing.Size(484, 388);
+            this.team3.TabIndex = 347;
             // 
             // lbl3Position0Value
             // 
@@ -1262,7 +1115,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl3Position0Value.Location = new System.Drawing.Point(72, 55);
             this.lbl3Position0Value.Name = "lbl3Position0Value";
-            this.lbl3Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl3Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl3Position0Value.TabIndex = 393;
             this.lbl3Position0Value.Text = ".";
             this.lbl3Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1274,7 +1127,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position0.ForeColor = System.Drawing.Color.White;
             this.lbl3Position0.Location = new System.Drawing.Point(2, 55);
             this.lbl3Position0.Name = "lbl3Position0";
-            this.lbl3Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl3Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl3Position0.TabIndex = 387;
             this.lbl3Position0.Text = "Leave";
             // 
@@ -1285,7 +1138,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position12Value.Location = new System.Drawing.Point(52, 273);
             this.lbl3Position12Value.Name = "lbl3Position12Value";
-            this.lbl3Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position12Value.TabIndex = 411;
             this.lbl3Position12Value.Text = "9";
             // 
@@ -1296,7 +1149,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position12.ForeColor = System.Drawing.Color.White;
             this.lbl3Position12.Location = new System.Drawing.Point(2, 272);
             this.lbl3Position12.Name = "lbl3Position12";
-            this.lbl3Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl3Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl3Position12.TabIndex = 410;
             this.lbl3Position12.Text = "Strat:";
             // 
@@ -1307,7 +1160,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position11Value.Location = new System.Drawing.Point(90, 245);
             this.lbl3Position11Value.Name = "lbl3Position11Value";
-            this.lbl3Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position11Value.TabIndex = 409;
             this.lbl3Position11Value.Text = "9";
             // 
@@ -1318,7 +1171,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position11.ForeColor = System.Drawing.Color.White;
             this.lbl3Position11.Location = new System.Drawing.Point(2, 245);
             this.lbl3Position11.Name = "lbl3Position11";
-            this.lbl3Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl3Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl3Position11.TabIndex = 408;
             this.lbl3Position11.Text = "Attempt:";
             // 
@@ -1329,7 +1182,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position8Value.Location = new System.Drawing.Point(379, 228);
             this.lbl3Position8Value.Name = "lbl3Position8Value";
-            this.lbl3Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position8Value.TabIndex = 403;
             this.lbl3Position8Value.Text = "9";
             // 
@@ -1340,7 +1193,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position8.ForeColor = System.Drawing.Color.White;
             this.lbl3Position8.Location = new System.Drawing.Point(315, 227);
             this.lbl3Position8.Name = "lbl3Position8";
-            this.lbl3Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl3Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl3Position8.TabIndex = 402;
             this.lbl3Position8.Text = "Avoid:";
             // 
@@ -1351,7 +1204,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position7Value.Location = new System.Drawing.Point(316, 274);
             this.lbl3Position7Value.Name = "lbl3Position7Value";
-            this.lbl3Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position7Value.TabIndex = 407;
             this.lbl3Position7Value.Text = "9";
             // 
@@ -1362,7 +1215,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position7.ForeColor = System.Drawing.Color.White;
             this.lbl3Position7.Location = new System.Drawing.Point(281, 273);
             this.lbl3Position7.Name = "lbl3Position7";
-            this.lbl3Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl3Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl3Position7.TabIndex = 406;
             this.lbl3Position7.Text = "Eff:";
             // 
@@ -1373,7 +1226,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position5Value.Location = new System.Drawing.Point(215, 226);
             this.lbl3Position5Value.Name = "lbl3Position5Value";
-            this.lbl3Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position5Value.TabIndex = 401;
             this.lbl3Position5Value.Text = "9";
             this.lbl3Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1385,7 +1238,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position5.ForeColor = System.Drawing.Color.White;
             this.lbl3Position5.Location = new System.Drawing.Point(169, 226);
             this.lbl3Position5.Name = "lbl3Position5";
-            this.lbl3Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl3Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl3Position5.TabIndex = 400;
             this.lbl3Position5.Text = "Def:";
             this.lbl3Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1397,7 +1250,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl3Position4Value.Location = new System.Drawing.Point(345, 178);
             this.lbl3Position4Value.Name = "lbl3Position4Value";
-            this.lbl3Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl3Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl3Position4Value.TabIndex = 399;
             this.lbl3Position4Value.Text = "9";
             // 
@@ -1408,7 +1261,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position4.ForeColor = System.Drawing.Color.White;
             this.lbl3Position4.Location = new System.Drawing.Point(243, 177);
             this.lbl3Position4.Name = "lbl3Position4";
-            this.lbl3Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl3Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl3Position4.TabIndex = 398;
             this.lbl3Position4.Text = "End State:";
             // 
@@ -1419,7 +1272,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl3Position3Des.Location = new System.Drawing.Point(176, 150);
             this.lbl3Position3Des.Name = "lbl3Position3Des";
-            this.lbl3Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl3Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl3Position3Des.TabIndex = 397;
             this.lbl3Position3Des.Text = "Floor";
             // 
@@ -1430,7 +1283,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl3Position3Source.Location = new System.Drawing.Point(103, 150);
             this.lbl3Position3Source.Name = "lbl3Position3Source";
-            this.lbl3Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl3Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl3Position3Source.TabIndex = 405;
             this.lbl3Position3Source.Text = "Floor";
             // 
@@ -1441,7 +1294,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl3Position2Des.Location = new System.Drawing.Point(176, 112);
             this.lbl3Position2Des.Name = "lbl3Position2Des";
-            this.lbl3Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl3Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl3Position2Des.TabIndex = 396;
             this.lbl3Position2Des.Text = "Floor";
             // 
@@ -1452,7 +1305,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl3Position2Source.Location = new System.Drawing.Point(103, 112);
             this.lbl3Position2Source.Name = "lbl3Position2Source";
-            this.lbl3Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl3Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl3Position2Source.TabIndex = 404;
             this.lbl3Position2Source.Text = "Station";
             // 
@@ -1463,7 +1316,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position1.ForeColor = System.Drawing.Color.White;
             this.lbl3Position1.Location = new System.Drawing.Point(245, 56);
             this.lbl3Position1.Name = "lbl3Position1";
-            this.lbl3Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl3Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl3Position1.TabIndex = 388;
             this.lbl3Position1.Text = "Near Side";
             // 
@@ -1476,7 +1329,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl3Position3Value.Location = new System.Drawing.Point(72, 150);
             this.lbl3Position3Value.Name = "lbl3Position3Value";
-            this.lbl3Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl3Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl3Position3Value.TabIndex = 395;
             this.lbl3Position3Value.Text = ".";
             this.lbl3Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1488,7 +1341,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position3.ForeColor = System.Drawing.Color.White;
             this.lbl3Position3.Location = new System.Drawing.Point(2, 148);
             this.lbl3Position3.Name = "lbl3Position3";
-            this.lbl3Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl3Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl3Position3.TabIndex = 394;
             this.lbl3Position3.Text = "Algae:";
             // 
@@ -1501,7 +1354,7 @@ namespace ControllerScouting.Screens
             this.lbl3Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl3Position2Value.Location = new System.Drawing.Point(72, 109);
             this.lbl3Position2Value.Name = "lbl3Position2Value";
-            this.lbl3Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl3Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl3Position2Value.TabIndex = 392;
             this.lbl3Position2Value.Text = ".";
             this.lbl3Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1513,25 +1366,25 @@ namespace ControllerScouting.Screens
             this.lbl3Position2.ForeColor = System.Drawing.Color.White;
             this.lbl3Position2.Location = new System.Drawing.Point(2, 110);
             this.lbl3Position2.Name = "lbl3Position2";
-            this.lbl3Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl3Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl3Position2.TabIndex = 391;
             this.lbl3Position2.Text = "Coral:";
             // 
-            // panel9
+            // team3Divider
             // 
-            this.panel9.BackColor = System.Drawing.Color.Blue;
-            this.panel9.Location = new System.Drawing.Point(-5, 88);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(494, 11);
-            this.panel9.TabIndex = 389;
+            this.team3Divider.BackColor = System.Drawing.Color.Blue;
+            this.team3Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team3Divider.Name = "team3Divider";
+            this.team3Divider.Size = new System.Drawing.Size(494, 11);
+            this.team3Divider.TabIndex = 389;
             // 
-            // panel11
+            // team3ModeDivider
             // 
-            this.panel11.BackColor = System.Drawing.Color.Blue;
-            this.panel11.Location = new System.Drawing.Point(-5, 40);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(494, 11);
-            this.panel11.TabIndex = 390;
+            this.team3ModeDivider.BackColor = System.Drawing.Color.Blue;
+            this.team3ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team3ModeDivider.Name = "team3ModeDivider";
+            this.team3ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team3ModeDivider.TabIndex = 390;
             // 
             // lbl3MatchEvent
             // 
@@ -1540,7 +1393,7 @@ namespace ControllerScouting.Screens
             this.lbl3MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl3MatchEvent.Location = new System.Drawing.Point(6, 325);
             this.lbl3MatchEvent.Name = "lbl3MatchEvent";
-            this.lbl3MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl3MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl3MatchEvent.TabIndex = 295;
             this.lbl3MatchEvent.Text = "Match Event";
             // 
@@ -1574,67 +1427,67 @@ namespace ControllerScouting.Screens
             this.lbl3ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl3ModeValue.Location = new System.Drawing.Point(3, 4);
             this.lbl3ModeValue.Name = "lbl3ModeValue";
-            this.lbl3ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl3ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl3ModeValue.TabIndex = 292;
             this.lbl3ModeValue.Text = "Auto:";
             // 
-            // panel30
+            // team3TeamDivider
             // 
-            this.panel30.BackColor = System.Drawing.Color.Blue;
-            this.panel30.Location = new System.Drawing.Point(0, 308);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(484, 11);
-            this.panel30.TabIndex = 279;
+            this.team3TeamDivider.BackColor = System.Drawing.Color.Blue;
+            this.team3TeamDivider.Location = new System.Drawing.Point(0, 308);
+            this.team3TeamDivider.Name = "team3TeamDivider";
+            this.team3TeamDivider.Size = new System.Drawing.Size(484, 11);
+            this.team3TeamDivider.TabIndex = 279;
             // 
             // redTeams
             // 
             this.redTeams.BackColor = System.Drawing.Color.Red;
-            this.redTeams.Controls.Add(this.team3);
             this.redTeams.Controls.Add(this.team2);
-            this.redTeams.Controls.Add(this.panel41);
             this.redTeams.Controls.Add(this.team1);
+            this.redTeams.Controls.Add(this.team0TeamDivider);
+            this.redTeams.Controls.Add(this.team0);
             this.redTeams.Location = new System.Drawing.Point(20, 56);
             this.redTeams.Name = "redTeams";
             this.redTeams.Size = new System.Drawing.Size(1485, 400);
             this.redTeams.TabIndex = 299;
             // 
-            // team3
+            // team2
             // 
-            this.team3.BackColor = System.Drawing.Color.Black;
-            this.team3.Controls.Add(this.lbl2Position0Value);
-            this.team3.Controls.Add(this.lbl2Position0);
-            this.team3.Controls.Add(this.lbl2Position12Value);
-            this.team3.Controls.Add(this.lbl2Position12);
-            this.team3.Controls.Add(this.lbl2Position11Value);
-            this.team3.Controls.Add(this.lbl2Position11);
-            this.team3.Controls.Add(this.lbl2Position8Value);
-            this.team3.Controls.Add(this.lbl2Position8);
-            this.team3.Controls.Add(this.lbl2Position7Value);
-            this.team3.Controls.Add(this.lbl2Position7);
-            this.team3.Controls.Add(this.lbl2Position5Value);
-            this.team3.Controls.Add(this.lbl2Position5);
-            this.team3.Controls.Add(this.lbl2Position4Value);
-            this.team3.Controls.Add(this.lbl2Position4);
-            this.team3.Controls.Add(this.lbl2Position3Des);
-            this.team3.Controls.Add(this.lbl2Position3Source);
-            this.team3.Controls.Add(this.lbl2Position2Des);
-            this.team3.Controls.Add(this.lbl2Position2Source);
-            this.team3.Controls.Add(this.lbl2Position1);
-            this.team3.Controls.Add(this.lbl2Position3Value);
-            this.team3.Controls.Add(this.lbl2Position3);
-            this.team3.Controls.Add(this.lbl2Position2Value);
-            this.team3.Controls.Add(this.lbl2Position2);
-            this.team3.Controls.Add(this.panel5);
-            this.team3.Controls.Add(this.panel7);
-            this.team3.Controls.Add(this.panel35);
-            this.team3.Controls.Add(this.lbl2MatchEvent);
-            this.team3.Controls.Add(this.lbl2TeamName);
-            this.team3.Controls.Add(this.lbl2ScoutName);
-            this.team3.Controls.Add(this.lbl2ModeValue);
-            this.team3.Location = new System.Drawing.Point(991, 3);
-            this.team3.Name = "team3";
-            this.team3.Size = new System.Drawing.Size(484, 394);
-            this.team3.TabIndex = 347;
+            this.team2.BackColor = System.Drawing.Color.Black;
+            this.team2.Controls.Add(this.lbl2Position0Value);
+            this.team2.Controls.Add(this.lbl2Position0);
+            this.team2.Controls.Add(this.lbl2Position12Value);
+            this.team2.Controls.Add(this.lbl2Position12);
+            this.team2.Controls.Add(this.lbl2Position11Value);
+            this.team2.Controls.Add(this.lbl2Position11);
+            this.team2.Controls.Add(this.lbl2Position8Value);
+            this.team2.Controls.Add(this.lbl2Position8);
+            this.team2.Controls.Add(this.lbl2Position7Value);
+            this.team2.Controls.Add(this.lbl2Position7);
+            this.team2.Controls.Add(this.lbl2Position5Value);
+            this.team2.Controls.Add(this.lbl2Position5);
+            this.team2.Controls.Add(this.lbl2Position4Value);
+            this.team2.Controls.Add(this.lbl2Position4);
+            this.team2.Controls.Add(this.lbl2Position3Des);
+            this.team2.Controls.Add(this.lbl2Position3Source);
+            this.team2.Controls.Add(this.lbl2Position2Des);
+            this.team2.Controls.Add(this.lbl2Position2Source);
+            this.team2.Controls.Add(this.lbl2Position1);
+            this.team2.Controls.Add(this.lbl2Position3Value);
+            this.team2.Controls.Add(this.lbl2Position3);
+            this.team2.Controls.Add(this.lbl2Position2Value);
+            this.team2.Controls.Add(this.lbl2Position2);
+            this.team2.Controls.Add(this.team2Divider);
+            this.team2.Controls.Add(this.team2ModeDivider);
+            this.team2.Controls.Add(this.team2TeamDivider);
+            this.team2.Controls.Add(this.lbl2MatchEvent);
+            this.team2.Controls.Add(this.lbl2TeamName);
+            this.team2.Controls.Add(this.lbl2ScoutName);
+            this.team2.Controls.Add(this.lbl2ModeValue);
+            this.team2.Location = new System.Drawing.Point(991, 3);
+            this.team2.Name = "team2";
+            this.team2.Size = new System.Drawing.Size(484, 394);
+            this.team2.TabIndex = 347;
             // 
             // lbl2Position0Value
             // 
@@ -1645,7 +1498,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl2Position0Value.Location = new System.Drawing.Point(72, 56);
             this.lbl2Position0Value.Name = "lbl2Position0Value";
-            this.lbl2Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl2Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl2Position0Value.TabIndex = 393;
             this.lbl2Position0Value.Text = ".";
             this.lbl2Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1657,7 +1510,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position0.ForeColor = System.Drawing.Color.White;
             this.lbl2Position0.Location = new System.Drawing.Point(2, 56);
             this.lbl2Position0.Name = "lbl2Position0";
-            this.lbl2Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl2Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl2Position0.TabIndex = 387;
             this.lbl2Position0.Text = "Leave";
             // 
@@ -1668,7 +1521,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position12Value.Location = new System.Drawing.Point(52, 274);
             this.lbl2Position12Value.Name = "lbl2Position12Value";
-            this.lbl2Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position12Value.TabIndex = 411;
             this.lbl2Position12Value.Text = "9";
             // 
@@ -1679,7 +1532,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position12.ForeColor = System.Drawing.Color.White;
             this.lbl2Position12.Location = new System.Drawing.Point(2, 273);
             this.lbl2Position12.Name = "lbl2Position12";
-            this.lbl2Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl2Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl2Position12.TabIndex = 410;
             this.lbl2Position12.Text = "Strat:";
             // 
@@ -1690,7 +1543,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position11Value.Location = new System.Drawing.Point(90, 246);
             this.lbl2Position11Value.Name = "lbl2Position11Value";
-            this.lbl2Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position11Value.TabIndex = 409;
             this.lbl2Position11Value.Text = "9";
             // 
@@ -1701,7 +1554,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position11.ForeColor = System.Drawing.Color.White;
             this.lbl2Position11.Location = new System.Drawing.Point(2, 246);
             this.lbl2Position11.Name = "lbl2Position11";
-            this.lbl2Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl2Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl2Position11.TabIndex = 408;
             this.lbl2Position11.Text = "Attempt:";
             // 
@@ -1712,7 +1565,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position8Value.Location = new System.Drawing.Point(379, 229);
             this.lbl2Position8Value.Name = "lbl2Position8Value";
-            this.lbl2Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position8Value.TabIndex = 403;
             this.lbl2Position8Value.Text = "9";
             // 
@@ -1723,7 +1576,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position8.ForeColor = System.Drawing.Color.White;
             this.lbl2Position8.Location = new System.Drawing.Point(315, 228);
             this.lbl2Position8.Name = "lbl2Position8";
-            this.lbl2Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl2Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl2Position8.TabIndex = 402;
             this.lbl2Position8.Text = "Avoid:";
             // 
@@ -1734,7 +1587,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position7Value.Location = new System.Drawing.Point(316, 275);
             this.lbl2Position7Value.Name = "lbl2Position7Value";
-            this.lbl2Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position7Value.TabIndex = 407;
             this.lbl2Position7Value.Text = "9";
             // 
@@ -1745,7 +1598,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position7.ForeColor = System.Drawing.Color.White;
             this.lbl2Position7.Location = new System.Drawing.Point(281, 274);
             this.lbl2Position7.Name = "lbl2Position7";
-            this.lbl2Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl2Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl2Position7.TabIndex = 406;
             this.lbl2Position7.Text = "Eff:";
             // 
@@ -1756,7 +1609,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position5Value.Location = new System.Drawing.Point(215, 227);
             this.lbl2Position5Value.Name = "lbl2Position5Value";
-            this.lbl2Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position5Value.TabIndex = 401;
             this.lbl2Position5Value.Text = "9";
             this.lbl2Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1768,7 +1621,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position5.ForeColor = System.Drawing.Color.White;
             this.lbl2Position5.Location = new System.Drawing.Point(169, 227);
             this.lbl2Position5.Name = "lbl2Position5";
-            this.lbl2Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl2Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl2Position5.TabIndex = 400;
             this.lbl2Position5.Text = "Def:";
             this.lbl2Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1780,7 +1633,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl2Position4Value.Location = new System.Drawing.Point(345, 179);
             this.lbl2Position4Value.Name = "lbl2Position4Value";
-            this.lbl2Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl2Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl2Position4Value.TabIndex = 399;
             this.lbl2Position4Value.Text = "9";
             // 
@@ -1791,7 +1644,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position4.ForeColor = System.Drawing.Color.White;
             this.lbl2Position4.Location = new System.Drawing.Point(243, 178);
             this.lbl2Position4.Name = "lbl2Position4";
-            this.lbl2Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl2Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl2Position4.TabIndex = 398;
             this.lbl2Position4.Text = "End State:";
             // 
@@ -1802,7 +1655,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl2Position3Des.Location = new System.Drawing.Point(176, 151);
             this.lbl2Position3Des.Name = "lbl2Position3Des";
-            this.lbl2Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl2Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl2Position3Des.TabIndex = 397;
             this.lbl2Position3Des.Text = "Floor";
             // 
@@ -1813,7 +1666,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl2Position3Source.Location = new System.Drawing.Point(103, 151);
             this.lbl2Position3Source.Name = "lbl2Position3Source";
-            this.lbl2Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl2Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl2Position3Source.TabIndex = 405;
             this.lbl2Position3Source.Text = "Floor";
             // 
@@ -1824,7 +1677,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl2Position2Des.Location = new System.Drawing.Point(176, 113);
             this.lbl2Position2Des.Name = "lbl2Position2Des";
-            this.lbl2Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl2Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl2Position2Des.TabIndex = 396;
             this.lbl2Position2Des.Text = "Floor";
             // 
@@ -1835,7 +1688,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl2Position2Source.Location = new System.Drawing.Point(103, 113);
             this.lbl2Position2Source.Name = "lbl2Position2Source";
-            this.lbl2Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl2Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl2Position2Source.TabIndex = 404;
             this.lbl2Position2Source.Text = "Station";
             // 
@@ -1846,7 +1699,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position1.ForeColor = System.Drawing.Color.White;
             this.lbl2Position1.Location = new System.Drawing.Point(245, 57);
             this.lbl2Position1.Name = "lbl2Position1";
-            this.lbl2Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl2Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl2Position1.TabIndex = 388;
             this.lbl2Position1.Text = "Near Side";
             // 
@@ -1859,7 +1712,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl2Position3Value.Location = new System.Drawing.Point(72, 151);
             this.lbl2Position3Value.Name = "lbl2Position3Value";
-            this.lbl2Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl2Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl2Position3Value.TabIndex = 395;
             this.lbl2Position3Value.Text = ".";
             this.lbl2Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1871,7 +1724,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position3.ForeColor = System.Drawing.Color.White;
             this.lbl2Position3.Location = new System.Drawing.Point(2, 149);
             this.lbl2Position3.Name = "lbl2Position3";
-            this.lbl2Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl2Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl2Position3.TabIndex = 394;
             this.lbl2Position3.Text = "Algae:";
             // 
@@ -1884,7 +1737,7 @@ namespace ControllerScouting.Screens
             this.lbl2Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl2Position2Value.Location = new System.Drawing.Point(72, 110);
             this.lbl2Position2Value.Name = "lbl2Position2Value";
-            this.lbl2Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl2Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl2Position2Value.TabIndex = 392;
             this.lbl2Position2Value.Text = ".";
             this.lbl2Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1896,33 +1749,33 @@ namespace ControllerScouting.Screens
             this.lbl2Position2.ForeColor = System.Drawing.Color.White;
             this.lbl2Position2.Location = new System.Drawing.Point(2, 111);
             this.lbl2Position2.Name = "lbl2Position2";
-            this.lbl2Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl2Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl2Position2.TabIndex = 391;
             this.lbl2Position2.Text = "Coral:";
             // 
-            // panel5
+            // team2Divider
             // 
-            this.panel5.BackColor = System.Drawing.Color.Red;
-            this.panel5.Location = new System.Drawing.Point(-5, 89);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(494, 11);
-            this.panel5.TabIndex = 389;
+            this.team2Divider.BackColor = System.Drawing.Color.Red;
+            this.team2Divider.Location = new System.Drawing.Point(-5, 89);
+            this.team2Divider.Name = "team2Divider";
+            this.team2Divider.Size = new System.Drawing.Size(494, 11);
+            this.team2Divider.TabIndex = 389;
             // 
-            // panel7
+            // team2ModeDivider
             // 
-            this.panel7.BackColor = System.Drawing.Color.Red;
-            this.panel7.Location = new System.Drawing.Point(-5, 41);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(494, 11);
-            this.panel7.TabIndex = 390;
+            this.team2ModeDivider.BackColor = System.Drawing.Color.Red;
+            this.team2ModeDivider.Location = new System.Drawing.Point(-5, 41);
+            this.team2ModeDivider.Name = "team2ModeDivider";
+            this.team2ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team2ModeDivider.TabIndex = 390;
             // 
-            // panel35
+            // team2TeamDivider
             // 
-            this.panel35.BackColor = System.Drawing.Color.Red;
-            this.panel35.Location = new System.Drawing.Point(-15, 314);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(506, 11);
-            this.panel35.TabIndex = 279;
+            this.team2TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team2TeamDivider.Location = new System.Drawing.Point(0, 314);
+            this.team2TeamDivider.Name = "team2TeamDivider";
+            this.team2TeamDivider.Size = new System.Drawing.Size(491, 11);
+            this.team2TeamDivider.TabIndex = 279;
             // 
             // lbl2MatchEvent
             // 
@@ -1931,7 +1784,7 @@ namespace ControllerScouting.Screens
             this.lbl2MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl2MatchEvent.Location = new System.Drawing.Point(6, 328);
             this.lbl2MatchEvent.Name = "lbl2MatchEvent";
-            this.lbl2MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl2MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl2MatchEvent.TabIndex = 291;
             this.lbl2MatchEvent.Text = "Match Event";
             // 
@@ -1965,47 +1818,47 @@ namespace ControllerScouting.Screens
             this.lbl2ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl2ModeValue.Location = new System.Drawing.Point(1, 3);
             this.lbl2ModeValue.Name = "lbl2ModeValue";
-            this.lbl2ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl2ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl2ModeValue.TabIndex = 2;
             this.lbl2ModeValue.Text = "Auto:";
             // 
-            // team2
+            // team1
             // 
-            this.team2.BackColor = System.Drawing.Color.Black;
-            this.team2.Controls.Add(this.lbl1Position0Value);
-            this.team2.Controls.Add(this.lbl1Position0);
-            this.team2.Controls.Add(this.lbl1Position12Value);
-            this.team2.Controls.Add(this.lbl1Position12);
-            this.team2.Controls.Add(this.lbl1Position11Value);
-            this.team2.Controls.Add(this.lbl1Position11);
-            this.team2.Controls.Add(this.lbl1Position8Value);
-            this.team2.Controls.Add(this.lbl1Position8);
-            this.team2.Controls.Add(this.lbl1Position7Value);
-            this.team2.Controls.Add(this.lbl1Position7);
-            this.team2.Controls.Add(this.lbl1Position5Value);
-            this.team2.Controls.Add(this.lbl1Position5);
-            this.team2.Controls.Add(this.lbl1Position4Value);
-            this.team2.Controls.Add(this.lbl1Position4);
-            this.team2.Controls.Add(this.lbl1Position3Des);
-            this.team2.Controls.Add(this.lbl1Position3Source);
-            this.team2.Controls.Add(this.lbl1Position2Des);
-            this.team2.Controls.Add(this.lbl1Position2Source);
-            this.team2.Controls.Add(this.lbl1Position1);
-            this.team2.Controls.Add(this.lbl1Position3Value);
-            this.team2.Controls.Add(this.lbl1Position3);
-            this.team2.Controls.Add(this.lbl1Position2Value);
-            this.team2.Controls.Add(this.lbl1Position2);
-            this.team2.Controls.Add(this.panel3);
-            this.team2.Controls.Add(this.panel4);
-            this.team2.Controls.Add(this.panel39);
-            this.team2.Controls.Add(this.lbl1MatchEvent);
-            this.team2.Controls.Add(this.lbl1TeamName);
-            this.team2.Controls.Add(this.lbl1ScoutName);
-            this.team2.Controls.Add(this.lbl1ModeValue);
-            this.team2.Location = new System.Drawing.Point(499, 3);
-            this.team2.Name = "team2";
-            this.team2.Size = new System.Drawing.Size(484, 394);
-            this.team2.TabIndex = 280;
+            this.team1.BackColor = System.Drawing.Color.Black;
+            this.team1.Controls.Add(this.lbl1Position0Value);
+            this.team1.Controls.Add(this.lbl1Position0);
+            this.team1.Controls.Add(this.lbl1Position12Value);
+            this.team1.Controls.Add(this.lbl1Position12);
+            this.team1.Controls.Add(this.lbl1Position11Value);
+            this.team1.Controls.Add(this.lbl1Position11);
+            this.team1.Controls.Add(this.lbl1Position8Value);
+            this.team1.Controls.Add(this.lbl1Position8);
+            this.team1.Controls.Add(this.lbl1Position7Value);
+            this.team1.Controls.Add(this.lbl1Position7);
+            this.team1.Controls.Add(this.lbl1Position5Value);
+            this.team1.Controls.Add(this.lbl1Position5);
+            this.team1.Controls.Add(this.lbl1Position4Value);
+            this.team1.Controls.Add(this.lbl1Position4);
+            this.team1.Controls.Add(this.lbl1Position3Des);
+            this.team1.Controls.Add(this.lbl1Position3Source);
+            this.team1.Controls.Add(this.lbl1Position2Des);
+            this.team1.Controls.Add(this.lbl1Position2Source);
+            this.team1.Controls.Add(this.lbl1Position1);
+            this.team1.Controls.Add(this.lbl1Position3Value);
+            this.team1.Controls.Add(this.lbl1Position3);
+            this.team1.Controls.Add(this.lbl1Position2Value);
+            this.team1.Controls.Add(this.lbl1Position2);
+            this.team1.Controls.Add(this.team1Divider);
+            this.team1.Controls.Add(this.team1ModeDivider);
+            this.team1.Controls.Add(this.team1TeamDivider);
+            this.team1.Controls.Add(this.lbl1MatchEvent);
+            this.team1.Controls.Add(this.lbl1TeamName);
+            this.team1.Controls.Add(this.lbl1ScoutName);
+            this.team1.Controls.Add(this.lbl1ModeValue);
+            this.team1.Location = new System.Drawing.Point(499, 3);
+            this.team1.Name = "team1";
+            this.team1.Size = new System.Drawing.Size(484, 394);
+            this.team1.TabIndex = 280;
             // 
             // lbl1Position0Value
             // 
@@ -2016,7 +1869,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl1Position0Value.Location = new System.Drawing.Point(72, 55);
             this.lbl1Position0Value.Name = "lbl1Position0Value";
-            this.lbl1Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl1Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl1Position0Value.TabIndex = 393;
             this.lbl1Position0Value.Text = ".";
             this.lbl1Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2028,7 +1881,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position0.ForeColor = System.Drawing.Color.White;
             this.lbl1Position0.Location = new System.Drawing.Point(2, 55);
             this.lbl1Position0.Name = "lbl1Position0";
-            this.lbl1Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl1Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl1Position0.TabIndex = 387;
             this.lbl1Position0.Text = "Leave";
             // 
@@ -2039,7 +1892,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position12Value.Location = new System.Drawing.Point(52, 273);
             this.lbl1Position12Value.Name = "lbl1Position12Value";
-            this.lbl1Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position12Value.TabIndex = 411;
             this.lbl1Position12Value.Text = "9";
             // 
@@ -2050,7 +1903,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position12.ForeColor = System.Drawing.Color.White;
             this.lbl1Position12.Location = new System.Drawing.Point(2, 272);
             this.lbl1Position12.Name = "lbl1Position12";
-            this.lbl1Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl1Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl1Position12.TabIndex = 410;
             this.lbl1Position12.Text = "Strat:";
             // 
@@ -2061,7 +1914,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position11Value.Location = new System.Drawing.Point(90, 245);
             this.lbl1Position11Value.Name = "lbl1Position11Value";
-            this.lbl1Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position11Value.TabIndex = 409;
             this.lbl1Position11Value.Text = "9";
             // 
@@ -2072,7 +1925,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position11.ForeColor = System.Drawing.Color.White;
             this.lbl1Position11.Location = new System.Drawing.Point(2, 245);
             this.lbl1Position11.Name = "lbl1Position11";
-            this.lbl1Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl1Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl1Position11.TabIndex = 408;
             this.lbl1Position11.Text = "Attempt:";
             // 
@@ -2083,7 +1936,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position8Value.Location = new System.Drawing.Point(379, 228);
             this.lbl1Position8Value.Name = "lbl1Position8Value";
-            this.lbl1Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position8Value.TabIndex = 403;
             this.lbl1Position8Value.Text = "9";
             // 
@@ -2094,7 +1947,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position8.ForeColor = System.Drawing.Color.White;
             this.lbl1Position8.Location = new System.Drawing.Point(315, 227);
             this.lbl1Position8.Name = "lbl1Position8";
-            this.lbl1Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl1Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl1Position8.TabIndex = 402;
             this.lbl1Position8.Text = "Avoid:";
             // 
@@ -2105,7 +1958,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position7Value.Location = new System.Drawing.Point(316, 274);
             this.lbl1Position7Value.Name = "lbl1Position7Value";
-            this.lbl1Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position7Value.TabIndex = 407;
             this.lbl1Position7Value.Text = "9";
             // 
@@ -2116,7 +1969,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position7.ForeColor = System.Drawing.Color.White;
             this.lbl1Position7.Location = new System.Drawing.Point(281, 273);
             this.lbl1Position7.Name = "lbl1Position7";
-            this.lbl1Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl1Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl1Position7.TabIndex = 406;
             this.lbl1Position7.Text = "Eff:";
             // 
@@ -2127,7 +1980,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position5Value.Location = new System.Drawing.Point(215, 226);
             this.lbl1Position5Value.Name = "lbl1Position5Value";
-            this.lbl1Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position5Value.TabIndex = 401;
             this.lbl1Position5Value.Text = "9";
             this.lbl1Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2139,7 +1992,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position5.ForeColor = System.Drawing.Color.White;
             this.lbl1Position5.Location = new System.Drawing.Point(169, 226);
             this.lbl1Position5.Name = "lbl1Position5";
-            this.lbl1Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl1Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl1Position5.TabIndex = 400;
             this.lbl1Position5.Text = "Def:";
             this.lbl1Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2151,7 +2004,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl1Position4Value.Location = new System.Drawing.Point(345, 178);
             this.lbl1Position4Value.Name = "lbl1Position4Value";
-            this.lbl1Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl1Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl1Position4Value.TabIndex = 399;
             this.lbl1Position4Value.Text = "9";
             // 
@@ -2162,7 +2015,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position4.ForeColor = System.Drawing.Color.White;
             this.lbl1Position4.Location = new System.Drawing.Point(243, 177);
             this.lbl1Position4.Name = "lbl1Position4";
-            this.lbl1Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl1Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl1Position4.TabIndex = 398;
             this.lbl1Position4.Text = "End State:";
             // 
@@ -2173,7 +2026,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl1Position3Des.Location = new System.Drawing.Point(176, 150);
             this.lbl1Position3Des.Name = "lbl1Position3Des";
-            this.lbl1Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl1Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl1Position3Des.TabIndex = 397;
             this.lbl1Position3Des.Text = "Floor";
             // 
@@ -2184,7 +2037,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl1Position3Source.Location = new System.Drawing.Point(103, 150);
             this.lbl1Position3Source.Name = "lbl1Position3Source";
-            this.lbl1Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl1Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl1Position3Source.TabIndex = 405;
             this.lbl1Position3Source.Text = "Floor";
             // 
@@ -2195,7 +2048,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl1Position2Des.Location = new System.Drawing.Point(176, 112);
             this.lbl1Position2Des.Name = "lbl1Position2Des";
-            this.lbl1Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl1Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl1Position2Des.TabIndex = 396;
             this.lbl1Position2Des.Text = "Floor";
             // 
@@ -2206,7 +2059,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl1Position2Source.Location = new System.Drawing.Point(103, 112);
             this.lbl1Position2Source.Name = "lbl1Position2Source";
-            this.lbl1Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl1Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl1Position2Source.TabIndex = 404;
             this.lbl1Position2Source.Text = "Station";
             // 
@@ -2217,7 +2070,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position1.ForeColor = System.Drawing.Color.White;
             this.lbl1Position1.Location = new System.Drawing.Point(245, 56);
             this.lbl1Position1.Name = "lbl1Position1";
-            this.lbl1Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl1Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl1Position1.TabIndex = 388;
             this.lbl1Position1.Text = "Near Side";
             // 
@@ -2230,7 +2083,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl1Position3Value.Location = new System.Drawing.Point(72, 150);
             this.lbl1Position3Value.Name = "lbl1Position3Value";
-            this.lbl1Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl1Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl1Position3Value.TabIndex = 395;
             this.lbl1Position3Value.Text = ".";
             this.lbl1Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2242,7 +2095,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position3.ForeColor = System.Drawing.Color.White;
             this.lbl1Position3.Location = new System.Drawing.Point(2, 148);
             this.lbl1Position3.Name = "lbl1Position3";
-            this.lbl1Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl1Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl1Position3.TabIndex = 394;
             this.lbl1Position3.Text = "Algae:";
             // 
@@ -2255,7 +2108,7 @@ namespace ControllerScouting.Screens
             this.lbl1Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl1Position2Value.Location = new System.Drawing.Point(72, 109);
             this.lbl1Position2Value.Name = "lbl1Position2Value";
-            this.lbl1Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl1Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl1Position2Value.TabIndex = 392;
             this.lbl1Position2Value.Text = ".";
             this.lbl1Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2267,33 +2120,33 @@ namespace ControllerScouting.Screens
             this.lbl1Position2.ForeColor = System.Drawing.Color.White;
             this.lbl1Position2.Location = new System.Drawing.Point(2, 110);
             this.lbl1Position2.Name = "lbl1Position2";
-            this.lbl1Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl1Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl1Position2.TabIndex = 391;
             this.lbl1Position2.Text = "Coral:";
             // 
-            // panel3
+            // team1Divider
             // 
-            this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(-5, 88);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(494, 11);
-            this.panel3.TabIndex = 389;
+            this.team1Divider.BackColor = System.Drawing.Color.Red;
+            this.team1Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team1Divider.Name = "team1Divider";
+            this.team1Divider.Size = new System.Drawing.Size(494, 11);
+            this.team1Divider.TabIndex = 389;
             // 
-            // panel4
+            // team1ModeDivider
             // 
-            this.panel4.BackColor = System.Drawing.Color.Red;
-            this.panel4.Location = new System.Drawing.Point(-5, 40);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(494, 11);
-            this.panel4.TabIndex = 390;
+            this.team1ModeDivider.BackColor = System.Drawing.Color.Red;
+            this.team1ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team1ModeDivider.Name = "team1ModeDivider";
+            this.team1ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team1ModeDivider.TabIndex = 390;
             // 
-            // panel39
+            // team1TeamDivider
             // 
-            this.panel39.BackColor = System.Drawing.Color.Red;
-            this.panel39.Location = new System.Drawing.Point(-22, 314);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(508, 11);
-            this.panel39.TabIndex = 279;
+            this.team1TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team1TeamDivider.Location = new System.Drawing.Point(0, 314);
+            this.team1TeamDivider.Name = "team1TeamDivider";
+            this.team1TeamDivider.Size = new System.Drawing.Size(486, 11);
+            this.team1TeamDivider.TabIndex = 279;
             // 
             // lbl1MatchEvent
             // 
@@ -2302,7 +2155,7 @@ namespace ControllerScouting.Screens
             this.lbl1MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl1MatchEvent.Location = new System.Drawing.Point(2, 328);
             this.lbl1MatchEvent.Name = "lbl1MatchEvent";
-            this.lbl1MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl1MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl1MatchEvent.TabIndex = 291;
             this.lbl1MatchEvent.Text = "Match Event";
             // 
@@ -2336,54 +2189,54 @@ namespace ControllerScouting.Screens
             this.lbl1ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl1ModeValue.Location = new System.Drawing.Point(1, 3);
             this.lbl1ModeValue.Name = "lbl1ModeValue";
-            this.lbl1ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl1ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl1ModeValue.TabIndex = 2;
             this.lbl1ModeValue.Text = "Auto:";
             // 
-            // panel41
+            // team0TeamDivider
             // 
-            this.panel41.BackColor = System.Drawing.Color.Red;
-            this.panel41.Location = new System.Drawing.Point(0, 317);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(511, 11);
-            this.panel41.TabIndex = 279;
+            this.team0TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team0TeamDivider.Location = new System.Drawing.Point(0, 317);
+            this.team0TeamDivider.Name = "team0TeamDivider";
+            this.team0TeamDivider.Size = new System.Drawing.Size(490, 11);
+            this.team0TeamDivider.TabIndex = 279;
             // 
-            // team1
+            // team0
             // 
-            this.team1.BackColor = System.Drawing.Color.Black;
-            this.team1.Controls.Add(this.lbl0Position0Value);
-            this.team1.Controls.Add(this.lbl0Position0);
-            this.team1.Controls.Add(this.lbl0Position12Value);
-            this.team1.Controls.Add(this.lbl0Position12);
-            this.team1.Controls.Add(this.lbl0Position11Value);
-            this.team1.Controls.Add(this.lbl0Position11);
-            this.team1.Controls.Add(this.lbl0Position8Value);
-            this.team1.Controls.Add(this.lbl0Position8);
-            this.team1.Controls.Add(this.lbl0Position7Value);
-            this.team1.Controls.Add(this.lbl0Position7);
-            this.team1.Controls.Add(this.lbl0Position5Value);
-            this.team1.Controls.Add(this.lbl0Position5);
-            this.team1.Controls.Add(this.lbl0Position4Value);
-            this.team1.Controls.Add(this.lbl0Position4);
-            this.team1.Controls.Add(this.lbl0Position3Des);
-            this.team1.Controls.Add(this.lbl0Position3Source);
-            this.team1.Controls.Add(this.lbl0Position2Des);
-            this.team1.Controls.Add(this.lbl0Position2Source);
-            this.team1.Controls.Add(this.lbl0Position1);
-            this.team1.Controls.Add(this.lbl0Position3Value);
-            this.team1.Controls.Add(this.lbl0Position3);
-            this.team1.Controls.Add(this.lbl0Position2Value);
-            this.team1.Controls.Add(this.lbl0Position2);
-            this.team1.Controls.Add(this.panel8);
-            this.team1.Controls.Add(this.panel1);
-            this.team1.Controls.Add(this.lbl0MatchEvent);
-            this.team1.Controls.Add(this.lbl0TeamName);
-            this.team1.Controls.Add(this.lbl0ScoutName);
-            this.team1.Controls.Add(this.lbl0ModeValue);
-            this.team1.Location = new System.Drawing.Point(6, 3);
-            this.team1.Name = "team1";
-            this.team1.Size = new System.Drawing.Size(484, 394);
-            this.team1.TabIndex = 0;
+            this.team0.BackColor = System.Drawing.Color.Black;
+            this.team0.Controls.Add(this.lbl0Position0Value);
+            this.team0.Controls.Add(this.lbl0Position0);
+            this.team0.Controls.Add(this.lbl0Position12Value);
+            this.team0.Controls.Add(this.lbl0Position12);
+            this.team0.Controls.Add(this.lbl0Position11Value);
+            this.team0.Controls.Add(this.lbl0Position11);
+            this.team0.Controls.Add(this.lbl0Position8Value);
+            this.team0.Controls.Add(this.lbl0Position8);
+            this.team0.Controls.Add(this.lbl0Position7Value);
+            this.team0.Controls.Add(this.lbl0Position7);
+            this.team0.Controls.Add(this.lbl0Position5Value);
+            this.team0.Controls.Add(this.lbl0Position5);
+            this.team0.Controls.Add(this.lbl0Position4Value);
+            this.team0.Controls.Add(this.lbl0Position4);
+            this.team0.Controls.Add(this.lbl0Position3Des);
+            this.team0.Controls.Add(this.lbl0Position3Source);
+            this.team0.Controls.Add(this.lbl0Position2Des);
+            this.team0.Controls.Add(this.lbl0Position2Source);
+            this.team0.Controls.Add(this.lbl0Position1);
+            this.team0.Controls.Add(this.lbl0Position3Value);
+            this.team0.Controls.Add(this.lbl0Position3);
+            this.team0.Controls.Add(this.lbl0Position2Value);
+            this.team0.Controls.Add(this.lbl0Position2);
+            this.team0.Controls.Add(this.team0Divider);
+            this.team0.Controls.Add(this.team0ModeDivider);
+            this.team0.Controls.Add(this.lbl0MatchEvent);
+            this.team0.Controls.Add(this.lbl0TeamName);
+            this.team0.Controls.Add(this.lbl0ScoutName);
+            this.team0.Controls.Add(this.lbl0ModeValue);
+            this.team0.Location = new System.Drawing.Point(6, 3);
+            this.team0.Name = "team0";
+            this.team0.Size = new System.Drawing.Size(484, 394);
+            this.team0.TabIndex = 0;
             // 
             // lbl0Position0Value
             // 
@@ -2394,7 +2247,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl0Position0Value.Location = new System.Drawing.Point(72, 55);
             this.lbl0Position0Value.Name = "lbl0Position0Value";
-            this.lbl0Position0Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl0Position0Value.Size = new System.Drawing.Size(16, 24);
             this.lbl0Position0Value.TabIndex = 393;
             this.lbl0Position0Value.Text = ".";
             this.lbl0Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2406,7 +2259,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position0.ForeColor = System.Drawing.Color.White;
             this.lbl0Position0.Location = new System.Drawing.Point(2, 55);
             this.lbl0Position0.Name = "lbl0Position0";
-            this.lbl0Position0.Size = new System.Drawing.Size(99, 33);
+            this.lbl0Position0.Size = new System.Drawing.Size(66, 24);
             this.lbl0Position0.TabIndex = 387;
             this.lbl0Position0.Text = "Leave";
             // 
@@ -2417,7 +2270,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position12Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position12Value.Location = new System.Drawing.Point(52, 273);
             this.lbl0Position12Value.Name = "lbl0Position12Value";
-            this.lbl0Position12Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position12Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position12Value.TabIndex = 411;
             this.lbl0Position12Value.Text = "9";
             // 
@@ -2428,7 +2281,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position12.ForeColor = System.Drawing.Color.White;
             this.lbl0Position12.Location = new System.Drawing.Point(2, 272);
             this.lbl0Position12.Name = "lbl0Position12";
-            this.lbl0Position12.Size = new System.Drawing.Size(90, 33);
+            this.lbl0Position12.Size = new System.Drawing.Size(57, 24);
             this.lbl0Position12.TabIndex = 410;
             this.lbl0Position12.Text = "Strat:";
             // 
@@ -2439,7 +2292,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position11Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position11Value.Location = new System.Drawing.Point(90, 245);
             this.lbl0Position11Value.Name = "lbl0Position11Value";
-            this.lbl0Position11Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position11Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position11Value.TabIndex = 409;
             this.lbl0Position11Value.Text = "9";
             // 
@@ -2450,7 +2303,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position11.ForeColor = System.Drawing.Color.White;
             this.lbl0Position11.Location = new System.Drawing.Point(2, 245);
             this.lbl0Position11.Name = "lbl0Position11";
-            this.lbl0Position11.Size = new System.Drawing.Size(131, 33);
+            this.lbl0Position11.Size = new System.Drawing.Size(86, 24);
             this.lbl0Position11.TabIndex = 408;
             this.lbl0Position11.Text = "Attempt:";
             // 
@@ -2461,7 +2314,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position8Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position8Value.Location = new System.Drawing.Point(379, 228);
             this.lbl0Position8Value.Name = "lbl0Position8Value";
-            this.lbl0Position8Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position8Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position8Value.TabIndex = 403;
             this.lbl0Position8Value.Text = "9";
             // 
@@ -2472,7 +2325,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position8.ForeColor = System.Drawing.Color.White;
             this.lbl0Position8.Location = new System.Drawing.Point(315, 227);
             this.lbl0Position8.Name = "lbl0Position8";
-            this.lbl0Position8.Size = new System.Drawing.Size(102, 33);
+            this.lbl0Position8.Size = new System.Drawing.Size(69, 24);
             this.lbl0Position8.TabIndex = 402;
             this.lbl0Position8.Text = "Avoid:";
             // 
@@ -2483,7 +2336,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position7Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position7Value.Location = new System.Drawing.Point(316, 274);
             this.lbl0Position7Value.Name = "lbl0Position7Value";
-            this.lbl0Position7Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position7Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position7Value.TabIndex = 407;
             this.lbl0Position7Value.Text = "9";
             // 
@@ -2494,7 +2347,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position7.ForeColor = System.Drawing.Color.White;
             this.lbl0Position7.Location = new System.Drawing.Point(281, 273);
             this.lbl0Position7.Name = "lbl0Position7";
-            this.lbl0Position7.Size = new System.Drawing.Size(62, 33);
+            this.lbl0Position7.Size = new System.Drawing.Size(40, 24);
             this.lbl0Position7.TabIndex = 406;
             this.lbl0Position7.Text = "Eff:";
             // 
@@ -2505,7 +2358,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position5Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position5Value.Location = new System.Drawing.Point(215, 226);
             this.lbl0Position5Value.Name = "lbl0Position5Value";
-            this.lbl0Position5Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position5Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position5Value.TabIndex = 401;
             this.lbl0Position5Value.Text = "9";
             this.lbl0Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2517,7 +2370,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position5.ForeColor = System.Drawing.Color.White;
             this.lbl0Position5.Location = new System.Drawing.Point(169, 226);
             this.lbl0Position5.Name = "lbl0Position5";
-            this.lbl0Position5.Size = new System.Drawing.Size(72, 33);
+            this.lbl0Position5.Size = new System.Drawing.Size(47, 24);
             this.lbl0Position5.TabIndex = 400;
             this.lbl0Position5.Text = "Def:";
             this.lbl0Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2529,7 +2382,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position4Value.ForeColor = System.Drawing.Color.White;
             this.lbl0Position4Value.Location = new System.Drawing.Point(345, 178);
             this.lbl0Position4Value.Name = "lbl0Position4Value";
-            this.lbl0Position4Value.Size = new System.Drawing.Size(32, 33);
+            this.lbl0Position4Value.Size = new System.Drawing.Size(21, 24);
             this.lbl0Position4Value.TabIndex = 399;
             this.lbl0Position4Value.Text = "9";
             // 
@@ -2540,7 +2393,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position4.ForeColor = System.Drawing.Color.White;
             this.lbl0Position4.Location = new System.Drawing.Point(243, 177);
             this.lbl0Position4.Name = "lbl0Position4";
-            this.lbl0Position4.Size = new System.Drawing.Size(159, 33);
+            this.lbl0Position4.Size = new System.Drawing.Size(106, 24);
             this.lbl0Position4.TabIndex = 398;
             this.lbl0Position4.Text = "End State:";
             // 
@@ -2551,7 +2404,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position3Des.ForeColor = System.Drawing.Color.White;
             this.lbl0Position3Des.Location = new System.Drawing.Point(176, 150);
             this.lbl0Position3Des.Name = "lbl0Position3Des";
-            this.lbl0Position3Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl0Position3Des.Size = new System.Drawing.Size(59, 24);
             this.lbl0Position3Des.TabIndex = 397;
             this.lbl0Position3Des.Text = "Floor";
             // 
@@ -2562,7 +2415,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position3Source.ForeColor = System.Drawing.Color.White;
             this.lbl0Position3Source.Location = new System.Drawing.Point(103, 150);
             this.lbl0Position3Source.Name = "lbl0Position3Source";
-            this.lbl0Position3Source.Size = new System.Drawing.Size(87, 33);
+            this.lbl0Position3Source.Size = new System.Drawing.Size(59, 24);
             this.lbl0Position3Source.TabIndex = 405;
             this.lbl0Position3Source.Text = "Floor";
             // 
@@ -2573,7 +2426,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position2Des.ForeColor = System.Drawing.Color.White;
             this.lbl0Position2Des.Location = new System.Drawing.Point(176, 112);
             this.lbl0Position2Des.Name = "lbl0Position2Des";
-            this.lbl0Position2Des.Size = new System.Drawing.Size(87, 33);
+            this.lbl0Position2Des.Size = new System.Drawing.Size(59, 24);
             this.lbl0Position2Des.TabIndex = 396;
             this.lbl0Position2Des.Text = "Floor";
             // 
@@ -2584,7 +2437,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position2Source.ForeColor = System.Drawing.Color.White;
             this.lbl0Position2Source.Location = new System.Drawing.Point(103, 112);
             this.lbl0Position2Source.Name = "lbl0Position2Source";
-            this.lbl0Position2Source.Size = new System.Drawing.Size(112, 33);
+            this.lbl0Position2Source.Size = new System.Drawing.Size(73, 24);
             this.lbl0Position2Source.TabIndex = 404;
             this.lbl0Position2Source.Text = "Station";
             // 
@@ -2595,7 +2448,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position1.ForeColor = System.Drawing.Color.White;
             this.lbl0Position1.Location = new System.Drawing.Point(245, 56);
             this.lbl0Position1.Name = "lbl0Position1";
-            this.lbl0Position1.Size = new System.Drawing.Size(153, 33);
+            this.lbl0Position1.Size = new System.Drawing.Size(103, 24);
             this.lbl0Position1.TabIndex = 388;
             this.lbl0Position1.Text = "Near Side";
             // 
@@ -2608,7 +2461,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl0Position3Value.Location = new System.Drawing.Point(72, 150);
             this.lbl0Position3Value.Name = "lbl0Position3Value";
-            this.lbl0Position3Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl0Position3Value.Size = new System.Drawing.Size(16, 24);
             this.lbl0Position3Value.TabIndex = 395;
             this.lbl0Position3Value.Text = ".";
             this.lbl0Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2620,7 +2473,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position3.ForeColor = System.Drawing.Color.White;
             this.lbl0Position3.Location = new System.Drawing.Point(2, 148);
             this.lbl0Position3.Name = "lbl0Position3";
-            this.lbl0Position3.Size = new System.Drawing.Size(103, 33);
+            this.lbl0Position3.Size = new System.Drawing.Size(70, 24);
             this.lbl0Position3.TabIndex = 394;
             this.lbl0Position3.Text = "Algae:";
             // 
@@ -2633,7 +2486,7 @@ namespace ControllerScouting.Screens
             this.lbl0Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbl0Position2Value.Location = new System.Drawing.Point(72, 109);
             this.lbl0Position2Value.Name = "lbl0Position2Value";
-            this.lbl0Position2Value.Size = new System.Drawing.Size(24, 33);
+            this.lbl0Position2Value.Size = new System.Drawing.Size(16, 24);
             this.lbl0Position2Value.TabIndex = 392;
             this.lbl0Position2Value.Text = ".";
             this.lbl0Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2645,25 +2498,25 @@ namespace ControllerScouting.Screens
             this.lbl0Position2.ForeColor = System.Drawing.Color.White;
             this.lbl0Position2.Location = new System.Drawing.Point(2, 110);
             this.lbl0Position2.Name = "lbl0Position2";
-            this.lbl0Position2.Size = new System.Drawing.Size(99, 33);
+            this.lbl0Position2.Size = new System.Drawing.Size(65, 24);
             this.lbl0Position2.TabIndex = 391;
             this.lbl0Position2.Text = "Coral:";
             // 
-            // panel8
+            // team0Divider
             // 
-            this.panel8.BackColor = System.Drawing.Color.Red;
-            this.panel8.Location = new System.Drawing.Point(-5, 88);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(494, 11);
-            this.panel8.TabIndex = 389;
+            this.team0Divider.BackColor = System.Drawing.Color.Red;
+            this.team0Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team0Divider.Name = "team0Divider";
+            this.team0Divider.Size = new System.Drawing.Size(494, 11);
+            this.team0Divider.TabIndex = 389;
             // 
-            // panel1
+            // team0ModeDivider
             // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Location = new System.Drawing.Point(-5, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 11);
-            this.panel1.TabIndex = 390;
+            this.team0ModeDivider.BackColor = System.Drawing.Color.Red;
+            this.team0ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team0ModeDivider.Name = "team0ModeDivider";
+            this.team0ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team0ModeDivider.TabIndex = 390;
             // 
             // lbl0MatchEvent
             // 
@@ -2672,7 +2525,7 @@ namespace ControllerScouting.Screens
             this.lbl0MatchEvent.ForeColor = System.Drawing.Color.White;
             this.lbl0MatchEvent.Location = new System.Drawing.Point(2, 328);
             this.lbl0MatchEvent.Name = "lbl0MatchEvent";
-            this.lbl0MatchEvent.Size = new System.Drawing.Size(187, 33);
+            this.lbl0MatchEvent.Size = new System.Drawing.Size(125, 24);
             this.lbl0MatchEvent.TabIndex = 291;
             this.lbl0MatchEvent.Text = "Match Event";
             // 
@@ -2706,7 +2559,7 @@ namespace ControllerScouting.Screens
             this.lbl0ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbl0ModeValue.Location = new System.Drawing.Point(1, 3);
             this.lbl0ModeValue.Name = "lbl0ModeValue";
-            this.lbl0ModeValue.Size = new System.Drawing.Size(101, 40);
+            this.lbl0ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl0ModeValue.TabIndex = 2;
             this.lbl0ModeValue.Text = "Auto:";
             // 
@@ -2716,9 +2569,9 @@ namespace ControllerScouting.Screens
             this.labelMatch.BackColor = System.Drawing.Color.Black;
             this.labelMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatch.ForeColor = System.Drawing.Color.LimeGreen;
-            this.labelMatch.Location = new System.Drawing.Point(584, 1);
+            this.labelMatch.Location = new System.Drawing.Point(584, 3);
             this.labelMatch.Name = "labelMatch";
-            this.labelMatch.Size = new System.Drawing.Size(99, 32);
+            this.labelMatch.Size = new System.Drawing.Size(66, 24);
             this.labelMatch.TabIndex = 291;
             this.labelMatch.Text = "Match:";
             // 
@@ -2727,9 +2580,9 @@ namespace ControllerScouting.Screens
             this.lblMatch.AutoSize = true;
             this.lblMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMatch.ForeColor = System.Drawing.Color.White;
-            this.lblMatch.Location = new System.Drawing.Point(648, 3);
+            this.lblMatch.Location = new System.Drawing.Point(648, 5);
             this.lblMatch.Name = "lblMatch";
-            this.lblMatch.Size = new System.Drawing.Size(32, 33);
+            this.lblMatch.Size = new System.Drawing.Size(21, 24);
             this.lblMatch.TabIndex = 292;
             this.lblMatch.Text = "0";
             // 
@@ -2742,7 +2595,7 @@ namespace ControllerScouting.Screens
             this.btnFunctions.BackColor = System.Drawing.Color.Transparent;
             this.btnFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnFunctions.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFunctions.Location = new System.Drawing.Point(1158, 3);
+            this.btnFunctions.Location = new System.Drawing.Point(1158, 5);
             this.btnFunctions.Name = "btnFunctions";
             this.btnFunctions.Size = new System.Drawing.Size(88, 23);
             this.btnFunctions.TabIndex = 304;
@@ -2755,9 +2608,9 @@ namespace ControllerScouting.Screens
             this.lblBlueScore.AutoSize = true;
             this.lblBlueScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBlueScore.ForeColor = System.Drawing.Color.Blue;
-            this.lblBlueScore.Location = new System.Drawing.Point(1016, -2);
+            this.lblBlueScore.Location = new System.Drawing.Point(1016, 5);
             this.lblBlueScore.Name = "lblBlueScore";
-            this.lblBlueScore.Size = new System.Drawing.Size(32, 33);
+            this.lblBlueScore.Size = new System.Drawing.Size(21, 24);
             this.lblBlueScore.TabIndex = 390;
             this.lblBlueScore.Text = "0";
             // 
@@ -2766,9 +2619,9 @@ namespace ControllerScouting.Screens
             this.lblRedScore.AutoSize = true;
             this.lblRedScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRedScore.ForeColor = System.Drawing.Color.Red;
-            this.lblRedScore.Location = new System.Drawing.Point(972, -2);
+            this.lblRedScore.Location = new System.Drawing.Point(972, 5);
             this.lblRedScore.Name = "lblRedScore";
-            this.lblRedScore.Size = new System.Drawing.Size(32, 33);
+            this.lblRedScore.Size = new System.Drawing.Size(21, 24);
             this.lblRedScore.TabIndex = 389;
             this.lblRedScore.Text = "0";
             // 
@@ -2811,23 +2664,20 @@ namespace ControllerScouting.Screens
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel2.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
             this.blueTeams.ResumeLayout(false);
-            this.team6.ResumeLayout(false);
-            this.team6.PerformLayout();
             this.team5.ResumeLayout(false);
             this.team5.PerformLayout();
             this.team4.ResumeLayout(false);
             this.team4.PerformLayout();
-            this.redTeams.ResumeLayout(false);
             this.team3.ResumeLayout(false);
             this.team3.PerformLayout();
+            this.redTeams.ResumeLayout(false);
             this.team2.ResumeLayout(false);
             this.team2.PerformLayout();
             this.team1.ResumeLayout(false);
             this.team1.PerformLayout();
+            this.team0.ResumeLayout(false);
+            this.team0.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -2835,21 +2685,6 @@ namespace ControllerScouting.Screens
         }
         #endregion
 
-        private Panel panel2;
-        private Panel panel18;
-        private Panel panel27;
-        private Panel panel19;
-        private Panel panel20;
-        private Panel panel15;
-        private Panel panel26;
-        private Panel panel16;
-        private Panel panel17;
-        private Panel panel12;
-        private Panel panel23;
-        private Panel panel24;
-        private Panel panel25;
-        private Panel panel13;
-        private Panel panel14;
         private CheckBox cbxEndMatch;
         private Button btnInitialDBLoad;
         private ComboBox comboBoxSelectRegional;
@@ -2858,25 +2693,25 @@ namespace ControllerScouting.Screens
         private Button btnpopulateForEvent;
         private Button btnExit;
         private Panel blueTeams;
-        private Panel team6;
-        private Panel panel6;
         private Panel team5;
+        private Panel team5TeamDivider;
         private Panel team4;
-        private Panel redTeams;
         private Panel team3;
+        private Panel redTeams;
+        private Panel team2;
         private Label lbl2MatchEvent;
         private Label lbl2TeamName;
         private Label lbl2ScoutName;
         private Label lbl2ModeValue;
-        private Panel team2;
+        private Panel team1;
         private Label lbl1MatchEvent;
         private Label lbl1TeamName;
         private Label lbl1ScoutName;
-        private Panel team1;
-        private Panel panel10;
-        private Panel panel30;
+        private Panel team0;
+        private Panel team4TeamDivider;
+        private Panel team3TeamDivider;
         private Label lbl1ModeValue;
-        private Panel panel41;
+        private Panel team0TeamDivider;
         private Label lbl0MatchEvent;
         private Label lbl0TeamName;
         private Label lbl0ScoutName;
@@ -2884,7 +2719,6 @@ namespace ControllerScouting.Screens
         private System.ComponentModel.IContainer components = null;
         private Label labelMatch;
         private Label lblMatch;
-        public string regional;
         private Timer timerJoysticks;
         private Label lbl5MatchEvent;
         private Label lbl5TeamName;
@@ -2899,8 +2733,8 @@ namespace ControllerScouting.Screens
         private Label lbl3ScoutName;
         private Label lbl3ModeValue;
         private Button btnFunctions;
-        private Panel panel35;
-        private Panel panel39;
+        private Panel team2TeamDivider;
+        private Panel team1TeamDivider;
         private Label lbl0Position0Value;
         private Label lbl0Position0;
         private Label lbl0Position12Value;
@@ -2924,8 +2758,8 @@ namespace ControllerScouting.Screens
         private Label lbl0Position3;
         private Label lbl0Position2Value;
         private Label lbl0Position2;
-        private Panel panel8;
-        private Panel panel1;
+        private Panel team0Divider;
+        private Panel team0ModeDivider;
         private Label lbl1Position0Value;
         private Label lbl1Position0;
         private Label lbl1Position12Value;
@@ -2949,8 +2783,8 @@ namespace ControllerScouting.Screens
         private Label lbl1Position3;
         private Label lbl1Position2Value;
         private Label lbl1Position2;
-        private Panel panel3;
-        private Panel panel4;
+        private Panel team1Divider;
+        private Panel team1ModeDivider;
         private Label lbl2Position0Value;
         private Label lbl2Position0;
         private Label lbl2Position12Value;
@@ -2974,8 +2808,8 @@ namespace ControllerScouting.Screens
         private Label lbl2Position3;
         private Label lbl2Position2Value;
         private Label lbl2Position2;
-        private Panel panel5;
-        private Panel panel7;
+        private Panel team2Divider;
+        private Panel team2ModeDivider;
         private Label lbl3Position0Value;
         private Label lbl3Position0;
         private Label lbl3Position12Value;
@@ -2999,8 +2833,8 @@ namespace ControllerScouting.Screens
         private Label lbl3Position3;
         private Label lbl3Position2Value;
         private Label lbl3Position2;
-        private Panel panel9;
-        private Panel panel11;
+        private Panel team3Divider;
+        private Panel team3ModeDivider;
         private Label lbl4Position0Value;
         private Label lbl4Position0;
         private Label lbl4Position12Value;
@@ -3024,8 +2858,8 @@ namespace ControllerScouting.Screens
         private Label lbl4Position3;
         private Label lbl4Position2Value;
         private Label lbl4Position2;
-        private Panel panel21;
-        private Panel panel22;
+        private Panel team4Divider;
+        private Panel team4ModeDivider;
         private Label lbl5Position0Value;
         private Label lbl5Position0;
         private Label lbl5Position12Value;
@@ -3049,8 +2883,8 @@ namespace ControllerScouting.Screens
         private Label lbl5Position3;
         private Label lbl5Position2Value;
         private Label lbl5Position2;
-        private Panel panel28;
-        private Panel panel29;
+        private Panel team5Divider;
+        private Panel team5ModeDivider;
         private Label lblBlueScore;
         private Label lblRedScore;
         private Panel statusLight;

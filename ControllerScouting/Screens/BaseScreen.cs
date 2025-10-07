@@ -16,6 +16,7 @@ namespace ControllerScouting.Screens
     {
         private static bool loading = false;
         private static readonly List<Thread> controllerThreads = [];
+        public string regional;
         public BaseScreen()
         {
             if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
