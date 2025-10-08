@@ -215,6 +215,8 @@ namespace ControllerScouting.Screens
             this.lblRedScore = new System.Windows.Forms.Label();
             this.statusLight = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.___MigrationHistoryTableAdapter1 = new ControllerScouting.scoutingdbDataSetTableAdapters.@__MigrationHistoryTableAdapter();
             this.blueTeams.SuspendLayout();
             this.team5.SuspendLayout();
             this.team4.SuspendLayout();
@@ -224,28 +226,34 @@ namespace ControllerScouting.Screens
             this.team1.SuspendLayout();
             this.team0.SuspendLayout();
             this.topPanel.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxSelectRegional
             // 
+            this.comboBoxSelectRegional.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBoxSelectRegional.DisplayMember = "event_code";
+            this.comboBoxSelectRegional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSelectRegional.FormattingEnabled = true;
             this.comboBoxSelectRegional.Location = new System.Drawing.Point(146, 4);
+            this.comboBoxSelectRegional.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxSelectRegional.Name = "comboBoxSelectRegional";
-            this.comboBoxSelectRegional.Size = new System.Drawing.Size(290, 21);
+            this.comboBoxSelectRegional.Size = new System.Drawing.Size(290, 23);
             this.comboBoxSelectRegional.TabIndex = 290;
             this.comboBoxSelectRegional.Text = "Please press the Load Events Button...";
             this.comboBoxSelectRegional.ValueMember = "event_code";
             // 
             // cbxEndMatch
             // 
+            this.cbxEndMatch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbxEndMatch.AutoSize = true;
             this.cbxEndMatch.BackColor = System.Drawing.Color.Black;
+            this.cbxEndMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEndMatch.ForeColor = System.Drawing.Color.Yellow;
             this.cbxEndMatch.Location = new System.Drawing.Point(779, 10);
-            this.cbxEndMatch.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxEndMatch.Margin = new System.Windows.Forms.Padding(5);
             this.cbxEndMatch.Name = "cbxEndMatch";
-            this.cbxEndMatch.Size = new System.Drawing.Size(78, 17);
+            this.cbxEndMatch.Size = new System.Drawing.Size(85, 19);
             this.cbxEndMatch.TabIndex = 296;
             this.cbxEndMatch.Text = "End Match";
             this.cbxEndMatch.UseVisualStyleBackColor = false;
@@ -321,9 +329,10 @@ namespace ControllerScouting.Screens
             this.blueTeams.Controls.Add(this.team5);
             this.blueTeams.Controls.Add(this.team4);
             this.blueTeams.Controls.Add(this.team3);
-            this.blueTeams.Location = new System.Drawing.Point(19, 462);
+            this.blueTeams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.blueTeams.Location = new System.Drawing.Point(3, 464);
             this.blueTeams.Name = "blueTeams";
-            this.blueTeams.Size = new System.Drawing.Size(1486, 399);
+            this.blueTeams.Size = new System.Drawing.Size(1506, 405);
             this.blueTeams.TabIndex = 300;
             // 
             // team5
@@ -1446,9 +1455,10 @@ namespace ControllerScouting.Screens
             this.redTeams.Controls.Add(this.team1);
             this.redTeams.Controls.Add(this.team0TeamDivider);
             this.redTeams.Controls.Add(this.team0);
-            this.redTeams.Location = new System.Drawing.Point(20, 56);
+            this.redTeams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.redTeams.Location = new System.Drawing.Point(3, 53);
             this.redTeams.Name = "redTeams";
-            this.redTeams.Size = new System.Drawing.Size(1485, 400);
+            this.redTeams.Size = new System.Drawing.Size(1506, 405);
             this.redTeams.TabIndex = 299;
             // 
             // team2
@@ -2648,19 +2658,39 @@ namespace ControllerScouting.Screens
             this.topPanel.Controls.Add(this.cbxEndMatch);
             this.topPanel.Controls.Add(this.statusLight);
             this.topPanel.Controls.Add(this.labelMatch);
-            this.topPanel.Location = new System.Drawing.Point(21, 18);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.topPanel.Location = new System.Drawing.Point(3, 3);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1484, 32);
+            this.topPanel.Size = new System.Drawing.Size(1506, 44);
             this.topPanel.TabIndex = 391;
+            // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.topPanel, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.redTeams, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.blueTeams, 0, 2);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 3;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1512, 872);
+            this.tableLayoutPanel.TabIndex = 0;
+            // 
+            // ___MigrationHistoryTableAdapter1
+            // 
+            this.___MigrationHistoryTableAdapter1.ClearBeforeFill = true;
             // 
             // BaseScreen
             // 
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1512, 872);
-            this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.blueTeams);
-            this.Controls.Add(this.redTeams);
+            this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -2680,11 +2710,13 @@ namespace ControllerScouting.Screens
             this.team0.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
         #endregion
 
+        private TableLayoutPanel tableLayoutPanel;
         private CheckBox cbxEndMatch;
         private Button btnInitialDBLoad;
         private ComboBox comboBoxSelectRegional;
@@ -2889,5 +2921,6 @@ namespace ControllerScouting.Screens
         private Label lblRedScore;
         private Panel statusLight;
         private Panel topPanel;
+        private scoutingdbDataSetTableAdapters.__MigrationHistoryTableAdapter ___MigrationHistoryTableAdapter1;
     }
 }
