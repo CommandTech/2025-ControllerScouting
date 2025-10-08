@@ -19,69 +19,7 @@ namespace ControllerScouting.Screens
             this.btnPreviousMatch = new System.Windows.Forms.Button();
             this.btnpopulateForEvent = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.blueTeams = new System.Windows.Forms.Panel();
-            this.team5 = new System.Windows.Forms.Panel();
-            this.lbl5Position0Value = new System.Windows.Forms.Label();
-            this.lbl5Position0 = new System.Windows.Forms.Label();
-            this.lbl5Position12Value = new System.Windows.Forms.Label();
-            this.lbl5Position12 = new System.Windows.Forms.Label();
-            this.lbl5Position11Value = new System.Windows.Forms.Label();
-            this.lbl5Position11 = new System.Windows.Forms.Label();
-            this.lbl5Position8Value = new System.Windows.Forms.Label();
-            this.lbl5Position8 = new System.Windows.Forms.Label();
-            this.lbl5Position7Value = new System.Windows.Forms.Label();
-            this.lbl5Position7 = new System.Windows.Forms.Label();
-            this.lbl5Position5Value = new System.Windows.Forms.Label();
-            this.lbl5Position5 = new System.Windows.Forms.Label();
-            this.lbl5Position4Value = new System.Windows.Forms.Label();
-            this.lbl5Position4 = new System.Windows.Forms.Label();
-            this.lbl5Position3Des = new System.Windows.Forms.Label();
-            this.lbl5Position3Source = new System.Windows.Forms.Label();
-            this.lbl5Position2Des = new System.Windows.Forms.Label();
-            this.lbl5Position2Source = new System.Windows.Forms.Label();
-            this.lbl5Position1 = new System.Windows.Forms.Label();
-            this.lbl5Position3Value = new System.Windows.Forms.Label();
-            this.lbl5Position3 = new System.Windows.Forms.Label();
-            this.lbl5Position2Value = new System.Windows.Forms.Label();
-            this.lbl5Position2 = new System.Windows.Forms.Label();
-            this.team5Divider = new System.Windows.Forms.Panel();
-            this.team5ModeDivider = new System.Windows.Forms.Panel();
-            this.lbl5MatchEvent = new System.Windows.Forms.Label();
-            this.lbl5TeamName = new System.Windows.Forms.Label();
-            this.lbl5ScoutName = new System.Windows.Forms.Label();
-            this.lbl5ModeValue = new System.Windows.Forms.Label();
-            this.team5TeamDivider = new System.Windows.Forms.Panel();
-            this.team4 = new System.Windows.Forms.Panel();
-            this.lbl4Position0Value = new System.Windows.Forms.Label();
-            this.lbl4Position0 = new System.Windows.Forms.Label();
-            this.lbl4Position12Value = new System.Windows.Forms.Label();
-            this.lbl4Position12 = new System.Windows.Forms.Label();
-            this.lbl4Position11Value = new System.Windows.Forms.Label();
-            this.lbl4Position11 = new System.Windows.Forms.Label();
-            this.lbl4Position8Value = new System.Windows.Forms.Label();
-            this.lbl4Position8 = new System.Windows.Forms.Label();
-            this.lbl4Position7Value = new System.Windows.Forms.Label();
-            this.lbl4Position7 = new System.Windows.Forms.Label();
-            this.lbl4Position5Value = new System.Windows.Forms.Label();
-            this.lbl4Position5 = new System.Windows.Forms.Label();
-            this.lbl4Position4Value = new System.Windows.Forms.Label();
-            this.lbl4Position4 = new System.Windows.Forms.Label();
-            this.lbl4Position3Des = new System.Windows.Forms.Label();
-            this.lbl4Position3Source = new System.Windows.Forms.Label();
-            this.lbl4Position2Des = new System.Windows.Forms.Label();
-            this.lbl4Position2Source = new System.Windows.Forms.Label();
-            this.lbl4Position1 = new System.Windows.Forms.Label();
-            this.lbl4Position3Value = new System.Windows.Forms.Label();
-            this.lbl4Position3 = new System.Windows.Forms.Label();
-            this.lbl4Position2Value = new System.Windows.Forms.Label();
-            this.lbl4Position2 = new System.Windows.Forms.Label();
-            this.team4Divider = new System.Windows.Forms.Panel();
-            this.team4ModeDivider = new System.Windows.Forms.Panel();
-            this.lbl4MatchEvent = new System.Windows.Forms.Label();
-            this.lbl4TeamName = new System.Windows.Forms.Label();
-            this.lbl4ScoutName = new System.Windows.Forms.Label();
-            this.lbl4ModeValue = new System.Windows.Forms.Label();
-            this.team4TeamDivider = new System.Windows.Forms.Panel();
+            this.blueTeams = new System.Windows.Forms.TableLayoutPanel();
             this.team3 = new System.Windows.Forms.Panel();
             this.lbl3Position0Value = new System.Windows.Forms.Label();
             this.lbl3Position0 = new System.Windows.Forms.Label();
@@ -113,38 +51,100 @@ namespace ControllerScouting.Screens
             this.lbl3ScoutName = new System.Windows.Forms.Label();
             this.lbl3ModeValue = new System.Windows.Forms.Label();
             this.team3TeamDivider = new System.Windows.Forms.Panel();
-            this.redTeams = new System.Windows.Forms.Panel();
-            this.team2 = new System.Windows.Forms.Panel();
-            this.lbl2Position0Value = new System.Windows.Forms.Label();
-            this.lbl2Position0 = new System.Windows.Forms.Label();
-            this.lbl2Position12Value = new System.Windows.Forms.Label();
-            this.lbl2Position12 = new System.Windows.Forms.Label();
-            this.lbl2Position11Value = new System.Windows.Forms.Label();
-            this.lbl2Position11 = new System.Windows.Forms.Label();
-            this.lbl2Position8Value = new System.Windows.Forms.Label();
-            this.lbl2Position8 = new System.Windows.Forms.Label();
-            this.lbl2Position7Value = new System.Windows.Forms.Label();
-            this.lbl2Position7 = new System.Windows.Forms.Label();
-            this.lbl2Position5Value = new System.Windows.Forms.Label();
-            this.lbl2Position5 = new System.Windows.Forms.Label();
-            this.lbl2Position4Value = new System.Windows.Forms.Label();
-            this.lbl2Position4 = new System.Windows.Forms.Label();
-            this.lbl2Position3Des = new System.Windows.Forms.Label();
-            this.lbl2Position3Source = new System.Windows.Forms.Label();
-            this.lbl2Position2Des = new System.Windows.Forms.Label();
-            this.lbl2Position2Source = new System.Windows.Forms.Label();
-            this.lbl2Position1 = new System.Windows.Forms.Label();
-            this.lbl2Position3Value = new System.Windows.Forms.Label();
-            this.lbl2Position3 = new System.Windows.Forms.Label();
-            this.lbl2Position2Value = new System.Windows.Forms.Label();
-            this.lbl2Position2 = new System.Windows.Forms.Label();
-            this.team2Divider = new System.Windows.Forms.Panel();
-            this.team2ModeDivider = new System.Windows.Forms.Panel();
-            this.team2TeamDivider = new System.Windows.Forms.Panel();
-            this.lbl2MatchEvent = new System.Windows.Forms.Label();
-            this.lbl2TeamName = new System.Windows.Forms.Label();
-            this.lbl2ScoutName = new System.Windows.Forms.Label();
-            this.lbl2ModeValue = new System.Windows.Forms.Label();
+            this.team4 = new System.Windows.Forms.Panel();
+            this.lbl4Position0Value = new System.Windows.Forms.Label();
+            this.lbl4Position0 = new System.Windows.Forms.Label();
+            this.lbl4Position12Value = new System.Windows.Forms.Label();
+            this.lbl4Position12 = new System.Windows.Forms.Label();
+            this.lbl4Position11Value = new System.Windows.Forms.Label();
+            this.lbl4Position11 = new System.Windows.Forms.Label();
+            this.lbl4Position8Value = new System.Windows.Forms.Label();
+            this.lbl4Position8 = new System.Windows.Forms.Label();
+            this.lbl4Position7Value = new System.Windows.Forms.Label();
+            this.lbl4Position7 = new System.Windows.Forms.Label();
+            this.lbl4Position5Value = new System.Windows.Forms.Label();
+            this.lbl4Position5 = new System.Windows.Forms.Label();
+            this.lbl4Position4Value = new System.Windows.Forms.Label();
+            this.lbl4Position4 = new System.Windows.Forms.Label();
+            this.lbl4Position3Des = new System.Windows.Forms.Label();
+            this.lbl4Position3Source = new System.Windows.Forms.Label();
+            this.lbl4Position2Des = new System.Windows.Forms.Label();
+            this.lbl4Position2Source = new System.Windows.Forms.Label();
+            this.lbl4Position1 = new System.Windows.Forms.Label();
+            this.lbl4Position3Value = new System.Windows.Forms.Label();
+            this.lbl4Position3 = new System.Windows.Forms.Label();
+            this.lbl4Position2Value = new System.Windows.Forms.Label();
+            this.lbl4Position2 = new System.Windows.Forms.Label();
+            this.team4Divider = new System.Windows.Forms.Panel();
+            this.team4ModeDivider = new System.Windows.Forms.Panel();
+            this.lbl4MatchEvent = new System.Windows.Forms.Label();
+            this.lbl4TeamName = new System.Windows.Forms.Label();
+            this.lbl4ScoutName = new System.Windows.Forms.Label();
+            this.lbl4ModeValue = new System.Windows.Forms.Label();
+            this.team4TeamDivider = new System.Windows.Forms.Panel();
+            this.team5 = new System.Windows.Forms.Panel();
+            this.lbl5Position0Value = new System.Windows.Forms.Label();
+            this.lbl5Position0 = new System.Windows.Forms.Label();
+            this.lbl5Position12Value = new System.Windows.Forms.Label();
+            this.lbl5Position12 = new System.Windows.Forms.Label();
+            this.lbl5Position11Value = new System.Windows.Forms.Label();
+            this.lbl5Position11 = new System.Windows.Forms.Label();
+            this.lbl5Position8Value = new System.Windows.Forms.Label();
+            this.lbl5Position8 = new System.Windows.Forms.Label();
+            this.lbl5Position7Value = new System.Windows.Forms.Label();
+            this.lbl5Position7 = new System.Windows.Forms.Label();
+            this.lbl5Position5Value = new System.Windows.Forms.Label();
+            this.lbl5Position5 = new System.Windows.Forms.Label();
+            this.lbl5Position4Value = new System.Windows.Forms.Label();
+            this.lbl5Position4 = new System.Windows.Forms.Label();
+            this.lbl5Position3Des = new System.Windows.Forms.Label();
+            this.lbl5Position3Source = new System.Windows.Forms.Label();
+            this.lbl5Position2Des = new System.Windows.Forms.Label();
+            this.lbl5Position2Source = new System.Windows.Forms.Label();
+            this.lbl5Position1 = new System.Windows.Forms.Label();
+            this.lbl5Position3Value = new System.Windows.Forms.Label();
+            this.lbl5Position3 = new System.Windows.Forms.Label();
+            this.lbl5Position2Value = new System.Windows.Forms.Label();
+            this.lbl5Position2 = new System.Windows.Forms.Label();
+            this.team5Divider = new System.Windows.Forms.Panel();
+            this.team5ModeDivider = new System.Windows.Forms.Panel();
+            this.lbl5MatchEvent = new System.Windows.Forms.Label();
+            this.lbl5TeamName = new System.Windows.Forms.Label();
+            this.lbl5ScoutName = new System.Windows.Forms.Label();
+            this.lbl5ModeValue = new System.Windows.Forms.Label();
+            this.team5TeamDivider = new System.Windows.Forms.Panel();
+            this.redTeams = new System.Windows.Forms.TableLayoutPanel();
+            this.team0 = new System.Windows.Forms.Panel();
+            this.lbl0Position0Value = new System.Windows.Forms.Label();
+            this.lbl0Position0 = new System.Windows.Forms.Label();
+            this.lbl0Position12Value = new System.Windows.Forms.Label();
+            this.lbl0Position12 = new System.Windows.Forms.Label();
+            this.lbl0Position11Value = new System.Windows.Forms.Label();
+            this.lbl0Position11 = new System.Windows.Forms.Label();
+            this.lbl0Position8Value = new System.Windows.Forms.Label();
+            this.lbl0Position8 = new System.Windows.Forms.Label();
+            this.lbl0Position7Value = new System.Windows.Forms.Label();
+            this.lbl0Position7 = new System.Windows.Forms.Label();
+            this.lbl0Position5Value = new System.Windows.Forms.Label();
+            this.lbl0Position5 = new System.Windows.Forms.Label();
+            this.lbl0Position4Value = new System.Windows.Forms.Label();
+            this.lbl0Position4 = new System.Windows.Forms.Label();
+            this.lbl0Position3Des = new System.Windows.Forms.Label();
+            this.lbl0Position3Source = new System.Windows.Forms.Label();
+            this.lbl0Position2Des = new System.Windows.Forms.Label();
+            this.lbl0Position2Source = new System.Windows.Forms.Label();
+            this.lbl0Position1 = new System.Windows.Forms.Label();
+            this.lbl0Position3Value = new System.Windows.Forms.Label();
+            this.lbl0Position3 = new System.Windows.Forms.Label();
+            this.lbl0Position2Value = new System.Windows.Forms.Label();
+            this.lbl0Position2 = new System.Windows.Forms.Label();
+            this.team0Divider = new System.Windows.Forms.Panel();
+            this.team0ModeDivider = new System.Windows.Forms.Panel();
+            this.team0TeamDivider = new System.Windows.Forms.Panel();
+            this.lbl0MatchEvent = new System.Windows.Forms.Label();
+            this.lbl0TeamName = new System.Windows.Forms.Label();
+            this.lbl0ScoutName = new System.Windows.Forms.Label();
+            this.lbl0ModeValue = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Panel();
             this.lbl1Position0Value = new System.Windows.Forms.Label();
             this.lbl1Position0 = new System.Windows.Forms.Label();
@@ -176,37 +176,37 @@ namespace ControllerScouting.Screens
             this.lbl1TeamName = new System.Windows.Forms.Label();
             this.lbl1ScoutName = new System.Windows.Forms.Label();
             this.lbl1ModeValue = new System.Windows.Forms.Label();
-            this.team0TeamDivider = new System.Windows.Forms.Panel();
-            this.team0 = new System.Windows.Forms.Panel();
-            this.lbl0Position0Value = new System.Windows.Forms.Label();
-            this.lbl0Position0 = new System.Windows.Forms.Label();
-            this.lbl0Position12Value = new System.Windows.Forms.Label();
-            this.lbl0Position12 = new System.Windows.Forms.Label();
-            this.lbl0Position11Value = new System.Windows.Forms.Label();
-            this.lbl0Position11 = new System.Windows.Forms.Label();
-            this.lbl0Position8Value = new System.Windows.Forms.Label();
-            this.lbl0Position8 = new System.Windows.Forms.Label();
-            this.lbl0Position7Value = new System.Windows.Forms.Label();
-            this.lbl0Position7 = new System.Windows.Forms.Label();
-            this.lbl0Position5Value = new System.Windows.Forms.Label();
-            this.lbl0Position5 = new System.Windows.Forms.Label();
-            this.lbl0Position4Value = new System.Windows.Forms.Label();
-            this.lbl0Position4 = new System.Windows.Forms.Label();
-            this.lbl0Position3Des = new System.Windows.Forms.Label();
-            this.lbl0Position3Source = new System.Windows.Forms.Label();
-            this.lbl0Position2Des = new System.Windows.Forms.Label();
-            this.lbl0Position2Source = new System.Windows.Forms.Label();
-            this.lbl0Position1 = new System.Windows.Forms.Label();
-            this.lbl0Position3Value = new System.Windows.Forms.Label();
-            this.lbl0Position3 = new System.Windows.Forms.Label();
-            this.lbl0Position2Value = new System.Windows.Forms.Label();
-            this.lbl0Position2 = new System.Windows.Forms.Label();
-            this.team0Divider = new System.Windows.Forms.Panel();
-            this.team0ModeDivider = new System.Windows.Forms.Panel();
-            this.lbl0MatchEvent = new System.Windows.Forms.Label();
-            this.lbl0TeamName = new System.Windows.Forms.Label();
-            this.lbl0ScoutName = new System.Windows.Forms.Label();
-            this.lbl0ModeValue = new System.Windows.Forms.Label();
+            this.team2 = new System.Windows.Forms.Panel();
+            this.lbl2Position0Value = new System.Windows.Forms.Label();
+            this.lbl2Position0 = new System.Windows.Forms.Label();
+            this.lbl2Position12Value = new System.Windows.Forms.Label();
+            this.lbl2Position12 = new System.Windows.Forms.Label();
+            this.lbl2Position11Value = new System.Windows.Forms.Label();
+            this.lbl2Position11 = new System.Windows.Forms.Label();
+            this.lbl2Position8Value = new System.Windows.Forms.Label();
+            this.lbl2Position8 = new System.Windows.Forms.Label();
+            this.lbl2Position7Value = new System.Windows.Forms.Label();
+            this.lbl2Position7 = new System.Windows.Forms.Label();
+            this.lbl2Position5Value = new System.Windows.Forms.Label();
+            this.lbl2Position5 = new System.Windows.Forms.Label();
+            this.lbl2Position4Value = new System.Windows.Forms.Label();
+            this.lbl2Position4 = new System.Windows.Forms.Label();
+            this.lbl2Position3Des = new System.Windows.Forms.Label();
+            this.lbl2Position3Source = new System.Windows.Forms.Label();
+            this.lbl2Position2Des = new System.Windows.Forms.Label();
+            this.lbl2Position2Source = new System.Windows.Forms.Label();
+            this.lbl2Position1 = new System.Windows.Forms.Label();
+            this.lbl2Position3Value = new System.Windows.Forms.Label();
+            this.lbl2Position3 = new System.Windows.Forms.Label();
+            this.lbl2Position2Value = new System.Windows.Forms.Label();
+            this.lbl2Position2 = new System.Windows.Forms.Label();
+            this.team2Divider = new System.Windows.Forms.Panel();
+            this.team2ModeDivider = new System.Windows.Forms.Panel();
+            this.team2TeamDivider = new System.Windows.Forms.Panel();
+            this.lbl2MatchEvent = new System.Windows.Forms.Label();
+            this.lbl2TeamName = new System.Windows.Forms.Label();
+            this.lbl2ScoutName = new System.Windows.Forms.Label();
+            this.lbl2ModeValue = new System.Windows.Forms.Label();
             this.labelMatch = new System.Windows.Forms.Label();
             this.lblMatch = new System.Windows.Forms.Label();
             this.timerJoysticks = new System.Windows.Forms.Timer(this.components);
@@ -216,15 +216,15 @@ namespace ControllerScouting.Screens
             this.statusLight = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.___MigrationHistoryTableAdapter1 = new ControllerScouting.scoutingdbDataSetTableAdapters.@__MigrationHistoryTableAdapter();
+            this.___MigrationHistoryTableAdapter = new ControllerScouting.scoutingdbDataSetTableAdapters.@__MigrationHistoryTableAdapter();
             this.blueTeams.SuspendLayout();
-            this.team5.SuspendLayout();
-            this.team4.SuspendLayout();
             this.team3.SuspendLayout();
+            this.team4.SuspendLayout();
+            this.team5.SuspendLayout();
             this.redTeams.SuspendLayout();
-            this.team2.SuspendLayout();
-            this.team1.SuspendLayout();
             this.team0.SuspendLayout();
+            this.team1.SuspendLayout();
+            this.team2.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -235,7 +235,7 @@ namespace ControllerScouting.Screens
             this.comboBoxSelectRegional.DisplayMember = "event_code";
             this.comboBoxSelectRegional.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSelectRegional.FormattingEnabled = true;
-            this.comboBoxSelectRegional.Location = new System.Drawing.Point(146, 4);
+            this.comboBoxSelectRegional.Location = new System.Drawing.Point(146, -24);
             this.comboBoxSelectRegional.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxSelectRegional.Name = "comboBoxSelectRegional";
             this.comboBoxSelectRegional.Size = new System.Drawing.Size(290, 23);
@@ -250,7 +250,7 @@ namespace ControllerScouting.Screens
             this.cbxEndMatch.BackColor = System.Drawing.Color.Black;
             this.cbxEndMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEndMatch.ForeColor = System.Drawing.Color.Yellow;
-            this.cbxEndMatch.Location = new System.Drawing.Point(779, 10);
+            this.cbxEndMatch.Location = new System.Drawing.Point(779, -18);
             this.cbxEndMatch.Margin = new System.Windows.Forms.Padding(5);
             this.cbxEndMatch.Name = "cbxEndMatch";
             this.cbxEndMatch.Size = new System.Drawing.Size(85, 19);
@@ -326,756 +326,20 @@ namespace ControllerScouting.Screens
             // blueTeams
             // 
             this.blueTeams.BackColor = System.Drawing.Color.Blue;
-            this.blueTeams.Controls.Add(this.team5);
-            this.blueTeams.Controls.Add(this.team4);
-            this.blueTeams.Controls.Add(this.team3);
+            this.blueTeams.ColumnCount = 3;
+            this.blueTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.blueTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.blueTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.blueTeams.Controls.Add(this.team3, 0, 0);
+            this.blueTeams.Controls.Add(this.team4, 1, 0);
+            this.blueTeams.Controls.Add(this.team5, 2, 0);
             this.blueTeams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.blueTeams.Location = new System.Drawing.Point(3, 464);
             this.blueTeams.Name = "blueTeams";
+            this.blueTeams.RowCount = 1;
+            this.blueTeams.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.blueTeams.Size = new System.Drawing.Size(1506, 405);
-            this.blueTeams.TabIndex = 300;
-            // 
-            // team5
-            // 
-            this.team5.BackColor = System.Drawing.Color.Black;
-            this.team5.Controls.Add(this.lbl5Position0Value);
-            this.team5.Controls.Add(this.lbl5Position0);
-            this.team5.Controls.Add(this.lbl5Position12Value);
-            this.team5.Controls.Add(this.lbl5Position12);
-            this.team5.Controls.Add(this.lbl5Position11Value);
-            this.team5.Controls.Add(this.lbl5Position11);
-            this.team5.Controls.Add(this.lbl5Position8Value);
-            this.team5.Controls.Add(this.lbl5Position8);
-            this.team5.Controls.Add(this.lbl5Position7Value);
-            this.team5.Controls.Add(this.lbl5Position7);
-            this.team5.Controls.Add(this.lbl5Position5Value);
-            this.team5.Controls.Add(this.lbl5Position5);
-            this.team5.Controls.Add(this.lbl5Position4Value);
-            this.team5.Controls.Add(this.lbl5Position4);
-            this.team5.Controls.Add(this.lbl5Position3Des);
-            this.team5.Controls.Add(this.lbl5Position3Source);
-            this.team5.Controls.Add(this.lbl5Position2Des);
-            this.team5.Controls.Add(this.lbl5Position2Source);
-            this.team5.Controls.Add(this.lbl5Position1);
-            this.team5.Controls.Add(this.lbl5Position3Value);
-            this.team5.Controls.Add(this.lbl5Position3);
-            this.team5.Controls.Add(this.lbl5Position2Value);
-            this.team5.Controls.Add(this.lbl5Position2);
-            this.team5.Controls.Add(this.team5Divider);
-            this.team5.Controls.Add(this.team5ModeDivider);
-            this.team5.Controls.Add(this.lbl5MatchEvent);
-            this.team5.Controls.Add(this.lbl5TeamName);
-            this.team5.Controls.Add(this.lbl5ScoutName);
-            this.team5.Controls.Add(this.lbl5ModeValue);
-            this.team5.Controls.Add(this.team5TeamDivider);
-            this.team5.Location = new System.Drawing.Point(991, 8);
-            this.team5.Name = "team5";
-            this.team5.Size = new System.Drawing.Size(484, 388);
-            this.team5.TabIndex = 349;
-            // 
-            // lbl5Position0Value
-            // 
-            this.lbl5Position0Value.AutoSize = true;
-            this.lbl5Position0Value.BackColor = System.Drawing.Color.Red;
-            this.lbl5Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl5Position0Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl5Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl5Position0Value.Location = new System.Drawing.Point(72, 55);
-            this.lbl5Position0Value.Name = "lbl5Position0Value";
-            this.lbl5Position0Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl5Position0Value.TabIndex = 393;
-            this.lbl5Position0Value.Text = ".";
-            this.lbl5Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl5Position0
-            // 
-            this.lbl5Position0.AutoSize = true;
-            this.lbl5Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position0.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position0.Location = new System.Drawing.Point(2, 55);
-            this.lbl5Position0.Name = "lbl5Position0";
-            this.lbl5Position0.Size = new System.Drawing.Size(66, 24);
-            this.lbl5Position0.TabIndex = 387;
-            this.lbl5Position0.Text = "Leave";
-            // 
-            // lbl5Position12Value
-            // 
-            this.lbl5Position12Value.AutoSize = true;
-            this.lbl5Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position12Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position12Value.Location = new System.Drawing.Point(52, 273);
-            this.lbl5Position12Value.Name = "lbl5Position12Value";
-            this.lbl5Position12Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position12Value.TabIndex = 411;
-            this.lbl5Position12Value.Text = "9";
-            // 
-            // lbl5Position12
-            // 
-            this.lbl5Position12.AutoSize = true;
-            this.lbl5Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position12.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position12.Location = new System.Drawing.Point(2, 272);
-            this.lbl5Position12.Name = "lbl5Position12";
-            this.lbl5Position12.Size = new System.Drawing.Size(57, 24);
-            this.lbl5Position12.TabIndex = 410;
-            this.lbl5Position12.Text = "Strat:";
-            // 
-            // lbl5Position11Value
-            // 
-            this.lbl5Position11Value.AutoSize = true;
-            this.lbl5Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position11Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position11Value.Location = new System.Drawing.Point(90, 245);
-            this.lbl5Position11Value.Name = "lbl5Position11Value";
-            this.lbl5Position11Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position11Value.TabIndex = 409;
-            this.lbl5Position11Value.Text = "9";
-            // 
-            // lbl5Position11
-            // 
-            this.lbl5Position11.AutoSize = true;
-            this.lbl5Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position11.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position11.Location = new System.Drawing.Point(2, 245);
-            this.lbl5Position11.Name = "lbl5Position11";
-            this.lbl5Position11.Size = new System.Drawing.Size(86, 24);
-            this.lbl5Position11.TabIndex = 408;
-            this.lbl5Position11.Text = "Attempt:";
-            // 
-            // lbl5Position8Value
-            // 
-            this.lbl5Position8Value.AutoSize = true;
-            this.lbl5Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position8Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position8Value.Location = new System.Drawing.Point(379, 228);
-            this.lbl5Position8Value.Name = "lbl5Position8Value";
-            this.lbl5Position8Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position8Value.TabIndex = 403;
-            this.lbl5Position8Value.Text = "9";
-            // 
-            // lbl5Position8
-            // 
-            this.lbl5Position8.AutoSize = true;
-            this.lbl5Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position8.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position8.Location = new System.Drawing.Point(315, 227);
-            this.lbl5Position8.Name = "lbl5Position8";
-            this.lbl5Position8.Size = new System.Drawing.Size(69, 24);
-            this.lbl5Position8.TabIndex = 402;
-            this.lbl5Position8.Text = "Avoid:";
-            // 
-            // lbl5Position7Value
-            // 
-            this.lbl5Position7Value.AutoSize = true;
-            this.lbl5Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position7Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position7Value.Location = new System.Drawing.Point(316, 274);
-            this.lbl5Position7Value.Name = "lbl5Position7Value";
-            this.lbl5Position7Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position7Value.TabIndex = 407;
-            this.lbl5Position7Value.Text = "9";
-            // 
-            // lbl5Position7
-            // 
-            this.lbl5Position7.AutoSize = true;
-            this.lbl5Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position7.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position7.Location = new System.Drawing.Point(281, 273);
-            this.lbl5Position7.Name = "lbl5Position7";
-            this.lbl5Position7.Size = new System.Drawing.Size(40, 24);
-            this.lbl5Position7.TabIndex = 406;
-            this.lbl5Position7.Text = "Eff:";
-            // 
-            // lbl5Position5Value
-            // 
-            this.lbl5Position5Value.AutoSize = true;
-            this.lbl5Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position5Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position5Value.Location = new System.Drawing.Point(215, 226);
-            this.lbl5Position5Value.Name = "lbl5Position5Value";
-            this.lbl5Position5Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position5Value.TabIndex = 401;
-            this.lbl5Position5Value.Text = "9";
-            this.lbl5Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl5Position5
-            // 
-            this.lbl5Position5.AutoSize = true;
-            this.lbl5Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position5.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position5.Location = new System.Drawing.Point(169, 226);
-            this.lbl5Position5.Name = "lbl5Position5";
-            this.lbl5Position5.Size = new System.Drawing.Size(47, 24);
-            this.lbl5Position5.TabIndex = 400;
-            this.lbl5Position5.Text = "Def:";
-            this.lbl5Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl5Position4Value
-            // 
-            this.lbl5Position4Value.AutoSize = true;
-            this.lbl5Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position4Value.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position4Value.Location = new System.Drawing.Point(345, 178);
-            this.lbl5Position4Value.Name = "lbl5Position4Value";
-            this.lbl5Position4Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl5Position4Value.TabIndex = 399;
-            this.lbl5Position4Value.Text = "9";
-            // 
-            // lbl5Position4
-            // 
-            this.lbl5Position4.AutoSize = true;
-            this.lbl5Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position4.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position4.Location = new System.Drawing.Point(243, 177);
-            this.lbl5Position4.Name = "lbl5Position4";
-            this.lbl5Position4.Size = new System.Drawing.Size(106, 24);
-            this.lbl5Position4.TabIndex = 398;
-            this.lbl5Position4.Text = "End State:";
-            // 
-            // lbl5Position3Des
-            // 
-            this.lbl5Position3Des.AutoSize = true;
-            this.lbl5Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position3Des.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position3Des.Location = new System.Drawing.Point(176, 150);
-            this.lbl5Position3Des.Name = "lbl5Position3Des";
-            this.lbl5Position3Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl5Position3Des.TabIndex = 397;
-            this.lbl5Position3Des.Text = "Floor";
-            // 
-            // lbl5Position3Source
-            // 
-            this.lbl5Position3Source.AutoSize = true;
-            this.lbl5Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position3Source.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position3Source.Location = new System.Drawing.Point(103, 150);
-            this.lbl5Position3Source.Name = "lbl5Position3Source";
-            this.lbl5Position3Source.Size = new System.Drawing.Size(59, 24);
-            this.lbl5Position3Source.TabIndex = 405;
-            this.lbl5Position3Source.Text = "Floor";
-            // 
-            // lbl5Position2Des
-            // 
-            this.lbl5Position2Des.AutoSize = true;
-            this.lbl5Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position2Des.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position2Des.Location = new System.Drawing.Point(176, 112);
-            this.lbl5Position2Des.Name = "lbl5Position2Des";
-            this.lbl5Position2Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl5Position2Des.TabIndex = 396;
-            this.lbl5Position2Des.Text = "Floor";
-            // 
-            // lbl5Position2Source
-            // 
-            this.lbl5Position2Source.AutoSize = true;
-            this.lbl5Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position2Source.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position2Source.Location = new System.Drawing.Point(103, 112);
-            this.lbl5Position2Source.Name = "lbl5Position2Source";
-            this.lbl5Position2Source.Size = new System.Drawing.Size(73, 24);
-            this.lbl5Position2Source.TabIndex = 404;
-            this.lbl5Position2Source.Text = "Station";
-            // 
-            // lbl5Position1
-            // 
-            this.lbl5Position1.AutoSize = true;
-            this.lbl5Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position1.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position1.Location = new System.Drawing.Point(245, 56);
-            this.lbl5Position1.Name = "lbl5Position1";
-            this.lbl5Position1.Size = new System.Drawing.Size(103, 24);
-            this.lbl5Position1.TabIndex = 388;
-            this.lbl5Position1.Text = "Near Side";
-            // 
-            // lbl5Position3Value
-            // 
-            this.lbl5Position3Value.AutoSize = true;
-            this.lbl5Position3Value.BackColor = System.Drawing.Color.Red;
-            this.lbl5Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl5Position3Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl5Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl5Position3Value.Location = new System.Drawing.Point(72, 150);
-            this.lbl5Position3Value.Name = "lbl5Position3Value";
-            this.lbl5Position3Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl5Position3Value.TabIndex = 395;
-            this.lbl5Position3Value.Text = ".";
-            this.lbl5Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl5Position3
-            // 
-            this.lbl5Position3.AutoSize = true;
-            this.lbl5Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position3.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position3.Location = new System.Drawing.Point(2, 148);
-            this.lbl5Position3.Name = "lbl5Position3";
-            this.lbl5Position3.Size = new System.Drawing.Size(70, 24);
-            this.lbl5Position3.TabIndex = 394;
-            this.lbl5Position3.Text = "Algae:";
-            // 
-            // lbl5Position2Value
-            // 
-            this.lbl5Position2Value.AutoSize = true;
-            this.lbl5Position2Value.BackColor = System.Drawing.Color.Red;
-            this.lbl5Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl5Position2Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl5Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl5Position2Value.Location = new System.Drawing.Point(72, 109);
-            this.lbl5Position2Value.Name = "lbl5Position2Value";
-            this.lbl5Position2Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl5Position2Value.TabIndex = 392;
-            this.lbl5Position2Value.Text = ".";
-            this.lbl5Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl5Position2
-            // 
-            this.lbl5Position2.AutoSize = true;
-            this.lbl5Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5Position2.ForeColor = System.Drawing.Color.White;
-            this.lbl5Position2.Location = new System.Drawing.Point(2, 110);
-            this.lbl5Position2.Name = "lbl5Position2";
-            this.lbl5Position2.Size = new System.Drawing.Size(65, 24);
-            this.lbl5Position2.TabIndex = 391;
-            this.lbl5Position2.Text = "Coral:";
-            // 
-            // team5Divider
-            // 
-            this.team5Divider.BackColor = System.Drawing.Color.Blue;
-            this.team5Divider.Location = new System.Drawing.Point(-5, 88);
-            this.team5Divider.Name = "team5Divider";
-            this.team5Divider.Size = new System.Drawing.Size(494, 11);
-            this.team5Divider.TabIndex = 389;
-            // 
-            // team5ModeDivider
-            // 
-            this.team5ModeDivider.BackColor = System.Drawing.Color.Blue;
-            this.team5ModeDivider.Location = new System.Drawing.Point(-5, 40);
-            this.team5ModeDivider.Name = "team5ModeDivider";
-            this.team5ModeDivider.Size = new System.Drawing.Size(494, 11);
-            this.team5ModeDivider.TabIndex = 390;
-            // 
-            // lbl5MatchEvent
-            // 
-            this.lbl5MatchEvent.AutoSize = true;
-            this.lbl5MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5MatchEvent.ForeColor = System.Drawing.Color.White;
-            this.lbl5MatchEvent.Location = new System.Drawing.Point(7, 325);
-            this.lbl5MatchEvent.Name = "lbl5MatchEvent";
-            this.lbl5MatchEvent.Size = new System.Drawing.Size(125, 24);
-            this.lbl5MatchEvent.TabIndex = 295;
-            this.lbl5MatchEvent.Text = "Match Event";
-            // 
-            // lbl5TeamName
-            // 
-            this.lbl5TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5TeamName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl5TeamName.Location = new System.Drawing.Point(323, 347);
-            this.lbl5TeamName.Name = "lbl5TeamName";
-            this.lbl5TeamName.Size = new System.Drawing.Size(159, 37);
-            this.lbl5TeamName.TabIndex = 294;
-            this.lbl5TeamName.Text = "Team 0";
-            this.lbl5TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl5ScoutName
-            // 
-            this.lbl5ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl5ScoutName.Location = new System.Drawing.Point(7, 359);
-            this.lbl5ScoutName.Name = "lbl5ScoutName";
-            this.lbl5ScoutName.Size = new System.Drawing.Size(158, 27);
-            this.lbl5ScoutName.TabIndex = 293;
-            this.lbl5ScoutName.Text = "Select Name";
-            this.lbl5ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl5ModeValue
-            // 
-            this.lbl5ModeValue.AutoSize = true;
-            this.lbl5ModeValue.BackColor = System.Drawing.Color.Black;
-            this.lbl5ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lbl5ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbl5ModeValue.Location = new System.Drawing.Point(2, 4);
-            this.lbl5ModeValue.Name = "lbl5ModeValue";
-            this.lbl5ModeValue.Size = new System.Drawing.Size(67, 29);
-            this.lbl5ModeValue.TabIndex = 292;
-            this.lbl5ModeValue.Text = "Auto:";
-            // 
-            // team5TeamDivider
-            // 
-            this.team5TeamDivider.BackColor = System.Drawing.Color.Blue;
-            this.team5TeamDivider.Location = new System.Drawing.Point(0, 307);
-            this.team5TeamDivider.Name = "team5TeamDivider";
-            this.team5TeamDivider.Size = new System.Drawing.Size(484, 11);
-            this.team5TeamDivider.TabIndex = 279;
-            // 
-            // team4
-            // 
-            this.team4.BackColor = System.Drawing.Color.Black;
-            this.team4.Controls.Add(this.lbl4Position0Value);
-            this.team4.Controls.Add(this.lbl4Position0);
-            this.team4.Controls.Add(this.lbl4Position12Value);
-            this.team4.Controls.Add(this.lbl4Position12);
-            this.team4.Controls.Add(this.lbl4Position11Value);
-            this.team4.Controls.Add(this.lbl4Position11);
-            this.team4.Controls.Add(this.lbl4Position8Value);
-            this.team4.Controls.Add(this.lbl4Position8);
-            this.team4.Controls.Add(this.lbl4Position7Value);
-            this.team4.Controls.Add(this.lbl4Position7);
-            this.team4.Controls.Add(this.lbl4Position5Value);
-            this.team4.Controls.Add(this.lbl4Position5);
-            this.team4.Controls.Add(this.lbl4Position4Value);
-            this.team4.Controls.Add(this.lbl4Position4);
-            this.team4.Controls.Add(this.lbl4Position3Des);
-            this.team4.Controls.Add(this.lbl4Position3Source);
-            this.team4.Controls.Add(this.lbl4Position2Des);
-            this.team4.Controls.Add(this.lbl4Position2Source);
-            this.team4.Controls.Add(this.lbl4Position1);
-            this.team4.Controls.Add(this.lbl4Position3Value);
-            this.team4.Controls.Add(this.lbl4Position3);
-            this.team4.Controls.Add(this.lbl4Position2Value);
-            this.team4.Controls.Add(this.lbl4Position2);
-            this.team4.Controls.Add(this.team4Divider);
-            this.team4.Controls.Add(this.team4ModeDivider);
-            this.team4.Controls.Add(this.lbl4MatchEvent);
-            this.team4.Controls.Add(this.lbl4TeamName);
-            this.team4.Controls.Add(this.lbl4ScoutName);
-            this.team4.Controls.Add(this.lbl4ModeValue);
-            this.team4.Controls.Add(this.team4TeamDivider);
-            this.team4.Location = new System.Drawing.Point(499, 8);
-            this.team4.Name = "team4";
-            this.team4.Size = new System.Drawing.Size(484, 388);
-            this.team4.TabIndex = 348;
-            // 
-            // lbl4Position0Value
-            // 
-            this.lbl4Position0Value.AutoSize = true;
-            this.lbl4Position0Value.BackColor = System.Drawing.Color.Red;
-            this.lbl4Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl4Position0Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl4Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl4Position0Value.Location = new System.Drawing.Point(72, 55);
-            this.lbl4Position0Value.Name = "lbl4Position0Value";
-            this.lbl4Position0Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl4Position0Value.TabIndex = 393;
-            this.lbl4Position0Value.Text = ".";
-            this.lbl4Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl4Position0
-            // 
-            this.lbl4Position0.AutoSize = true;
-            this.lbl4Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position0.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position0.Location = new System.Drawing.Point(2, 55);
-            this.lbl4Position0.Name = "lbl4Position0";
-            this.lbl4Position0.Size = new System.Drawing.Size(66, 24);
-            this.lbl4Position0.TabIndex = 387;
-            this.lbl4Position0.Text = "Leave";
-            // 
-            // lbl4Position12Value
-            // 
-            this.lbl4Position12Value.AutoSize = true;
-            this.lbl4Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position12Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position12Value.Location = new System.Drawing.Point(52, 273);
-            this.lbl4Position12Value.Name = "lbl4Position12Value";
-            this.lbl4Position12Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position12Value.TabIndex = 411;
-            this.lbl4Position12Value.Text = "9";
-            // 
-            // lbl4Position12
-            // 
-            this.lbl4Position12.AutoSize = true;
-            this.lbl4Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position12.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position12.Location = new System.Drawing.Point(2, 272);
-            this.lbl4Position12.Name = "lbl4Position12";
-            this.lbl4Position12.Size = new System.Drawing.Size(57, 24);
-            this.lbl4Position12.TabIndex = 410;
-            this.lbl4Position12.Text = "Strat:";
-            // 
-            // lbl4Position11Value
-            // 
-            this.lbl4Position11Value.AutoSize = true;
-            this.lbl4Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position11Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position11Value.Location = new System.Drawing.Point(90, 245);
-            this.lbl4Position11Value.Name = "lbl4Position11Value";
-            this.lbl4Position11Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position11Value.TabIndex = 409;
-            this.lbl4Position11Value.Text = "9";
-            // 
-            // lbl4Position11
-            // 
-            this.lbl4Position11.AutoSize = true;
-            this.lbl4Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position11.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position11.Location = new System.Drawing.Point(2, 245);
-            this.lbl4Position11.Name = "lbl4Position11";
-            this.lbl4Position11.Size = new System.Drawing.Size(86, 24);
-            this.lbl4Position11.TabIndex = 408;
-            this.lbl4Position11.Text = "Attempt:";
-            // 
-            // lbl4Position8Value
-            // 
-            this.lbl4Position8Value.AutoSize = true;
-            this.lbl4Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position8Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position8Value.Location = new System.Drawing.Point(379, 228);
-            this.lbl4Position8Value.Name = "lbl4Position8Value";
-            this.lbl4Position8Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position8Value.TabIndex = 403;
-            this.lbl4Position8Value.Text = "9";
-            // 
-            // lbl4Position8
-            // 
-            this.lbl4Position8.AutoSize = true;
-            this.lbl4Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position8.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position8.Location = new System.Drawing.Point(315, 227);
-            this.lbl4Position8.Name = "lbl4Position8";
-            this.lbl4Position8.Size = new System.Drawing.Size(69, 24);
-            this.lbl4Position8.TabIndex = 402;
-            this.lbl4Position8.Text = "Avoid:";
-            // 
-            // lbl4Position7Value
-            // 
-            this.lbl4Position7Value.AutoSize = true;
-            this.lbl4Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position7Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position7Value.Location = new System.Drawing.Point(316, 274);
-            this.lbl4Position7Value.Name = "lbl4Position7Value";
-            this.lbl4Position7Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position7Value.TabIndex = 407;
-            this.lbl4Position7Value.Text = "9";
-            // 
-            // lbl4Position7
-            // 
-            this.lbl4Position7.AutoSize = true;
-            this.lbl4Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position7.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position7.Location = new System.Drawing.Point(281, 273);
-            this.lbl4Position7.Name = "lbl4Position7";
-            this.lbl4Position7.Size = new System.Drawing.Size(40, 24);
-            this.lbl4Position7.TabIndex = 406;
-            this.lbl4Position7.Text = "Eff:";
-            // 
-            // lbl4Position5Value
-            // 
-            this.lbl4Position5Value.AutoSize = true;
-            this.lbl4Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position5Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position5Value.Location = new System.Drawing.Point(215, 226);
-            this.lbl4Position5Value.Name = "lbl4Position5Value";
-            this.lbl4Position5Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position5Value.TabIndex = 401;
-            this.lbl4Position5Value.Text = "9";
-            this.lbl4Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl4Position5
-            // 
-            this.lbl4Position5.AutoSize = true;
-            this.lbl4Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position5.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position5.Location = new System.Drawing.Point(169, 226);
-            this.lbl4Position5.Name = "lbl4Position5";
-            this.lbl4Position5.Size = new System.Drawing.Size(47, 24);
-            this.lbl4Position5.TabIndex = 400;
-            this.lbl4Position5.Text = "Def:";
-            this.lbl4Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl4Position4Value
-            // 
-            this.lbl4Position4Value.AutoSize = true;
-            this.lbl4Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position4Value.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position4Value.Location = new System.Drawing.Point(345, 178);
-            this.lbl4Position4Value.Name = "lbl4Position4Value";
-            this.lbl4Position4Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl4Position4Value.TabIndex = 399;
-            this.lbl4Position4Value.Text = "9";
-            // 
-            // lbl4Position4
-            // 
-            this.lbl4Position4.AutoSize = true;
-            this.lbl4Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position4.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position4.Location = new System.Drawing.Point(243, 177);
-            this.lbl4Position4.Name = "lbl4Position4";
-            this.lbl4Position4.Size = new System.Drawing.Size(106, 24);
-            this.lbl4Position4.TabIndex = 398;
-            this.lbl4Position4.Text = "End State:";
-            // 
-            // lbl4Position3Des
-            // 
-            this.lbl4Position3Des.AutoSize = true;
-            this.lbl4Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position3Des.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position3Des.Location = new System.Drawing.Point(176, 150);
-            this.lbl4Position3Des.Name = "lbl4Position3Des";
-            this.lbl4Position3Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl4Position3Des.TabIndex = 397;
-            this.lbl4Position3Des.Text = "Floor";
-            // 
-            // lbl4Position3Source
-            // 
-            this.lbl4Position3Source.AutoSize = true;
-            this.lbl4Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position3Source.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position3Source.Location = new System.Drawing.Point(103, 150);
-            this.lbl4Position3Source.Name = "lbl4Position3Source";
-            this.lbl4Position3Source.Size = new System.Drawing.Size(59, 24);
-            this.lbl4Position3Source.TabIndex = 405;
-            this.lbl4Position3Source.Text = "Floor";
-            // 
-            // lbl4Position2Des
-            // 
-            this.lbl4Position2Des.AutoSize = true;
-            this.lbl4Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position2Des.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position2Des.Location = new System.Drawing.Point(176, 112);
-            this.lbl4Position2Des.Name = "lbl4Position2Des";
-            this.lbl4Position2Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl4Position2Des.TabIndex = 396;
-            this.lbl4Position2Des.Text = "Floor";
-            // 
-            // lbl4Position2Source
-            // 
-            this.lbl4Position2Source.AutoSize = true;
-            this.lbl4Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position2Source.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position2Source.Location = new System.Drawing.Point(103, 112);
-            this.lbl4Position2Source.Name = "lbl4Position2Source";
-            this.lbl4Position2Source.Size = new System.Drawing.Size(73, 24);
-            this.lbl4Position2Source.TabIndex = 404;
-            this.lbl4Position2Source.Text = "Station";
-            // 
-            // lbl4Position1
-            // 
-            this.lbl4Position1.AutoSize = true;
-            this.lbl4Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position1.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position1.Location = new System.Drawing.Point(245, 56);
-            this.lbl4Position1.Name = "lbl4Position1";
-            this.lbl4Position1.Size = new System.Drawing.Size(103, 24);
-            this.lbl4Position1.TabIndex = 388;
-            this.lbl4Position1.Text = "Near Side";
-            // 
-            // lbl4Position3Value
-            // 
-            this.lbl4Position3Value.AutoSize = true;
-            this.lbl4Position3Value.BackColor = System.Drawing.Color.Red;
-            this.lbl4Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl4Position3Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl4Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl4Position3Value.Location = new System.Drawing.Point(72, 150);
-            this.lbl4Position3Value.Name = "lbl4Position3Value";
-            this.lbl4Position3Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl4Position3Value.TabIndex = 395;
-            this.lbl4Position3Value.Text = ".";
-            this.lbl4Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl4Position3
-            // 
-            this.lbl4Position3.AutoSize = true;
-            this.lbl4Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position3.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position3.Location = new System.Drawing.Point(2, 148);
-            this.lbl4Position3.Name = "lbl4Position3";
-            this.lbl4Position3.Size = new System.Drawing.Size(70, 24);
-            this.lbl4Position3.TabIndex = 394;
-            this.lbl4Position3.Text = "Algae:";
-            // 
-            // lbl4Position2Value
-            // 
-            this.lbl4Position2Value.AutoSize = true;
-            this.lbl4Position2Value.BackColor = System.Drawing.Color.Red;
-            this.lbl4Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl4Position2Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl4Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl4Position2Value.Location = new System.Drawing.Point(72, 109);
-            this.lbl4Position2Value.Name = "lbl4Position2Value";
-            this.lbl4Position2Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl4Position2Value.TabIndex = 392;
-            this.lbl4Position2Value.Text = ".";
-            this.lbl4Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl4Position2
-            // 
-            this.lbl4Position2.AutoSize = true;
-            this.lbl4Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4Position2.ForeColor = System.Drawing.Color.White;
-            this.lbl4Position2.Location = new System.Drawing.Point(2, 110);
-            this.lbl4Position2.Name = "lbl4Position2";
-            this.lbl4Position2.Size = new System.Drawing.Size(65, 24);
-            this.lbl4Position2.TabIndex = 391;
-            this.lbl4Position2.Text = "Coral:";
-            // 
-            // team4Divider
-            // 
-            this.team4Divider.BackColor = System.Drawing.Color.Blue;
-            this.team4Divider.Location = new System.Drawing.Point(-5, 88);
-            this.team4Divider.Name = "team4Divider";
-            this.team4Divider.Size = new System.Drawing.Size(494, 11);
-            this.team4Divider.TabIndex = 389;
-            // 
-            // team4ModeDivider
-            // 
-            this.team4ModeDivider.BackColor = System.Drawing.Color.Blue;
-            this.team4ModeDivider.Location = new System.Drawing.Point(-5, 40);
-            this.team4ModeDivider.Name = "team4ModeDivider";
-            this.team4ModeDivider.Size = new System.Drawing.Size(494, 11);
-            this.team4ModeDivider.TabIndex = 390;
-            // 
-            // lbl4MatchEvent
-            // 
-            this.lbl4MatchEvent.AutoSize = true;
-            this.lbl4MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4MatchEvent.ForeColor = System.Drawing.Color.White;
-            this.lbl4MatchEvent.Location = new System.Drawing.Point(6, 325);
-            this.lbl4MatchEvent.Name = "lbl4MatchEvent";
-            this.lbl4MatchEvent.Size = new System.Drawing.Size(125, 24);
-            this.lbl4MatchEvent.TabIndex = 295;
-            this.lbl4MatchEvent.Text = "Match Event";
-            // 
-            // lbl4TeamName
-            // 
-            this.lbl4TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4TeamName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl4TeamName.Location = new System.Drawing.Point(323, 347);
-            this.lbl4TeamName.Name = "lbl4TeamName";
-            this.lbl4TeamName.Size = new System.Drawing.Size(159, 37);
-            this.lbl4TeamName.TabIndex = 294;
-            this.lbl4TeamName.Text = "Team 0";
-            this.lbl4TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl4ScoutName
-            // 
-            this.lbl4ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl4ScoutName.Location = new System.Drawing.Point(7, 359);
-            this.lbl4ScoutName.Name = "lbl4ScoutName";
-            this.lbl4ScoutName.Size = new System.Drawing.Size(158, 27);
-            this.lbl4ScoutName.TabIndex = 293;
-            this.lbl4ScoutName.Text = "Select Name";
-            this.lbl4ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl4ModeValue
-            // 
-            this.lbl4ModeValue.AutoSize = true;
-            this.lbl4ModeValue.BackColor = System.Drawing.Color.Black;
-            this.lbl4ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lbl4ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbl4ModeValue.Location = new System.Drawing.Point(1, 5);
-            this.lbl4ModeValue.Name = "lbl4ModeValue";
-            this.lbl4ModeValue.Size = new System.Drawing.Size(67, 29);
-            this.lbl4ModeValue.TabIndex = 292;
-            this.lbl4ModeValue.Text = "Auto:";
-            // 
-            // team4TeamDivider
-            // 
-            this.team4TeamDivider.BackColor = System.Drawing.Color.Blue;
-            this.team4TeamDivider.Location = new System.Drawing.Point(0, 307);
-            this.team4TeamDivider.Name = "team4TeamDivider";
-            this.team4TeamDivider.Size = new System.Drawing.Size(484, 11);
-            this.team4TeamDivider.TabIndex = 279;
+            this.blueTeams.TabIndex = 0;
             // 
             // team3
             // 
@@ -1110,9 +374,10 @@ namespace ControllerScouting.Screens
             this.team3.Controls.Add(this.lbl3ScoutName);
             this.team3.Controls.Add(this.lbl3ModeValue);
             this.team3.Controls.Add(this.team3TeamDivider);
-            this.team3.Location = new System.Drawing.Point(7, 8);
+            this.team3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team3.Location = new System.Drawing.Point(3, 3);
             this.team3.Name = "team3";
-            this.team3.Size = new System.Drawing.Size(484, 388);
+            this.team3.Size = new System.Drawing.Size(496, 399);
             this.team3.TabIndex = 347;
             // 
             // lbl3Position0Value
@@ -1384,7 +649,7 @@ namespace ControllerScouting.Screens
             this.team3Divider.BackColor = System.Drawing.Color.Blue;
             this.team3Divider.Location = new System.Drawing.Point(-5, 88);
             this.team3Divider.Name = "team3Divider";
-            this.team3Divider.Size = new System.Drawing.Size(494, 11);
+            this.team3Divider.Size = new System.Drawing.Size(545, 11);
             this.team3Divider.TabIndex = 389;
             // 
             // team3ModeDivider
@@ -1392,7 +657,7 @@ namespace ControllerScouting.Screens
             this.team3ModeDivider.BackColor = System.Drawing.Color.Blue;
             this.team3ModeDivider.Location = new System.Drawing.Point(-5, 40);
             this.team3ModeDivider.Name = "team3ModeDivider";
-            this.team3ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team3ModeDivider.Size = new System.Drawing.Size(545, 11);
             this.team3ModeDivider.TabIndex = 390;
             // 
             // lbl3MatchEvent
@@ -1445,771 +710,770 @@ namespace ControllerScouting.Screens
             this.team3TeamDivider.BackColor = System.Drawing.Color.Blue;
             this.team3TeamDivider.Location = new System.Drawing.Point(0, 308);
             this.team3TeamDivider.Name = "team3TeamDivider";
-            this.team3TeamDivider.Size = new System.Drawing.Size(484, 11);
+            this.team3TeamDivider.Size = new System.Drawing.Size(540, 11);
             this.team3TeamDivider.TabIndex = 279;
+            // 
+            // team4
+            // 
+            this.team4.BackColor = System.Drawing.Color.Black;
+            this.team4.Controls.Add(this.lbl4Position0Value);
+            this.team4.Controls.Add(this.lbl4Position0);
+            this.team4.Controls.Add(this.lbl4Position12Value);
+            this.team4.Controls.Add(this.lbl4Position12);
+            this.team4.Controls.Add(this.lbl4Position11Value);
+            this.team4.Controls.Add(this.lbl4Position11);
+            this.team4.Controls.Add(this.lbl4Position8Value);
+            this.team4.Controls.Add(this.lbl4Position8);
+            this.team4.Controls.Add(this.lbl4Position7Value);
+            this.team4.Controls.Add(this.lbl4Position7);
+            this.team4.Controls.Add(this.lbl4Position5Value);
+            this.team4.Controls.Add(this.lbl4Position5);
+            this.team4.Controls.Add(this.lbl4Position4Value);
+            this.team4.Controls.Add(this.lbl4Position4);
+            this.team4.Controls.Add(this.lbl4Position3Des);
+            this.team4.Controls.Add(this.lbl4Position3Source);
+            this.team4.Controls.Add(this.lbl4Position2Des);
+            this.team4.Controls.Add(this.lbl4Position2Source);
+            this.team4.Controls.Add(this.lbl4Position1);
+            this.team4.Controls.Add(this.lbl4Position3Value);
+            this.team4.Controls.Add(this.lbl4Position3);
+            this.team4.Controls.Add(this.lbl4Position2Value);
+            this.team4.Controls.Add(this.lbl4Position2);
+            this.team4.Controls.Add(this.team4Divider);
+            this.team4.Controls.Add(this.team4ModeDivider);
+            this.team4.Controls.Add(this.lbl4MatchEvent);
+            this.team4.Controls.Add(this.lbl4TeamName);
+            this.team4.Controls.Add(this.lbl4ScoutName);
+            this.team4.Controls.Add(this.lbl4ModeValue);
+            this.team4.Controls.Add(this.team4TeamDivider);
+            this.team4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team4.Location = new System.Drawing.Point(505, 3);
+            this.team4.Name = "team4";
+            this.team4.Size = new System.Drawing.Size(496, 399);
+            this.team4.TabIndex = 348;
+            // 
+            // lbl4Position0Value
+            // 
+            this.lbl4Position0Value.AutoSize = true;
+            this.lbl4Position0Value.BackColor = System.Drawing.Color.Red;
+            this.lbl4Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl4Position0Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl4Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl4Position0Value.Location = new System.Drawing.Point(72, 55);
+            this.lbl4Position0Value.Name = "lbl4Position0Value";
+            this.lbl4Position0Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl4Position0Value.TabIndex = 393;
+            this.lbl4Position0Value.Text = ".";
+            this.lbl4Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl4Position0
+            // 
+            this.lbl4Position0.AutoSize = true;
+            this.lbl4Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position0.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position0.Location = new System.Drawing.Point(2, 55);
+            this.lbl4Position0.Name = "lbl4Position0";
+            this.lbl4Position0.Size = new System.Drawing.Size(66, 24);
+            this.lbl4Position0.TabIndex = 387;
+            this.lbl4Position0.Text = "Leave";
+            // 
+            // lbl4Position12Value
+            // 
+            this.lbl4Position12Value.AutoSize = true;
+            this.lbl4Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position12Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position12Value.Location = new System.Drawing.Point(52, 273);
+            this.lbl4Position12Value.Name = "lbl4Position12Value";
+            this.lbl4Position12Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position12Value.TabIndex = 411;
+            this.lbl4Position12Value.Text = "9";
+            // 
+            // lbl4Position12
+            // 
+            this.lbl4Position12.AutoSize = true;
+            this.lbl4Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position12.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position12.Location = new System.Drawing.Point(2, 272);
+            this.lbl4Position12.Name = "lbl4Position12";
+            this.lbl4Position12.Size = new System.Drawing.Size(57, 24);
+            this.lbl4Position12.TabIndex = 410;
+            this.lbl4Position12.Text = "Strat:";
+            // 
+            // lbl4Position11Value
+            // 
+            this.lbl4Position11Value.AutoSize = true;
+            this.lbl4Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position11Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position11Value.Location = new System.Drawing.Point(90, 245);
+            this.lbl4Position11Value.Name = "lbl4Position11Value";
+            this.lbl4Position11Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position11Value.TabIndex = 409;
+            this.lbl4Position11Value.Text = "9";
+            // 
+            // lbl4Position11
+            // 
+            this.lbl4Position11.AutoSize = true;
+            this.lbl4Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position11.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position11.Location = new System.Drawing.Point(2, 245);
+            this.lbl4Position11.Name = "lbl4Position11";
+            this.lbl4Position11.Size = new System.Drawing.Size(86, 24);
+            this.lbl4Position11.TabIndex = 408;
+            this.lbl4Position11.Text = "Attempt:";
+            // 
+            // lbl4Position8Value
+            // 
+            this.lbl4Position8Value.AutoSize = true;
+            this.lbl4Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position8Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position8Value.Location = new System.Drawing.Point(379, 228);
+            this.lbl4Position8Value.Name = "lbl4Position8Value";
+            this.lbl4Position8Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position8Value.TabIndex = 403;
+            this.lbl4Position8Value.Text = "9";
+            // 
+            // lbl4Position8
+            // 
+            this.lbl4Position8.AutoSize = true;
+            this.lbl4Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position8.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position8.Location = new System.Drawing.Point(315, 227);
+            this.lbl4Position8.Name = "lbl4Position8";
+            this.lbl4Position8.Size = new System.Drawing.Size(69, 24);
+            this.lbl4Position8.TabIndex = 402;
+            this.lbl4Position8.Text = "Avoid:";
+            // 
+            // lbl4Position7Value
+            // 
+            this.lbl4Position7Value.AutoSize = true;
+            this.lbl4Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position7Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position7Value.Location = new System.Drawing.Point(316, 274);
+            this.lbl4Position7Value.Name = "lbl4Position7Value";
+            this.lbl4Position7Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position7Value.TabIndex = 407;
+            this.lbl4Position7Value.Text = "9";
+            // 
+            // lbl4Position7
+            // 
+            this.lbl4Position7.AutoSize = true;
+            this.lbl4Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position7.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position7.Location = new System.Drawing.Point(281, 273);
+            this.lbl4Position7.Name = "lbl4Position7";
+            this.lbl4Position7.Size = new System.Drawing.Size(40, 24);
+            this.lbl4Position7.TabIndex = 406;
+            this.lbl4Position7.Text = "Eff:";
+            // 
+            // lbl4Position5Value
+            // 
+            this.lbl4Position5Value.AutoSize = true;
+            this.lbl4Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position5Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position5Value.Location = new System.Drawing.Point(215, 226);
+            this.lbl4Position5Value.Name = "lbl4Position5Value";
+            this.lbl4Position5Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position5Value.TabIndex = 401;
+            this.lbl4Position5Value.Text = "9";
+            this.lbl4Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl4Position5
+            // 
+            this.lbl4Position5.AutoSize = true;
+            this.lbl4Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position5.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position5.Location = new System.Drawing.Point(169, 226);
+            this.lbl4Position5.Name = "lbl4Position5";
+            this.lbl4Position5.Size = new System.Drawing.Size(47, 24);
+            this.lbl4Position5.TabIndex = 400;
+            this.lbl4Position5.Text = "Def:";
+            this.lbl4Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl4Position4Value
+            // 
+            this.lbl4Position4Value.AutoSize = true;
+            this.lbl4Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position4Value.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position4Value.Location = new System.Drawing.Point(345, 178);
+            this.lbl4Position4Value.Name = "lbl4Position4Value";
+            this.lbl4Position4Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl4Position4Value.TabIndex = 399;
+            this.lbl4Position4Value.Text = "9";
+            // 
+            // lbl4Position4
+            // 
+            this.lbl4Position4.AutoSize = true;
+            this.lbl4Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position4.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position4.Location = new System.Drawing.Point(243, 177);
+            this.lbl4Position4.Name = "lbl4Position4";
+            this.lbl4Position4.Size = new System.Drawing.Size(106, 24);
+            this.lbl4Position4.TabIndex = 398;
+            this.lbl4Position4.Text = "End State:";
+            // 
+            // lbl4Position3Des
+            // 
+            this.lbl4Position3Des.AutoSize = true;
+            this.lbl4Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position3Des.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position3Des.Location = new System.Drawing.Point(176, 150);
+            this.lbl4Position3Des.Name = "lbl4Position3Des";
+            this.lbl4Position3Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl4Position3Des.TabIndex = 397;
+            this.lbl4Position3Des.Text = "Floor";
+            // 
+            // lbl4Position3Source
+            // 
+            this.lbl4Position3Source.AutoSize = true;
+            this.lbl4Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position3Source.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position3Source.Location = new System.Drawing.Point(103, 150);
+            this.lbl4Position3Source.Name = "lbl4Position3Source";
+            this.lbl4Position3Source.Size = new System.Drawing.Size(59, 24);
+            this.lbl4Position3Source.TabIndex = 405;
+            this.lbl4Position3Source.Text = "Floor";
+            // 
+            // lbl4Position2Des
+            // 
+            this.lbl4Position2Des.AutoSize = true;
+            this.lbl4Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position2Des.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position2Des.Location = new System.Drawing.Point(176, 112);
+            this.lbl4Position2Des.Name = "lbl4Position2Des";
+            this.lbl4Position2Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl4Position2Des.TabIndex = 396;
+            this.lbl4Position2Des.Text = "Floor";
+            // 
+            // lbl4Position2Source
+            // 
+            this.lbl4Position2Source.AutoSize = true;
+            this.lbl4Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position2Source.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position2Source.Location = new System.Drawing.Point(103, 112);
+            this.lbl4Position2Source.Name = "lbl4Position2Source";
+            this.lbl4Position2Source.Size = new System.Drawing.Size(73, 24);
+            this.lbl4Position2Source.TabIndex = 404;
+            this.lbl4Position2Source.Text = "Station";
+            // 
+            // lbl4Position1
+            // 
+            this.lbl4Position1.AutoSize = true;
+            this.lbl4Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position1.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position1.Location = new System.Drawing.Point(245, 56);
+            this.lbl4Position1.Name = "lbl4Position1";
+            this.lbl4Position1.Size = new System.Drawing.Size(103, 24);
+            this.lbl4Position1.TabIndex = 388;
+            this.lbl4Position1.Text = "Near Side";
+            // 
+            // lbl4Position3Value
+            // 
+            this.lbl4Position3Value.AutoSize = true;
+            this.lbl4Position3Value.BackColor = System.Drawing.Color.Red;
+            this.lbl4Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl4Position3Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl4Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl4Position3Value.Location = new System.Drawing.Point(72, 150);
+            this.lbl4Position3Value.Name = "lbl4Position3Value";
+            this.lbl4Position3Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl4Position3Value.TabIndex = 395;
+            this.lbl4Position3Value.Text = ".";
+            this.lbl4Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl4Position3
+            // 
+            this.lbl4Position3.AutoSize = true;
+            this.lbl4Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position3.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position3.Location = new System.Drawing.Point(2, 148);
+            this.lbl4Position3.Name = "lbl4Position3";
+            this.lbl4Position3.Size = new System.Drawing.Size(70, 24);
+            this.lbl4Position3.TabIndex = 394;
+            this.lbl4Position3.Text = "Algae:";
+            // 
+            // lbl4Position2Value
+            // 
+            this.lbl4Position2Value.AutoSize = true;
+            this.lbl4Position2Value.BackColor = System.Drawing.Color.Red;
+            this.lbl4Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl4Position2Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl4Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl4Position2Value.Location = new System.Drawing.Point(72, 109);
+            this.lbl4Position2Value.Name = "lbl4Position2Value";
+            this.lbl4Position2Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl4Position2Value.TabIndex = 392;
+            this.lbl4Position2Value.Text = ".";
+            this.lbl4Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl4Position2
+            // 
+            this.lbl4Position2.AutoSize = true;
+            this.lbl4Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4Position2.ForeColor = System.Drawing.Color.White;
+            this.lbl4Position2.Location = new System.Drawing.Point(2, 110);
+            this.lbl4Position2.Name = "lbl4Position2";
+            this.lbl4Position2.Size = new System.Drawing.Size(65, 24);
+            this.lbl4Position2.TabIndex = 391;
+            this.lbl4Position2.Text = "Coral:";
+            // 
+            // team4Divider
+            // 
+            this.team4Divider.BackColor = System.Drawing.Color.Blue;
+            this.team4Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team4Divider.Name = "team4Divider";
+            this.team4Divider.Size = new System.Drawing.Size(545, 11);
+            this.team4Divider.TabIndex = 389;
+            // 
+            // team4ModeDivider
+            // 
+            this.team4ModeDivider.BackColor = System.Drawing.Color.Blue;
+            this.team4ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team4ModeDivider.Name = "team4ModeDivider";
+            this.team4ModeDivider.Size = new System.Drawing.Size(545, 11);
+            this.team4ModeDivider.TabIndex = 390;
+            // 
+            // lbl4MatchEvent
+            // 
+            this.lbl4MatchEvent.AutoSize = true;
+            this.lbl4MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4MatchEvent.ForeColor = System.Drawing.Color.White;
+            this.lbl4MatchEvent.Location = new System.Drawing.Point(6, 325);
+            this.lbl4MatchEvent.Name = "lbl4MatchEvent";
+            this.lbl4MatchEvent.Size = new System.Drawing.Size(125, 24);
+            this.lbl4MatchEvent.TabIndex = 295;
+            this.lbl4MatchEvent.Text = "Match Event";
+            // 
+            // lbl4TeamName
+            // 
+            this.lbl4TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4TeamName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl4TeamName.Location = new System.Drawing.Point(323, 347);
+            this.lbl4TeamName.Name = "lbl4TeamName";
+            this.lbl4TeamName.Size = new System.Drawing.Size(159, 37);
+            this.lbl4TeamName.TabIndex = 294;
+            this.lbl4TeamName.Text = "Team 0";
+            this.lbl4TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl4ScoutName
+            // 
+            this.lbl4ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl4ScoutName.Location = new System.Drawing.Point(7, 359);
+            this.lbl4ScoutName.Name = "lbl4ScoutName";
+            this.lbl4ScoutName.Size = new System.Drawing.Size(158, 27);
+            this.lbl4ScoutName.TabIndex = 293;
+            this.lbl4ScoutName.Text = "Select Name";
+            this.lbl4ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl4ModeValue
+            // 
+            this.lbl4ModeValue.AutoSize = true;
+            this.lbl4ModeValue.BackColor = System.Drawing.Color.Black;
+            this.lbl4ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbl4ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lbl4ModeValue.Location = new System.Drawing.Point(1, 5);
+            this.lbl4ModeValue.Name = "lbl4ModeValue";
+            this.lbl4ModeValue.Size = new System.Drawing.Size(67, 29);
+            this.lbl4ModeValue.TabIndex = 292;
+            this.lbl4ModeValue.Text = "Auto:";
+            // 
+            // team4TeamDivider
+            // 
+            this.team4TeamDivider.BackColor = System.Drawing.Color.Blue;
+            this.team4TeamDivider.Location = new System.Drawing.Point(0, 307);
+            this.team4TeamDivider.Name = "team4TeamDivider";
+            this.team4TeamDivider.Size = new System.Drawing.Size(540, 11);
+            this.team4TeamDivider.TabIndex = 279;
+            // 
+            // team5
+            // 
+            this.team5.BackColor = System.Drawing.Color.Black;
+            this.team5.Controls.Add(this.lbl5Position0Value);
+            this.team5.Controls.Add(this.lbl5Position0);
+            this.team5.Controls.Add(this.lbl5Position12Value);
+            this.team5.Controls.Add(this.lbl5Position12);
+            this.team5.Controls.Add(this.lbl5Position11Value);
+            this.team5.Controls.Add(this.lbl5Position11);
+            this.team5.Controls.Add(this.lbl5Position8Value);
+            this.team5.Controls.Add(this.lbl5Position8);
+            this.team5.Controls.Add(this.lbl5Position7Value);
+            this.team5.Controls.Add(this.lbl5Position7);
+            this.team5.Controls.Add(this.lbl5Position5Value);
+            this.team5.Controls.Add(this.lbl5Position5);
+            this.team5.Controls.Add(this.lbl5Position4Value);
+            this.team5.Controls.Add(this.lbl5Position4);
+            this.team5.Controls.Add(this.lbl5Position3Des);
+            this.team5.Controls.Add(this.lbl5Position3Source);
+            this.team5.Controls.Add(this.lbl5Position2Des);
+            this.team5.Controls.Add(this.lbl5Position2Source);
+            this.team5.Controls.Add(this.lbl5Position1);
+            this.team5.Controls.Add(this.lbl5Position3Value);
+            this.team5.Controls.Add(this.lbl5Position3);
+            this.team5.Controls.Add(this.lbl5Position2Value);
+            this.team5.Controls.Add(this.lbl5Position2);
+            this.team5.Controls.Add(this.team5Divider);
+            this.team5.Controls.Add(this.team5ModeDivider);
+            this.team5.Controls.Add(this.lbl5MatchEvent);
+            this.team5.Controls.Add(this.lbl5TeamName);
+            this.team5.Controls.Add(this.lbl5ScoutName);
+            this.team5.Controls.Add(this.lbl5ModeValue);
+            this.team5.Controls.Add(this.team5TeamDivider);
+            this.team5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team5.Location = new System.Drawing.Point(1007, 3);
+            this.team5.Name = "team5";
+            this.team5.Size = new System.Drawing.Size(496, 399);
+            this.team5.TabIndex = 349;
+            // 
+            // lbl5Position0Value
+            // 
+            this.lbl5Position0Value.AutoSize = true;
+            this.lbl5Position0Value.BackColor = System.Drawing.Color.Red;
+            this.lbl5Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl5Position0Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl5Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl5Position0Value.Location = new System.Drawing.Point(72, 55);
+            this.lbl5Position0Value.Name = "lbl5Position0Value";
+            this.lbl5Position0Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl5Position0Value.TabIndex = 393;
+            this.lbl5Position0Value.Text = ".";
+            this.lbl5Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl5Position0
+            // 
+            this.lbl5Position0.AutoSize = true;
+            this.lbl5Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position0.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position0.Location = new System.Drawing.Point(2, 55);
+            this.lbl5Position0.Name = "lbl5Position0";
+            this.lbl5Position0.Size = new System.Drawing.Size(66, 24);
+            this.lbl5Position0.TabIndex = 387;
+            this.lbl5Position0.Text = "Leave";
+            // 
+            // lbl5Position12Value
+            // 
+            this.lbl5Position12Value.AutoSize = true;
+            this.lbl5Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position12Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position12Value.Location = new System.Drawing.Point(52, 273);
+            this.lbl5Position12Value.Name = "lbl5Position12Value";
+            this.lbl5Position12Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position12Value.TabIndex = 411;
+            this.lbl5Position12Value.Text = "9";
+            // 
+            // lbl5Position12
+            // 
+            this.lbl5Position12.AutoSize = true;
+            this.lbl5Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position12.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position12.Location = new System.Drawing.Point(2, 272);
+            this.lbl5Position12.Name = "lbl5Position12";
+            this.lbl5Position12.Size = new System.Drawing.Size(57, 24);
+            this.lbl5Position12.TabIndex = 410;
+            this.lbl5Position12.Text = "Strat:";
+            // 
+            // lbl5Position11Value
+            // 
+            this.lbl5Position11Value.AutoSize = true;
+            this.lbl5Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position11Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position11Value.Location = new System.Drawing.Point(90, 245);
+            this.lbl5Position11Value.Name = "lbl5Position11Value";
+            this.lbl5Position11Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position11Value.TabIndex = 409;
+            this.lbl5Position11Value.Text = "9";
+            // 
+            // lbl5Position11
+            // 
+            this.lbl5Position11.AutoSize = true;
+            this.lbl5Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position11.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position11.Location = new System.Drawing.Point(2, 245);
+            this.lbl5Position11.Name = "lbl5Position11";
+            this.lbl5Position11.Size = new System.Drawing.Size(86, 24);
+            this.lbl5Position11.TabIndex = 408;
+            this.lbl5Position11.Text = "Attempt:";
+            // 
+            // lbl5Position8Value
+            // 
+            this.lbl5Position8Value.AutoSize = true;
+            this.lbl5Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position8Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position8Value.Location = new System.Drawing.Point(379, 228);
+            this.lbl5Position8Value.Name = "lbl5Position8Value";
+            this.lbl5Position8Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position8Value.TabIndex = 403;
+            this.lbl5Position8Value.Text = "9";
+            // 
+            // lbl5Position8
+            // 
+            this.lbl5Position8.AutoSize = true;
+            this.lbl5Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position8.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position8.Location = new System.Drawing.Point(315, 227);
+            this.lbl5Position8.Name = "lbl5Position8";
+            this.lbl5Position8.Size = new System.Drawing.Size(69, 24);
+            this.lbl5Position8.TabIndex = 402;
+            this.lbl5Position8.Text = "Avoid:";
+            // 
+            // lbl5Position7Value
+            // 
+            this.lbl5Position7Value.AutoSize = true;
+            this.lbl5Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position7Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position7Value.Location = new System.Drawing.Point(316, 274);
+            this.lbl5Position7Value.Name = "lbl5Position7Value";
+            this.lbl5Position7Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position7Value.TabIndex = 407;
+            this.lbl5Position7Value.Text = "9";
+            // 
+            // lbl5Position7
+            // 
+            this.lbl5Position7.AutoSize = true;
+            this.lbl5Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position7.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position7.Location = new System.Drawing.Point(281, 273);
+            this.lbl5Position7.Name = "lbl5Position7";
+            this.lbl5Position7.Size = new System.Drawing.Size(40, 24);
+            this.lbl5Position7.TabIndex = 406;
+            this.lbl5Position7.Text = "Eff:";
+            // 
+            // lbl5Position5Value
+            // 
+            this.lbl5Position5Value.AutoSize = true;
+            this.lbl5Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position5Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position5Value.Location = new System.Drawing.Point(215, 226);
+            this.lbl5Position5Value.Name = "lbl5Position5Value";
+            this.lbl5Position5Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position5Value.TabIndex = 401;
+            this.lbl5Position5Value.Text = "9";
+            this.lbl5Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl5Position5
+            // 
+            this.lbl5Position5.AutoSize = true;
+            this.lbl5Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position5.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position5.Location = new System.Drawing.Point(169, 226);
+            this.lbl5Position5.Name = "lbl5Position5";
+            this.lbl5Position5.Size = new System.Drawing.Size(47, 24);
+            this.lbl5Position5.TabIndex = 400;
+            this.lbl5Position5.Text = "Def:";
+            this.lbl5Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl5Position4Value
+            // 
+            this.lbl5Position4Value.AutoSize = true;
+            this.lbl5Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position4Value.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position4Value.Location = new System.Drawing.Point(345, 178);
+            this.lbl5Position4Value.Name = "lbl5Position4Value";
+            this.lbl5Position4Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl5Position4Value.TabIndex = 399;
+            this.lbl5Position4Value.Text = "9";
+            // 
+            // lbl5Position4
+            // 
+            this.lbl5Position4.AutoSize = true;
+            this.lbl5Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position4.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position4.Location = new System.Drawing.Point(243, 177);
+            this.lbl5Position4.Name = "lbl5Position4";
+            this.lbl5Position4.Size = new System.Drawing.Size(106, 24);
+            this.lbl5Position4.TabIndex = 398;
+            this.lbl5Position4.Text = "End State:";
+            // 
+            // lbl5Position3Des
+            // 
+            this.lbl5Position3Des.AutoSize = true;
+            this.lbl5Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position3Des.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position3Des.Location = new System.Drawing.Point(176, 150);
+            this.lbl5Position3Des.Name = "lbl5Position3Des";
+            this.lbl5Position3Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl5Position3Des.TabIndex = 397;
+            this.lbl5Position3Des.Text = "Floor";
+            // 
+            // lbl5Position3Source
+            // 
+            this.lbl5Position3Source.AutoSize = true;
+            this.lbl5Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position3Source.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position3Source.Location = new System.Drawing.Point(103, 150);
+            this.lbl5Position3Source.Name = "lbl5Position3Source";
+            this.lbl5Position3Source.Size = new System.Drawing.Size(59, 24);
+            this.lbl5Position3Source.TabIndex = 405;
+            this.lbl5Position3Source.Text = "Floor";
+            // 
+            // lbl5Position2Des
+            // 
+            this.lbl5Position2Des.AutoSize = true;
+            this.lbl5Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position2Des.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position2Des.Location = new System.Drawing.Point(176, 112);
+            this.lbl5Position2Des.Name = "lbl5Position2Des";
+            this.lbl5Position2Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl5Position2Des.TabIndex = 396;
+            this.lbl5Position2Des.Text = "Floor";
+            // 
+            // lbl5Position2Source
+            // 
+            this.lbl5Position2Source.AutoSize = true;
+            this.lbl5Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position2Source.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position2Source.Location = new System.Drawing.Point(103, 112);
+            this.lbl5Position2Source.Name = "lbl5Position2Source";
+            this.lbl5Position2Source.Size = new System.Drawing.Size(73, 24);
+            this.lbl5Position2Source.TabIndex = 404;
+            this.lbl5Position2Source.Text = "Station";
+            // 
+            // lbl5Position1
+            // 
+            this.lbl5Position1.AutoSize = true;
+            this.lbl5Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position1.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position1.Location = new System.Drawing.Point(245, 56);
+            this.lbl5Position1.Name = "lbl5Position1";
+            this.lbl5Position1.Size = new System.Drawing.Size(103, 24);
+            this.lbl5Position1.TabIndex = 388;
+            this.lbl5Position1.Text = "Near Side";
+            // 
+            // lbl5Position3Value
+            // 
+            this.lbl5Position3Value.AutoSize = true;
+            this.lbl5Position3Value.BackColor = System.Drawing.Color.Red;
+            this.lbl5Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl5Position3Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl5Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl5Position3Value.Location = new System.Drawing.Point(72, 150);
+            this.lbl5Position3Value.Name = "lbl5Position3Value";
+            this.lbl5Position3Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl5Position3Value.TabIndex = 395;
+            this.lbl5Position3Value.Text = ".";
+            this.lbl5Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl5Position3
+            // 
+            this.lbl5Position3.AutoSize = true;
+            this.lbl5Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position3.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position3.Location = new System.Drawing.Point(2, 148);
+            this.lbl5Position3.Name = "lbl5Position3";
+            this.lbl5Position3.Size = new System.Drawing.Size(70, 24);
+            this.lbl5Position3.TabIndex = 394;
+            this.lbl5Position3.Text = "Algae:";
+            // 
+            // lbl5Position2Value
+            // 
+            this.lbl5Position2Value.AutoSize = true;
+            this.lbl5Position2Value.BackColor = System.Drawing.Color.Red;
+            this.lbl5Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl5Position2Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl5Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl5Position2Value.Location = new System.Drawing.Point(72, 109);
+            this.lbl5Position2Value.Name = "lbl5Position2Value";
+            this.lbl5Position2Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl5Position2Value.TabIndex = 392;
+            this.lbl5Position2Value.Text = ".";
+            this.lbl5Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl5Position2
+            // 
+            this.lbl5Position2.AutoSize = true;
+            this.lbl5Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5Position2.ForeColor = System.Drawing.Color.White;
+            this.lbl5Position2.Location = new System.Drawing.Point(2, 110);
+            this.lbl5Position2.Name = "lbl5Position2";
+            this.lbl5Position2.Size = new System.Drawing.Size(65, 24);
+            this.lbl5Position2.TabIndex = 391;
+            this.lbl5Position2.Text = "Coral:";
+            // 
+            // team5Divider
+            // 
+            this.team5Divider.BackColor = System.Drawing.Color.Blue;
+            this.team5Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team5Divider.Name = "team5Divider";
+            this.team5Divider.Size = new System.Drawing.Size(545, 11);
+            this.team5Divider.TabIndex = 389;
+            // 
+            // team5ModeDivider
+            // 
+            this.team5ModeDivider.BackColor = System.Drawing.Color.Blue;
+            this.team5ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team5ModeDivider.Name = "team5ModeDivider";
+            this.team5ModeDivider.Size = new System.Drawing.Size(545, 11);
+            this.team5ModeDivider.TabIndex = 390;
+            // 
+            // lbl5MatchEvent
+            // 
+            this.lbl5MatchEvent.AutoSize = true;
+            this.lbl5MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5MatchEvent.ForeColor = System.Drawing.Color.White;
+            this.lbl5MatchEvent.Location = new System.Drawing.Point(7, 325);
+            this.lbl5MatchEvent.Name = "lbl5MatchEvent";
+            this.lbl5MatchEvent.Size = new System.Drawing.Size(125, 24);
+            this.lbl5MatchEvent.TabIndex = 295;
+            this.lbl5MatchEvent.Text = "Match Event";
+            // 
+            // lbl5TeamName
+            // 
+            this.lbl5TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5TeamName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl5TeamName.Location = new System.Drawing.Point(323, 347);
+            this.lbl5TeamName.Name = "lbl5TeamName";
+            this.lbl5TeamName.Size = new System.Drawing.Size(159, 37);
+            this.lbl5TeamName.TabIndex = 294;
+            this.lbl5TeamName.Text = "Team 0";
+            this.lbl5TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl5ScoutName
+            // 
+            this.lbl5ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl5ScoutName.Location = new System.Drawing.Point(7, 359);
+            this.lbl5ScoutName.Name = "lbl5ScoutName";
+            this.lbl5ScoutName.Size = new System.Drawing.Size(158, 27);
+            this.lbl5ScoutName.TabIndex = 293;
+            this.lbl5ScoutName.Text = "Select Name";
+            this.lbl5ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl5ModeValue
+            // 
+            this.lbl5ModeValue.AutoSize = true;
+            this.lbl5ModeValue.BackColor = System.Drawing.Color.Black;
+            this.lbl5ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbl5ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lbl5ModeValue.Location = new System.Drawing.Point(2, 4);
+            this.lbl5ModeValue.Name = "lbl5ModeValue";
+            this.lbl5ModeValue.Size = new System.Drawing.Size(67, 29);
+            this.lbl5ModeValue.TabIndex = 292;
+            this.lbl5ModeValue.Text = "Auto:";
+            // 
+            // team5TeamDivider
+            // 
+            this.team5TeamDivider.BackColor = System.Drawing.Color.Blue;
+            this.team5TeamDivider.Location = new System.Drawing.Point(0, 307);
+            this.team5TeamDivider.Name = "team5TeamDivider";
+            this.team5TeamDivider.Size = new System.Drawing.Size(540, 11);
+            this.team5TeamDivider.TabIndex = 279;
             // 
             // redTeams
             // 
             this.redTeams.BackColor = System.Drawing.Color.Red;
-            this.redTeams.Controls.Add(this.team2);
-            this.redTeams.Controls.Add(this.team1);
-            this.redTeams.Controls.Add(this.team0TeamDivider);
-            this.redTeams.Controls.Add(this.team0);
+            this.redTeams.ColumnCount = 3;
+            this.redTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.redTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.redTeams.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.redTeams.Controls.Add(this.team0, 0, 0);
+            this.redTeams.Controls.Add(this.team1, 1, 0);
+            this.redTeams.Controls.Add(this.team2, 2, 0);
             this.redTeams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.redTeams.Location = new System.Drawing.Point(3, 53);
             this.redTeams.Name = "redTeams";
+            this.redTeams.RowCount = 1;
+            this.redTeams.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.redTeams.Size = new System.Drawing.Size(1506, 405);
-            this.redTeams.TabIndex = 299;
-            // 
-            // team2
-            // 
-            this.team2.BackColor = System.Drawing.Color.Black;
-            this.team2.Controls.Add(this.lbl2Position0Value);
-            this.team2.Controls.Add(this.lbl2Position0);
-            this.team2.Controls.Add(this.lbl2Position12Value);
-            this.team2.Controls.Add(this.lbl2Position12);
-            this.team2.Controls.Add(this.lbl2Position11Value);
-            this.team2.Controls.Add(this.lbl2Position11);
-            this.team2.Controls.Add(this.lbl2Position8Value);
-            this.team2.Controls.Add(this.lbl2Position8);
-            this.team2.Controls.Add(this.lbl2Position7Value);
-            this.team2.Controls.Add(this.lbl2Position7);
-            this.team2.Controls.Add(this.lbl2Position5Value);
-            this.team2.Controls.Add(this.lbl2Position5);
-            this.team2.Controls.Add(this.lbl2Position4Value);
-            this.team2.Controls.Add(this.lbl2Position4);
-            this.team2.Controls.Add(this.lbl2Position3Des);
-            this.team2.Controls.Add(this.lbl2Position3Source);
-            this.team2.Controls.Add(this.lbl2Position2Des);
-            this.team2.Controls.Add(this.lbl2Position2Source);
-            this.team2.Controls.Add(this.lbl2Position1);
-            this.team2.Controls.Add(this.lbl2Position3Value);
-            this.team2.Controls.Add(this.lbl2Position3);
-            this.team2.Controls.Add(this.lbl2Position2Value);
-            this.team2.Controls.Add(this.lbl2Position2);
-            this.team2.Controls.Add(this.team2Divider);
-            this.team2.Controls.Add(this.team2ModeDivider);
-            this.team2.Controls.Add(this.team2TeamDivider);
-            this.team2.Controls.Add(this.lbl2MatchEvent);
-            this.team2.Controls.Add(this.lbl2TeamName);
-            this.team2.Controls.Add(this.lbl2ScoutName);
-            this.team2.Controls.Add(this.lbl2ModeValue);
-            this.team2.Location = new System.Drawing.Point(991, 3);
-            this.team2.Name = "team2";
-            this.team2.Size = new System.Drawing.Size(484, 394);
-            this.team2.TabIndex = 347;
-            // 
-            // lbl2Position0Value
-            // 
-            this.lbl2Position0Value.AutoSize = true;
-            this.lbl2Position0Value.BackColor = System.Drawing.Color.Red;
-            this.lbl2Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl2Position0Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl2Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl2Position0Value.Location = new System.Drawing.Point(72, 56);
-            this.lbl2Position0Value.Name = "lbl2Position0Value";
-            this.lbl2Position0Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl2Position0Value.TabIndex = 393;
-            this.lbl2Position0Value.Text = ".";
-            this.lbl2Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl2Position0
-            // 
-            this.lbl2Position0.AutoSize = true;
-            this.lbl2Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position0.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position0.Location = new System.Drawing.Point(2, 56);
-            this.lbl2Position0.Name = "lbl2Position0";
-            this.lbl2Position0.Size = new System.Drawing.Size(66, 24);
-            this.lbl2Position0.TabIndex = 387;
-            this.lbl2Position0.Text = "Leave";
-            // 
-            // lbl2Position12Value
-            // 
-            this.lbl2Position12Value.AutoSize = true;
-            this.lbl2Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position12Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position12Value.Location = new System.Drawing.Point(52, 274);
-            this.lbl2Position12Value.Name = "lbl2Position12Value";
-            this.lbl2Position12Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position12Value.TabIndex = 411;
-            this.lbl2Position12Value.Text = "9";
-            // 
-            // lbl2Position12
-            // 
-            this.lbl2Position12.AutoSize = true;
-            this.lbl2Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position12.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position12.Location = new System.Drawing.Point(2, 273);
-            this.lbl2Position12.Name = "lbl2Position12";
-            this.lbl2Position12.Size = new System.Drawing.Size(57, 24);
-            this.lbl2Position12.TabIndex = 410;
-            this.lbl2Position12.Text = "Strat:";
-            // 
-            // lbl2Position11Value
-            // 
-            this.lbl2Position11Value.AutoSize = true;
-            this.lbl2Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position11Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position11Value.Location = new System.Drawing.Point(90, 246);
-            this.lbl2Position11Value.Name = "lbl2Position11Value";
-            this.lbl2Position11Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position11Value.TabIndex = 409;
-            this.lbl2Position11Value.Text = "9";
-            // 
-            // lbl2Position11
-            // 
-            this.lbl2Position11.AutoSize = true;
-            this.lbl2Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position11.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position11.Location = new System.Drawing.Point(2, 246);
-            this.lbl2Position11.Name = "lbl2Position11";
-            this.lbl2Position11.Size = new System.Drawing.Size(86, 24);
-            this.lbl2Position11.TabIndex = 408;
-            this.lbl2Position11.Text = "Attempt:";
-            // 
-            // lbl2Position8Value
-            // 
-            this.lbl2Position8Value.AutoSize = true;
-            this.lbl2Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position8Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position8Value.Location = new System.Drawing.Point(379, 229);
-            this.lbl2Position8Value.Name = "lbl2Position8Value";
-            this.lbl2Position8Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position8Value.TabIndex = 403;
-            this.lbl2Position8Value.Text = "9";
-            // 
-            // lbl2Position8
-            // 
-            this.lbl2Position8.AutoSize = true;
-            this.lbl2Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position8.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position8.Location = new System.Drawing.Point(315, 228);
-            this.lbl2Position8.Name = "lbl2Position8";
-            this.lbl2Position8.Size = new System.Drawing.Size(69, 24);
-            this.lbl2Position8.TabIndex = 402;
-            this.lbl2Position8.Text = "Avoid:";
-            // 
-            // lbl2Position7Value
-            // 
-            this.lbl2Position7Value.AutoSize = true;
-            this.lbl2Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position7Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position7Value.Location = new System.Drawing.Point(316, 275);
-            this.lbl2Position7Value.Name = "lbl2Position7Value";
-            this.lbl2Position7Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position7Value.TabIndex = 407;
-            this.lbl2Position7Value.Text = "9";
-            // 
-            // lbl2Position7
-            // 
-            this.lbl2Position7.AutoSize = true;
-            this.lbl2Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position7.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position7.Location = new System.Drawing.Point(281, 274);
-            this.lbl2Position7.Name = "lbl2Position7";
-            this.lbl2Position7.Size = new System.Drawing.Size(40, 24);
-            this.lbl2Position7.TabIndex = 406;
-            this.lbl2Position7.Text = "Eff:";
-            // 
-            // lbl2Position5Value
-            // 
-            this.lbl2Position5Value.AutoSize = true;
-            this.lbl2Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position5Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position5Value.Location = new System.Drawing.Point(215, 227);
-            this.lbl2Position5Value.Name = "lbl2Position5Value";
-            this.lbl2Position5Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position5Value.TabIndex = 401;
-            this.lbl2Position5Value.Text = "9";
-            this.lbl2Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl2Position5
-            // 
-            this.lbl2Position5.AutoSize = true;
-            this.lbl2Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position5.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position5.Location = new System.Drawing.Point(169, 227);
-            this.lbl2Position5.Name = "lbl2Position5";
-            this.lbl2Position5.Size = new System.Drawing.Size(47, 24);
-            this.lbl2Position5.TabIndex = 400;
-            this.lbl2Position5.Text = "Def:";
-            this.lbl2Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl2Position4Value
-            // 
-            this.lbl2Position4Value.AutoSize = true;
-            this.lbl2Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position4Value.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position4Value.Location = new System.Drawing.Point(345, 179);
-            this.lbl2Position4Value.Name = "lbl2Position4Value";
-            this.lbl2Position4Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl2Position4Value.TabIndex = 399;
-            this.lbl2Position4Value.Text = "9";
-            // 
-            // lbl2Position4
-            // 
-            this.lbl2Position4.AutoSize = true;
-            this.lbl2Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position4.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position4.Location = new System.Drawing.Point(243, 178);
-            this.lbl2Position4.Name = "lbl2Position4";
-            this.lbl2Position4.Size = new System.Drawing.Size(106, 24);
-            this.lbl2Position4.TabIndex = 398;
-            this.lbl2Position4.Text = "End State:";
-            // 
-            // lbl2Position3Des
-            // 
-            this.lbl2Position3Des.AutoSize = true;
-            this.lbl2Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position3Des.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position3Des.Location = new System.Drawing.Point(176, 151);
-            this.lbl2Position3Des.Name = "lbl2Position3Des";
-            this.lbl2Position3Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl2Position3Des.TabIndex = 397;
-            this.lbl2Position3Des.Text = "Floor";
-            // 
-            // lbl2Position3Source
-            // 
-            this.lbl2Position3Source.AutoSize = true;
-            this.lbl2Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position3Source.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position3Source.Location = new System.Drawing.Point(103, 151);
-            this.lbl2Position3Source.Name = "lbl2Position3Source";
-            this.lbl2Position3Source.Size = new System.Drawing.Size(59, 24);
-            this.lbl2Position3Source.TabIndex = 405;
-            this.lbl2Position3Source.Text = "Floor";
-            // 
-            // lbl2Position2Des
-            // 
-            this.lbl2Position2Des.AutoSize = true;
-            this.lbl2Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position2Des.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position2Des.Location = new System.Drawing.Point(176, 113);
-            this.lbl2Position2Des.Name = "lbl2Position2Des";
-            this.lbl2Position2Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl2Position2Des.TabIndex = 396;
-            this.lbl2Position2Des.Text = "Floor";
-            // 
-            // lbl2Position2Source
-            // 
-            this.lbl2Position2Source.AutoSize = true;
-            this.lbl2Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position2Source.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position2Source.Location = new System.Drawing.Point(103, 113);
-            this.lbl2Position2Source.Name = "lbl2Position2Source";
-            this.lbl2Position2Source.Size = new System.Drawing.Size(73, 24);
-            this.lbl2Position2Source.TabIndex = 404;
-            this.lbl2Position2Source.Text = "Station";
-            // 
-            // lbl2Position1
-            // 
-            this.lbl2Position1.AutoSize = true;
-            this.lbl2Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position1.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position1.Location = new System.Drawing.Point(245, 57);
-            this.lbl2Position1.Name = "lbl2Position1";
-            this.lbl2Position1.Size = new System.Drawing.Size(103, 24);
-            this.lbl2Position1.TabIndex = 388;
-            this.lbl2Position1.Text = "Near Side";
-            // 
-            // lbl2Position3Value
-            // 
-            this.lbl2Position3Value.AutoSize = true;
-            this.lbl2Position3Value.BackColor = System.Drawing.Color.Red;
-            this.lbl2Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl2Position3Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl2Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl2Position3Value.Location = new System.Drawing.Point(72, 151);
-            this.lbl2Position3Value.Name = "lbl2Position3Value";
-            this.lbl2Position3Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl2Position3Value.TabIndex = 395;
-            this.lbl2Position3Value.Text = ".";
-            this.lbl2Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl2Position3
-            // 
-            this.lbl2Position3.AutoSize = true;
-            this.lbl2Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position3.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position3.Location = new System.Drawing.Point(2, 149);
-            this.lbl2Position3.Name = "lbl2Position3";
-            this.lbl2Position3.Size = new System.Drawing.Size(70, 24);
-            this.lbl2Position3.TabIndex = 394;
-            this.lbl2Position3.Text = "Algae:";
-            // 
-            // lbl2Position2Value
-            // 
-            this.lbl2Position2Value.AutoSize = true;
-            this.lbl2Position2Value.BackColor = System.Drawing.Color.Red;
-            this.lbl2Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl2Position2Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl2Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl2Position2Value.Location = new System.Drawing.Point(72, 110);
-            this.lbl2Position2Value.Name = "lbl2Position2Value";
-            this.lbl2Position2Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl2Position2Value.TabIndex = 392;
-            this.lbl2Position2Value.Text = ".";
-            this.lbl2Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl2Position2
-            // 
-            this.lbl2Position2.AutoSize = true;
-            this.lbl2Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2Position2.ForeColor = System.Drawing.Color.White;
-            this.lbl2Position2.Location = new System.Drawing.Point(2, 111);
-            this.lbl2Position2.Name = "lbl2Position2";
-            this.lbl2Position2.Size = new System.Drawing.Size(65, 24);
-            this.lbl2Position2.TabIndex = 391;
-            this.lbl2Position2.Text = "Coral:";
-            // 
-            // team2Divider
-            // 
-            this.team2Divider.BackColor = System.Drawing.Color.Red;
-            this.team2Divider.Location = new System.Drawing.Point(-5, 89);
-            this.team2Divider.Name = "team2Divider";
-            this.team2Divider.Size = new System.Drawing.Size(494, 11);
-            this.team2Divider.TabIndex = 389;
-            // 
-            // team2ModeDivider
-            // 
-            this.team2ModeDivider.BackColor = System.Drawing.Color.Red;
-            this.team2ModeDivider.Location = new System.Drawing.Point(-5, 41);
-            this.team2ModeDivider.Name = "team2ModeDivider";
-            this.team2ModeDivider.Size = new System.Drawing.Size(494, 11);
-            this.team2ModeDivider.TabIndex = 390;
-            // 
-            // team2TeamDivider
-            // 
-            this.team2TeamDivider.BackColor = System.Drawing.Color.Red;
-            this.team2TeamDivider.Location = new System.Drawing.Point(0, 314);
-            this.team2TeamDivider.Name = "team2TeamDivider";
-            this.team2TeamDivider.Size = new System.Drawing.Size(491, 11);
-            this.team2TeamDivider.TabIndex = 279;
-            // 
-            // lbl2MatchEvent
-            // 
-            this.lbl2MatchEvent.AutoSize = true;
-            this.lbl2MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2MatchEvent.ForeColor = System.Drawing.Color.White;
-            this.lbl2MatchEvent.Location = new System.Drawing.Point(6, 328);
-            this.lbl2MatchEvent.Name = "lbl2MatchEvent";
-            this.lbl2MatchEvent.Size = new System.Drawing.Size(125, 24);
-            this.lbl2MatchEvent.TabIndex = 291;
-            this.lbl2MatchEvent.Text = "Match Event";
-            // 
-            // lbl2TeamName
-            // 
-            this.lbl2TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2TeamName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl2TeamName.Location = new System.Drawing.Point(323, 347);
-            this.lbl2TeamName.Name = "lbl2TeamName";
-            this.lbl2TeamName.Size = new System.Drawing.Size(159, 37);
-            this.lbl2TeamName.TabIndex = 294;
-            this.lbl2TeamName.Text = "Team 0";
-            this.lbl2TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl2ScoutName
-            // 
-            this.lbl2ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl2ScoutName.Location = new System.Drawing.Point(7, 359);
-            this.lbl2ScoutName.Name = "lbl2ScoutName";
-            this.lbl2ScoutName.Size = new System.Drawing.Size(158, 27);
-            this.lbl2ScoutName.TabIndex = 293;
-            this.lbl2ScoutName.Text = "Select Name";
-            this.lbl2ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl2ModeValue
-            // 
-            this.lbl2ModeValue.AutoSize = true;
-            this.lbl2ModeValue.BackColor = System.Drawing.Color.Black;
-            this.lbl2ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lbl2ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbl2ModeValue.Location = new System.Drawing.Point(1, 3);
-            this.lbl2ModeValue.Name = "lbl2ModeValue";
-            this.lbl2ModeValue.Size = new System.Drawing.Size(67, 29);
-            this.lbl2ModeValue.TabIndex = 2;
-            this.lbl2ModeValue.Text = "Auto:";
-            // 
-            // team1
-            // 
-            this.team1.BackColor = System.Drawing.Color.Black;
-            this.team1.Controls.Add(this.lbl1Position0Value);
-            this.team1.Controls.Add(this.lbl1Position0);
-            this.team1.Controls.Add(this.lbl1Position12Value);
-            this.team1.Controls.Add(this.lbl1Position12);
-            this.team1.Controls.Add(this.lbl1Position11Value);
-            this.team1.Controls.Add(this.lbl1Position11);
-            this.team1.Controls.Add(this.lbl1Position8Value);
-            this.team1.Controls.Add(this.lbl1Position8);
-            this.team1.Controls.Add(this.lbl1Position7Value);
-            this.team1.Controls.Add(this.lbl1Position7);
-            this.team1.Controls.Add(this.lbl1Position5Value);
-            this.team1.Controls.Add(this.lbl1Position5);
-            this.team1.Controls.Add(this.lbl1Position4Value);
-            this.team1.Controls.Add(this.lbl1Position4);
-            this.team1.Controls.Add(this.lbl1Position3Des);
-            this.team1.Controls.Add(this.lbl1Position3Source);
-            this.team1.Controls.Add(this.lbl1Position2Des);
-            this.team1.Controls.Add(this.lbl1Position2Source);
-            this.team1.Controls.Add(this.lbl1Position1);
-            this.team1.Controls.Add(this.lbl1Position3Value);
-            this.team1.Controls.Add(this.lbl1Position3);
-            this.team1.Controls.Add(this.lbl1Position2Value);
-            this.team1.Controls.Add(this.lbl1Position2);
-            this.team1.Controls.Add(this.team1Divider);
-            this.team1.Controls.Add(this.team1ModeDivider);
-            this.team1.Controls.Add(this.team1TeamDivider);
-            this.team1.Controls.Add(this.lbl1MatchEvent);
-            this.team1.Controls.Add(this.lbl1TeamName);
-            this.team1.Controls.Add(this.lbl1ScoutName);
-            this.team1.Controls.Add(this.lbl1ModeValue);
-            this.team1.Location = new System.Drawing.Point(499, 3);
-            this.team1.Name = "team1";
-            this.team1.Size = new System.Drawing.Size(484, 394);
-            this.team1.TabIndex = 280;
-            // 
-            // lbl1Position0Value
-            // 
-            this.lbl1Position0Value.AutoSize = true;
-            this.lbl1Position0Value.BackColor = System.Drawing.Color.Red;
-            this.lbl1Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl1Position0Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl1Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl1Position0Value.Location = new System.Drawing.Point(72, 55);
-            this.lbl1Position0Value.Name = "lbl1Position0Value";
-            this.lbl1Position0Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl1Position0Value.TabIndex = 393;
-            this.lbl1Position0Value.Text = ".";
-            this.lbl1Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1Position0
-            // 
-            this.lbl1Position0.AutoSize = true;
-            this.lbl1Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position0.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position0.Location = new System.Drawing.Point(2, 55);
-            this.lbl1Position0.Name = "lbl1Position0";
-            this.lbl1Position0.Size = new System.Drawing.Size(66, 24);
-            this.lbl1Position0.TabIndex = 387;
-            this.lbl1Position0.Text = "Leave";
-            // 
-            // lbl1Position12Value
-            // 
-            this.lbl1Position12Value.AutoSize = true;
-            this.lbl1Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position12Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position12Value.Location = new System.Drawing.Point(52, 273);
-            this.lbl1Position12Value.Name = "lbl1Position12Value";
-            this.lbl1Position12Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position12Value.TabIndex = 411;
-            this.lbl1Position12Value.Text = "9";
-            // 
-            // lbl1Position12
-            // 
-            this.lbl1Position12.AutoSize = true;
-            this.lbl1Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position12.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position12.Location = new System.Drawing.Point(2, 272);
-            this.lbl1Position12.Name = "lbl1Position12";
-            this.lbl1Position12.Size = new System.Drawing.Size(57, 24);
-            this.lbl1Position12.TabIndex = 410;
-            this.lbl1Position12.Text = "Strat:";
-            // 
-            // lbl1Position11Value
-            // 
-            this.lbl1Position11Value.AutoSize = true;
-            this.lbl1Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position11Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position11Value.Location = new System.Drawing.Point(90, 245);
-            this.lbl1Position11Value.Name = "lbl1Position11Value";
-            this.lbl1Position11Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position11Value.TabIndex = 409;
-            this.lbl1Position11Value.Text = "9";
-            // 
-            // lbl1Position11
-            // 
-            this.lbl1Position11.AutoSize = true;
-            this.lbl1Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position11.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position11.Location = new System.Drawing.Point(2, 245);
-            this.lbl1Position11.Name = "lbl1Position11";
-            this.lbl1Position11.Size = new System.Drawing.Size(86, 24);
-            this.lbl1Position11.TabIndex = 408;
-            this.lbl1Position11.Text = "Attempt:";
-            // 
-            // lbl1Position8Value
-            // 
-            this.lbl1Position8Value.AutoSize = true;
-            this.lbl1Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position8Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position8Value.Location = new System.Drawing.Point(379, 228);
-            this.lbl1Position8Value.Name = "lbl1Position8Value";
-            this.lbl1Position8Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position8Value.TabIndex = 403;
-            this.lbl1Position8Value.Text = "9";
-            // 
-            // lbl1Position8
-            // 
-            this.lbl1Position8.AutoSize = true;
-            this.lbl1Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position8.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position8.Location = new System.Drawing.Point(315, 227);
-            this.lbl1Position8.Name = "lbl1Position8";
-            this.lbl1Position8.Size = new System.Drawing.Size(69, 24);
-            this.lbl1Position8.TabIndex = 402;
-            this.lbl1Position8.Text = "Avoid:";
-            // 
-            // lbl1Position7Value
-            // 
-            this.lbl1Position7Value.AutoSize = true;
-            this.lbl1Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position7Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position7Value.Location = new System.Drawing.Point(316, 274);
-            this.lbl1Position7Value.Name = "lbl1Position7Value";
-            this.lbl1Position7Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position7Value.TabIndex = 407;
-            this.lbl1Position7Value.Text = "9";
-            // 
-            // lbl1Position7
-            // 
-            this.lbl1Position7.AutoSize = true;
-            this.lbl1Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position7.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position7.Location = new System.Drawing.Point(281, 273);
-            this.lbl1Position7.Name = "lbl1Position7";
-            this.lbl1Position7.Size = new System.Drawing.Size(40, 24);
-            this.lbl1Position7.TabIndex = 406;
-            this.lbl1Position7.Text = "Eff:";
-            // 
-            // lbl1Position5Value
-            // 
-            this.lbl1Position5Value.AutoSize = true;
-            this.lbl1Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position5Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position5Value.Location = new System.Drawing.Point(215, 226);
-            this.lbl1Position5Value.Name = "lbl1Position5Value";
-            this.lbl1Position5Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position5Value.TabIndex = 401;
-            this.lbl1Position5Value.Text = "9";
-            this.lbl1Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl1Position5
-            // 
-            this.lbl1Position5.AutoSize = true;
-            this.lbl1Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position5.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position5.Location = new System.Drawing.Point(169, 226);
-            this.lbl1Position5.Name = "lbl1Position5";
-            this.lbl1Position5.Size = new System.Drawing.Size(47, 24);
-            this.lbl1Position5.TabIndex = 400;
-            this.lbl1Position5.Text = "Def:";
-            this.lbl1Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1Position4Value
-            // 
-            this.lbl1Position4Value.AutoSize = true;
-            this.lbl1Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position4Value.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position4Value.Location = new System.Drawing.Point(345, 178);
-            this.lbl1Position4Value.Name = "lbl1Position4Value";
-            this.lbl1Position4Value.Size = new System.Drawing.Size(21, 24);
-            this.lbl1Position4Value.TabIndex = 399;
-            this.lbl1Position4Value.Text = "9";
-            // 
-            // lbl1Position4
-            // 
-            this.lbl1Position4.AutoSize = true;
-            this.lbl1Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position4.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position4.Location = new System.Drawing.Point(243, 177);
-            this.lbl1Position4.Name = "lbl1Position4";
-            this.lbl1Position4.Size = new System.Drawing.Size(106, 24);
-            this.lbl1Position4.TabIndex = 398;
-            this.lbl1Position4.Text = "End State:";
-            // 
-            // lbl1Position3Des
-            // 
-            this.lbl1Position3Des.AutoSize = true;
-            this.lbl1Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position3Des.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position3Des.Location = new System.Drawing.Point(176, 150);
-            this.lbl1Position3Des.Name = "lbl1Position3Des";
-            this.lbl1Position3Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl1Position3Des.TabIndex = 397;
-            this.lbl1Position3Des.Text = "Floor";
-            // 
-            // lbl1Position3Source
-            // 
-            this.lbl1Position3Source.AutoSize = true;
-            this.lbl1Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position3Source.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position3Source.Location = new System.Drawing.Point(103, 150);
-            this.lbl1Position3Source.Name = "lbl1Position3Source";
-            this.lbl1Position3Source.Size = new System.Drawing.Size(59, 24);
-            this.lbl1Position3Source.TabIndex = 405;
-            this.lbl1Position3Source.Text = "Floor";
-            // 
-            // lbl1Position2Des
-            // 
-            this.lbl1Position2Des.AutoSize = true;
-            this.lbl1Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position2Des.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position2Des.Location = new System.Drawing.Point(176, 112);
-            this.lbl1Position2Des.Name = "lbl1Position2Des";
-            this.lbl1Position2Des.Size = new System.Drawing.Size(59, 24);
-            this.lbl1Position2Des.TabIndex = 396;
-            this.lbl1Position2Des.Text = "Floor";
-            // 
-            // lbl1Position2Source
-            // 
-            this.lbl1Position2Source.AutoSize = true;
-            this.lbl1Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position2Source.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position2Source.Location = new System.Drawing.Point(103, 112);
-            this.lbl1Position2Source.Name = "lbl1Position2Source";
-            this.lbl1Position2Source.Size = new System.Drawing.Size(73, 24);
-            this.lbl1Position2Source.TabIndex = 404;
-            this.lbl1Position2Source.Text = "Station";
-            // 
-            // lbl1Position1
-            // 
-            this.lbl1Position1.AutoSize = true;
-            this.lbl1Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position1.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position1.Location = new System.Drawing.Point(245, 56);
-            this.lbl1Position1.Name = "lbl1Position1";
-            this.lbl1Position1.Size = new System.Drawing.Size(103, 24);
-            this.lbl1Position1.TabIndex = 388;
-            this.lbl1Position1.Text = "Near Side";
-            // 
-            // lbl1Position3Value
-            // 
-            this.lbl1Position3Value.AutoSize = true;
-            this.lbl1Position3Value.BackColor = System.Drawing.Color.Red;
-            this.lbl1Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl1Position3Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl1Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl1Position3Value.Location = new System.Drawing.Point(72, 150);
-            this.lbl1Position3Value.Name = "lbl1Position3Value";
-            this.lbl1Position3Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl1Position3Value.TabIndex = 395;
-            this.lbl1Position3Value.Text = ".";
-            this.lbl1Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1Position3
-            // 
-            this.lbl1Position3.AutoSize = true;
-            this.lbl1Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position3.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position3.Location = new System.Drawing.Point(2, 148);
-            this.lbl1Position3.Name = "lbl1Position3";
-            this.lbl1Position3.Size = new System.Drawing.Size(70, 24);
-            this.lbl1Position3.TabIndex = 394;
-            this.lbl1Position3.Text = "Algae:";
-            // 
-            // lbl1Position2Value
-            // 
-            this.lbl1Position2Value.AutoSize = true;
-            this.lbl1Position2Value.BackColor = System.Drawing.Color.Red;
-            this.lbl1Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lbl1Position2Value.ForeColor = System.Drawing.Color.Red;
-            this.lbl1Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbl1Position2Value.Location = new System.Drawing.Point(72, 109);
-            this.lbl1Position2Value.Name = "lbl1Position2Value";
-            this.lbl1Position2Value.Size = new System.Drawing.Size(16, 24);
-            this.lbl1Position2Value.TabIndex = 392;
-            this.lbl1Position2Value.Text = ".";
-            this.lbl1Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1Position2
-            // 
-            this.lbl1Position2.AutoSize = true;
-            this.lbl1Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1Position2.ForeColor = System.Drawing.Color.White;
-            this.lbl1Position2.Location = new System.Drawing.Point(2, 110);
-            this.lbl1Position2.Name = "lbl1Position2";
-            this.lbl1Position2.Size = new System.Drawing.Size(65, 24);
-            this.lbl1Position2.TabIndex = 391;
-            this.lbl1Position2.Text = "Coral:";
-            // 
-            // team1Divider
-            // 
-            this.team1Divider.BackColor = System.Drawing.Color.Red;
-            this.team1Divider.Location = new System.Drawing.Point(-5, 88);
-            this.team1Divider.Name = "team1Divider";
-            this.team1Divider.Size = new System.Drawing.Size(494, 11);
-            this.team1Divider.TabIndex = 389;
-            // 
-            // team1ModeDivider
-            // 
-            this.team1ModeDivider.BackColor = System.Drawing.Color.Red;
-            this.team1ModeDivider.Location = new System.Drawing.Point(-5, 40);
-            this.team1ModeDivider.Name = "team1ModeDivider";
-            this.team1ModeDivider.Size = new System.Drawing.Size(494, 11);
-            this.team1ModeDivider.TabIndex = 390;
-            // 
-            // team1TeamDivider
-            // 
-            this.team1TeamDivider.BackColor = System.Drawing.Color.Red;
-            this.team1TeamDivider.Location = new System.Drawing.Point(0, 314);
-            this.team1TeamDivider.Name = "team1TeamDivider";
-            this.team1TeamDivider.Size = new System.Drawing.Size(486, 11);
-            this.team1TeamDivider.TabIndex = 279;
-            // 
-            // lbl1MatchEvent
-            // 
-            this.lbl1MatchEvent.AutoSize = true;
-            this.lbl1MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1MatchEvent.ForeColor = System.Drawing.Color.White;
-            this.lbl1MatchEvent.Location = new System.Drawing.Point(2, 328);
-            this.lbl1MatchEvent.Name = "lbl1MatchEvent";
-            this.lbl1MatchEvent.Size = new System.Drawing.Size(125, 24);
-            this.lbl1MatchEvent.TabIndex = 291;
-            this.lbl1MatchEvent.Text = "Match Event";
-            // 
-            // lbl1TeamName
-            // 
-            this.lbl1TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1TeamName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl1TeamName.Location = new System.Drawing.Point(323, 347);
-            this.lbl1TeamName.Name = "lbl1TeamName";
-            this.lbl1TeamName.Size = new System.Drawing.Size(159, 37);
-            this.lbl1TeamName.TabIndex = 294;
-            this.lbl1TeamName.Text = "Team 0";
-            this.lbl1TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1ScoutName
-            // 
-            this.lbl1ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lbl1ScoutName.Location = new System.Drawing.Point(7, 359);
-            this.lbl1ScoutName.Name = "lbl1ScoutName";
-            this.lbl1ScoutName.Size = new System.Drawing.Size(158, 27);
-            this.lbl1ScoutName.TabIndex = 293;
-            this.lbl1ScoutName.Text = "Select Name";
-            this.lbl1ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl1ModeValue
-            // 
-            this.lbl1ModeValue.AutoSize = true;
-            this.lbl1ModeValue.BackColor = System.Drawing.Color.Black;
-            this.lbl1ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lbl1ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbl1ModeValue.Location = new System.Drawing.Point(1, 3);
-            this.lbl1ModeValue.Name = "lbl1ModeValue";
-            this.lbl1ModeValue.Size = new System.Drawing.Size(67, 29);
-            this.lbl1ModeValue.TabIndex = 2;
-            this.lbl1ModeValue.Text = "Auto:";
-            // 
-            // team0TeamDivider
-            // 
-            this.team0TeamDivider.BackColor = System.Drawing.Color.Red;
-            this.team0TeamDivider.Location = new System.Drawing.Point(0, 317);
-            this.team0TeamDivider.Name = "team0TeamDivider";
-            this.team0TeamDivider.Size = new System.Drawing.Size(490, 11);
-            this.team0TeamDivider.TabIndex = 279;
+            this.redTeams.TabIndex = 0;
             // 
             // team0
             // 
@@ -2239,13 +1503,15 @@ namespace ControllerScouting.Screens
             this.team0.Controls.Add(this.lbl0Position2);
             this.team0.Controls.Add(this.team0Divider);
             this.team0.Controls.Add(this.team0ModeDivider);
+            this.team0.Controls.Add(this.team0TeamDivider);
             this.team0.Controls.Add(this.lbl0MatchEvent);
             this.team0.Controls.Add(this.lbl0TeamName);
             this.team0.Controls.Add(this.lbl0ScoutName);
             this.team0.Controls.Add(this.lbl0ModeValue);
-            this.team0.Location = new System.Drawing.Point(6, 3);
+            this.team0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team0.Location = new System.Drawing.Point(3, 3);
             this.team0.Name = "team0";
-            this.team0.Size = new System.Drawing.Size(484, 394);
+            this.team0.Size = new System.Drawing.Size(496, 399);
             this.team0.TabIndex = 0;
             // 
             // lbl0Position0Value
@@ -2517,7 +1783,7 @@ namespace ControllerScouting.Screens
             this.team0Divider.BackColor = System.Drawing.Color.Red;
             this.team0Divider.Location = new System.Drawing.Point(-5, 88);
             this.team0Divider.Name = "team0Divider";
-            this.team0Divider.Size = new System.Drawing.Size(494, 11);
+            this.team0Divider.Size = new System.Drawing.Size(534, 11);
             this.team0Divider.TabIndex = 389;
             // 
             // team0ModeDivider
@@ -2525,8 +1791,16 @@ namespace ControllerScouting.Screens
             this.team0ModeDivider.BackColor = System.Drawing.Color.Red;
             this.team0ModeDivider.Location = new System.Drawing.Point(-5, 40);
             this.team0ModeDivider.Name = "team0ModeDivider";
-            this.team0ModeDivider.Size = new System.Drawing.Size(494, 11);
+            this.team0ModeDivider.Size = new System.Drawing.Size(534, 11);
             this.team0ModeDivider.TabIndex = 390;
+            // 
+            // team0TeamDivider
+            // 
+            this.team0TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team0TeamDivider.Location = new System.Drawing.Point(0, 314);
+            this.team0TeamDivider.Name = "team0TeamDivider";
+            this.team0TeamDivider.Size = new System.Drawing.Size(529, 11);
+            this.team0TeamDivider.TabIndex = 279;
             // 
             // lbl0MatchEvent
             // 
@@ -2572,6 +1846,750 @@ namespace ControllerScouting.Screens
             this.lbl0ModeValue.Size = new System.Drawing.Size(67, 29);
             this.lbl0ModeValue.TabIndex = 2;
             this.lbl0ModeValue.Text = "Auto:";
+            // 
+            // team1
+            // 
+            this.team1.BackColor = System.Drawing.Color.Black;
+            this.team1.Controls.Add(this.lbl1Position0Value);
+            this.team1.Controls.Add(this.lbl1Position0);
+            this.team1.Controls.Add(this.lbl1Position12Value);
+            this.team1.Controls.Add(this.lbl1Position12);
+            this.team1.Controls.Add(this.lbl1Position11Value);
+            this.team1.Controls.Add(this.lbl1Position11);
+            this.team1.Controls.Add(this.lbl1Position8Value);
+            this.team1.Controls.Add(this.lbl1Position8);
+            this.team1.Controls.Add(this.lbl1Position7Value);
+            this.team1.Controls.Add(this.lbl1Position7);
+            this.team1.Controls.Add(this.lbl1Position5Value);
+            this.team1.Controls.Add(this.lbl1Position5);
+            this.team1.Controls.Add(this.lbl1Position4Value);
+            this.team1.Controls.Add(this.lbl1Position4);
+            this.team1.Controls.Add(this.lbl1Position3Des);
+            this.team1.Controls.Add(this.lbl1Position3Source);
+            this.team1.Controls.Add(this.lbl1Position2Des);
+            this.team1.Controls.Add(this.lbl1Position2Source);
+            this.team1.Controls.Add(this.lbl1Position1);
+            this.team1.Controls.Add(this.lbl1Position3Value);
+            this.team1.Controls.Add(this.lbl1Position3);
+            this.team1.Controls.Add(this.lbl1Position2Value);
+            this.team1.Controls.Add(this.lbl1Position2);
+            this.team1.Controls.Add(this.team1Divider);
+            this.team1.Controls.Add(this.team1ModeDivider);
+            this.team1.Controls.Add(this.team1TeamDivider);
+            this.team1.Controls.Add(this.lbl1MatchEvent);
+            this.team1.Controls.Add(this.lbl1TeamName);
+            this.team1.Controls.Add(this.lbl1ScoutName);
+            this.team1.Controls.Add(this.lbl1ModeValue);
+            this.team1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team1.Location = new System.Drawing.Point(505, 3);
+            this.team1.Name = "team1";
+            this.team1.Size = new System.Drawing.Size(496, 399);
+            this.team1.TabIndex = 280;
+            // 
+            // lbl1Position0Value
+            // 
+            this.lbl1Position0Value.AutoSize = true;
+            this.lbl1Position0Value.BackColor = System.Drawing.Color.Red;
+            this.lbl1Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl1Position0Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl1Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl1Position0Value.Location = new System.Drawing.Point(72, 55);
+            this.lbl1Position0Value.Name = "lbl1Position0Value";
+            this.lbl1Position0Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl1Position0Value.TabIndex = 393;
+            this.lbl1Position0Value.Text = ".";
+            this.lbl1Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1Position0
+            // 
+            this.lbl1Position0.AutoSize = true;
+            this.lbl1Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position0.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position0.Location = new System.Drawing.Point(2, 55);
+            this.lbl1Position0.Name = "lbl1Position0";
+            this.lbl1Position0.Size = new System.Drawing.Size(66, 24);
+            this.lbl1Position0.TabIndex = 387;
+            this.lbl1Position0.Text = "Leave";
+            // 
+            // lbl1Position12Value
+            // 
+            this.lbl1Position12Value.AutoSize = true;
+            this.lbl1Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position12Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position12Value.Location = new System.Drawing.Point(52, 273);
+            this.lbl1Position12Value.Name = "lbl1Position12Value";
+            this.lbl1Position12Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position12Value.TabIndex = 411;
+            this.lbl1Position12Value.Text = "9";
+            // 
+            // lbl1Position12
+            // 
+            this.lbl1Position12.AutoSize = true;
+            this.lbl1Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position12.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position12.Location = new System.Drawing.Point(2, 272);
+            this.lbl1Position12.Name = "lbl1Position12";
+            this.lbl1Position12.Size = new System.Drawing.Size(57, 24);
+            this.lbl1Position12.TabIndex = 410;
+            this.lbl1Position12.Text = "Strat:";
+            // 
+            // lbl1Position11Value
+            // 
+            this.lbl1Position11Value.AutoSize = true;
+            this.lbl1Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position11Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position11Value.Location = new System.Drawing.Point(90, 245);
+            this.lbl1Position11Value.Name = "lbl1Position11Value";
+            this.lbl1Position11Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position11Value.TabIndex = 409;
+            this.lbl1Position11Value.Text = "9";
+            // 
+            // lbl1Position11
+            // 
+            this.lbl1Position11.AutoSize = true;
+            this.lbl1Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position11.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position11.Location = new System.Drawing.Point(2, 245);
+            this.lbl1Position11.Name = "lbl1Position11";
+            this.lbl1Position11.Size = new System.Drawing.Size(86, 24);
+            this.lbl1Position11.TabIndex = 408;
+            this.lbl1Position11.Text = "Attempt:";
+            // 
+            // lbl1Position8Value
+            // 
+            this.lbl1Position8Value.AutoSize = true;
+            this.lbl1Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position8Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position8Value.Location = new System.Drawing.Point(379, 228);
+            this.lbl1Position8Value.Name = "lbl1Position8Value";
+            this.lbl1Position8Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position8Value.TabIndex = 403;
+            this.lbl1Position8Value.Text = "9";
+            // 
+            // lbl1Position8
+            // 
+            this.lbl1Position8.AutoSize = true;
+            this.lbl1Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position8.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position8.Location = new System.Drawing.Point(315, 227);
+            this.lbl1Position8.Name = "lbl1Position8";
+            this.lbl1Position8.Size = new System.Drawing.Size(69, 24);
+            this.lbl1Position8.TabIndex = 402;
+            this.lbl1Position8.Text = "Avoid:";
+            // 
+            // lbl1Position7Value
+            // 
+            this.lbl1Position7Value.AutoSize = true;
+            this.lbl1Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position7Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position7Value.Location = new System.Drawing.Point(316, 274);
+            this.lbl1Position7Value.Name = "lbl1Position7Value";
+            this.lbl1Position7Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position7Value.TabIndex = 407;
+            this.lbl1Position7Value.Text = "9";
+            // 
+            // lbl1Position7
+            // 
+            this.lbl1Position7.AutoSize = true;
+            this.lbl1Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position7.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position7.Location = new System.Drawing.Point(281, 273);
+            this.lbl1Position7.Name = "lbl1Position7";
+            this.lbl1Position7.Size = new System.Drawing.Size(40, 24);
+            this.lbl1Position7.TabIndex = 406;
+            this.lbl1Position7.Text = "Eff:";
+            // 
+            // lbl1Position5Value
+            // 
+            this.lbl1Position5Value.AutoSize = true;
+            this.lbl1Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position5Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position5Value.Location = new System.Drawing.Point(215, 226);
+            this.lbl1Position5Value.Name = "lbl1Position5Value";
+            this.lbl1Position5Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position5Value.TabIndex = 401;
+            this.lbl1Position5Value.Text = "9";
+            this.lbl1Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl1Position5
+            // 
+            this.lbl1Position5.AutoSize = true;
+            this.lbl1Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position5.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position5.Location = new System.Drawing.Point(169, 226);
+            this.lbl1Position5.Name = "lbl1Position5";
+            this.lbl1Position5.Size = new System.Drawing.Size(47, 24);
+            this.lbl1Position5.TabIndex = 400;
+            this.lbl1Position5.Text = "Def:";
+            this.lbl1Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1Position4Value
+            // 
+            this.lbl1Position4Value.AutoSize = true;
+            this.lbl1Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position4Value.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position4Value.Location = new System.Drawing.Point(345, 178);
+            this.lbl1Position4Value.Name = "lbl1Position4Value";
+            this.lbl1Position4Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl1Position4Value.TabIndex = 399;
+            this.lbl1Position4Value.Text = "9";
+            // 
+            // lbl1Position4
+            // 
+            this.lbl1Position4.AutoSize = true;
+            this.lbl1Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position4.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position4.Location = new System.Drawing.Point(243, 177);
+            this.lbl1Position4.Name = "lbl1Position4";
+            this.lbl1Position4.Size = new System.Drawing.Size(106, 24);
+            this.lbl1Position4.TabIndex = 398;
+            this.lbl1Position4.Text = "End State:";
+            // 
+            // lbl1Position3Des
+            // 
+            this.lbl1Position3Des.AutoSize = true;
+            this.lbl1Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position3Des.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position3Des.Location = new System.Drawing.Point(176, 150);
+            this.lbl1Position3Des.Name = "lbl1Position3Des";
+            this.lbl1Position3Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl1Position3Des.TabIndex = 397;
+            this.lbl1Position3Des.Text = "Floor";
+            // 
+            // lbl1Position3Source
+            // 
+            this.lbl1Position3Source.AutoSize = true;
+            this.lbl1Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position3Source.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position3Source.Location = new System.Drawing.Point(103, 150);
+            this.lbl1Position3Source.Name = "lbl1Position3Source";
+            this.lbl1Position3Source.Size = new System.Drawing.Size(59, 24);
+            this.lbl1Position3Source.TabIndex = 405;
+            this.lbl1Position3Source.Text = "Floor";
+            // 
+            // lbl1Position2Des
+            // 
+            this.lbl1Position2Des.AutoSize = true;
+            this.lbl1Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position2Des.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position2Des.Location = new System.Drawing.Point(176, 112);
+            this.lbl1Position2Des.Name = "lbl1Position2Des";
+            this.lbl1Position2Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl1Position2Des.TabIndex = 396;
+            this.lbl1Position2Des.Text = "Floor";
+            // 
+            // lbl1Position2Source
+            // 
+            this.lbl1Position2Source.AutoSize = true;
+            this.lbl1Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position2Source.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position2Source.Location = new System.Drawing.Point(103, 112);
+            this.lbl1Position2Source.Name = "lbl1Position2Source";
+            this.lbl1Position2Source.Size = new System.Drawing.Size(73, 24);
+            this.lbl1Position2Source.TabIndex = 404;
+            this.lbl1Position2Source.Text = "Station";
+            // 
+            // lbl1Position1
+            // 
+            this.lbl1Position1.AutoSize = true;
+            this.lbl1Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position1.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position1.Location = new System.Drawing.Point(245, 56);
+            this.lbl1Position1.Name = "lbl1Position1";
+            this.lbl1Position1.Size = new System.Drawing.Size(103, 24);
+            this.lbl1Position1.TabIndex = 388;
+            this.lbl1Position1.Text = "Near Side";
+            // 
+            // lbl1Position3Value
+            // 
+            this.lbl1Position3Value.AutoSize = true;
+            this.lbl1Position3Value.BackColor = System.Drawing.Color.Red;
+            this.lbl1Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl1Position3Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl1Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl1Position3Value.Location = new System.Drawing.Point(72, 150);
+            this.lbl1Position3Value.Name = "lbl1Position3Value";
+            this.lbl1Position3Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl1Position3Value.TabIndex = 395;
+            this.lbl1Position3Value.Text = ".";
+            this.lbl1Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1Position3
+            // 
+            this.lbl1Position3.AutoSize = true;
+            this.lbl1Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position3.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position3.Location = new System.Drawing.Point(2, 148);
+            this.lbl1Position3.Name = "lbl1Position3";
+            this.lbl1Position3.Size = new System.Drawing.Size(70, 24);
+            this.lbl1Position3.TabIndex = 394;
+            this.lbl1Position3.Text = "Algae:";
+            // 
+            // lbl1Position2Value
+            // 
+            this.lbl1Position2Value.AutoSize = true;
+            this.lbl1Position2Value.BackColor = System.Drawing.Color.Red;
+            this.lbl1Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl1Position2Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl1Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl1Position2Value.Location = new System.Drawing.Point(72, 109);
+            this.lbl1Position2Value.Name = "lbl1Position2Value";
+            this.lbl1Position2Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl1Position2Value.TabIndex = 392;
+            this.lbl1Position2Value.Text = ".";
+            this.lbl1Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1Position2
+            // 
+            this.lbl1Position2.AutoSize = true;
+            this.lbl1Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1Position2.ForeColor = System.Drawing.Color.White;
+            this.lbl1Position2.Location = new System.Drawing.Point(2, 110);
+            this.lbl1Position2.Name = "lbl1Position2";
+            this.lbl1Position2.Size = new System.Drawing.Size(65, 24);
+            this.lbl1Position2.TabIndex = 391;
+            this.lbl1Position2.Text = "Coral:";
+            // 
+            // team1Divider
+            // 
+            this.team1Divider.BackColor = System.Drawing.Color.Red;
+            this.team1Divider.Location = new System.Drawing.Point(-5, 88);
+            this.team1Divider.Name = "team1Divider";
+            this.team1Divider.Size = new System.Drawing.Size(534, 11);
+            this.team1Divider.TabIndex = 389;
+            // 
+            // team1ModeDivider
+            // 
+            this.team1ModeDivider.BackColor = System.Drawing.Color.Red;
+            this.team1ModeDivider.Location = new System.Drawing.Point(-5, 40);
+            this.team1ModeDivider.Name = "team1ModeDivider";
+            this.team1ModeDivider.Size = new System.Drawing.Size(534, 11);
+            this.team1ModeDivider.TabIndex = 390;
+            // 
+            // team1TeamDivider
+            // 
+            this.team1TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team1TeamDivider.Location = new System.Drawing.Point(0, 314);
+            this.team1TeamDivider.Name = "team1TeamDivider";
+            this.team1TeamDivider.Size = new System.Drawing.Size(529, 11);
+            this.team1TeamDivider.TabIndex = 279;
+            // 
+            // lbl1MatchEvent
+            // 
+            this.lbl1MatchEvent.AutoSize = true;
+            this.lbl1MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1MatchEvent.ForeColor = System.Drawing.Color.White;
+            this.lbl1MatchEvent.Location = new System.Drawing.Point(2, 328);
+            this.lbl1MatchEvent.Name = "lbl1MatchEvent";
+            this.lbl1MatchEvent.Size = new System.Drawing.Size(125, 24);
+            this.lbl1MatchEvent.TabIndex = 291;
+            this.lbl1MatchEvent.Text = "Match Event";
+            // 
+            // lbl1TeamName
+            // 
+            this.lbl1TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1TeamName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl1TeamName.Location = new System.Drawing.Point(323, 347);
+            this.lbl1TeamName.Name = "lbl1TeamName";
+            this.lbl1TeamName.Size = new System.Drawing.Size(159, 37);
+            this.lbl1TeamName.TabIndex = 294;
+            this.lbl1TeamName.Text = "Team 0";
+            this.lbl1TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1ScoutName
+            // 
+            this.lbl1ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl1ScoutName.Location = new System.Drawing.Point(7, 359);
+            this.lbl1ScoutName.Name = "lbl1ScoutName";
+            this.lbl1ScoutName.Size = new System.Drawing.Size(158, 27);
+            this.lbl1ScoutName.TabIndex = 293;
+            this.lbl1ScoutName.Text = "Select Name";
+            this.lbl1ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl1ModeValue
+            // 
+            this.lbl1ModeValue.AutoSize = true;
+            this.lbl1ModeValue.BackColor = System.Drawing.Color.Black;
+            this.lbl1ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbl1ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lbl1ModeValue.Location = new System.Drawing.Point(1, 3);
+            this.lbl1ModeValue.Name = "lbl1ModeValue";
+            this.lbl1ModeValue.Size = new System.Drawing.Size(67, 29);
+            this.lbl1ModeValue.TabIndex = 2;
+            this.lbl1ModeValue.Text = "Auto:";
+            // 
+            // team2
+            // 
+            this.team2.BackColor = System.Drawing.Color.Black;
+            this.team2.Controls.Add(this.lbl2Position0Value);
+            this.team2.Controls.Add(this.lbl2Position0);
+            this.team2.Controls.Add(this.lbl2Position12Value);
+            this.team2.Controls.Add(this.lbl2Position12);
+            this.team2.Controls.Add(this.lbl2Position11Value);
+            this.team2.Controls.Add(this.lbl2Position11);
+            this.team2.Controls.Add(this.lbl2Position8Value);
+            this.team2.Controls.Add(this.lbl2Position8);
+            this.team2.Controls.Add(this.lbl2Position7Value);
+            this.team2.Controls.Add(this.lbl2Position7);
+            this.team2.Controls.Add(this.lbl2Position5Value);
+            this.team2.Controls.Add(this.lbl2Position5);
+            this.team2.Controls.Add(this.lbl2Position4Value);
+            this.team2.Controls.Add(this.lbl2Position4);
+            this.team2.Controls.Add(this.lbl2Position3Des);
+            this.team2.Controls.Add(this.lbl2Position3Source);
+            this.team2.Controls.Add(this.lbl2Position2Des);
+            this.team2.Controls.Add(this.lbl2Position2Source);
+            this.team2.Controls.Add(this.lbl2Position1);
+            this.team2.Controls.Add(this.lbl2Position3Value);
+            this.team2.Controls.Add(this.lbl2Position3);
+            this.team2.Controls.Add(this.lbl2Position2Value);
+            this.team2.Controls.Add(this.lbl2Position2);
+            this.team2.Controls.Add(this.team2Divider);
+            this.team2.Controls.Add(this.team2ModeDivider);
+            this.team2.Controls.Add(this.team2TeamDivider);
+            this.team2.Controls.Add(this.lbl2MatchEvent);
+            this.team2.Controls.Add(this.lbl2TeamName);
+            this.team2.Controls.Add(this.lbl2ScoutName);
+            this.team2.Controls.Add(this.lbl2ModeValue);
+            this.team2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team2.Location = new System.Drawing.Point(1007, 3);
+            this.team2.Name = "team2";
+            this.team2.Size = new System.Drawing.Size(496, 399);
+            this.team2.TabIndex = 347;
+            // 
+            // lbl2Position0Value
+            // 
+            this.lbl2Position0Value.AutoSize = true;
+            this.lbl2Position0Value.BackColor = System.Drawing.Color.Red;
+            this.lbl2Position0Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl2Position0Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl2Position0Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl2Position0Value.Location = new System.Drawing.Point(72, 56);
+            this.lbl2Position0Value.Name = "lbl2Position0Value";
+            this.lbl2Position0Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl2Position0Value.TabIndex = 393;
+            this.lbl2Position0Value.Text = ".";
+            this.lbl2Position0Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl2Position0
+            // 
+            this.lbl2Position0.AutoSize = true;
+            this.lbl2Position0.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position0.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position0.Location = new System.Drawing.Point(2, 56);
+            this.lbl2Position0.Name = "lbl2Position0";
+            this.lbl2Position0.Size = new System.Drawing.Size(66, 24);
+            this.lbl2Position0.TabIndex = 387;
+            this.lbl2Position0.Text = "Leave";
+            // 
+            // lbl2Position12Value
+            // 
+            this.lbl2Position12Value.AutoSize = true;
+            this.lbl2Position12Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position12Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position12Value.Location = new System.Drawing.Point(52, 274);
+            this.lbl2Position12Value.Name = "lbl2Position12Value";
+            this.lbl2Position12Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position12Value.TabIndex = 411;
+            this.lbl2Position12Value.Text = "9";
+            // 
+            // lbl2Position12
+            // 
+            this.lbl2Position12.AutoSize = true;
+            this.lbl2Position12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position12.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position12.Location = new System.Drawing.Point(2, 273);
+            this.lbl2Position12.Name = "lbl2Position12";
+            this.lbl2Position12.Size = new System.Drawing.Size(57, 24);
+            this.lbl2Position12.TabIndex = 410;
+            this.lbl2Position12.Text = "Strat:";
+            // 
+            // lbl2Position11Value
+            // 
+            this.lbl2Position11Value.AutoSize = true;
+            this.lbl2Position11Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position11Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position11Value.Location = new System.Drawing.Point(90, 246);
+            this.lbl2Position11Value.Name = "lbl2Position11Value";
+            this.lbl2Position11Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position11Value.TabIndex = 409;
+            this.lbl2Position11Value.Text = "9";
+            // 
+            // lbl2Position11
+            // 
+            this.lbl2Position11.AutoSize = true;
+            this.lbl2Position11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position11.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position11.Location = new System.Drawing.Point(2, 246);
+            this.lbl2Position11.Name = "lbl2Position11";
+            this.lbl2Position11.Size = new System.Drawing.Size(86, 24);
+            this.lbl2Position11.TabIndex = 408;
+            this.lbl2Position11.Text = "Attempt:";
+            // 
+            // lbl2Position8Value
+            // 
+            this.lbl2Position8Value.AutoSize = true;
+            this.lbl2Position8Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position8Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position8Value.Location = new System.Drawing.Point(379, 229);
+            this.lbl2Position8Value.Name = "lbl2Position8Value";
+            this.lbl2Position8Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position8Value.TabIndex = 403;
+            this.lbl2Position8Value.Text = "9";
+            // 
+            // lbl2Position8
+            // 
+            this.lbl2Position8.AutoSize = true;
+            this.lbl2Position8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position8.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position8.Location = new System.Drawing.Point(315, 228);
+            this.lbl2Position8.Name = "lbl2Position8";
+            this.lbl2Position8.Size = new System.Drawing.Size(69, 24);
+            this.lbl2Position8.TabIndex = 402;
+            this.lbl2Position8.Text = "Avoid:";
+            // 
+            // lbl2Position7Value
+            // 
+            this.lbl2Position7Value.AutoSize = true;
+            this.lbl2Position7Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position7Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position7Value.Location = new System.Drawing.Point(316, 275);
+            this.lbl2Position7Value.Name = "lbl2Position7Value";
+            this.lbl2Position7Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position7Value.TabIndex = 407;
+            this.lbl2Position7Value.Text = "9";
+            // 
+            // lbl2Position7
+            // 
+            this.lbl2Position7.AutoSize = true;
+            this.lbl2Position7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position7.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position7.Location = new System.Drawing.Point(281, 274);
+            this.lbl2Position7.Name = "lbl2Position7";
+            this.lbl2Position7.Size = new System.Drawing.Size(40, 24);
+            this.lbl2Position7.TabIndex = 406;
+            this.lbl2Position7.Text = "Eff:";
+            // 
+            // lbl2Position5Value
+            // 
+            this.lbl2Position5Value.AutoSize = true;
+            this.lbl2Position5Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position5Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position5Value.Location = new System.Drawing.Point(215, 227);
+            this.lbl2Position5Value.Name = "lbl2Position5Value";
+            this.lbl2Position5Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position5Value.TabIndex = 401;
+            this.lbl2Position5Value.Text = "9";
+            this.lbl2Position5Value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl2Position5
+            // 
+            this.lbl2Position5.AutoSize = true;
+            this.lbl2Position5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position5.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position5.Location = new System.Drawing.Point(169, 227);
+            this.lbl2Position5.Name = "lbl2Position5";
+            this.lbl2Position5.Size = new System.Drawing.Size(47, 24);
+            this.lbl2Position5.TabIndex = 400;
+            this.lbl2Position5.Text = "Def:";
+            this.lbl2Position5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl2Position4Value
+            // 
+            this.lbl2Position4Value.AutoSize = true;
+            this.lbl2Position4Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position4Value.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position4Value.Location = new System.Drawing.Point(345, 179);
+            this.lbl2Position4Value.Name = "lbl2Position4Value";
+            this.lbl2Position4Value.Size = new System.Drawing.Size(21, 24);
+            this.lbl2Position4Value.TabIndex = 399;
+            this.lbl2Position4Value.Text = "9";
+            // 
+            // lbl2Position4
+            // 
+            this.lbl2Position4.AutoSize = true;
+            this.lbl2Position4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position4.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position4.Location = new System.Drawing.Point(243, 178);
+            this.lbl2Position4.Name = "lbl2Position4";
+            this.lbl2Position4.Size = new System.Drawing.Size(106, 24);
+            this.lbl2Position4.TabIndex = 398;
+            this.lbl2Position4.Text = "End State:";
+            // 
+            // lbl2Position3Des
+            // 
+            this.lbl2Position3Des.AutoSize = true;
+            this.lbl2Position3Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position3Des.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position3Des.Location = new System.Drawing.Point(176, 151);
+            this.lbl2Position3Des.Name = "lbl2Position3Des";
+            this.lbl2Position3Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl2Position3Des.TabIndex = 397;
+            this.lbl2Position3Des.Text = "Floor";
+            // 
+            // lbl2Position3Source
+            // 
+            this.lbl2Position3Source.AutoSize = true;
+            this.lbl2Position3Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position3Source.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position3Source.Location = new System.Drawing.Point(103, 151);
+            this.lbl2Position3Source.Name = "lbl2Position3Source";
+            this.lbl2Position3Source.Size = new System.Drawing.Size(59, 24);
+            this.lbl2Position3Source.TabIndex = 405;
+            this.lbl2Position3Source.Text = "Floor";
+            // 
+            // lbl2Position2Des
+            // 
+            this.lbl2Position2Des.AutoSize = true;
+            this.lbl2Position2Des.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position2Des.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position2Des.Location = new System.Drawing.Point(176, 113);
+            this.lbl2Position2Des.Name = "lbl2Position2Des";
+            this.lbl2Position2Des.Size = new System.Drawing.Size(59, 24);
+            this.lbl2Position2Des.TabIndex = 396;
+            this.lbl2Position2Des.Text = "Floor";
+            // 
+            // lbl2Position2Source
+            // 
+            this.lbl2Position2Source.AutoSize = true;
+            this.lbl2Position2Source.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position2Source.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position2Source.Location = new System.Drawing.Point(103, 113);
+            this.lbl2Position2Source.Name = "lbl2Position2Source";
+            this.lbl2Position2Source.Size = new System.Drawing.Size(73, 24);
+            this.lbl2Position2Source.TabIndex = 404;
+            this.lbl2Position2Source.Text = "Station";
+            // 
+            // lbl2Position1
+            // 
+            this.lbl2Position1.AutoSize = true;
+            this.lbl2Position1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position1.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position1.Location = new System.Drawing.Point(245, 57);
+            this.lbl2Position1.Name = "lbl2Position1";
+            this.lbl2Position1.Size = new System.Drawing.Size(103, 24);
+            this.lbl2Position1.TabIndex = 388;
+            this.lbl2Position1.Text = "Near Side";
+            // 
+            // lbl2Position3Value
+            // 
+            this.lbl2Position3Value.AutoSize = true;
+            this.lbl2Position3Value.BackColor = System.Drawing.Color.Red;
+            this.lbl2Position3Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl2Position3Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl2Position3Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl2Position3Value.Location = new System.Drawing.Point(72, 151);
+            this.lbl2Position3Value.Name = "lbl2Position3Value";
+            this.lbl2Position3Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl2Position3Value.TabIndex = 395;
+            this.lbl2Position3Value.Text = ".";
+            this.lbl2Position3Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl2Position3
+            // 
+            this.lbl2Position3.AutoSize = true;
+            this.lbl2Position3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position3.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position3.Location = new System.Drawing.Point(2, 149);
+            this.lbl2Position3.Name = "lbl2Position3";
+            this.lbl2Position3.Size = new System.Drawing.Size(70, 24);
+            this.lbl2Position3.TabIndex = 394;
+            this.lbl2Position3.Text = "Algae:";
+            // 
+            // lbl2Position2Value
+            // 
+            this.lbl2Position2Value.AutoSize = true;
+            this.lbl2Position2Value.BackColor = System.Drawing.Color.Red;
+            this.lbl2Position2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl2Position2Value.ForeColor = System.Drawing.Color.Red;
+            this.lbl2Position2Value.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbl2Position2Value.Location = new System.Drawing.Point(72, 110);
+            this.lbl2Position2Value.Name = "lbl2Position2Value";
+            this.lbl2Position2Value.Size = new System.Drawing.Size(16, 24);
+            this.lbl2Position2Value.TabIndex = 392;
+            this.lbl2Position2Value.Text = ".";
+            this.lbl2Position2Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl2Position2
+            // 
+            this.lbl2Position2.AutoSize = true;
+            this.lbl2Position2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2Position2.ForeColor = System.Drawing.Color.White;
+            this.lbl2Position2.Location = new System.Drawing.Point(2, 111);
+            this.lbl2Position2.Name = "lbl2Position2";
+            this.lbl2Position2.Size = new System.Drawing.Size(65, 24);
+            this.lbl2Position2.TabIndex = 391;
+            this.lbl2Position2.Text = "Coral:";
+            // 
+            // team2Divider
+            // 
+            this.team2Divider.BackColor = System.Drawing.Color.Red;
+            this.team2Divider.Location = new System.Drawing.Point(-5, 89);
+            this.team2Divider.Name = "team2Divider";
+            this.team2Divider.Size = new System.Drawing.Size(534, 11);
+            this.team2Divider.TabIndex = 389;
+            // 
+            // team2ModeDivider
+            // 
+            this.team2ModeDivider.BackColor = System.Drawing.Color.Red;
+            this.team2ModeDivider.Location = new System.Drawing.Point(-5, 41);
+            this.team2ModeDivider.Name = "team2ModeDivider";
+            this.team2ModeDivider.Size = new System.Drawing.Size(534, 11);
+            this.team2ModeDivider.TabIndex = 390;
+            // 
+            // team2TeamDivider
+            // 
+            this.team2TeamDivider.BackColor = System.Drawing.Color.Red;
+            this.team2TeamDivider.Location = new System.Drawing.Point(0, 314);
+            this.team2TeamDivider.Name = "team2TeamDivider";
+            this.team2TeamDivider.Size = new System.Drawing.Size(529, 11);
+            this.team2TeamDivider.TabIndex = 279;
+            // 
+            // lbl2MatchEvent
+            // 
+            this.lbl2MatchEvent.AutoSize = true;
+            this.lbl2MatchEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2MatchEvent.ForeColor = System.Drawing.Color.White;
+            this.lbl2MatchEvent.Location = new System.Drawing.Point(6, 328);
+            this.lbl2MatchEvent.Name = "lbl2MatchEvent";
+            this.lbl2MatchEvent.Size = new System.Drawing.Size(125, 24);
+            this.lbl2MatchEvent.TabIndex = 291;
+            this.lbl2MatchEvent.Text = "Match Event";
+            // 
+            // lbl2TeamName
+            // 
+            this.lbl2TeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2TeamName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl2TeamName.Location = new System.Drawing.Point(323, 347);
+            this.lbl2TeamName.Name = "lbl2TeamName";
+            this.lbl2TeamName.Size = new System.Drawing.Size(159, 37);
+            this.lbl2TeamName.TabIndex = 294;
+            this.lbl2TeamName.Text = "Team 0";
+            this.lbl2TeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl2ScoutName
+            // 
+            this.lbl2ScoutName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2ScoutName.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lbl2ScoutName.Location = new System.Drawing.Point(7, 359);
+            this.lbl2ScoutName.Name = "lbl2ScoutName";
+            this.lbl2ScoutName.Size = new System.Drawing.Size(158, 27);
+            this.lbl2ScoutName.TabIndex = 293;
+            this.lbl2ScoutName.Text = "Select Name";
+            this.lbl2ScoutName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl2ModeValue
+            // 
+            this.lbl2ModeValue.AutoSize = true;
+            this.lbl2ModeValue.BackColor = System.Drawing.Color.Black;
+            this.lbl2ModeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbl2ModeValue.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lbl2ModeValue.Location = new System.Drawing.Point(1, 3);
+            this.lbl2ModeValue.Name = "lbl2ModeValue";
+            this.lbl2ModeValue.Size = new System.Drawing.Size(67, 29);
+            this.lbl2ModeValue.TabIndex = 2;
+            this.lbl2ModeValue.Text = "Auto:";
             // 
             // labelMatch
             // 
@@ -2681,9 +2699,9 @@ namespace ControllerScouting.Screens
             this.tableLayoutPanel.Size = new System.Drawing.Size(1512, 872);
             this.tableLayoutPanel.TabIndex = 0;
             // 
-            // ___MigrationHistoryTableAdapter1
+            // ___MigrationHistoryTableAdapter
             // 
-            this.___MigrationHistoryTableAdapter1.ClearBeforeFill = true;
+            this.___MigrationHistoryTableAdapter.ClearBeforeFill = true;
             // 
             // BaseScreen
             // 
@@ -2695,19 +2713,19 @@ namespace ControllerScouting.Screens
             this.Name = "BaseScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.blueTeams.ResumeLayout(false);
-            this.team5.ResumeLayout(false);
-            this.team5.PerformLayout();
-            this.team4.ResumeLayout(false);
-            this.team4.PerformLayout();
             this.team3.ResumeLayout(false);
             this.team3.PerformLayout();
+            this.team4.ResumeLayout(false);
+            this.team4.PerformLayout();
+            this.team5.ResumeLayout(false);
+            this.team5.PerformLayout();
             this.redTeams.ResumeLayout(false);
-            this.team2.ResumeLayout(false);
-            this.team2.PerformLayout();
-            this.team1.ResumeLayout(false);
-            this.team1.PerformLayout();
             this.team0.ResumeLayout(false);
             this.team0.PerformLayout();
+            this.team1.ResumeLayout(false);
+            this.team1.PerformLayout();
+            this.team2.ResumeLayout(false);
+            this.team2.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.tableLayoutPanel.ResumeLayout(false);
@@ -2724,12 +2742,12 @@ namespace ControllerScouting.Screens
         private Button btnPreviousMatch;
         private Button btnpopulateForEvent;
         private Button btnExit;
-        private Panel blueTeams;
+        private TableLayoutPanel blueTeams;
         private Panel team5;
         private Panel team5TeamDivider;
         private Panel team4;
         private Panel team3;
-        private Panel redTeams;
+        private TableLayoutPanel redTeams;
         private Panel team2;
         private Label lbl2MatchEvent;
         private Label lbl2TeamName;
@@ -2921,6 +2939,6 @@ namespace ControllerScouting.Screens
         private Label lblRedScore;
         private Panel statusLight;
         private Panel topPanel;
-        private scoutingdbDataSetTableAdapters.__MigrationHistoryTableAdapter ___MigrationHistoryTableAdapter1;
+        private scoutingdbDataSetTableAdapters.__MigrationHistoryTableAdapter ___MigrationHistoryTableAdapter;
     }
 }
