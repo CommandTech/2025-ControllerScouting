@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ControllerScouting.Utilities
 {
@@ -7,15 +8,15 @@ namespace ControllerScouting.Utilities
     {
         private static readonly string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..", "log.txt");
 
-        public static void Erase()
+        public static async Task Erase()
         {
-            File.WriteAllText(logFilePath, string.Empty);
+            await Task.Run(() => File.WriteAllText(logFilePath, string.Empty));
         }
 
-        public static void Log(string m)
+        public static async Task Log(string m)
         {
             // Write string m into file log.txt
-            File.AppendAllText(logFilePath, m + Environment.NewLine);
+            await Task.Run(() => File.AppendAllText(logFilePath, m + Environment.NewLine));
         }
     }
 }

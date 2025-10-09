@@ -2,8 +2,7 @@
 using ControllerScouting.Screens;
 using Microsoft.Win32;
 using System;
-using System.Linq;
-using System.ServiceProcess;
+using System.Text;
 using System.Windows.Forms;
 
 namespace ControllerScouting.Utilities
@@ -27,7 +26,7 @@ namespace ControllerScouting.Utilities
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            Logger.Erase();
+            using var _ = Logger.Erase();
             CheckSQLExists();
             Application.Run(new BaseScreen());
         }
@@ -37,6 +36,13 @@ namespace ControllerScouting.Utilities
             RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
             using RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView);
             RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+            if (instanceKey != null)
+            {
+                foreach (var instanceName in instanceKey.GetValueNames())
+                {
+                    Console.WriteLine(Environment.MachineName + @"\" + instanceName);
+                }
+            }
             Settings.Default.sqlExists = instanceKey != null;
 
             if (!Settings.Default.sqlExists)
@@ -88,36 +94,25 @@ namespace ControllerScouting.Utilities
                 BackgroundCode.iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
                 BackgroundCode.iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
                 //Gets the current scouter names and locations to save
-                string scouterNames = "";
-                string scouterLocations = "";
+                var scouterNames = new StringBuilder();
+                var scouterLocations = new StringBuilder();
                 foreach (var robot in BackgroundCode.Robots)
                 {
-                    if (scouterNames.Length != 0)
-                    {
-                        scouterNames += ",";
-                    }
-                    scouterNames += robot.GetScouterName();
-
-                    if (scouterLocations.Length != 0)
-                    {
-                        scouterLocations += ",";
-                    }
-                    scouterLocations += robot.ScouterBox;
+                    if (scouterNames.Length != 0) scouterNames.Append(",");
+                    scouterNames.Append(robot.GetScouterName());
+                    if (scouterLocations.Length != 0) scouterLocations.Append(",");
+                    scouterLocations.Append(robot.ScouterBox);
                 }
-                BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames);
-                BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations);
-                
-                string matches = "";
+                BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames.ToString());
+                BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations.ToString());
+
+                var matches = new StringBuilder();
                 foreach (var match in BackgroundCode.InMemoryMatchList)
                 {
-                    if (matches.Length != 0)
-                    {
-                        matches += ",";
-                    }
-                    matches += $"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}";
+                    if (matches.Length != 0) matches.Append(",");
+                    matches.Append($"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}");
                 }
-                BackgroundCode.iniFile.Write("EventData", "Matches", matches);
-
+                BackgroundCode.iniFile.Write("EventData", "Matches", matches.ToString());
             }
             catch (Exception ex)
             {

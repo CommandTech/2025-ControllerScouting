@@ -693,9 +693,9 @@ namespace ControllerScouting.Screens
             }
         }
 
-        private void Log(string m)
+        private async void Log(string m)
         {
-            Logger.Log(m);
+            await Logger.Log(m);
         }
 
         private void BtnFunctions_Click(object sender, EventArgs e)
