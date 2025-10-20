@@ -32,10 +32,6 @@ namespace ControllerScouting.Properties {
             get {
                 return ((string)(this["_scoutingdbConnectionString"]));
             }
-            set
-            {
-                this["_scoutingdbConnectionString"] = value;
-            }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
@@ -58,10 +54,6 @@ namespace ControllerScouting.Properties {
         public string _scoutingdbServerConnectionString {
             get {
                 return ((string)(this["_scoutingdbServerConnectionString"]));
-            }
-            set
-            {
-                this["_scoutingdbServerConnectionString"] = value;
             }
         }
         

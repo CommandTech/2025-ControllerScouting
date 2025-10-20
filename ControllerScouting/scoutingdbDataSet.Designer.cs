@@ -6884,7 +6884,7 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7428,7 +7428,7 @@ SELECT Id, Team, Match, Time, RecordType, Mode, DriveSta, Defense, DefenseValue,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8243,7 +8243,7 @@ SELECT Id, [Key], Website, Official, End_date, Name, Short_name, Facebook_eid, E
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8872,7 +8872,7 @@ SELECT Id, Comp_level, Match_number, Set_number, [Key], Time, Blueteam1, Bluetea
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9434,7 +9434,7 @@ SELECT Id, Event_key, Team_key, Team_number, Nickname FROM TeamSummaries WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9830,7 +9830,7 @@ SELECT Id, Event_key, Team_key, Team_number, Nickname FROM TeamSummaries WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default._scoutingdbConnectionString;
+            this._connection.ConnectionString = global::ControllerScouting.Properties.Settings.Default.scoutingdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
