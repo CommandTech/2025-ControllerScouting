@@ -32,7 +32,8 @@ namespace ControllerScouting.Properties {
             get {
                 return ((string)(this["_scoutingdbConnectionString"]));
             }
-            set {
+            set
+            {
                 this["_scoutingdbConnectionString"] = value;
             }
         }
@@ -52,13 +53,14 @@ namespace ControllerScouting.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LOCALHOST\\SQLEXPRESS01;Initial Catalog=scoutingdb;Integrated Security" +
-            "=True;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=scoutingdb;Integrated Security=T" +
+            "rue;Encrypt=True;TrustServerCertificate=True")]
         public string _scoutingdbServerConnectionString {
             get {
                 return ((string)(this["_scoutingdbServerConnectionString"]));
             }
-            set {
+            set
+            {
                 this["_scoutingdbServerConnectionString"] = value;
             }
         }
@@ -96,26 +98,6 @@ namespace ControllerScouting.Properties {
             }
             set {
                 this["sqlExists"] = value;
-            }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string scoutingdbConnectionString {
-            get {
-                return ((string)(this["_scoutingdbConnectionString"]));
-            }
-            set {
-                this["_scoutingdbConnectionString"] = value;
-            }
-        }
-
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string scoutingdbServerConnectionString {
-            get {
-                return ((string)(this["_scoutingdbServerConnectionString"]));
-            }
-            set {
-                this["_scoutingdbServerConnectionString"] = value;
             }
         }
     }

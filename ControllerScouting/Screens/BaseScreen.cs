@@ -94,7 +94,7 @@ namespace ControllerScouting.Screens
             ScaleControls(this, scaleFactorX, scaleFactorY);
         }
 
-        private void ScaleControls(Control parent, float scaleFactorX, float scaleFactorY)
+        private static void ScaleControls(Control parent, float scaleFactorX, float scaleFactorY)
         {
             foreach (Control control in parent.Controls)
             {
