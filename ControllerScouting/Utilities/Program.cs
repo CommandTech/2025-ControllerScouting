@@ -27,6 +27,7 @@ namespace ControllerScouting.Utilities
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
             using var _ = Logger.Erase();
+            
             CheckSQLExists();
             Application.Run(new BaseScreen());
         }
