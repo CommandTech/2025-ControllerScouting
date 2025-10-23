@@ -163,5 +163,18 @@ namespace ControllerScouting.Screens
             Settings.Default.CSVLocation = this.txtCSVLocation.Text;
             BackgroundCode.iniFile.Write("ProgramSettings", "csvLocation", Settings.Default.CSVLocation.ToString());
         }
+
+        private void BtnBrowseCSV_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    this.txtCSVLocation.Text = fbd.SelectedPath;
+                }
+            }
+        }
     }
 }

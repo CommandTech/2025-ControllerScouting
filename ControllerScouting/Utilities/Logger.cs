@@ -8,7 +8,7 @@ namespace ControllerScouting.Utilities
     public class Logger
     {
         private static readonly string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..", "log.txt");
-        private static readonly SemaphoreSlim fileLock = new SemaphoreSlim(1, 1);
+        private static readonly SemaphoreSlim fileLock = new (1, 1);
 
         public static async Task Erase()
         {

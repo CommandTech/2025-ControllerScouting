@@ -21,6 +21,7 @@
             this.txtCSVLocation = new System.Windows.Forms.TextBox();
             this.txtLocalSQLLocation = new System.Windows.Forms.TextBox();
             this.txtServerSQLLocation = new System.Windows.Forms.TextBox();
+            this.btnBrowseCSV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FunctionFormText
@@ -195,7 +196,7 @@
             // 
             this.txtCSVLocation.Location = new System.Drawing.Point(375, 204);
             this.txtCSVLocation.Name = "txtCSVLocation";
-            this.txtCSVLocation.Size = new System.Drawing.Size(138, 22);
+            this.txtCSVLocation.Size = new System.Drawing.Size(100, 22);
             this.txtCSVLocation.TabIndex = 367;
             this.txtCSVLocation.TextChanged += new System.EventHandler(this.TxtCSVLocation_TextChanged);
             // 
@@ -213,10 +214,21 @@
             this.txtServerSQLLocation.Size = new System.Drawing.Size(138, 22);
             this.txtServerSQLLocation.TabIndex = 369;
             // 
+            // btnBrowseCSV
+            // 
+            this.btnBrowseCSV.Location = new System.Drawing.Point(481, 203);
+            this.btnBrowseCSV.Name = "btnBrowseCSV";
+            this.btnBrowseCSV.Size = new System.Drawing.Size(32, 23);
+            this.btnBrowseCSV.TabIndex = 370;
+            this.btnBrowseCSV.Text = "...";
+            this.btnBrowseCSV.UseVisualStyleBackColor = true;
+            this.btnBrowseCSV.Click += new System.EventHandler(this.BtnBrowseCSV_Click);
+            // 
             // FunctionsForm
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(543, 408);
+            this.Controls.Add(this.btnBrowseCSV);
             this.Controls.Add(this.txtServerSQLLocation);
             this.Controls.Add(this.txtLocalSQLLocation);
             this.Controls.Add(this.txtCSVLocation);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.TextBox txtCSVLocation;
         private System.Windows.Forms.TextBox txtLocalSQLLocation;
         private System.Windows.Forms.TextBox txtServerSQLLocation;
+        private System.Windows.Forms.Button btnBrowseCSV;
     }
 }
