@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Gamepad;
+﻿using ControllerScouting.Database;
+using ControllerScouting.Gamepad;
 using System;
 using System.Collections.Generic;
 

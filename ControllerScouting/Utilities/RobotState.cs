@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using ControllerScouting.Database;
 
 namespace ControllerScouting.Utilities
 {

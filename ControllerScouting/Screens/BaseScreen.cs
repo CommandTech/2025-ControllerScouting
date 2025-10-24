@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Gamepad;
+﻿using ControllerScouting.Database;
+using ControllerScouting.Gamepad;
 using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
 using Newtonsoft.Json;
@@ -17,6 +18,8 @@ namespace ControllerScouting.Screens
         private static bool loading = false;
         private static readonly List<Thread> controllerThreads = [];
         public string regional;
+        private static readonly List<CancellationTokenSource> controllerCancellationTokens = [];
+
         public BaseScreen()
         {
             if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
@@ -130,10 +133,10 @@ namespace ControllerScouting.Screens
                 Thread.Sleep(500);
             }
         }
-        private static void ControllerThreadMethod(GamePad gamePad)
+        private static void ControllerThreadMethod(GamePad gamePad, CancellationToken token)
         {
             // Logic to handle the controller
-            while (true)
+            while (!token.IsCancellationRequested)
             {
                 // Read and process the controller input
                 if (gamePad != null) BackgroundCode.controllers.ReadStick(gamePad, Array.IndexOf(BackgroundCode.gamePads, gamePad));
@@ -154,10 +157,13 @@ namespace ControllerScouting.Screens
 
         public static void UpdateJoysticks()
         {
-            foreach (Thread thread in controllerThreads)
+            foreach (var cts in controllerCancellationTokens)
             {
-                thread.Abort();
+                cts.Cancel();
             }
+            controllerCancellationTokens.Clear();
+            controllerThreads.Clear();
+
             //Updates the list of currently connected gamepads
             BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
             StartControllerThreads();
@@ -168,9 +174,11 @@ namespace ControllerScouting.Screens
             {
                 if (gamePad != null)
                 {
-                    Thread controllerThread = new(() => ControllerThreadMethod(gamePad));
+                    var cts = new CancellationTokenSource();
+                    Thread controllerThread = new(() => ControllerThreadMethod(gamePad, cts.Token));
                     controllerThread.Start();
                     controllerThreads.Add(controllerThread);
+                    controllerCancellationTokens.Add(cts);
                 }
             }
         }

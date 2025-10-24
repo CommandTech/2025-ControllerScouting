@@ -1,15 +1,12 @@
-﻿using ControllerScouting.Gamepad;
-using ControllerScouting.Properties;
+﻿using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 
-namespace ControllerScouting
+namespace ControllerScouting.Database
 {
     public abstract class BaseEntity
     {
@@ -18,7 +15,6 @@ namespace ControllerScouting
 
     internal class SeasonContext : DbContext
     {
-        //TODO: Make a new branch for experimenting with creating a database for each robot at the event for better data management and potentially faster
         public SeasonContext()
             : base(Settings.Default._scoutingdbConnectionString)
         { }
@@ -206,7 +202,7 @@ namespace ControllerScouting
         public string Event_district_string { get; set; }
         public string Venue_address { get; set; }
         public int Event_district { get; set; }
-        public String Week { get; set; }
+        public string Week { get; set; }
         public string Location { get; set; }
         public string Event_code { get; set; }
         public int Year { get; set; }
@@ -399,7 +395,7 @@ namespace ControllerScouting
                 Activity activity_record = BackgroundCode.activity_record[controllerNumber];
                 switch (recordtype)
                 {
-                    case ("EndAuto"):
+                    case "EndAuto":
                         activity_record.Time = DateTime.Now;
                         activity_record.Team = BackgroundCode.Robots[controller.ScouterBox].TeamName;
                         activity_record.Match = BackgroundCode.currentMatch;
@@ -524,7 +520,7 @@ namespace ControllerScouting
                         }
                         controller.TransactionCheck = false;
                         break;
-                    case ("Activities"):
+                    case "Activities":
                         activity_record.Time = DateTime.Now;
                         activity_record.Team = BackgroundCode.Robots[controller.ScouterBox].TeamName;
                         activity_record.Match = BackgroundCode.currentMatch;
@@ -645,7 +641,7 @@ namespace ControllerScouting
                         controller.lastAlgaeLoc = " ";
                         controller.TransactionCheck = false;
                         break;
-                    case ("EndMatch"):
+                    case "EndMatch":
                         activity_record.Time = DateTime.Now;
                         activity_record.Team = BackgroundCode.Robots[controller.ScouterBox].TeamName;
                         activity_record.Match = BackgroundCode.currentMatch;
@@ -788,7 +784,7 @@ namespace ControllerScouting
                         controller.TransactionCheck = false;
                         endMatch = true;
                         break;
-                    case ("Match_Event"):
+                    case "Match_Event":
                         activity_record.Time = DateTime.Now;
                         activity_record.Team = BackgroundCode.Robots[controller.ScouterBox].TeamName;
                         activity_record.Match = BackgroundCode.currentMatch;

@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Properties;
+﻿using ControllerScouting.Database;
+using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
 using System;
 using System.Windows.Forms;

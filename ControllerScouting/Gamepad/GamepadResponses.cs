@@ -1,4 +1,5 @@
-﻿using ControllerScouting.Utilities;
+﻿using ControllerScouting.Database;
+using ControllerScouting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
