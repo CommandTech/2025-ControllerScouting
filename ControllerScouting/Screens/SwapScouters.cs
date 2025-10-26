@@ -41,7 +41,7 @@ namespace ControllerScouting.Screens
             {
                 if (scoutDrops[i].SelectedIndex != -1)
                 {
-                    Enum.TryParse(scoutDrops[i].SelectedItem.ToString(), out RobotState.SCOUTER_NAME name);
+                    _ = Enum.TryParse(scoutDrops[i].SelectedItem.ToString(), out RobotState.SCOUTER_NAME name);
 
                     for (int j = 0; j < 6; j++)
                     {

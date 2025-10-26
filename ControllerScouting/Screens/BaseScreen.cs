@@ -139,7 +139,7 @@ namespace ControllerScouting.Screens
             while (!token.IsCancellationRequested)
             {
                 // Read and process the controller input
-                if (gamePad != null) BackgroundCode.controllers.ReadStick(gamePad, Array.IndexOf(BackgroundCode.gamePads, gamePad));
+                if (gamePad != null) Controllers.ReadStick(gamePad, Array.IndexOf(BackgroundCode.gamePads, gamePad));
             }
         }
 
@@ -207,7 +207,7 @@ namespace ControllerScouting.Screens
                 Environment.Exit(0);
             }
         }
-        private void SaveData()
+        private static void SaveData()
         {
             if ((BackgroundCode.loadedEvent != null || BackgroundCode.manualMatchList != null) && BackgroundCode.currentMatch != 0)
             {
@@ -342,7 +342,7 @@ namespace ControllerScouting.Screens
                 }
             }
         }
-        private void SetRedRight()
+        private static void SetRedRight()
         {
             //  Logic for setting left/right and near/far based on side of field scouters are sitting on
             DialogResult red = MessageBox.Show("Is the Red Alliance on your right?", "Please Confirm", MessageBoxButtons.YesNo);
@@ -353,11 +353,12 @@ namespace ControllerScouting.Screens
         {
             if (cbxEndMatch.Checked)
             {
-                cbxEndMatch.Checked = false;
                 for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
                 {
                     DatabaseCode.SaveToRecord(BackgroundCode.Robots[BackgroundCode.Robots[i].ScouterBox], "EndMatch", i);
                 }
+                DatabaseCode.SendToDatabase();
+                cbxEndMatch.Checked = false;
 
                 if (BackgroundCode.currentMatch == BackgroundCode.InMemoryMatchList.Count)
                 {
@@ -436,7 +437,7 @@ namespace ControllerScouting.Screens
             
             this.lblMatch.Text = $"{BackgroundCode.currentMatch}/{BackgroundCode.InMemoryMatchList.Count}";
         }
-        private void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
+        private static void SetTeamNameAndColor(Label label, RobotState robot, string teamName)
         {
             label.Text = robot.TeamName = teamName;
             label.ForeColor = Color.Orange;
@@ -523,8 +524,8 @@ namespace ControllerScouting.Screens
                     {
                         BackgroundCode.loadedEvent = comboBoxSelectRegional.SelectedItem.ToString();
                         regional = BackgroundCode.loadedEvent.TrimStart('[');
-                        int index = regional.IndexOf(",");
-                        if (index > 0) regional = regional.Substring(0, index);
+                        int index = regional.IndexOf(',');
+                        if (index > 0) regional = regional[..index];
 
                         string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Settings.Default.API_KEY}";
 
@@ -681,12 +682,12 @@ namespace ControllerScouting.Screens
                     {
                         List<string> teams =
                             [
-                                BackgroundCode.InMemoryMatchList[i].Redteam1.Substring(3),
-                                BackgroundCode.InMemoryMatchList[i].Redteam2.Substring(3),
-                                BackgroundCode.InMemoryMatchList[i].Redteam3.Substring(3),
-                                BackgroundCode.InMemoryMatchList[i].Blueteam1.Substring(3),
-                                BackgroundCode.InMemoryMatchList[i].Blueteam2.Substring(3),
-                                BackgroundCode.InMemoryMatchList[i].Blueteam3.Substring(3)
+                                BackgroundCode.InMemoryMatchList[i].Redteam1[3..],
+                                BackgroundCode.InMemoryMatchList[i].Redteam2[3..],
+                                BackgroundCode.InMemoryMatchList[i].Redteam3[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam1[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam2[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam3[3..]
                             ];
 
                         if (teams.Contains(BackgroundCode.homeTeam))
@@ -701,7 +702,7 @@ namespace ControllerScouting.Screens
             }
         }
 
-        private async void Log(string m)
+        private static async void Log(string m)
         {
             await Logger.Log(m);
         }

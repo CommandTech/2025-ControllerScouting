@@ -157,9 +157,9 @@ namespace ControllerScouting.Utilities
             }
         }
 
-        private Enum GetNextEnum<t>(object currentlySelectedEnum)
+        private static Enum GetNextEnum<T>(object currentlySelectedEnum)
         {
-            Type enumList = typeof(t);
+            Type enumList = typeof(T);
             if (!enumList.IsEnum)
                 throw new InvalidOperationException("Object is not an Enum.");
 
@@ -169,9 +169,9 @@ namespace ControllerScouting.Utilities
             return (Enum)enums.GetValue(index);
         }
 
-        private Enum GetPreviousEnum<t>(object currentlySelectedEnum)
+        private static Enum GetPreviousEnum<T>(object currentlySelectedEnum)
         {
-            Type enumList = typeof(t);
+            Type enumList = typeof(T);
             if (!enumList.IsEnum)
                 throw new InvalidOperationException("Object is not an Enum.");
 

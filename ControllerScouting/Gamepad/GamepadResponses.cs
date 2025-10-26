@@ -8,7 +8,7 @@ namespace ControllerScouting.Gamepad
 {
     partial class Controllers
     {
-        public void ReadStick(GamePad gamepad, int controllerNumber)
+        public static void ReadStick(GamePad gamepad, int controllerNumber)
         {
             RobotState robot = BackgroundCode.Robots[controllerNumber];
 

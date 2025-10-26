@@ -296,7 +296,7 @@ namespace ControllerScouting.Database
             return matches;
         }
 
-        public static string databaseName = "database.csv";
+        public const string databaseName = "database.csv";
         public static void LoadManualMatches()
         {
 
@@ -347,7 +347,6 @@ namespace ControllerScouting.Database
                 { "Floor", (() => controller.DelCoralF++, 0) }
             };
 
-            bool endMatch = false;
             if (controller.GetScouterName() != RobotState.SCOUTER_NAME.Select_Name && (controller.TransactionCheck || recordtype != "Activities") && controller.TeamName != null)
             {
                 if (controller.lastCoralAcqLoc == "Station" && controller.lastTransCoralLoc != "Station")
@@ -782,7 +781,6 @@ namespace ControllerScouting.Database
                             controller.prevlastAlgaeAcqLoc = " ";
                         }
                         controller.TransactionCheck = false;
-                        endMatch = true;
                         break;
                     case "Match_Event":
                         activity_record.Time = DateTime.Now;
@@ -1006,14 +1004,9 @@ namespace ControllerScouting.Database
                     DisAlg = activity_record.DisAlg
                 };
                 BackgroundCode.activitiesQueue.Enqueue(activityCopy);
-
-                if (endMatch)
-                {
-                    SendToDatabase();
-                }
             }
         }
-        private static void SendToDatabase()
+        public static void SendToDatabase()
         {
             switch (BackgroundCode.dataExport)
             {
