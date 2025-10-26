@@ -13,9 +13,6 @@ namespace ControllerScouting.Utilities
         [STAThread]
         static void Main()
         {
-            //    Settings.Default._scoutingdbConnectionString = BackgroundCode.iniFile.Read("ProgramSettings", "localConnectionString", "");
-            //    Settings.Default._scoutingdbServerConnectionString = BackgroundCode.iniFile.Read("ProgramSettings", "serverConnectionString", "");
-
             //Handles code crashes, used for saving data when the code crashes during events
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
@@ -41,7 +38,7 @@ namespace ControllerScouting.Utilities
             {
                 foreach (var instanceName in instanceKey.GetValueNames())
                 {
-                    Console.WriteLine(Environment.MachineName + @"\" + instanceName);
+                    _ = Logger.Log(Environment.MachineName + @"\" + instanceName);
                 }
             }
             Settings.Default.sqlExists = instanceKey != null;

@@ -1,4 +1,5 @@
-﻿using SharpDX.DirectInput;
+﻿using ControllerScouting.Utilities;
+using SharpDX.DirectInput;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -458,7 +459,7 @@ namespace ControllerScouting.Gamepad
             foreach (var stick in GetSticks(input))
             {
                 gamepads.Add(new GamePad(stick));
-                Console.WriteLine(stick.Information.InstanceName);
+                _ = Logger.Log(stick.Information.InstanceName);
             }
             while (gamepads.Count < 6)
             {
