@@ -56,7 +56,7 @@ namespace ControllerScouting.Screens
                 BackgroundCode.activity_record[i] = new Activity();
             }
 
-            BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
+            BackgroundCode.gamePads = Controllers.GetGamePads();
             // Create and start a new thread for each controller
             StartControllerThreads();
 
@@ -165,7 +165,7 @@ namespace ControllerScouting.Screens
             controllerThreads.Clear();
 
             //Updates the list of currently connected gamepads
-            BackgroundCode.gamePads = BackgroundCode.controllers.GetGamePads();
+            BackgroundCode.gamePads = Controllers.GetGamePads();
             StartControllerThreads();
         }
         private static void StartControllerThreads()

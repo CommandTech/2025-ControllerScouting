@@ -17,7 +17,6 @@ namespace ControllerScouting.Utilities
         public int ScouterBox;
         public bool TransactionCheck;
 
-
         // Year to Year doubles
         public static double Red_Score;
         public static double Blue_Score;

@@ -99,9 +99,9 @@ namespace ControllerScouting.Utilities
                 var scouterLocations = new StringBuilder();
                 foreach (var robot in BackgroundCode.Robots)
                 {
-                    if (scouterNames.Length != 0) scouterNames.Append(",");
+                    if (scouterNames.Length != 0) scouterNames.Append(',');
                     scouterNames.Append(robot.GetScouterName());
-                    if (scouterLocations.Length != 0) scouterLocations.Append(",");
+                    if (scouterLocations.Length != 0) scouterLocations.Append(',');
                     scouterLocations.Append(robot.ScouterBox);
                 }
                 BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames.ToString());
@@ -110,7 +110,7 @@ namespace ControllerScouting.Utilities
                 var matches = new StringBuilder();
                 foreach (var match in BackgroundCode.InMemoryMatchList)
                 {
-                    if (matches.Length != 0) matches.Append(",");
+                    if (matches.Length != 0) matches.Append(',');
                     matches.Append($"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}");
                 }
                 BackgroundCode.iniFile.Write("EventData", "Matches", matches.ToString());

@@ -167,14 +167,12 @@ namespace ControllerScouting.Screens
 
         private void BtnBrowseCSV_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
+            using var fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
 
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    this.txtCSVLocation.Text = fbd.SelectedPath;
-                }
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                this.txtCSVLocation.Text = fbd.SelectedPath;
             }
         }
     }

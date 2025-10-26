@@ -5,6 +5,9 @@ using System.Diagnostics;
 
 namespace ControllerScouting.Gamepad
 {
+    /// <summary>
+    /// THIS IS CODE TO DEFINE A GAMEPAD AND ITS BUTTONS, ONLY MODIFY IF YOU KNOW WHAT YOU ARE DOING
+    /// </summary>
     public class GamePad
     {
         //currentValue values
@@ -379,7 +382,7 @@ namespace ControllerScouting.Gamepad
             _l3Prev = _l3;
         }
 
-        private bool IsPressed(bool currentValue, bool prevValue)
+        private static bool IsPressed(bool currentValue, bool prevValue)
         {
             if (prevValue == false && currentValue == true)
             {
@@ -391,7 +394,7 @@ namespace ControllerScouting.Gamepad
             }
         }
 
-        private bool IsReleased(bool currentValue, bool prevValue)
+        private static bool IsReleased(bool currentValue, bool prevValue)
         {
             if (prevValue == true && currentValue == false)
             {
@@ -407,7 +410,7 @@ namespace ControllerScouting.Gamepad
     {
         public Stopwatch stopwatch = new();
         public TimeSpan Zero { get; private set; }
-        private bool IsAxis(Guid objectType)
+        private static bool IsAxis(Guid objectType)
         {
             return objectType == ObjectGuid.XAxis ||
                    objectType == ObjectGuid.YAxis ||
@@ -416,7 +419,7 @@ namespace ControllerScouting.Gamepad
                    objectType == ObjectGuid.RyAxis ||
                    objectType == ObjectGuid.RzAxis;
         }
-        private Joystick[] GetSticks(DirectInput input)
+        private static Joystick[] GetSticks(DirectInput input)
         {
             List<Joystick> sticks = [];
             foreach (DeviceInstance device in input.GetDevices(DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly))
@@ -447,7 +450,7 @@ namespace ControllerScouting.Gamepad
             }
             return [.. sticks];
         }
-        public GamePad[] GetGamePads()
+        public static GamePad[] GetGamePads()
         {
             DirectInput input = new();
             List<GamePad> gamepads = [];

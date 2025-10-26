@@ -21,7 +21,7 @@ namespace ControllerScouting.Utilities
         public string Read(string section, string key, string defaultValue = "")
         {
             var retVal = new StringBuilder(255);
-            GetPrivateProfileString(section, key, defaultValue, retVal, 255, Path);
+            _ = GetPrivateProfileString(section, key, defaultValue, retVal, 255, Path);
             return retVal.ToString();
         }
 
