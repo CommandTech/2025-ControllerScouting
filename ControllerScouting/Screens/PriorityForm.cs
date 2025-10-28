@@ -1,5 +1,6 @@
 ﻿using ControllerScouting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -27,7 +28,6 @@ namespace ControllerScouting.Screens
             BackgroundCode.teamPrio.Clear();
             BackgroundCode.teamPrio.AddRange(teamPrioList);
 
-
             this.Hide();
         }
 
@@ -35,8 +35,38 @@ namespace ControllerScouting.Screens
         {
             BackgroundCode.homeTeam = combohomeTeam.SelectedItem.ToString();
 
-            BaseScreen.RefreshPrio();
+            RefreshPrio();
             lblNextTeams.Text = string.Join(", ", BackgroundCode.homePrio);
+        }
+
+        private static void RefreshPrio()
+        {
+            if (BackgroundCode.homeTeam != "None")
+            {
+                for (int i = BackgroundCode.currentMatch - 1; i < BackgroundCode.InMemoryMatchList.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        List<string> teams =
+                            [
+                                BackgroundCode.InMemoryMatchList[i].Redteam1[3..],
+                                BackgroundCode.InMemoryMatchList[i].Redteam2[3..],
+                                BackgroundCode.InMemoryMatchList[i].Redteam3[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam1[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam2[3..],
+                                BackgroundCode.InMemoryMatchList[i].Blueteam3[3..]
+                            ];
+
+                        if (teams.Contains(BackgroundCode.homeTeam))
+                        {
+                            BackgroundCode.homePrio.Clear();
+                            BackgroundCode.homePrio.AddRange(teams);
+                            BackgroundCode.homePrio.Remove(BackgroundCode.homeTeam);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

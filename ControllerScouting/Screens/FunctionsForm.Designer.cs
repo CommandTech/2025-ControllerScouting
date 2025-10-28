@@ -5,249 +5,249 @@
         #region
         private void InitializeComponent()
         {
-            this.FunctionFormText = new System.Windows.Forms.Label();
-            this.FuncOK = new System.Windows.Forms.Button();
-            this.btnPriority = new System.Windows.Forms.Button();
-            this.btnSwapScouters = new System.Windows.Forms.Button();
-            this.cbxPractice = new System.Windows.Forms.CheckBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnUpdateDatabase = new System.Windows.Forms.Button();
-            this.comboPracticeTeams = new System.Windows.Forms.ComboBox();
-            this.btnManualMatch = new System.Windows.Forms.Button();
-            this.rdioCSV = new System.Windows.Forms.RadioButton();
-            this.rdioLocalSQL = new System.Windows.Forms.RadioButton();
-            this.exportLabel = new System.Windows.Forms.Label();
-            this.rdioServerSQL = new System.Windows.Forms.RadioButton();
-            this.txtCSVLocation = new System.Windows.Forms.TextBox();
-            this.txtLocalSQLLocation = new System.Windows.Forms.TextBox();
-            this.txtServerSQLLocation = new System.Windows.Forms.TextBox();
-            this.btnBrowseCSV = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            FunctionFormText = new System.Windows.Forms.Label();
+            FuncOK = new System.Windows.Forms.Button();
+            btnPriority = new System.Windows.Forms.Button();
+            btnSwapScouters = new System.Windows.Forms.Button();
+            cbxPractice = new System.Windows.Forms.CheckBox();
+            btnRefresh = new System.Windows.Forms.Button();
+            btnUpdateDatabase = new System.Windows.Forms.Button();
+            comboPracticeTeams = new System.Windows.Forms.ComboBox();
+            btnManualMatch = new System.Windows.Forms.Button();
+            rdioCSV = new System.Windows.Forms.RadioButton();
+            rdioLocalSQL = new System.Windows.Forms.RadioButton();
+            exportLabel = new System.Windows.Forms.Label();
+            rdioServerSQL = new System.Windows.Forms.RadioButton();
+            txtCSVLocation = new System.Windows.Forms.TextBox();
+            txtLocalSQLLocation = new System.Windows.Forms.TextBox();
+            txtServerSQLLocation = new System.Windows.Forms.TextBox();
+            btnBrowseCSV = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // FunctionFormText
             // 
-            this.FunctionFormText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.FunctionFormText.BackColor = System.Drawing.Color.Transparent;
-            this.FunctionFormText.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FunctionFormText.ForeColor = System.Drawing.Color.FloralWhite;
-            this.FunctionFormText.Location = new System.Drawing.Point(14, 14);
-            this.FunctionFormText.Name = "FunctionFormText";
-            this.FunctionFormText.Size = new System.Drawing.Size(263, 74);
-            this.FunctionFormText.TabIndex = 353;
-            this.FunctionFormText.Text = "Functions";
+            FunctionFormText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            FunctionFormText.BackColor = System.Drawing.Color.Transparent;
+            FunctionFormText.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            FunctionFormText.ForeColor = System.Drawing.Color.FloralWhite;
+            FunctionFormText.Location = new System.Drawing.Point(14, 14);
+            FunctionFormText.Name = "FunctionFormText";
+            FunctionFormText.Size = new System.Drawing.Size(263, 74);
+            FunctionFormText.TabIndex = 353;
+            FunctionFormText.Text = "Functions";
             // 
             // FuncOK
             // 
-            this.FuncOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FuncOK.ForeColor = System.Drawing.Color.Black;
-            this.FuncOK.Location = new System.Drawing.Point(329, 354);
-            this.FuncOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.FuncOK.Name = "FuncOK";
-            this.FuncOK.Size = new System.Drawing.Size(66, 35);
-            this.FuncOK.TabIndex = 352;
-            this.FuncOK.Text = "OK";
-            this.FuncOK.UseVisualStyleBackColor = true;
-            this.FuncOK.Click += new System.EventHandler(this.FuncOK_Click);
+            FuncOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            FuncOK.ForeColor = System.Drawing.Color.Black;
+            FuncOK.Location = new System.Drawing.Point(329, 354);
+            FuncOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            FuncOK.Name = "FuncOK";
+            FuncOK.Size = new System.Drawing.Size(66, 35);
+            FuncOK.TabIndex = 352;
+            FuncOK.Text = "OK";
+            FuncOK.UseVisualStyleBackColor = true;
+            FuncOK.Click += FuncOK_Click;
             // 
             // btnPriority
             // 
-            this.btnPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPriority.ForeColor = System.Drawing.Color.Black;
-            this.btnPriority.Location = new System.Drawing.Point(24, 99);
-            this.btnPriority.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPriority.Name = "btnPriority";
-            this.btnPriority.Size = new System.Drawing.Size(132, 35);
-            this.btnPriority.TabIndex = 354;
-            this.btnPriority.Text = "Priority v2";
-            this.btnPriority.UseVisualStyleBackColor = true;
-            this.btnPriority.Click += new System.EventHandler(this.BtnPriority_Click);
+            btnPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnPriority.ForeColor = System.Drawing.Color.Black;
+            btnPriority.Location = new System.Drawing.Point(24, 99);
+            btnPriority.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnPriority.Name = "btnPriority";
+            btnPriority.Size = new System.Drawing.Size(132, 35);
+            btnPriority.TabIndex = 354;
+            btnPriority.Text = "Priority v2.1";
+            btnPriority.UseVisualStyleBackColor = true;
+            btnPriority.Click += BtnPriority_Click;
             // 
             // btnSwapScouters
             // 
-            this.btnSwapScouters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwapScouters.ForeColor = System.Drawing.Color.Black;
-            this.btnSwapScouters.Location = new System.Drawing.Point(24, 144);
-            this.btnSwapScouters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSwapScouters.Name = "btnSwapScouters";
-            this.btnSwapScouters.Size = new System.Drawing.Size(179, 35);
-            this.btnSwapScouters.TabIndex = 355;
-            this.btnSwapScouters.Text = "Swap Scouters";
-            this.btnSwapScouters.UseVisualStyleBackColor = true;
-            this.btnSwapScouters.Click += new System.EventHandler(this.BtnSwapScouters_Click);
+            btnSwapScouters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnSwapScouters.ForeColor = System.Drawing.Color.Black;
+            btnSwapScouters.Location = new System.Drawing.Point(24, 144);
+            btnSwapScouters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnSwapScouters.Name = "btnSwapScouters";
+            btnSwapScouters.Size = new System.Drawing.Size(179, 35);
+            btnSwapScouters.TabIndex = 355;
+            btnSwapScouters.Text = "Swap Scouters";
+            btnSwapScouters.UseVisualStyleBackColor = true;
+            btnSwapScouters.Click += BtnSwapScouters_Click;
             // 
             // cbxPractice
             // 
-            this.cbxPractice.AutoSize = true;
-            this.cbxPractice.BackColor = System.Drawing.Color.Black;
-            this.cbxPractice.ForeColor = System.Drawing.Color.Yellow;
-            this.cbxPractice.Location = new System.Drawing.Point(279, 106);
-            this.cbxPractice.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxPractice.Name = "cbxPractice";
-            this.cbxPractice.Size = new System.Drawing.Size(116, 20);
-            this.cbxPractice.TabIndex = 356;
-            this.cbxPractice.Text = "Practice Mode";
-            this.cbxPractice.UseVisualStyleBackColor = false;
-            this.cbxPractice.CheckedChanged += new System.EventHandler(this.CbxPractice_CheckedChanged);
+            cbxPractice.AutoSize = true;
+            cbxPractice.BackColor = System.Drawing.Color.Black;
+            cbxPractice.ForeColor = System.Drawing.Color.Yellow;
+            cbxPractice.Location = new System.Drawing.Point(279, 106);
+            cbxPractice.Margin = new System.Windows.Forms.Padding(2);
+            cbxPractice.Name = "cbxPractice";
+            cbxPractice.Size = new System.Drawing.Size(150, 29);
+            cbxPractice.TabIndex = 356;
+            cbxPractice.Text = "Practice Mode";
+            cbxPractice.UseVisualStyleBackColor = false;
+            cbxPractice.CheckedChanged += CbxPractice_CheckedChanged;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.Location = new System.Drawing.Point(24, 189);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(226, 35);
-            this.btnRefresh.TabIndex = 357;
-            this.btnRefresh.Text = "Refresh Controllers";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = System.Drawing.Color.Black;
+            btnRefresh.Location = new System.Drawing.Point(24, 189);
+            btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new System.Drawing.Size(226, 35);
+            btnRefresh.TabIndex = 357;
+            btnRefresh.Text = "Refresh Controllers";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += BtnRefresh_Click;
             // 
             // btnUpdateDatabase
             // 
-            this.btnUpdateDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDatabase.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateDatabase.Location = new System.Drawing.Point(24, 234);
-            this.btnUpdateDatabase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnUpdateDatabase.Name = "btnUpdateDatabase";
-            this.btnUpdateDatabase.Size = new System.Drawing.Size(202, 35);
-            this.btnUpdateDatabase.TabIndex = 358;
-            this.btnUpdateDatabase.Text = "Update Database";
-            this.btnUpdateDatabase.UseVisualStyleBackColor = true;
-            this.btnUpdateDatabase.Click += new System.EventHandler(this.BtnUpdateDatabase_Click);
+            btnUpdateDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnUpdateDatabase.ForeColor = System.Drawing.Color.Black;
+            btnUpdateDatabase.Location = new System.Drawing.Point(24, 234);
+            btnUpdateDatabase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnUpdateDatabase.Name = "btnUpdateDatabase";
+            btnUpdateDatabase.Size = new System.Drawing.Size(202, 35);
+            btnUpdateDatabase.TabIndex = 358;
+            btnUpdateDatabase.Text = "Update Database";
+            btnUpdateDatabase.UseVisualStyleBackColor = true;
+            btnUpdateDatabase.Click += BtnUpdateDatabase_Click;
             // 
             // comboPracticeTeams
             // 
-            this.comboPracticeTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.comboPracticeTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPracticeTeams.ForeColor = System.Drawing.Color.Yellow;
-            this.comboPracticeTeams.FormattingEnabled = true;
-            this.comboPracticeTeams.Location = new System.Drawing.Point(279, 133);
-            this.comboPracticeTeams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboPracticeTeams.Name = "comboPracticeTeams";
-            this.comboPracticeTeams.Size = new System.Drawing.Size(116, 24);
-            this.comboPracticeTeams.TabIndex = 361;
-            this.comboPracticeTeams.SelectedIndexChanged += new System.EventHandler(this.ComboPracticeTeams_SelectedIndexChanged);
+            comboPracticeTeams.BackColor = System.Drawing.Color.FromArgb(0, 0, 64);
+            comboPracticeTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboPracticeTeams.ForeColor = System.Drawing.Color.Yellow;
+            comboPracticeTeams.FormattingEnabled = true;
+            comboPracticeTeams.Location = new System.Drawing.Point(279, 133);
+            comboPracticeTeams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            comboPracticeTeams.Name = "comboPracticeTeams";
+            comboPracticeTeams.Size = new System.Drawing.Size(116, 33);
+            comboPracticeTeams.TabIndex = 361;
+            comboPracticeTeams.SelectedIndexChanged += ComboPracticeTeams_SelectedIndexChanged;
             // 
             // btnManualMatch
             // 
-            this.btnManualMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManualMatch.ForeColor = System.Drawing.Color.Black;
-            this.btnManualMatch.Location = new System.Drawing.Point(24, 279);
-            this.btnManualMatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnManualMatch.Name = "btnManualMatch";
-            this.btnManualMatch.Size = new System.Drawing.Size(179, 35);
-            this.btnManualMatch.TabIndex = 362;
-            this.btnManualMatch.Text = "Manual Match List";
-            this.btnManualMatch.UseVisualStyleBackColor = true;
-            this.btnManualMatch.Click += new System.EventHandler(this.BtnManualMatch_Click);
+            btnManualMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnManualMatch.ForeColor = System.Drawing.Color.Black;
+            btnManualMatch.Location = new System.Drawing.Point(24, 279);
+            btnManualMatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnManualMatch.Name = "btnManualMatch";
+            btnManualMatch.Size = new System.Drawing.Size(179, 35);
+            btnManualMatch.TabIndex = 362;
+            btnManualMatch.Text = "Manual Match List";
+            btnManualMatch.UseVisualStyleBackColor = true;
+            btnManualMatch.Click += BtnManualMatch_Click;
             // 
             // rdioCSV
             // 
-            this.rdioCSV.AutoSize = true;
-            this.rdioCSV.ForeColor = System.Drawing.Color.White;
-            this.rdioCSV.Location = new System.Drawing.Point(279, 204);
-            this.rdioCSV.Name = "rdioCSV";
-            this.rdioCSV.Size = new System.Drawing.Size(49, 20);
-            this.rdioCSV.TabIndex = 363;
-            this.rdioCSV.TabStop = true;
-            this.rdioCSV.Text = "csv";
-            this.rdioCSV.UseVisualStyleBackColor = true;
-            this.rdioCSV.CheckedChanged += new System.EventHandler(this.RdioCSV_CheckedChanged);
+            rdioCSV.AutoSize = true;
+            rdioCSV.ForeColor = System.Drawing.Color.White;
+            rdioCSV.Location = new System.Drawing.Point(279, 204);
+            rdioCSV.Name = "rdioCSV";
+            rdioCSV.Size = new System.Drawing.Size(62, 29);
+            rdioCSV.TabIndex = 363;
+            rdioCSV.TabStop = true;
+            rdioCSV.Text = "csv";
+            rdioCSV.UseVisualStyleBackColor = true;
+            rdioCSV.CheckedChanged += RdioCSV_CheckedChanged;
             // 
             // rdioLocalSQL
             // 
-            this.rdioLocalSQL.AutoSize = true;
-            this.rdioLocalSQL.ForeColor = System.Drawing.Color.White;
-            this.rdioLocalSQL.Location = new System.Drawing.Point(279, 226);
-            this.rdioLocalSQL.Name = "rdioLocalSQL";
-            this.rdioLocalSQL.Size = new System.Drawing.Size(90, 20);
-            this.rdioLocalSQL.TabIndex = 364;
-            this.rdioLocalSQL.TabStop = true;
-            this.rdioLocalSQL.Text = "Local SQL";
-            this.rdioLocalSQL.UseVisualStyleBackColor = true;
-            this.rdioLocalSQL.CheckedChanged += new System.EventHandler(this.RdioLocalSQL_CheckedChanged);
+            rdioLocalSQL.AutoSize = true;
+            rdioLocalSQL.ForeColor = System.Drawing.Color.White;
+            rdioLocalSQL.Location = new System.Drawing.Point(279, 226);
+            rdioLocalSQL.Name = "rdioLocalSQL";
+            rdioLocalSQL.Size = new System.Drawing.Size(114, 29);
+            rdioLocalSQL.TabIndex = 364;
+            rdioLocalSQL.TabStop = true;
+            rdioLocalSQL.Text = "Local SQL";
+            rdioLocalSQL.UseVisualStyleBackColor = true;
+            rdioLocalSQL.CheckedChanged += RdioLocalSQL_CheckedChanged;
             // 
             // exportLabel
             // 
-            this.exportLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.exportLabel.BackColor = System.Drawing.Color.Transparent;
-            this.exportLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.exportLabel.ForeColor = System.Drawing.Color.FloralWhite;
-            this.exportLabel.Location = new System.Drawing.Point(276, 166);
-            this.exportLabel.Name = "exportLabel";
-            this.exportLabel.Size = new System.Drawing.Size(78, 29);
-            this.exportLabel.TabIndex = 365;
-            this.exportLabel.Text = "Export:";
+            exportLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            exportLabel.BackColor = System.Drawing.Color.Transparent;
+            exportLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            exportLabel.ForeColor = System.Drawing.Color.FloralWhite;
+            exportLabel.Location = new System.Drawing.Point(276, 166);
+            exportLabel.Name = "exportLabel";
+            exportLabel.Size = new System.Drawing.Size(78, 29);
+            exportLabel.TabIndex = 365;
+            exportLabel.Text = "Export:";
             // 
             // rdioServerSQL
             // 
-            this.rdioServerSQL.AutoSize = true;
-            this.rdioServerSQL.ForeColor = System.Drawing.Color.White;
-            this.rdioServerSQL.Location = new System.Drawing.Point(279, 248);
-            this.rdioServerSQL.Name = "rdioServerSQL";
-            this.rdioServerSQL.Size = new System.Drawing.Size(97, 20);
-            this.rdioServerSQL.TabIndex = 366;
-            this.rdioServerSQL.TabStop = true;
-            this.rdioServerSQL.Text = "Server SQL";
-            this.rdioServerSQL.UseVisualStyleBackColor = true;
-            this.rdioServerSQL.CheckedChanged += new System.EventHandler(this.RdioServerSQL_CheckedChanged);
+            rdioServerSQL.AutoSize = true;
+            rdioServerSQL.ForeColor = System.Drawing.Color.White;
+            rdioServerSQL.Location = new System.Drawing.Point(279, 248);
+            rdioServerSQL.Name = "rdioServerSQL";
+            rdioServerSQL.Size = new System.Drawing.Size(123, 29);
+            rdioServerSQL.TabIndex = 366;
+            rdioServerSQL.TabStop = true;
+            rdioServerSQL.Text = "Server SQL";
+            rdioServerSQL.UseVisualStyleBackColor = true;
+            rdioServerSQL.CheckedChanged += RdioServerSQL_CheckedChanged;
             // 
             // txtCSVLocation
             // 
-            this.txtCSVLocation.Location = new System.Drawing.Point(375, 204);
-            this.txtCSVLocation.Name = "txtCSVLocation";
-            this.txtCSVLocation.Size = new System.Drawing.Size(100, 22);
-            this.txtCSVLocation.TabIndex = 367;
-            this.txtCSVLocation.TextChanged += new System.EventHandler(this.TxtCSVLocation_TextChanged);
+            txtCSVLocation.Location = new System.Drawing.Point(375, 204);
+            txtCSVLocation.Name = "txtCSVLocation";
+            txtCSVLocation.Size = new System.Drawing.Size(100, 31);
+            txtCSVLocation.TabIndex = 367;
+            txtCSVLocation.TextChanged += TxtCSVLocation_TextChanged;
             // 
             // txtLocalSQLLocation
             // 
-            this.txtLocalSQLLocation.Location = new System.Drawing.Point(375, 226);
-            this.txtLocalSQLLocation.Name = "txtLocalSQLLocation";
-            this.txtLocalSQLLocation.Size = new System.Drawing.Size(138, 22);
-            this.txtLocalSQLLocation.TabIndex = 368;
+            txtLocalSQLLocation.Location = new System.Drawing.Point(375, 226);
+            txtLocalSQLLocation.Name = "txtLocalSQLLocation";
+            txtLocalSQLLocation.Size = new System.Drawing.Size(138, 31);
+            txtLocalSQLLocation.TabIndex = 368;
             // 
             // txtServerSQLLocation
             // 
-            this.txtServerSQLLocation.Location = new System.Drawing.Point(375, 248);
-            this.txtServerSQLLocation.Name = "txtServerSQLLocation";
-            this.txtServerSQLLocation.Size = new System.Drawing.Size(138, 22);
-            this.txtServerSQLLocation.TabIndex = 369;
+            txtServerSQLLocation.Location = new System.Drawing.Point(375, 248);
+            txtServerSQLLocation.Name = "txtServerSQLLocation";
+            txtServerSQLLocation.Size = new System.Drawing.Size(138, 31);
+            txtServerSQLLocation.TabIndex = 369;
             // 
             // btnBrowseCSV
             // 
-            this.btnBrowseCSV.Location = new System.Drawing.Point(481, 203);
-            this.btnBrowseCSV.Name = "btnBrowseCSV";
-            this.btnBrowseCSV.Size = new System.Drawing.Size(32, 23);
-            this.btnBrowseCSV.TabIndex = 370;
-            this.btnBrowseCSV.Text = "...";
-            this.btnBrowseCSV.UseVisualStyleBackColor = true;
-            this.btnBrowseCSV.Click += new System.EventHandler(this.BtnBrowseCSV_Click);
+            btnBrowseCSV.Location = new System.Drawing.Point(481, 203);
+            btnBrowseCSV.Name = "btnBrowseCSV";
+            btnBrowseCSV.Size = new System.Drawing.Size(32, 23);
+            btnBrowseCSV.TabIndex = 370;
+            btnBrowseCSV.Text = "...";
+            btnBrowseCSV.UseVisualStyleBackColor = true;
+            btnBrowseCSV.Click += BtnBrowseCSV_Click;
             // 
             // FunctionsForm
             // 
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(543, 408);
-            this.Controls.Add(this.btnBrowseCSV);
-            this.Controls.Add(this.txtServerSQLLocation);
-            this.Controls.Add(this.txtLocalSQLLocation);
-            this.Controls.Add(this.txtCSVLocation);
-            this.Controls.Add(this.rdioServerSQL);
-            this.Controls.Add(this.exportLabel);
-            this.Controls.Add(this.rdioLocalSQL);
-            this.Controls.Add(this.rdioCSV);
-            this.Controls.Add(this.btnManualMatch);
-            this.Controls.Add(this.comboPracticeTeams);
-            this.Controls.Add(this.btnUpdateDatabase);
-            this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.cbxPractice);
-            this.Controls.Add(this.btnSwapScouters);
-            this.Controls.Add(this.btnPriority);
-            this.Controls.Add(this.FunctionFormText);
-            this.Controls.Add(this.FuncOK);
-            this.Name = "FunctionsForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            ClientSize = new System.Drawing.Size(543, 408);
+            Controls.Add(btnBrowseCSV);
+            Controls.Add(txtServerSQLLocation);
+            Controls.Add(txtLocalSQLLocation);
+            Controls.Add(txtCSVLocation);
+            Controls.Add(rdioServerSQL);
+            Controls.Add(exportLabel);
+            Controls.Add(rdioLocalSQL);
+            Controls.Add(rdioCSV);
+            Controls.Add(btnManualMatch);
+            Controls.Add(comboPracticeTeams);
+            Controls.Add(btnUpdateDatabase);
+            Controls.Add(btnRefresh);
+            Controls.Add(cbxPractice);
+            Controls.Add(btnSwapScouters);
+            Controls.Add(btnPriority);
+            Controls.Add(FunctionFormText);
+            Controls.Add(FuncOK);
+            Name = "FunctionsForm";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

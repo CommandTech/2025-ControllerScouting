@@ -441,6 +441,7 @@ namespace ControllerScouting.Screens
         {
             label.Text = robot.TeamName = teamName;
             label.ForeColor = Color.Orange;
+            CheckPrio(label, teamName);
         }
 
         private async void BtnpopulateForEvent_Click(object sender, EventArgs e)
@@ -672,47 +673,22 @@ namespace ControllerScouting.Screens
                 }
             }
         }
-        public static void RefreshPrio()
+        public static void CheckPrio(Label label, string teamName)
         {
-            if (BackgroundCode.homeTeam != "None")
+            if (BackgroundCode.teamPrio.Contains(teamName[3..]) || BackgroundCode.homePrio.Contains(teamName[3..]))
             {
-                for (int i = BackgroundCode.currentMatch - 1; i < BackgroundCode.InMemoryMatchList.Count; i++)
-                {
-                    if (i > 0)
-                    {
-                        List<string> teams =
-                            [
-                                BackgroundCode.InMemoryMatchList[i].Redteam1[3..],
-                                BackgroundCode.InMemoryMatchList[i].Redteam2[3..],
-                                BackgroundCode.InMemoryMatchList[i].Redteam3[3..],
-                                BackgroundCode.InMemoryMatchList[i].Blueteam1[3..],
-                                BackgroundCode.InMemoryMatchList[i].Blueteam2[3..],
-                                BackgroundCode.InMemoryMatchList[i].Blueteam3[3..]
-                            ];
-
-                        if (teams.Contains(BackgroundCode.homeTeam))
-                        {
-                            BackgroundCode.homePrio.Clear();
-                            BackgroundCode.homePrio.AddRange(teams);
-                            BackgroundCode.homePrio.Remove(BackgroundCode.homeTeam);
-                            break;
-                        }
-                    }
-                }
+                label.ForeColor = Color.White;
             }
         }
-
         private static async void Log(string m)
         {
             await Logger.Log(m);
         }
-
         private void BtnFunctions_Click(object sender, EventArgs e)
         {
             FunctionsForm frm = new();
             frm.Show();
         }
-
 
         readonly Dictionary<int, string> DefenseEquality = new()
         {
