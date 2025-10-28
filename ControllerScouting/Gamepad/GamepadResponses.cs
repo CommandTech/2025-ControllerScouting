@@ -712,6 +712,11 @@ namespace ControllerScouting.Gamepad
                     {
                         robot.CycleEventName(RobotState.CYCLE_DIRECTION.Down);
                     }
+                    if (gamepad.R3_Press)
+                    {
+                        DatabaseCode.SaveToRecord(robot, "Match_Event", controllerNumber);
+                        robot.Match_event = RobotState.MATCHEVENT_NAME.Match_Event;
+                    }
 
                     //2025 Transaction
                     if (gamepad.RightTrigger_Press && robot.TransactionCheck)

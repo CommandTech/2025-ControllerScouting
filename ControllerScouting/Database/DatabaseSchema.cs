@@ -313,17 +313,13 @@ namespace ControllerScouting.Database
             using (var reader = new StreamReader(filePath))
             {
                 string line;
-                bool isFirstLine = true;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (isFirstLine)
-                    {
-                        isFirstLine = false;
-                        continue;
-                    }
-
                     var values = line.Split(',');
-                    records.Add([.. values]);
+                    if (values.Length == 6)
+                    {
+                        records.Add([.. values]);
+                    }
                 }
             }
 
