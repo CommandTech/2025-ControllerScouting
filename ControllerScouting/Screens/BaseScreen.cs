@@ -179,8 +179,8 @@ namespace ControllerScouting.Screens
 
             _supabase.Auth.Options.AllowUnconfirmedUserSessions = true;
 
-            BackgroundCode.iniFile.Write("SupaBase", "url", "https://afnsrargllccaeugjevz.supabase.co");
-            BackgroundCode.iniFile.Write("SupaBase", "key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmbnNyYXJnbGxjY2FldWdqZXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MzcyMTcsImV4cCI6MjA3NzIxMzIxN30.mBVQfU67QkpHKDzSqxsq_QGtLzWYZ2-byD55NdW-CSM");
+            BackgroundCode.iniFile.Write("SupaBase", "url", "https://lmqqqmkygfkpuccptvzw.supabase.co");
+            BackgroundCode.iniFile.Write("SupaBase", "key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtcXFxbWt5Z2ZrcHVjY3B0dnp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDYxNTUsImV4cCI6MjA3NzMyMjE1NX0.1_wX1GGEtHkLMo0Z-oI98UHdZnuGL3x3UnDjA0gbvlU");
             BackgroundCode.iniFile.Write("SupaBase", "email", "testingEmail@gmail.com");
             BackgroundCode.iniFile.Write("SupaBase", "password", "ReallyGoodPassword!");
 
