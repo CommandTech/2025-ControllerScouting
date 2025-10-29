@@ -2,6 +2,7 @@
 using ControllerScouting.Gamepad;
 using System;
 using System.Collections.Generic;
+using Supabase;
 
 namespace ControllerScouting.Utilities
 {
@@ -32,6 +33,7 @@ namespace ControllerScouting.Utilities
         public static string loadedEvent = "";                      //The event currently loaded
         public static bool practiceMode = false;                    //Is the scouting system in practice mode?
         public static int practiceTeam = 0;
+        public static Client supabase;
 
         public static readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         public static readonly string projectBaseDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(baseDirectory, @"..\..\"));

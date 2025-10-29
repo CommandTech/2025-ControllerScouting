@@ -1,15 +1,20 @@
 ﻿using ControllerScouting.Database;
 using ControllerScouting.Gamepad;
-using ControllerScouting.Properties;
 using ControllerScouting.Utilities;
 using Newtonsoft.Json;
+using Supabase;
+using Supabase.Gotrue;
+using Supabase.Gotrue.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Client = Supabase.Client;
 
 namespace ControllerScouting.Screens
 {
@@ -22,7 +27,7 @@ namespace ControllerScouting.Screens
 
         public BaseScreen()
         {
-            if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
+            if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramProperties.Settings", "exportType", ""), out var exportType))
             {
                 BackgroundCode.dataExport = exportType;
             }
@@ -30,11 +35,11 @@ namespace ControllerScouting.Screens
             {
                 BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
             }
-            Settings.Default.CSVLocation = BackgroundCode.iniFile.Read("ProgramSettings", "csvLocation", "");
+            Properties.Settings.Default.CSVLocation = BackgroundCode.iniFile.Read("ProgramProperties.Settings", "csvLocation", "");
 
             if (BackgroundCode.dataExport == BackgroundCode.EXPORT_TYPE.CSV)
             {
-                Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Settings.Default.CSVLocation);
+                Properties.Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Properties.Settings.Default.CSVLocation);
             }
 
 
@@ -107,7 +112,7 @@ namespace ControllerScouting.Screens
                 control.Left = (int)(control.Left * scaleFactorX);
                 control.Top = (int)(control.Top * scaleFactorY);
 
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size * Math.Min(scaleFactorX, scaleFactorY), control.Font.Style);
+                control.Font = new System.Drawing.Font(control.Font.FontFamily, control.Font.Size * Math.Min(scaleFactorX, scaleFactorY), control.Font.Style);
 
                 if (control.HasChildren)
                 {
@@ -145,15 +150,85 @@ namespace ControllerScouting.Screens
 
         private static void InitalizeDB()
         {
-            if (Settings.Default.sqlExists)
+            if (Properties.Settings.Default.sqlExists)
             {
                 // Sets the connection string to the database
-                BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
+                BackgroundCode.seasonframework.Database.Connection.ConnectionString = Properties.Settings.Default._scoutingdbConnectionString;
 
                 // initializes the database
                 BackgroundCode.seasonframework.Database.Initialize(true);
             }
+
+            _ = InitialzeSupabase();
         }
+
+        private static async Task InitialzeSupabase()
+        {
+            NetworkStatus status = new();
+
+            SupabaseOptions options = new()
+            {
+                AutoRefreshToken = true
+            };
+
+            Client _supabase = new(BackgroundCode.iniFile.Read("SupaBase","url",""), BackgroundCode.iniFile.Read("SupaBase", "key", ""), options);
+
+            status.Client = (Supabase.Gotrue.Client)_supabase.Auth;
+
+            _supabase.Auth.LoadSession();
+
+            _supabase.Auth.Options.AllowUnconfirmedUserSessions = true;
+
+            BackgroundCode.iniFile.Write("SupaBase", "url", "https://afnsrargllccaeugjevz.supabase.co");
+            BackgroundCode.iniFile.Write("SupaBase", "key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmbnNyYXJnbGxjY2FldWdqZXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MzcyMTcsImV4cCI6MjA3NzIxMzIxN30.mBVQfU67QkpHKDzSqxsq_QGtLzWYZ2-byD55NdW-CSM");
+            BackgroundCode.iniFile.Write("SupaBase", "email", "testingEmail@gmail.com");
+            BackgroundCode.iniFile.Write("SupaBase", "password", "ReallyGoodPassword!");
+
+            string url = $"{BackgroundCode.iniFile.Read("SupaBase", "url", "")}/auth/v1/settings?apikey={BackgroundCode.iniFile.Read("SupaBase", "key", "")}";
+            try
+            {
+                _supabase!.Auth.Online = await status.StartAsync(url);
+            }
+            catch (NotSupportedException)
+            {
+                _supabase!.Auth.Online = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Network Error {e.GetType()}");
+                _supabase!.Auth.Online = false;
+            }
+            if (_supabase.Auth.Online)
+            {
+                await _supabase.InitializeAsync();
+
+                await _supabase.Auth.Settings();
+
+                try
+                {
+                    var email = BackgroundCode.iniFile.Read("SupaBase","email","");
+                    var password = BackgroundCode.iniFile.Read("SupaBase", "password","");
+
+                    if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
+                    {
+                        var session = await _supabase.Auth.SignInWithPassword(email, password);
+                        System.Diagnostics.Debug.WriteLine($"Supabase sign-in success. User: {session?.User?.Email ?? "unknown"}");
+
+                        BackgroundCode.supabase = _supabase;
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("Supabase sign-in skipped: missing INI credentials (Supabase.Auth email/password).");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Supabase sign-in failed: {ex.Message}", "Supabase");
+                    System.Diagnostics.Debug.WriteLine($"Supabase sign-in failed: {ex}");
+                }
+            }
+        }
+
 
         public static void UpdateJoysticks()
         {
@@ -200,7 +275,7 @@ namespace ControllerScouting.Screens
                 }
 
                 //Close the connection then exit
-                if (Settings.Default.sqlExists) 
+                if (Properties.Settings.Default.sqlExists) 
                 {
                     BackgroundCode.seasonframework.Database.Connection.Close();
                 }
@@ -292,7 +367,7 @@ namespace ControllerScouting.Screens
 
                 BackgroundCode.InMemoryMatchList = DatabaseCode.ListToMatch(BackgroundCode.iniFile.Read("EventData", "Matches", "").Split(','));
 
-                if (Settings.Default.sqlExists)
+                if (Properties.Settings.Default.sqlExists)
                 {
                     BackgroundCode.seasonframework.Database.Connection.Close();
                 }
@@ -311,14 +386,14 @@ namespace ControllerScouting.Screens
         }
         private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
-            if (Settings.Default.sqlExists)
+            if (Properties.Settings.Default.sqlExists)
             {
                 BackgroundCode.seasonframework.Database.Connection.Close();
             }
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to load The Blue Alliance data?", "Please Confirm", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (Settings.Default.sqlExists)
+                if (Properties.Settings.Default.sqlExists)
                 {
                     BackgroundCode.seasonframework.Database.Connection.Open();
                 }
@@ -528,7 +603,7 @@ namespace ControllerScouting.Screens
                         int index = regional.IndexOf(',');
                         if (index > 0) regional = regional[..index];
 
-                        string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+                        string uri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/teams?X-TBA-Auth-Key={Properties.Settings.Default.API_KEY}";
 
                         using (HttpClient client = new())
                         {
@@ -559,7 +634,7 @@ namespace ControllerScouting.Screens
                             }
                         }
 
-                        string matchesuri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/matches?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+                        string matchesuri = $"https://www.thebluealliance.com/api/v3/event/{DateTime.Now.Year}{regional}/matches?X-TBA-Auth-Key={Properties.Settings.Default.API_KEY}";
 
                         using (HttpClient client = new())
                         {
@@ -642,7 +717,7 @@ namespace ControllerScouting.Screens
             }
             else
             {
-                string uri = $"https://www.thebluealliance.com/api/v3/events/{DateTime.Now.Year}?X-TBA-Auth-Key={Settings.Default.API_KEY}";
+                string uri = $"https://www.thebluealliance.com/api/v3/events/{DateTime.Now.Year}?X-TBA-Auth-Key={Properties.Settings.Default.API_KEY}";
 
                 using HttpClient client = new();
                 try
