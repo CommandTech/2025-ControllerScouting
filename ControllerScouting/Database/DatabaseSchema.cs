@@ -1031,8 +1031,6 @@ namespace ControllerScouting.Database
                         BackgroundCode.seasonframework.ActivitySet.Add(activity);
                         BackgroundCode.seasonframework.SaveChanges();
                     }
-
-                    _ = SupabaseActivity.WriteToSupabase();
                     break;
                 case BackgroundCode.EXPORT_TYPE.SQLlocal:
                     BackgroundCode.seasonframework.Database.Connection.Close();
@@ -1045,10 +1043,9 @@ namespace ControllerScouting.Database
                         BackgroundCode.seasonframework.ActivitySet.Add(activity);
                         BackgroundCode.seasonframework.SaveChanges();
                     }
-
-                    _ = SupabaseActivity.WriteToSupabase();
                     break;
-                }
+            }
+            _ = SupabaseActivity.WriteToSupabase();
 
             BackgroundCode.activitiesQueue.Clear();
 

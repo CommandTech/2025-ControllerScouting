@@ -1,24 +1,15 @@
-﻿using ControllerScouting.Screens;
-using ControllerScouting.Utilities;
-using Microsoft.VisualBasic.Logging;
-using Newtonsoft.Json;
-using Supabase;
+﻿using ControllerScouting.Utilities;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace ControllerScouting.Database
 {
     [Table("Activity")]
     public class SupabaseActivity : BaseModel
     {
-        [PrimaryKey("Id", false)]
+        [PrimaryKey("Id", true)]
         public long Id { get; set; }
 
         [Column("Team")]

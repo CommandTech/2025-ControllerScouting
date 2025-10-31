@@ -195,7 +195,7 @@ namespace ControllerScouting.Screens
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Network Error {e.GetType()}");
+                _ = Logger.Log($"Network Error {e.GetType()}");
                 _supabase!.Auth.Online = false;
             }
             if (_supabase.Auth.Online)
@@ -223,7 +223,7 @@ namespace ControllerScouting.Screens
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Supabase sign-in failed: {ex.Message}", "Supabase");
+                    _ = Logger.Log($"Supabase sign-in failed: {ex.Message}");
                     System.Diagnostics.Debug.WriteLine($"Supabase sign-in failed: {ex}");
                 }
             }
