@@ -421,6 +421,10 @@ namespace ControllerScouting.Utilities
             DelCoralL4 = 0;
             DelCoralF = 0;
 
+            DelAlgaeP = 0;
+            DelAlgaeN = 0;
+            DelAlgaeF = 0;
+
             totalCoralDeliveries = 0;
              
             autoCoralPoints = 0;

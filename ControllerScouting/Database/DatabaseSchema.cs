@@ -487,7 +487,7 @@ namespace ControllerScouting.Database
 
                         activity_record.CageAttempt = "-";
                         activity_record.EndState = "-";
-                        activity_record.ClimbT = 0;
+                        activity_record.ClimbT = -1;
 
                         activity_record.Strategy = "-";
                         activity_record.Defense = "-";
@@ -605,7 +605,7 @@ namespace ControllerScouting.Database
 
                         activity_record.CageAttempt = "-";
                         activity_record.EndState = "-";
-                        activity_record.ClimbT = 0;
+                        activity_record.ClimbT = -1;
 
                         activity_record.Strategy = "-";
                         activity_record.Defense = "-";
@@ -818,31 +818,31 @@ namespace ControllerScouting.Database
                             activity_record.DriveSta = "blue2";
                         }
 
-                        activity_record.DZTime = '-';
+                        activity_record.DZTime = -1;
 
 
                         activity_record.ScouterError = controller.ScouterError;
 
-                        activity_record.AcqAlgaeF = '-';
-                        activity_record.AcqAlgaeR = '-';
-                        activity_record.DisAlg = '-';
-                        activity_record.AcqCoralS = '-';
-                        activity_record.AcqCoralF = '-';
+                        activity_record.AcqAlgaeF = -1;
+                        activity_record.AcqAlgaeR = -1;
+                        activity_record.DisAlg = -1;
+                        activity_record.AcqCoralS = -1;
+                        activity_record.AcqCoralF = -1;
 
-                        activity_record.DelAlgaeF = '-';
-                        activity_record.DelAlgaeN = '-';
-                        activity_record.DelAlgaeP = '-';
+                        activity_record.DelAlgaeF = -1;
+                        activity_record.DelAlgaeN = -1;
+                        activity_record.DelAlgaeP = -1;
 
-                        activity_record.DelCoralF = '-';
-                        activity_record.DelCoralL1 = '-';
-                        activity_record.DelCoralL2 = '-';
-                        activity_record.DelCoralL3 = '-';
-                        activity_record.DelCoralL4 = '-';
+                        activity_record.DelCoralF = -1;
+                        activity_record.DelCoralL1 = -1;
+                        activity_record.DelCoralL2 = -1;
+                        activity_record.DelCoralL3 = -1;
+                        activity_record.DelCoralL4 = -1;
 
                         activity_record.CageAttempt = "-";
                         activity_record.EndState = "-";
 
-                        activity_record.ClimbT = '-';
+                        activity_record.ClimbT = -1;
 
                         activity_record.Strategy = "-";
                         activity_record.Defense = "-";
@@ -943,7 +943,7 @@ namespace ControllerScouting.Database
                         activity_record.CageAttempt = "-";
                         activity_record.EndState = "-";
 
-                        activity_record.ClimbT = '-';
+                        activity_record.ClimbT = -1;
 
                         activity_record.Strategy = "-";
                         activity_record.Defense = "-";
