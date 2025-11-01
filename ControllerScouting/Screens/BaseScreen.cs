@@ -378,7 +378,7 @@ namespace ControllerScouting.Screens
                     {
                         if (BackgroundCode.gamePads[i] != null)
                         {
-                            BackgroundCode.Robots[i].ResetScouter();
+                            BackgroundCode.Robots[i].ResetScouter(BackgroundCode.Robots[i]);
                         }
                     }
 
@@ -390,7 +390,7 @@ namespace ControllerScouting.Screens
                     {
                         if (BackgroundCode.gamePads[i] != null)
                         {
-                            BackgroundCode.Robots[i].ResetScouter();
+                            BackgroundCode.Robots[i].ResetScouter(BackgroundCode.Robots[i]);
                         }
                     }
 
@@ -411,7 +411,7 @@ namespace ControllerScouting.Screens
             {
                 if (BackgroundCode.gamePads[i] != null)
                 {
-                    BackgroundCode.Robots[i].ResetScouter();
+                    BackgroundCode.Robots[i].ResetScouter(BackgroundCode.Robots[i]);
                 }
             }
 

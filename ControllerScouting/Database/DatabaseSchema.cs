@@ -1047,7 +1047,7 @@ namespace ControllerScouting.Database
             {
                 if (BackgroundCode.gamePads[i] != null)
                 {
-                    BackgroundCode.Robots[i].ResetScouter();
+                    BackgroundCode.Robots[i].ResetScouter(BackgroundCode.Robots[i]);
                 }
             }
         }
