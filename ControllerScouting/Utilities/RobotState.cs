@@ -375,14 +375,14 @@ namespace ControllerScouting.Utilities
             return this;
         }
 
-        public void ResetScouter(RobotState state)
+        public static RobotState ResetScouter(RobotState state)
         {
-            RobotState newState = new()
+            return new RobotState
             {
+                ScouterBox = state.ScouterBox,
                 _ScouterName = state._ScouterName,
-                ScouterBox = state.ScouterBox
+                color = state.color
             };
-            state = newState;
         }
     }
 }
