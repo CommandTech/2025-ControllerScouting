@@ -16,51 +16,14 @@ namespace ControllerScouting.Screens
     public partial class BaseScreen : Form
     {
         private static bool loading = false;
-        private static readonly List<Thread> controllerThreads = [];
         public string regional;
-        private static readonly List<CancellationTokenSource> controllerCancellationTokens = [];
 
         public BaseScreen()
         {
-            if (Enum.TryParse<BackgroundCode.EXPORT_TYPE>(BackgroundCode.iniFile.Read("ProgramSettings", "exportType", ""), out var exportType))
-            {
-                BackgroundCode.dataExport = exportType;
-            }
-            else
-            {
-                BackgroundCode.dataExport = BackgroundCode.EXPORT_TYPE.CSV;
-            }
-            Settings.Default.CSVLocation = BackgroundCode.iniFile.Read("ProgramSettings", "csvLocation", "");
-
-            if (BackgroundCode.dataExport == BackgroundCode.EXPORT_TYPE.CSV)
-            {
-                Settings.Default.csvExists = DatabaseCode.DoesCSVExist(Settings.Default.CSVLocation);
-            }
-
-
             //Initialization of the screen
             InitializeComponent();
 
             AdjustFormSizeAndScale();
-
-            //Sets the default values for the robots
-            for (int i = 0; i < 6; i++)
-            {
-                BackgroundCode.Robots[i] = new RobotState
-                {
-                    ScouterBox = i,
-                    _ScouterName = RobotState.SCOUTER_NAME.Select_Name,
-                    color = i < 3 ? "Red" : "Blue"
-                };
-
-                BackgroundCode.activity_record[i] = new Activity();
-            }
-
-            BackgroundCode.gamePads = Controllers.GetGamePads();
-            // Create and start a new thread for each controller
-            StartControllerThreads();
-
-            InitalizeDB();
 
             //If there is previous data, ask if the user wants to load it
             if (BackgroundCode.iniFile.Read("MatchData", "event", "") != null && BackgroundCode.iniFile.Read("MatchData", "event", "") != "" && BackgroundCode.iniFile.Read("MatchData", "event", "") != " ")
@@ -133,54 +96,19 @@ namespace ControllerScouting.Screens
                 Thread.Sleep(500);
             }
         }
-        private static void ControllerThreadMethod(GamePad gamePad, CancellationToken token)
-        {
-            // Logic to handle the controller
-            while (!token.IsCancellationRequested)
-            {
-                // Read and process the controller input
-                if (gamePad != null) Controllers.ReadStick(gamePad, Array.IndexOf(BackgroundCode.gamePads, gamePad));
-            }
-        }
-
-        private static void InitalizeDB()
-        {
-            if (Settings.Default.sqlExists)
-            {
-                // Sets the connection string to the database
-                BackgroundCode.seasonframework.Database.Connection.ConnectionString = Settings.Default._scoutingdbConnectionString;
-
-                // initializes the database
-                BackgroundCode.seasonframework.Database.Initialize(true);
-            }
-        }
 
         public static void UpdateJoysticks()
         {
-            foreach (var cts in controllerCancellationTokens)
+            foreach (var cts in BackgroundCode.controllerCancellationTokens)
             {
                 cts.Cancel();
             }
-            controllerCancellationTokens.Clear();
-            controllerThreads.Clear();
+            BackgroundCode.controllerCancellationTokens.Clear();
+            BackgroundCode.controllerThreads.Clear();
 
             //Updates the list of currently connected gamepads
             BackgroundCode.gamePads = Controllers.GetGamePads();
-            StartControllerThreads();
-        }
-        private static void StartControllerThreads()
-        {
-            foreach (GamePad gamePad in BackgroundCode.gamePads)
-            {
-                if (gamePad != null)
-                {
-                    var cts = new CancellationTokenSource();
-                    Thread controllerThread = new(() => ControllerThreadMethod(gamePad, cts.Token));
-                    controllerThread.Start();
-                    controllerThreads.Add(controllerThread);
-                    controllerCancellationTokens.Add(cts);
-                }
-            }
+            BackgroundCode.StartControllerThreads();
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -195,7 +123,7 @@ namespace ControllerScouting.Screens
                     if (confirmExit == DialogResult.Yes)
                     {
                         //Save the data
-                        SaveData();
+                        BackgroundCode.SaveData();
                     }
                 }
 
@@ -207,65 +135,44 @@ namespace ControllerScouting.Screens
                 Environment.Exit(0);
             }
         }
-        private static void SaveData()
+        private void BtnInitialDBLoad_Click(object sender, EventArgs e)
         {
-            if ((BackgroundCode.loadedEvent != null || BackgroundCode.manualMatchList != null) && BackgroundCode.currentMatch != 0)
+            if (Settings.Default.sqlExists)
             {
-                try
+                BackgroundCode.seasonframework.Database.Connection.Close();
+            }
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to load The Blue Alliance data?", "Please Confirm", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (Settings.Default.sqlExists)
                 {
-                    // Write data to INI file
-                    if (BackgroundCode.loadedEvent == null)
-                    {
-                        BackgroundCode.iniFile.Write("MatchData", "event", "manualEvent");
-                    }
-                    else
-                    {
-                        BackgroundCode.iniFile.Write("MatchData", "event", BackgroundCode.loadedEvent);
-                    }
-                    BackgroundCode.iniFile.Write("MatchData", "match_number", BackgroundCode.currentMatch.ToString());
-                    BackgroundCode.iniFile.Write("MatchData", "redRight", BackgroundCode.redRight.ToString());
-                    BackgroundCode.iniFile.Write("MatchData", "teamPrio", string.Join(",", BackgroundCode.teamPrio));
-                    BackgroundCode.iniFile.Write("MatchData", "homeTeam", BackgroundCode.homeTeam);
-                    string scouterNames = "";
-                    string scouterLocations = "";
-                    foreach (var robot in BackgroundCode.Robots)
-                    {
-                        if (scouterNames.Length != 0)
-                        {
-                            scouterNames += ",";
-                        }
-                        scouterNames += robot.GetScouterName();
-
-                        if (scouterLocations.Length != 0)
-                        {
-                            scouterLocations += ",";
-                        }
-                        scouterLocations += robot.ScouterBox;
-                    }
-                    BackgroundCode.iniFile.Write("MatchData", "scouterNames", scouterNames);
-                    BackgroundCode.iniFile.Write("MatchData", "scouterLocations", scouterLocations);
-
-                    string matches = "";
-                    foreach (var match in BackgroundCode.InMemoryMatchList)
-                    {
-                        if (matches.Length != 0)
-                        {
-                            matches += ",";
-                        }
-                        matches += $"{match.Blueteam1};{match.Blueteam2};{match.Blueteam3};{match.Redteam1};{match.Redteam2};{match.Redteam3}";
-                    }
-                    BackgroundCode.iniFile.Write("EventData", "Matches", matches);
-
+                    BackgroundCode.seasonframework.Database.Connection.Open();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error saving data: " + ex.Message);
-                }
+                GetEvents(false);
+                SetRedRight();
+
+                Log("Start time is " + DateTime.Now.TimeOfDay);
             }
             else
             {
-                MessageBox.Show("No data to save.");
+                DialogResult manualMatches = MessageBox.Show("Do you want to load manual matches?", "Please Confirm", MessageBoxButtons.YesNo);
+                if (manualMatches == DialogResult.Yes)
+                {
+                    SetRedRight();
+                    Log("Loading manual matches.");
+                    DatabaseCode.LoadManualMatches();
+                    comboBoxSelectRegional.DataSource = null;
+                    comboBoxSelectRegional.Items.Clear();
+                    comboBoxSelectRegional.Items.Add("manualEvent");
+                    comboBoxSelectRegional.SelectedItem = "manualEvent";
+                }
             }
+        }
+        private static void SetRedRight()
+        {
+            //  Logic for setting left/right and near/far based on side of field scouters are sitting on
+            DialogResult red = MessageBox.Show("Is the Red Alliance on your right?", "Please Confirm", MessageBoxButtons.YesNo);
+            BackgroundCode.redRight = (red == DialogResult.Yes);
         }
         private void LoadData()
         {
@@ -309,46 +216,6 @@ namespace ControllerScouting.Screens
                 MessageBox.Show("Could not load data.", "Error: " + e);
             }
         }
-        private void BtnInitialDBLoad_Click(object sender, EventArgs e)
-        {
-            if (Settings.Default.sqlExists)
-            {
-                BackgroundCode.seasonframework.Database.Connection.Close();
-            }
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to load The Blue Alliance data?", "Please Confirm", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (Settings.Default.sqlExists)
-                {
-                    BackgroundCode.seasonframework.Database.Connection.Open();
-                }
-                GetEvents(false);
-                SetRedRight();
-
-                Log("Start time is " + DateTime.Now.TimeOfDay);
-            }
-            else
-            {
-                DialogResult manualMatches = MessageBox.Show("Do you want to load manual matches?", "Please Confirm", MessageBoxButtons.YesNo);
-                if (manualMatches == DialogResult.Yes)
-                {
-                    SetRedRight();
-                    Log("Loading manual matches.");
-                    DatabaseCode.LoadManualMatches();
-                    comboBoxSelectRegional.DataSource = null;
-                    comboBoxSelectRegional.Items.Clear();
-                    comboBoxSelectRegional.Items.Add("manualEvent");
-                    comboBoxSelectRegional.SelectedItem = "manualEvent";
-                }
-            }
-        }
-        private static void SetRedRight()
-        {
-            //  Logic for setting left/right and near/far based on side of field scouters are sitting on
-            DialogResult red = MessageBox.Show("Is the Red Alliance on your right?", "Please Confirm", MessageBoxButtons.YesNo);
-            BackgroundCode.redRight = (red == DialogResult.Yes);
-        }
-
         private void BtnNextMatch_Click(object sender, EventArgs e)
         {
             if (cbxEndMatch.Checked)
@@ -378,7 +245,7 @@ namespace ControllerScouting.Screens
                     {
                         if (BackgroundCode.gamePads[i] != null)
                         {
-                            BackgroundCode.Robots[i].ResetScouter();
+                            BackgroundCode.Robots[i] = RobotState.ResetScouter(BackgroundCode.Robots[i]);
                         }
                     }
 
@@ -390,7 +257,7 @@ namespace ControllerScouting.Screens
                     {
                         if (BackgroundCode.gamePads[i] != null)
                         {
-                            BackgroundCode.Robots[i].ResetScouter();
+                            BackgroundCode.Robots[i] = RobotState.ResetScouter(BackgroundCode.Robots[i]);
                         }
                     }
 
@@ -398,20 +265,18 @@ namespace ControllerScouting.Screens
                 }
             }
         }
-
         private void NextMatch()
         {
             BackgroundCode.currentMatch++;
             LoadMatch();
         }
-
         private void BtnPrevMatch_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < BackgroundCode.gamePads.Length; i++)
             {
                 if (BackgroundCode.gamePads[i] != null)
                 {
-                    BackgroundCode.Robots[i].ResetScouter();
+                    BackgroundCode.Robots[i] = RobotState.ResetScouter(BackgroundCode.Robots[i]);
                 }
             }
 
@@ -443,7 +308,6 @@ namespace ControllerScouting.Screens
             label.ForeColor = Color.Orange;
             CheckPrio(label, teamName);
         }
-
         private async void BtnpopulateForEvent_Click(object sender, EventArgs e)
         {
             if (!loading)
